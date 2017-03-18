@@ -5,7 +5,7 @@ import java.util.*;
 public class SystemUser {
 
 
-    private static ArrayList<SystemUser> lstSystemUsers = new ArrayList<SystemUser>();
+    private static Map<String, SystemUser> mapSystemUsers = new HashMap<>();
     private String strFirstName;
     private String strSurname;
     private String strTitle;
@@ -21,7 +21,7 @@ public class SystemUser {
         this.yearOfBirth = yob;
         this.strUserName = generateUserName(strFirstName, strSurname, yearOfBirth);
         
-        lstSystemUsers.add(this);
+        mapSystemUsers.put(strUserName,this);
     }
       
       
@@ -30,12 +30,15 @@ public class SystemUser {
         return fname.toLowerCase() + "." + sname.toLowerCase() + "." + yobAsString;
     }
     
-     public static void checkLoggedIn(String userNamePassed) {
+     public static Boolean checkLogin(String userNamePassed) {
          System.out.println(userNamePassed);
          
-             if (lstSystemUsers.contains(userNamePassed)){
-                 System.out.println("I found it");
+             if (mapSystemUsers.containsKey(userNamePassed)){
+                 return true;
                  
+             }
+             else {
+                 return false;
              }
         
     }

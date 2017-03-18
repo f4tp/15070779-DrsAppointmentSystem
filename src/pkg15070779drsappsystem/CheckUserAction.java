@@ -12,6 +12,6 @@ public class CheckUserAction implements ActionListener {
     }
     
     public void actionPerformed(ActionEvent e){
-        SystemUser.checkLoggedIn(INPUTTEXT.getText()); 
+        System.out.println(SystemUser.checkLogin(INPUTTEXT.getText())); 
     }
 }
