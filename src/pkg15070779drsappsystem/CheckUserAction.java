@@ -12,6 +12,8 @@ public class CheckUserAction implements ActionListener {
     }
     
     public void actionPerformed(ActionEvent e){
-        System.out.println(SystemUser.checkLogin(INPUTTEXT.getText())); 
+        String lowerCase = INPUTTEXT.getText();
+        lowerCase = lowerCase.toLowerCase();
+        System.out.println(SystemUser.checkLogin(lowerCase)); 
     }
 }

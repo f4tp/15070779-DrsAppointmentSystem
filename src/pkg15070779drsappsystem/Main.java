@@ -4,11 +4,16 @@ public class Main {
 
     public static void main(String[] args) {
          
-        SystemUser pat1 = new SystemUser("Alan", "Turing","Mr", 1901);
-        SystemUser pat2 = new SystemUser("Donald", "Knuth","Mr", 1902);
-        SystemUser pat3 = new SystemUser("Grace", "Hopper","Mrs", 1903);
-        SystemUser pat4 = new SystemUser("Ada", "Lovelace","Miss", 1904);
-        SystemUser pat5 = new SystemUser("Tim", "Berners-Lee","Mr", 19205);
+        SystemUser pat1 = new SystemUser("Alan", "Turing","Mr", 1900);
+        SystemUser pat2 = new SystemUser("Donald", "Knuth","Mr", 1901);
+        SystemUser pat3 = new SystemUser("Grace", "Hopper","Mrs", 1902);
+        SystemUser pat4 = new SystemUser("Ada", "Lovelace","Miss", 1903);
+        SystemUser pat5 = new SystemUser("Tim", "Berners-Lee","Mr", 1904);
+        SystemUser pat6 = new SystemUser("Tony", "Hoare","Mr", 1905);
+        SystemUser pat7 = new SystemUser("Claude", "Shannon","Mr", 1906);
+        SystemUser pat8 = new SystemUser("Larry", "Page","Mr", 1907);
+        SystemUser pat9 = new SystemUser("Hal", "Abeson","Mr", 1908);
+        SystemUser pat10 = new SystemUser("Shafi", "Goldswasser","Mrs", 1909);
         
         SystemUser dr1 = new SystemUser("Gregory", "House","Dr", 1911);
         SystemUser dr2 = new SystemUser("Peter", "Venkman","Dr", 1912);
