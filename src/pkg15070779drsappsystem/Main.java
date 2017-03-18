@@ -24,7 +24,7 @@ public class Main {
         SystemUser pharm2 = new SystemUser("Liam", "Foster","Dr", 2002);
         //above are the existing system users being put into the system
         
-        
+              
         LoginScreen mainLoginScreen = new LoginScreen ();
         mainLoginScreen.setVisible(true);
     }

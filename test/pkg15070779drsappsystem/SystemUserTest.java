@@ -21,9 +21,7 @@ public class SystemUserTest {
         
     @Test
     public void testCheckLogin(){
-        //SystemUser testUser = new SystemUser("Paul", "Treadwell", "Mr", 1983);
-        //assertEquals("paul.treadwell.1983", testUser.checkLogin("paul.treadwell.1983"));
-                
+                       
         SystemUser testUser = new SystemUser("Sandra", "BEans", "Mrs", 1922);
         assertEquals(true, testUser.checkLogin("sandra.beans.1922"));
         
