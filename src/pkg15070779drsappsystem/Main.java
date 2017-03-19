@@ -31,13 +31,14 @@ public class Main {
         Pharmacist pharm2 = new Pharmacist("Liam", "Foster","Dr", 2002, "Test");
         //above are the existing system users being put into the system
         
-        //String tester = pat1.getFullName();
+           
         
-        pat1.setAddNewAppointment(pat1.getFullName(), new Date(1001001), 99200029, "hello");
-        pat2.setAddNewAppointment(pat2.getFullName(), new Date(1991001), 99449595, "hello");
-        pat3.setAddNewAppointment(pat2.getFullName(), new Date(9022992), 67578584, "hello");
-        pat4.setAddNewAppointment(pat2.getFullName(), new Date(45563667), 33883883, "hello");
-        pat5.setAddNewAppointment(pat2.getFullName(), new Date(33938837), 27728872, "hello");
+        
+        pat1.setAddNewAppointment(pat1.getFullName(), new Date(1001001), 99200029, dr1);
+        pat2.setAddNewAppointment(pat2.getFullName(), new Date(1991001), 99449595, dr2);
+        pat3.setAddNewAppointment(pat2.getFullName(), new Date(9022992), 67578584, dr3);
+        pat4.setAddNewAppointment(pat2.getFullName(), new Date(45563667), 33883883, dr4);
+        pat5.setAddNewAppointment(pat2.getFullName(), new Date(33938837), 27728872, dr5);
         
                
         LoginScreen mainLoginScreen = new LoginScreen ();

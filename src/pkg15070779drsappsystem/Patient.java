@@ -11,7 +11,7 @@ public class Patient extends SystemUserComponent {
     private Appointment newAppinstance; //object composition - new appointment object each time the patient
     
     //collections of objects that the patient might have / are all optional
-    private List<String> lstDrsRegsWith; //list of Doctors for each patient
+    private List<Doctor> lstDrsRegsWith; //list of Doctors for each patient
     private List<Appointment> lstPatientApps;
     private String fullName;
     
@@ -28,7 +28,7 @@ public class Patient extends SystemUserComponent {
     
     }
     
-    public void setAddNewAppointment(String name, Date appdate, long apptime, String drwith){
+    public void setAddNewAppointment(String name, Date appdate, long apptime, Doctor drwith){
         //String Name = ""; //get first name get surname from super class & concatenate
         //Date appDate = new Date(1001001); //test data - change - this will be fed in from input boxes
         //long appTime = 99200029; //test data - change
@@ -37,25 +37,25 @@ public class Patient extends SystemUserComponent {
         String Name = name;
         Date appDate = appdate;
         long appTime = apptime;
-        String drWith = drwith;
+        Doctor drWith = drwith;
         this.newAppinstance = new Appointment (Name, appDate, appTime, drWith);
         this.lstPatientApps.add(newAppinstance);
     }
     
     //adds a doctor to the list for teh patient created
-    public void setAddDrRegsWith(String docName){
+    public void setAddDrRegsWith(Doctor docName){
         this.lstDrsRegsWith.add(docName);
     }
     
-    //returns a string of all Doctors a patient is regsitered with
+    //@@@@@ needs to return a composite of all toString calls on the objects inside of the Doctors ArrayList @@@@@
     public String getDrsRegWith(){ 
          String allDrs="";
         
          //iterator design pattern
-        for (String Drs : this.lstDrsRegsWith) {                        // <4>
+        for (Doctor Drs : this.lstDrsRegsWith) {                        // <4>
             System.out.println (Drs);
             if (allDrs == ""){
-                allDrs = Drs;
+                //allDrs = Drs;
             }
             else {
                 allDrs = allDrs + ", " + Drs;

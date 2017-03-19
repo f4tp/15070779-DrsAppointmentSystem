@@ -2,17 +2,15 @@ package pkg15070779drsappsystem;
 import java.util.*;
 public class Appointment extends AppointmentComponent {
     
-    private String AppUniqueKey;
-    private String patientName;
+    private String AppUniqueKey, patientName, appDrComments, appMedicine;
+    private Doctor drAppWith;
+    private Boolean appAttended,appCancelled; 
+    
     private Date appDate;
     private long appTime;
-    private String drAppWith;
-    private Boolean appAttended;
-    private Boolean appCancelled;
-    private String appDrComments;
-    private String appMedicine;
-     
-    public Appointment(String patientname, Date appdate, long apptime, String drwith){
+
+         
+    public Appointment(String patientname, Date appdate, long apptime, Doctor drwith){
         setCreateAppointment(patientname, appdate, apptime, drwith);
     }
     @Override //this does the exact same thing in the super class... do I need this here?
@@ -21,9 +19,12 @@ public class Appointment extends AppointmentComponent {
         return super.getAppointment(uniqueKey);
     }
                 
-    public void setCreateAppointment(String patientname, Date appdate, long apptime, String drwith){
+    public void setCreateAppointment(String patientname, Date appdate, long apptime, Doctor drwith){
         this.AppUniqueKey = generateAppUniqueKey();
         this.patientName = patientname;
+        
+        this.drAppWith = drwith; //patient needs regsitering with a Dr before this can be set
+        
         this.appDate = appdate;
         this.appTime = apptime;
         this.appAttended = false;
