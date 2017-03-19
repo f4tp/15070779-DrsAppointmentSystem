@@ -1,8 +1,5 @@
-
 package pkg15070779drsappsystem;
-
 import java.util.*;
-
 public class Appointment extends AppointmentComponent {
     
     private String AppUniqueKey;
@@ -13,11 +10,17 @@ public class Appointment extends AppointmentComponent {
     private Boolean appAttended;
     private Boolean appCancelled;
     private String appDrComments;
+    private String appMedicine;
      
-    public void Appointment(String patientname, Date appdate, long apptime, String drwith){
+    public Appointment(String patientname, Date appdate, long apptime, String drwith){
         setCreateAppointment(patientname, appdate, apptime, drwith);
     }
-    
+    @Override //this does the exact same thing in the super class... do I need this here?
+    //can I call this differently?
+    public Appointment getAppointment(String uniqueKey){
+        return super.getAppointment(uniqueKey);
+    }
+                
     public void setCreateAppointment(String patientname, Date appdate, long apptime, String drwith){
         this.AppUniqueKey = generateAppUniqueKey();
         this.patientName = patientname;
@@ -26,10 +29,11 @@ public class Appointment extends AppointmentComponent {
         this.appAttended = false;
         this.appCancelled = false;
         this.appDrComments="please enter comments";
+        this.appMedicine="please update this if medicine is required for this appointment";
         setPutInMap(this.AppUniqueKey, this);
     }
     
-    public void appAttend(){
+    public void setAppAttend(){
         if (this.appAttended = false){
             this.appAttended = true;
         }
@@ -38,7 +42,7 @@ public class Appointment extends AppointmentComponent {
         }
     }
     
-    public void appCancelled(){
+    public void setAppCancelled(){
         if (this.appCancelled = false){
             this.appCancelled = true;
         }

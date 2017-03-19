@@ -1,16 +1,22 @@
 package pkg15070779drsappsystem;
 
 import java.util.*;
-public abstract class SystemUser {
+public abstract class SystemUserComponent {
 
-    private static Map<String, SystemUser> mapSystemUsers = new HashMap<>();
+    private static Map<String, SystemUserComponent> mapSystemUsers = new HashMap<>();
     private String strFirstName, strSurname, strTitle, strUserName;
     private int yearOfBirth;
     
     
-    public SystemUser(String fname, String sname, String title, int yob){
+    public SystemUserComponent(String fname, String sname, String title, int yob){
         setCreateSystemUser(fname, sname, title, yob);//creates a new system user and adds it to the system user list
         //reportAllUsers(); //this code was used to test the report all users method, not needed
+    }
+    
+    //when you output the object, it will run it like this instead:
+    @Override
+    public String toString () {
+        return "UserName: " + strUserName + ", Details: " + strTitle + " " + strFirstName + " " + strSurname + ", Year of Birth: " + Integer.toString(yearOfBirth);
     }
     
     public void setCreateSystemUser(String fname, String sname, String title, int yob){
@@ -18,22 +24,34 @@ public abstract class SystemUser {
         this.strSurname = sname;
         this.strTitle = title;
         this.yearOfBirth = yob;
-        this.strUserName = generateUserName(this.strFirstName, this.strSurname, this.yearOfBirth);
+        this.strUserName = setGenerateUsername(this.strFirstName, this.strSurname, this.yearOfBirth);
     }
-     public String generateUserName(String fname, String sname, int yob){
+     public String setGenerateUsername(String fname, String sname, int yob){
         String yobAsString = Integer.toString(yob);
         return fname.toLowerCase() + "." + sname.toLowerCase() + "." + yobAsString;
     }
-    public void setPutInMap(SystemUser passedIn){
+    public void setPutInMap(SystemUserComponent passedIn){
         String uname = getUserName(this);
         mapSystemUsers.put(uname,passedIn);
     }
     
-    public String getUserName(SystemUser uName){
+    public String getUserName(SystemUserComponent uName){
         return uName.strUserName;
     }
-            
- 
+    
+    public String getFirstName(SystemUserComponent uName){
+        return uName.strFirstName;
+    }
+    
+    public String getSurname(SystemUserComponent uName){
+        return uName.strSurname;
+    }
+    
+     public String getTitle(SystemUserComponent uName){
+        return uName.strTitle;
+    }
+     
+   
     public static Boolean checkLogin(String userNamePassed) {
          System.out.println(userNamePassed);
          if (mapSystemUsers.containsKey(userNamePassed)){
@@ -44,14 +62,11 @@ public abstract class SystemUser {
          }
     }
         
-    @Override
-    public String toString () {
-        return "UserName: " + strUserName + ", Details: " + strTitle + " " + strFirstName + " " + strSurname + ", Year of Birth: " + Integer.toString(yearOfBirth);
-    }
+    
      
     //this can be deleted when it isn;t needed
      public void reportAllUsers(){
-        for (SystemUser sysUser : mapSystemUsers.values ()) {                        // <4>
+        for (SystemUserComponent sysUser : mapSystemUsers.values ()) {                        // <4>
             System.out.println (sysUser);
         }
      }

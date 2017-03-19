@@ -16,6 +16,12 @@ public abstract class AppointmentComponent {
          mapAppointments.put(uKey, passedIn);
     }
     
+    public Appointment getAppointment(String uniqueKey){
+        return mapAppointments.get(uniqueKey);
+    }
+    
+    
+    
     
     
 }

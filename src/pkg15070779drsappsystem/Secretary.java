@@ -1,6 +1,6 @@
 package pkg15070779drsappsystem;
 
-public class Secretary extends SystemUser {
+public class Secretary extends SystemUserComponent {
     private String apptest;
     
     public Secretary(String fname, String sname, String title, int yob, String newer){

@@ -1,6 +1,6 @@
 package pkg15070779drsappsystem;
 
-public class Pharmacist extends SystemUser {
+public class Pharmacist extends SystemUserComponent {
     private String apptest;
     
     public Pharmacist(String fname, String sname, String title, int yob, String newer){
