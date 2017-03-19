@@ -4,29 +4,29 @@ public class Main {
 
     public static void main(String[] args) {
          
-        SystemUser pat1 = new SystemUser("Alan", "Turing","Mr", 1900);
-        SystemUser pat2 = new SystemUser("Donald", "Knuth","Mr", 1901);
-        SystemUser pat3 = new SystemUser("Grace", "Hopper","Mrs", 1902);
-        SystemUser pat4 = new SystemUser("Ada", "Lovelace","Miss", 1903);
-        SystemUser pat5 = new SystemUser("Tim", "Berners-Lee","Mr", 1904);
-        SystemUser pat6 = new SystemUser("Tony", "Hoare","Mr", 1905);
-        SystemUser pat7 = new SystemUser("Claude", "Shannon","Mr", 1906);
-        SystemUser pat8 = new SystemUser("Larry", "Page","Mr", 1907);
-        SystemUser pat9 = new SystemUser("Hal", "Abeson","Mr", 1908);
-        SystemUser pat10 = new SystemUser("Shafi", "Goldswasser","Mrs", 1909);
+        SystemUser pat1 = new Patient("Alan", "Turing","Mr", 1900, "Test");
+        SystemUser pat2 = new Patient("Donald", "Knuth","Mr", 1901, "Test");
+        SystemUser pat3 = new Patient("Grace", "Hopper","Mrs", 1902, "Test");
+        SystemUser pat4 = new Patient("Ada", "Lovelace","Miss", 1903, "Test");
+        SystemUser pat5 = new Patient("Tim", "Berners-Lee","Mr", 1904, "Test");
+        SystemUser pat6 = new Patient("Tony", "Hoare","Mr", 1905, "Test");
+        SystemUser pat7 = new Patient("Claude", "Shannon","Mr", 1906, "Test");
+        SystemUser pat8 = new Patient("Larry", "Page","Mr", 1907, "Test");
+        SystemUser pat9 = new Patient("Hal", "Abeson","Mr", 1908, "Test");
+        SystemUser pat10 = new Patient("Shafi", "Goldswasser","Mrs", 1909, "Test");
         
-        SystemUser dr1 = new SystemUser("Gregory", "House","Dr", 1911);
-        SystemUser dr2 = new SystemUser("Peter", "Venkman","Dr", 1912);
-        SystemUser dr3 = new SystemUser("Egon", "Spengler","Dr", 1913);
-        SystemUser dr4 = new SystemUser("Ray", "Stance","Dr", 1914);
-        SystemUser dr5 = new SystemUser("Winstone", "Zeddermore","Dr", 1915);
+        SystemUser dr1 = new Doctor("Gregory", "House","Dr", 1911, "Test");
+        SystemUser dr2 = new Doctor("Peter", "Venkman","Dr", 1912, "Test");
+        SystemUser dr3 = new Doctor("Egon", "Spengler","Dr", 1913, "Test");
+        SystemUser dr4 = new Doctor("Ray", "Stance","Dr", 1914, "Test");
+        SystemUser dr5 = new Doctor("Winstone", "Zeddermore","Dr", 1915, "Test");
         
-        SystemUser rec1 = new SystemUser("Elizabeth", "Moore","Mrs", 1921);
-        SystemUser rec2 = new SystemUser("Harry", "Doin","Mr", 1922);
-        SystemUser rec3 = new SystemUser("Sarah", "Jessica","Miss", 1923);
+        SystemUser rec1 = new Secretary("Elizabeth", "Moore","Mrs", 1921, "Test");
+        SystemUser rec2 = new Secretary("Harry", "Doin","Mr", 1922, "Test");
+        SystemUser rec3 = new Secretary("Sarah", "Jessica","Miss", 1923, "Test");
         
-        SystemUser pharm1 = new SystemUser("Pharm", "Asutical","Dr", 2001);
-        SystemUser pharm2 = new SystemUser("Liam", "Foster","Dr", 2002);
+        SystemUser pharm1 = new Pharmacist("Pharm", "Asutical","Dr", 2001, "Test");
+        SystemUser pharm2 = new Pharmacist("Liam", "Foster","Dr", 2002, "Test");
         //above are the existing system users being put into the system
         
               
