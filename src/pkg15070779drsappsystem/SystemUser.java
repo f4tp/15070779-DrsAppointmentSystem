@@ -9,16 +9,16 @@ public abstract class SystemUser {
     
     
     public SystemUser(String fname, String sname, String title, int yob){
-        setSystemUser(fname, sname, title, yob);//creates a new system user and adds it to the system user list
+        setCreateSystemUser(fname, sname, title, yob);//creates a new system user and adds it to the system user list
         //reportAllUsers(); //this code was used to test the report all users method, not needed
     }
     
-    public void setSystemUser(String fname, String sname, String title, int yob){
+    public void setCreateSystemUser(String fname, String sname, String title, int yob){
         this.strFirstName = fname;
         this.strSurname = sname;
         this.strTitle = title;
         this.yearOfBirth = yob;
-        this.strUserName = generateUserName(strFirstName, strSurname, yearOfBirth);
+        this.strUserName = generateUserName(this.strFirstName, this.strSurname, this.yearOfBirth);
     }
      public String generateUserName(String fname, String sname, int yob){
         String yobAsString = Integer.toString(yob);
