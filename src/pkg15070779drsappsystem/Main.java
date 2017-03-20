@@ -6,16 +6,16 @@ public class Main {
 
     public static void main(String[] args) {
          
-        Patient pat1 = new Patient("Alan", "Turing","Mr", 1900, "Test");
-        Patient pat2 = new Patient("Donald", "Knuth","Mr", 1901, "Test");
-        Patient pat3 = new Patient("Grace", "Hopper","Mrs", 1902, "Test");
-        Patient pat4 = new Patient("Ada", "Lovelace","Miss", 1903, "Test");
-        Patient pat5 = new Patient("Tim", "Berners-Lee","Mr", 1904, "Test");
-        Patient pat6 = new Patient("Tony", "Hoare","Mr", 1905, "Test");
-        Patient pat7 = new Patient("Claude", "Shannon","Mr", 1906, "Test");
-        Patient pat8 = new Patient("Larry", "Page","Mr", 1907, "Test");
-        Patient pat9 = new Patient("Hal", "Abeson","Mr", 1908, "Test");
-        Patient pat10 = new Patient("Shafi", "Goldswasser","Mrs", 1909, "Test");
+        Patient pat1 = new Patient("Alan", "Turing","Mr", 1900, "gregory.house.1911");
+        Patient pat2 = new Patient("Donald", "Knuth","Mr", 1901, "peter.venkman.1912");
+        Patient pat3 = new Patient("Grace", "Hopper","Mrs", 1902, "egon.spengler.1913");
+        Patient pat4 = new Patient("Ada", "Lovelace","Miss", 1903, "ray.stance.1914");
+        Patient pat5 = new Patient("Tim", "Berners-Lee","Mr", 1904, "winstone.zeddermore.1915");
+        Patient pat6 = new Patient("Tony", "Hoare","Mr", 1905, "winstone.zeddermore.1915");
+        Patient pat7 = new Patient("Claude", "Shannon","Mr", 1906, "winstone.zeddermore.1915");
+        Patient pat8 = new Patient("Larry", "Page","Mr", 1907, "winstone.zeddermore.1915");
+        Patient pat9 = new Patient("Hal", "Abeson","Mr", 1908, "winstone.zeddermore.1915");
+        Patient pat10 = new Patient("Shafi", "Goldswasser","Mrs", 1909, "winstone.zeddermore.1915");
         
         Doctor dr1 = new Doctor("Gregory", "House","Dr", 1911, "Test");
         Doctor dr2 = new Doctor("Peter", "Venkman","Dr", 1912, "Test");
@@ -40,6 +40,12 @@ public class Main {
         pat4.setAddNewAppointment(pat4.getFullName(), new Date(45563667), 33883883, "ray.stance.1914");
         pat5.setAddNewAppointment(pat5.getFullName(), new Date(33938837), 27728872, "winstone.zeddermore.1915");
         
+        pat1.setAddDrRegsWith("peter.venkman.1912");
+        pat2.setAddDrRegsWith("gregory.house.1911");
+        pat3.setAddDrRegsWith("peter.venkman.1912");
+        pat4.setAddDrRegsWith("peter.venkman.1912");
+        pat5.setAddDrRegsWith("peter.venkman.1912");
+        pat1.setAddDrRegsWith("gregory.house.1911"); //a test to see if teh validation is working - needs putting in the testing unit
                
         LoginScreen mainLoginScreen = new LoginScreen ();
         mainLoginScreen.setVisible(true);

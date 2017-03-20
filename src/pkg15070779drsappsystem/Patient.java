@@ -1,5 +1,6 @@
 package pkg15070779drsappsystem;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 public class Patient extends SystemUserComponent {
     //fields the patient must be initialised with
@@ -14,12 +15,34 @@ public class Patient extends SystemUserComponent {
     private List<String> lstPatientApps;
     private String fullName;
            
-    public Patient(String fname, String sname, String title, int yob, String newer){
+    public Patient(String fname, String sname, String title, int yob, String dronfile){
         super(fname, sname, title, yob); //initialise this object using its superclass
-        this.apptest = newer; //example new data added to teh patient specific data
-        setPutInMap(this); //add the user object to the map
+        
+        
         lstDrsRegsWith  = new ArrayList<>(); //each patient gets a new list to store dr username
+        setAddDrRegsWith(dronfile);
         lstPatientApps = new ArrayList<>(); //each paient gets a new arraylist of appointments
+        setPutInMap(this); //add the user object to the map
+    
+    }
+    
+    //adds the username of a new dr that the patient will be regsitered with to the list
+    public void setAddDrRegsWith(String drToAdd){
+        if (lstDrsRegsWith.contains(drToAdd)){
+            JOptionPane.showMessageDialog (null,"The patient is already registered with this Dr",
+                "Dr Already Registered With Patient",
+                JOptionPane.ERROR_MESSAGE);
+        }
+        else {
+            lstDrsRegsWith.add(drToAdd);
+        }
+                
+    }
+    
+    //when passed the username of a Doctor, it will return their Dr Name
+    private String getDoctorNameWithKy(String drUniqueKey){
+                
+        return "CHANGE ME  " + drUniqueKey;
     }
     
      public String getFullName(){
@@ -44,14 +67,8 @@ public class Patient extends SystemUserComponent {
     
     
     
-   
-    //adds a doctor string - unique key - to the list for the patient created
-    public void setAddDrRegsWith(Doctor docName){
-        //this.lstDrsRegsWith.add(docName);
-    }
-    
     //@@@@@ needs to return a composite of all toString calls on the objects inside of the Doctors ArrayList @@@@@
-    private String getDrsRegWith(){ 
+    public String getDrsRegWith(){ 
          String allDrs="";
         
          //iterator design pattern

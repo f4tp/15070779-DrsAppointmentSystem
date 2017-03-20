@@ -49,10 +49,10 @@ public class SystemUserTest {
     public void testCheckLogin(){
                        
         SystemUserComponent testUser = new Patient("Sandra", "BEans", "Mrs", 1922, "More data");
-        assertEquals(true, testUser.checkLogin("sandra.beans.1922"));
+        assertEquals(true, testUser.getCheckLogin("sandra.beans.1922"));
         
        SystemUserComponent testUser2 = new Patient("Emily", "PETER", "Mrs", 1924, "More data");
-       assertEquals(false, testUser2.checkLogin("norma.peters.1924"));
+       assertEquals(false, testUser2.getCheckLogin("norma.peters.1924"));
     }
     
    
