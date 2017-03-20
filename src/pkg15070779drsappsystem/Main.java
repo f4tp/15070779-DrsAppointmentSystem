@@ -40,12 +40,12 @@ public class Main {
         pat4.setAddNewAppointment(pat4.getFullName(), new Date(45563667), 33883883, "ray.stance.1914");
         pat5.setAddNewAppointment(pat5.getFullName(), new Date(33938837), 27728872, "winstone.zeddermore.1915");
         
-        pat1.setAddDrRegsWith("peter.venkman.1912");
-        pat2.setAddDrRegsWith("gregory.house.1911");
-        pat3.setAddDrRegsWith("peter.venkman.1912");
-        pat4.setAddDrRegsWith("peter.venkman.1912");
-        pat5.setAddDrRegsWith("peter.venkman.1912");
-        pat1.setAddDrRegsWith("gregory.house.1911"); //a test to see if teh validation is working - needs putting in the testing unit
+        //pat1.setAddDrRegsWith("peter.venkman.1912");
+        //pat2.setAddDrRegsWith("gregory.house.1911");
+        //pat3.setAddDrRegsWith("peter.venkman.1912");
+        //pat4.setAddDrRegsWith("peter.venkman.1912");
+        //pat5.setAddDrRegsWith("peter.venkman.1912");
+        //pat1.setAddDrRegsWith("gregory.house.1911"); //a test to see if the validation is working - needs putting in the testing unit
                
         LoginScreen mainLoginScreen = new LoginScreen ();
         mainLoginScreen.setVisible(true);
