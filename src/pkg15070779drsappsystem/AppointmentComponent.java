@@ -12,6 +12,7 @@ public abstract class AppointmentComponent {
         return "Appointment" + Integer.toString(noExistApps);
     }
     
+    
     public void setPutInMap(String uKey, Appointment passedIn){
          mapAppointments.put(uKey, passedIn);
     }

@@ -34,11 +34,11 @@ public class Main {
            
         
         
-        pat1.setAddNewAppointment(pat1.getFullName(), new Date(1001001), 99200029, dr1);
-        pat2.setAddNewAppointment(pat2.getFullName(), new Date(1991001), 99449595, dr2);
-        pat3.setAddNewAppointment(pat2.getFullName(), new Date(9022992), 67578584, dr3);
-        pat4.setAddNewAppointment(pat2.getFullName(), new Date(45563667), 33883883, dr4);
-        pat5.setAddNewAppointment(pat2.getFullName(), new Date(33938837), 27728872, dr5);
+       pat1.setAddNewAppointment(pat1.getFullName(), new Date(1001001), 99200029, "gregory.house.1911");
+        //pat2.setAddNewAppointment(pat2.getFullName(), new Date(1991001), 99449595, "peter.venkman.1912");
+       // pat3.setAddNewAppointment(pat3.getFullName(), new Date(9022992), 67578584, "egon.spengler.1913");
+       // pat4.setAddNewAppointment(pat4.getFullName(), new Date(45563667), 33883883, "ray.stance.1914");
+       // pat5.setAddNewAppointment(pat5.getFullName(), new Date(33938837), 27728872, "winstone.zeddermore.1915");
         
                
         LoginScreen mainLoginScreen = new LoginScreen ();

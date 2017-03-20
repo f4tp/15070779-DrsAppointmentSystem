@@ -35,8 +35,8 @@ public abstract class SystemUserComponent {
         mapSystemUsers.put(uname,passedIn);
     }
     
-    public String getUserName(SystemUserComponent uName){
-        return uName.strUserName;
+    public String getUserName(SystemUserComponent sysUseObj){
+        return sysUseObj.strUserName;
     }
     
     public String getFirstName(SystemUserComponent uName){
