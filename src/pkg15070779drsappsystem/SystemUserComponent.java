@@ -8,7 +8,7 @@ public abstract class SystemUserComponent {
     private int yearOfBirth;
     
     
-    public SystemUserComponent(String fname, String sname, String title, int yob){
+    protected SystemUserComponent(String fname, String sname, String title, int yob){
         setCreateSystemUser(fname, sname, title, yob);//creates a new system user and adds it to the system user list
         //reportAllUsers(); //this code was used to test the report all users method, not needed
     }
@@ -19,14 +19,14 @@ public abstract class SystemUserComponent {
         return "UserName: " + strUserName + ", Details: " + strTitle + " " + strFirstName + " " + strSurname + ", Year of Birth: " + Integer.toString(yearOfBirth);
     }
     
-    public void setCreateSystemUser(String fname, String sname, String title, int yob){
+    private void setCreateSystemUser(String fname, String sname, String title, int yob){
         this.strFirstName = fname;
         this.strSurname = sname;
         this.strTitle = title;
         this.yearOfBirth = yob;
         this.strUserName = setGenerateUsername(this.strFirstName, this.strSurname, this.yearOfBirth);
     }
-     public String setGenerateUsername(String fname, String sname, int yob){
+     private String setGenerateUsername(String fname, String sname, int yob){
         String yobAsString = Integer.toString(yob);
         return fname.toLowerCase() + "." + sname.toLowerCase() + "." + yobAsString;
     }
@@ -35,19 +35,19 @@ public abstract class SystemUserComponent {
         mapSystemUsers.put(uname,passedIn);
     }
     
-    public String getUserName(SystemUserComponent sysUseObj){
+    protected String getUserName(SystemUserComponent sysUseObj){
         return sysUseObj.strUserName;
     }
     
-    public String getFirstName(SystemUserComponent uName){
+    protected String getFirstName(SystemUserComponent uName){
         return uName.strFirstName;
     }
     
-    public String getSurname(SystemUserComponent uName){
+    protected String getSurname(SystemUserComponent uName){
         return uName.strSurname;
     }
     
-     public String getTitle(SystemUserComponent uName){
+     protected String getTitle(SystemUserComponent uName){
         return uName.strTitle;
     }
      
@@ -64,8 +64,8 @@ public abstract class SystemUserComponent {
         
     
      
-    //this can be deleted when it isn;t needed
-     public void reportAllUsers(){
+    //this can be deleted when it isn't needed
+     private void reportAllUsers(){
         for (SystemUserComponent sysUser : mapSystemUsers.values ()) {                        // <4>
             System.out.println (sysUser);
         }

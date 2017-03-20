@@ -12,6 +12,8 @@ public class SystemUserTest {
         
     } 
     
+    //called indirectly so testign not needed
+    /*
     @Test
     public void testGenerateUserName() {
         SystemUserComponent testUser = new Patient("Paul", "Treadwell", "Mr", 1983, "More data");
@@ -27,6 +29,7 @@ public class SystemUserTest {
         assertEquals("emma.beans.1924", testUser4.setGenerateUsername("emMA", "BEans", 1924));
     
     }
+*/
         
     //@@@@@ need to write
     @Test
