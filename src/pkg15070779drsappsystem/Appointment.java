@@ -3,14 +3,14 @@ import java.util.*;
 public class Appointment extends AppointmentComponent {
     
     private String AppUniqueKey, patientName, appDrComments, appMedicine;
-    private Doctor drAppWith;
+    private String drAppWith;
     private Boolean appAttended,appCancelled; 
     
     private Date appDate;
     private long appTime;
 
          
-    public Appointment(String patientname, Date appdate, long apptime, Doctor drwith){
+    public Appointment(String patientname, Date appdate, long apptime, String drwith){
         setCreateAppointment(patientname, appdate, apptime, drwith);
     }
     @Override //this does the exact same thing in the super class... do I need this here?
@@ -18,8 +18,15 @@ public class Appointment extends AppointmentComponent {
     public Appointment getAppointment(String uniqueKey){
         return super.getAppointment(uniqueKey);
     }
+    
+    //returns the unique key of each appointment instance so this can be stored
+    //in tehpatient string list, not the actual appointment object (which would duplicate it)
+    //the key can be used to get the appointment if needed later
+    public String getAppUniqueKey(Appointment appInst){
+        return appInst.getAppUniqueKey(appInst);
+    }
                 
-    public void setCreateAppointment(String patientname, Date appdate, long apptime, Doctor drwith){
+    public void setCreateAppointment(String patientname, Date appdate, long apptime, String drwith){
         this.AppUniqueKey = generateAppUniqueKey();
         this.patientName = patientname;
         
