@@ -39,7 +39,7 @@ public class Patient extends SystemUserComponent {
         this.newAppinstance = new Appointment (Name, appDate, appTime, drWith);
         
         this.lstPatientApps.add(newAppinstance.getAppUniqueKey());
-        //added
+        //added again
     }
     
     
