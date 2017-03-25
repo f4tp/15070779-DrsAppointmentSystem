@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-public class SystemUserTest {
+public class SystemUserComponentTest {
     
     //@@@@@ need to write
     @Test
@@ -39,7 +39,7 @@ public class SystemUserTest {
        
     @Test
     public void testGetusername(){
-        SystemUserComponent testUser = new Patient("Sandra", "BEans", "Mrs", 1922, "More data");
+        SystemUserComponent testUser = new Patient("Sandra", "BEans", "Mrs", 1922, "01234 567 890", "More data");
         assertEquals("sandra.beans.1922", testUser.getUserName(testUser));
     }
     
@@ -48,10 +48,10 @@ public class SystemUserTest {
     @Test
     public void testCheckLogin(){
                        
-        SystemUserComponent testUser = new Patient("Sandra", "BEans", "Mrs", 1922, "More data");
+        SystemUserComponent testUser = new Patient("Sandra", "BEans", "Mrs", 1922, "01234 567 890", "More data");
         assertEquals(true, testUser.getCheckLogin("sandra.beans.1922"));
         
-       SystemUserComponent testUser2 = new Patient("Emily", "PETER", "Mrs", 1924, "More data");
+       SystemUserComponent testUser2 = new Patient("Emily", "PETER", "Mrs", 1924, "01234 567 890", "More data");
        assertEquals(false, testUser2.getCheckLogin("norma.peters.1924"));
     }
     

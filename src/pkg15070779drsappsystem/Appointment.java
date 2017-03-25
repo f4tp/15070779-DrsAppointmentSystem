@@ -1,28 +1,20 @@
 package pkg15070779drsappsystem;
 import java.util.*;
 public class Appointment extends AppointmentComponent {
-    
+//@@@@@@@@@@@ Instance Variables @@@@@@@@@@    
     private String AppUniqueKey, patientName, appDrComments, appMedicine;
     private String drAppWith;
     private Boolean appAttended,appCancelled; 
-    
     private Date appDate;
     private long appTime;
 
+//@@@@@@@@@@@ Constructors @@@@@@@@@@    
          
     public Appointment(String patientname, Date appdate, long apptime, String drwith){
         setCreateAppointment(patientname, appdate, apptime, drwith);
     }
     
-    
-    @Override //this does the exact same thing in the super class... do I need this here?
-    //can I call this differently?
-       
-    public Appointment getAppointment(String uniqueKey){
-        return super.getAppointment(uniqueKey);
-    }
-    
-        public void setCreateAppointment(String patientname, Date appdate, long apptime, String drwith){
+    public void setCreateAppointment(String patientname, Date appdate, long apptime, String drwith){
         this.AppUniqueKey = generateAppUniqueKey(); //creates a key for the map
         this.patientName = patientname;
         
@@ -37,14 +29,7 @@ public class Appointment extends AppointmentComponent {
         setPutInMap(this.AppUniqueKey, this);
     }
     
-    //returns the unique key of each appointment instance so this can be stored
-    //in tehpatient string list, not the actual appointment object (which would duplicate it)
-    //the key can be used to get the appointment if needed later
-    public String getAppUniqueKey(){
-        return this.AppUniqueKey;
-    }
-                
-
+//@@@@@@@@@@@ Setters @@@@@@@@@@   
     
     public void setAppAttend(){
         if (this.appAttended = false){
@@ -63,6 +48,29 @@ public class Appointment extends AppointmentComponent {
             this.appCancelled = false;
         }
     }
+    
+ //@@@@@@@@@@@ Getters @@@@@@@@@@  
+     
+        
+    @Override //this does the exact same thing in the super class... do I need this here?
+    //can I call this differently?
+       
+    public Appointment getAppointment(String uniqueKey){
+        return super.getAppointment(uniqueKey);
+    }
+    
+        
+    
+    //returns the unique key of each appointment instance so this can be stored
+    //in tehpatient string list, not the actual appointment object (which would duplicate it)
+    //the key can be used to get the appointment if needed later
+    public String getAppUniqueKey(){
+        return this.AppUniqueKey;
+    }
+                
+
+    
+    
     
         
 }

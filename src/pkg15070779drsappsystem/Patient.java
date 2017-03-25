@@ -3,19 +3,22 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 public class Patient extends SystemUserComponent {
-//fields that are optional
+//instance variables that are not essential to initialisation
     private String MedicalNotes;//comments about the patient, generated from appointment comments
     private Appointment newAppinstance; //object composition - new appointment object each time the patient
     private String fullName;
+    private String telNumber;
     
 //collections of objects that the patient has to have one of
     private List<String> lstDrsRegsWith; //list of Doctors for each patient - stores dr username, can use this to return doctor name
 //collections of objects that the patient might have / are all optional
     private List<String> lstPatientApps;
+    private List<String> lstMedicine; //stores string details only to display in each file, medicine objects stored in component class
 
 //@@@@@@@@@@ constructor method @@@@@@@@@@
-    public Patient(String fname, String sname, String title, int yob, String dronfile){
+    public Patient(String fname, String sname, String title, int yob, String telnum, String dronfile){
         super(fname, sname, title, yob); //initialise this object using its superclass    
+        telNumber = telnum;
         lstDrsRegsWith  = new ArrayList<>(); //each patient gets a new list to store dr username
         setAddDrRegsWith(dronfile); //forces at least one dr to be registered
         lstPatientApps = new ArrayList<>(); //each paient gets a new arraylist of appointments
@@ -33,6 +36,10 @@ public class Patient extends SystemUserComponent {
             this.lstDrsRegsWith.add(drToAdd);
         }
                 
+    }
+    
+    public void setAddMedicine(String medtoadd){
+        
     }
     
     public void setAddNewAppointment(String name, Date appdate, long apptime, String drwith){

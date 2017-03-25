@@ -4,8 +4,11 @@ import java.util.*;
 public abstract class SystemUserComponent {
 //@@@@@@@@@@ class variables  @@@@@@@@@@
     private static Map<String, SystemUserComponent> mapSystemUsers = new HashMap<>();
+    public static String currentUsername;
+    public static SystemUserComponent currentUser; //polymorphism - this will be initialised with an object of its subtype
 //@@@@@@@@@@ instance variables  @@@@@@@@@@
-        private String strFirstName, strSurname, strTitle, strUserName;
+    
+    private String strFirstName, strSurname, strTitle, strUserName;
     private int yearOfBirth;
 
 //@@@@@@@@@@ constructors  @@@@@@@@@@
@@ -25,17 +28,11 @@ public abstract class SystemUserComponent {
 //@@@@@@@@@@ getters  @@@@@@@@@@
     
      //returns a SystemUserComponent object when passed a key
-     protected SystemUserComponent getSystemUserComponent(String key){
+     public static SystemUserComponent getSystemUserComponent(String key){
          return mapSystemUsers.get(key);
      }
      
-    
-    //getObject() - object details passed back like this
-    @Override
-    public String toString () {
-        return "UserName: " + strUserName + ", Details: " + strTitle + " " + strFirstName + " " + strSurname + ", Year of Birth: " + Integer.toString(yearOfBirth);
-    }
-    
+            
     protected String getUserName(SystemUserComponent sysUseObj){
         return sysUseObj.strUserName;
     }
@@ -55,9 +52,12 @@ public abstract class SystemUserComponent {
      //see if the login name is in the map, returns true if it is
     public static Boolean getCheckLogin(String userNamePassed) {
         if (mapSystemUsers.containsKey(userNamePassed)){
+            currentUsername = userNamePassed;
+            currentUser = getSystemUserComponent(userNamePassed);
+            System.out.println(currentUser);
             return true;
         }
-        else {
+        else {;
              return false;
         }
     }
@@ -74,12 +74,12 @@ public abstract class SystemUserComponent {
         mapSystemUsers.put(uname,passedIn);
     }
     
-        
-     
-     
-   
-        
-    
+//@@@@@@@@@@ Other methods @@@@@@@@@@
+     //getObject() - object details passed back like this
+    @Override
+    public String toString () {
+        return "UserName: " + strUserName + ", Details: " + strTitle + " " + strFirstName + " " + strSurname + ", Year of Birth: " + Integer.toString(yearOfBirth) + " Object Type: " + super.toString();
+    }
      
     //this can be deleted when it isn't needed
      private void reportAllUsers(){

@@ -3,19 +3,22 @@ package pkg15070779drsappsystem;
 import java.util.*;
 
 public class Main {
-
+    
+    
+    
+    
     public static void main(String[] args) {
          
-        Patient pat1 = new Patient("Alan", "Turing","Mr", 1900, "gregory.house.1911");
-        Patient pat2 = new Patient("Donald", "Knuth","Mr", 1901, "peter.venkman.1912");
-        Patient pat3 = new Patient("Grace", "Hopper","Mrs", 1902, "egon.spengler.1913");
-        Patient pat4 = new Patient("Ada", "Lovelace","Miss", 1903, "ray.stance.1914");
-        Patient pat5 = new Patient("Tim", "Berners-Lee","Mr", 1904, "winstone.zeddermore.1915");
-        Patient pat6 = new Patient("Tony", "Hoare","Mr", 1905, "winstone.zeddermore.1915");
-        Patient pat7 = new Patient("Claude", "Shannon","Mr", 1906, "winstone.zeddermore.1915");
-        Patient pat8 = new Patient("Larry", "Page","Mr", 1907, "winstone.zeddermore.1915");
-        Patient pat9 = new Patient("Hal", "Abeson","Mr", 1908, "winstone.zeddermore.1915");
-        Patient pat10 = new Patient("Shafi", "Goldswasser","Mrs", 1909, "winstone.zeddermore.1915");
+        Patient pat1 = new Patient("Alan", "Turing","Mr", 1900, "01234 567 890", "gregory.house.1911");
+        Patient pat2 = new Patient("Donald", "Knuth","Mr", 1901, "01234 567 890","peter.venkman.1912");
+        Patient pat3 = new Patient("Grace", "Hopper","Mrs", 1902, "01234 567 890","egon.spengler.1913");
+        Patient pat4 = new Patient("Ada", "Lovelace","Miss", 1903, "01234 567 890","ray.stance.1914");
+        Patient pat5 = new Patient("Tim", "Berners-Lee","Mr", 1904, "01234 567 890","winstone.zeddermore.1915");
+        Patient pat6 = new Patient("Tony", "Hoare","Mr", 1905, "01234 567 890","winstone.zeddermore.1915");
+        Patient pat7 = new Patient("Claude", "Shannon","Mr", 1906, "01234 567 890","winstone.zeddermore.1915");
+        Patient pat8 = new Patient("Larry", "Page","Mr", 1907, "01234 567 890","winstone.zeddermore.1915");
+        Patient pat9 = new Patient("Hal", "Abeson","Mr", 1908, "01234 567 890","winstone.zeddermore.1915");
+        Patient pat10 = new Patient("Shafi", "Goldswasser","Mrs", 1909, "01234 567 890","winstone.zeddermore.1915");
         
         Doctor dr1 = new Doctor("Gregory", "House","Dr", 1911, "Test");
         Doctor dr2 = new Doctor("Peter", "Venkman","Dr", 1912, "Test");

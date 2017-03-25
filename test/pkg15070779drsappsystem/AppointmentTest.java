@@ -11,4 +11,24 @@ public class AppointmentTest {
     
     }
     
+    @Test
+    public void testSetAppAttend(){
+        
+    }
+    
+    @Test
+    public void testSetAppCancelled(){
+        
+    }
+    
+    @Test
+    public void testGetAppointment(){
+        
+    }
+    
+     @Test
+    public void testGetAppUniqueKey(){
+        
+    }
+    
 }
