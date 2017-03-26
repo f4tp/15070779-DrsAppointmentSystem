@@ -48,7 +48,7 @@ public class AAAMain {
         //pat1.setAddDrRegsWith("gregory.house.1911"); //a test to see if the validation is working - needs putting in the testing unit
                
         /*
-        //Login screen - should be first thing to see
+ //Login screen - should be first thing to see
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 JFrameLoginScreen mainLoginScreen = new JFrameLoginScreen ();
@@ -57,13 +57,43 @@ public class AAAMain {
         });
        */
         
+        /*
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 JFrameSecretaryMenu run = new JFrameSecretaryMenu();
                 run.setVisible(true);
            } 
         });
+           */
         
+
+        
+        
+        /*
+         javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrameReportsAbstract run = new JFrameReportsAbstract();
+                run.setVisible(true);
+           } 
+        });
+        */
+        
+        /*
+          javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrameReportsAppAtt run = new JFrameReportsAppAtt();
+                run.setVisible(true);
+           } 
+        });
+        */   
+        
+           javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrameReportsDrsApps run = new JFrameReportsDrsApps();
+                run.setVisible(true);
+           } 
+        });
+                
     }
     
 }

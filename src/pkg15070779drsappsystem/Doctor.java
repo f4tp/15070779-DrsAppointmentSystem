@@ -14,17 +14,25 @@ public class Doctor extends SystemUserComponent {
         //this.apptest = newer;
         this.uniqueDrName = this.setGenerateUniqueDrName();
         setAddDoctorToMaps(this.uniqueDrName,this);
+        lstDoctors.add(setGenerateUniqueDrName());
     }
     
     public String setGenerateUniqueDrName(){
         return super.getTitle(this) + " " + super.getFirstName(this)+ " " + super.getSurname(this); //creates a unique dr name 
     }
     
+
+        
     private void setAddDoctorToMaps(String uniqDrName, Doctor doc){
         //mapDoctors.put(uniqDrName,this); //add to Dr composite (Map) - sub composite of system user Map
         //lstDoctors.add(apptest)
         setPutInMap(this); //add to System user composite (Map)
         
+    }
+    
+    public static List<String> getListAllDoctors(){
+                       
+        return lstDoctors;
     }
     
     //@Override

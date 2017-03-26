@@ -1,14 +1,15 @@
 package pkg15070779drsappsystem;
 import java.awt.*;
 import javax.swing.*;
-
+//
 public class JFrameSecretaryMenu extends JFrame {
+    JDesktopPane desktop;
     
     public JFrameSecretaryMenu(){
         super ("Secretary menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        JMenuBar secMenBar = new JMenuBar();
+ JMenuBar secMenBar = new JMenuBar();
         setJMenuBar(secMenBar);
         
         JMenu fileMenu = new JMenu("File");
@@ -32,17 +33,35 @@ public class JFrameSecretaryMenu extends JFrame {
         JMenuItem findPatient = new JMenuItem ("Find Patient");
         //exitItem.addActionListener(new ExitListener ()); 
         patientMenu.add(findPatient);
+        
+        JMenu reportMenu = new JMenu("Reports");
+        secMenBar.add(reportMenu);
+        
+        JMenuItem runReportAppsPerDoc = new JMenuItem ("Monthly App. per Dr");
+        //exitItem.addActionListener(new ExitListener ()); 
+        reportMenu.add(runReportAppsPerDoc);
+        
+        JMenuItem runReportAppsAtt = new JMenuItem ("App. attendence");
+        //exitItem.addActionListener(new ExitListener ()); 
+        reportMenu.add(runReportAppsAtt);
+        
+        JMenuItem runReport = new JMenuItem ("Prescriptions");
+        //exitItem.addActionListener(new ExitListener ()); 
+        reportMenu.add(runReport);        
+       
+                       
       
-      //code below sets the menu to the screen size
-      Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-      pack();
-      setBounds(0,0,screenSize.width, screenSize.height-40); //minus 40 for the task bar (which we want present)
+        //code below sets the menu to the screen size
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        pack();
+        setBounds(0,0,screenSize.width, screenSize.height-40); //minus 40 for the task bar (which we want present)
       
-      setVisible(true);
+        setVisible(true);
       
         
         
     }
     
+      
     
 }
