@@ -15,10 +15,10 @@ public class AppointmentComponentTest {
     
     @Test
     public void testGetAppointment(){
-        Patient pat1 = new Patient("Alan", "Turing","Mr", 1900, "01234 567 890","gregory.house.1911");
-        Patient pat2 = new Patient("Donald", "Knuth","Mr", 1901, "01234 567 890","peter.venkman");
-        Patient pat3 = new Patient("Grace", "Hopper","Mrs", 1902, "01234 567 890","egon.spengler");
-        Patient pat4 = new Patient("Ada", "Lovelace","Miss", 1903, "01234 567 890","ray.stance");
+        Patient pat1 = new Patient("Alan", "Turing","Mr", 1900, "01234 567 890","gregory.house.01011911");
+        Patient pat2 = new Patient("Donald", "Knuth","Mr", 1901, "01234 567 890","peter.venkman.0101");
+        Patient pat3 = new Patient("Grace", "Hopper","Mrs", 1902, "01234 567 890","egon.spengler.0101");
+        Patient pat4 = new Patient("Ada", "Lovelace","Miss", 1903, "01234 567 890","ray.stance.0101");
         Patient pat5 = new Patient("Tim", "Berners-Lee","Mr", 1904, "01234 567 890","winstone.zeddermore.1915");
         
         Doctor dr1 = new Doctor("Gregory", "House","Dr", 1911, "Test");

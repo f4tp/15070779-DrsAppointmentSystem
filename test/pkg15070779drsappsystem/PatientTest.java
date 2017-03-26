@@ -30,13 +30,13 @@ public class PatientTest {
     
     @Test
     public void testgetFullName(){
-    Patient pat1 = new Patient("Alan", "Turing","Mr", 1900, "01234 567 890", "gregory.house.1911");
+    Patient pat1 = new Patient("Alan", "Turing","Mr", 1900, "01234 567 890", "gregory.house.01011911");
     assertEquals("Alan Turing", pat1.getFullName()); 
     }
     
     @Test
     public void testgetUserName(){
-    Patient pat1 = new Patient("Alan", "Turing","Mr", 1900, "01234 567 890", "gregory.house.1911");
+    Patient pat1 = new Patient("Alan", "Turing","Mr", 1900, "01234 567 890", "gregory.house.01011911");
     assertEquals("alan.turing.1900", pat1.getUserName(pat1)); 
     }
     

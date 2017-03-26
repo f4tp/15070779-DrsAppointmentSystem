@@ -92,6 +92,7 @@ public class Patient extends SystemUserComponent {
         }
     }
     
+       
     
     public void getAppointment(){
         

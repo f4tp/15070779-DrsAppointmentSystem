@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class LoginScreen extends JFrame{
+public class JFrameLoginScreen extends JFrame{
     
-    public LoginScreen(){
+    public JFrameLoginScreen(){
     
     setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         setLayout (new BorderLayout());
@@ -33,7 +33,7 @@ public class LoginScreen extends JFrame{
      
          
         JButton btnLogin = new JButton("login");
-        btnLogin.addActionListener(new CheckUserAction(inpUserName));
+        btnLogin.addActionListener(new ActListCheckUserAction(inpUserName));
         btnLogin.setToolTipText("Your username is in the format firstname.surname.year born - i.e. john.smith.1994");
         //add (btnLogin, BorderLayout.SOUTH);
       

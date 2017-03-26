@@ -3,26 +3,26 @@ package pkg15070779drsappsystem;
 import java.util.*;
 public abstract class SystemUserComponent {
 //@@@@@@@@@@ class variables  @@@@@@@@@@
-    private static Map<String, SystemUserComponent> mapSystemUsers = new HashMap<>();
+    protected static Map<String, SystemUserComponent> mapSystemUsers = new HashMap<>();
     public static String currentUsername;
     public static SystemUserComponent currentUser; //polymorphism - this will be initialised with an object of its subtype
 //@@@@@@@@@@ instance variables  @@@@@@@@@@
     
     private String strFirstName, strSurname, strTitle, strUserName;
-    private int yearOfBirth;
+    private int dateOfBirth;
 
 //@@@@@@@@@@ constructors  @@@@@@@@@@
-    protected SystemUserComponent(String fname, String sname, String title, int yob){
-        setCreateSystemUser(fname, sname, title, yob);//creates a new system user and adds it to the system user list
+    protected SystemUserComponent(String fname, String sname, String title, int dob){
+        setCreateSystemUser(fname, sname, title, dob);//creates a new system user and adds it to the system user list
         //reportAllUsers(); //this code was used to test the report all users method, not needed
     }
     
-    private void setCreateSystemUser(String fname, String sname, String title, int yob){
+    private void setCreateSystemUser(String fname, String sname, String title, int dob){
         this.strFirstName = fname;
         this.strSurname = sname;
         this.strTitle = title;
-        this.yearOfBirth = yob;
-        this.strUserName = setGenerateUsername(this.strFirstName, this.strSurname, this.yearOfBirth);
+        this.dateOfBirth = dob;
+        this.strUserName = setGenerateUsername(this.strFirstName, this.strSurname, this.dateOfBirth);
     }
     
 //@@@@@@@@@@ getters  @@@@@@@@@@
@@ -78,7 +78,7 @@ public abstract class SystemUserComponent {
      //getObject() - object details passed back like this
     @Override
     public String toString () {
-        return "UserName: " + strUserName + ", Details: " + strTitle + " " + strFirstName + " " + strSurname + ", Year of Birth: " + Integer.toString(yearOfBirth) + " Object Type: " + super.toString();
+        return "UserName: " + strUserName + ", Details: " + strTitle + " " + strFirstName + " " + strSurname + ", Year of Birth: " + Integer.toString(dateOfBirth) + " Object Type: " + super.toString();
     }
      
     //this can be deleted when it isn't needed

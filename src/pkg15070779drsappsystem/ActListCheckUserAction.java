@@ -3,14 +3,14 @@ package pkg15070779drsappsystem;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class CheckUserAction implements ActionListener {
+public class ActListCheckUserAction implements ActionListener {
     //takes the username from a textfield, checks to see if the username exists in the
     //system
    
     private final JTextField INPUTTEXT;
   
     
-    public CheckUserAction(JTextField InpText){
+    public ActListCheckUserAction(JTextField InpText){
         this.INPUTTEXT = InpText;
     }
     
