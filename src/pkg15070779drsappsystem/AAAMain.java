@@ -57,14 +57,14 @@ public class AAAMain {
         });
        */
         
-        /*
+        
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 JFrameSecretaryMenu run = new JFrameSecretaryMenu();
                 run.setVisible(true);
            } 
         });
-           */
+           
         
 
         
@@ -86,13 +86,14 @@ public class AAAMain {
            } 
         });
         */   
-        
+        /*
            javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 JFrameReportsDrsApps run = new JFrameReportsDrsApps();
                 run.setVisible(true);
            } 
         });
+*/
                 
     }
     

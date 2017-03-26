@@ -38,7 +38,7 @@ public class JFrameSecretaryMenu extends JFrame {
         secMenBar.add(reportMenu);
         
         JMenuItem runReportAppsPerDoc = new JMenuItem ("Monthly App. per Dr");
-        //exitItem.addActionListener(new ExitListener ()); 
+        exitItem.addActionListener(new ActListRunReport("MonthAppPerDr")); 
         reportMenu.add(runReportAppsPerDoc);
         
         JMenuItem runReportAppsAtt = new JMenuItem ("App. attendence");
