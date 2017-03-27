@@ -16,7 +16,7 @@ public class ActListRunReport implements ActionListener {
            
             javax.swing.SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
-                    JFrameReportsDrsApps run = new JFrameReportsDrsApps();
+                    JPanelReportsDrsApps run = new JPanelReportsDrsApps();
                     run.setVisible(true);
                 } 
             });

@@ -48,7 +48,20 @@ public class JFrameSecretaryMenu extends JFrame {
         JMenuItem runReport = new JMenuItem ("Prescriptions");
         //exitItem.addActionListener(new ExitListener ()); 
         reportMenu.add(runReport);        
-       
+        
+        
+        
+        
+//@@@@@@@@@@ all this needs to be done dynamically, create the objects when they are called (factory design pattern I think)
+        JPanelReportsAppAtt JPanelAppsAtt = new JPanelReportsAppAtt();
+        //JPanelAppsAtt.setVisible(true);
+        
+        JPanelReportsDrsApps JPanelDrsApps = new JPanelReportsDrsApps();
+        //JPanelDrsApps.setVisible(true);
+        
+               
+        setLayout (new BorderLayout ());
+        add(JPanelDrsApps, BorderLayout.SOUTH);
                        
       
         //code below sets the menu to the screen size

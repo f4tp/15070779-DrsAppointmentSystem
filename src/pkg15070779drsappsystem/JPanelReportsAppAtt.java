@@ -1,9 +1,9 @@
 
 package pkg15070779drsappsystem;
 
-public class JFrameReportsAppAtt extends JFrameReportsAbstract {
+public class JPanelReportsAppAtt extends JPanelReportsAbstract {
     
-    public JFrameReportsAppAtt(){
+    public JPanelReportsAppAtt(){
         super("Monthly Appointments Report");
         
     }

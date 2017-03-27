@@ -72,7 +72,7 @@ public class AAAMain {
         /*
          javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                JFrameReportsAbstract run = new JFrameReportsAbstract();
+                JPanelReportsAbstract run = new JPanelReportsAbstract("hello");
                 run.setVisible(true);
            } 
         });
@@ -81,11 +81,12 @@ public class AAAMain {
         /*
           javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                JFrameReportsAppAtt run = new JFrameReportsAppAtt();
+                JPanelReportsAppAtt run = new JPanelReportsAppAtt();
                 run.setVisible(true);
            } 
         });
-        */   
+        */
+        
         /*
            javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
