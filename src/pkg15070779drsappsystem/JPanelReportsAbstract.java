@@ -7,12 +7,10 @@ import javax.swing.*;
 
 public abstract class JPanelReportsAbstract extends JPanel {
     public JPanelReportsAbstract(String paneltitle){
-        //super(frametitle);
-        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+   
 // @@@@@@@@@@ all components @@@@@@@@@@        
         JLabel lblMessage = new JLabel (paneltitle);
-        JLabel lblMessage2 = new JLabel ("Select the month you wish to run the report for:");      
+    
         
         
         JButton btnRunReport = new JButton ("Run report");
@@ -30,7 +28,6 @@ public abstract class JPanelReportsAbstract extends JPanel {
  //@@@@@@@@@@ layout @@@@@@@@@@
        setLayout (new BorderLayout ());
        add(lblMessage, BorderLayout.NORTH);
-       add(lblMessage2, BorderLayout.NORTH);
        add(cmbMonth, BorderLayout.WEST);
        add(cmbYear, BorderLayout.CENTER);
        add(btnRunReport, BorderLayout.SOUTH);

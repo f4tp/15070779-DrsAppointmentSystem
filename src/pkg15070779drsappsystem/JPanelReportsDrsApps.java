@@ -8,7 +8,7 @@ import java.util.*;
 public class JPanelReportsDrsApps extends JPanelReportsAbstract {
     
     public JPanelReportsDrsApps(){
-        super("Run Doctor's Monthly Appointments Report");
+        super("DRs MONTHLY APPOINTMENT REPORT");
         JComboBox cmbDrs = new JComboBox(Doctor.getListAllDoctors().toArray());
         super.add(cmbDrs, BorderLayout.EAST);
         
