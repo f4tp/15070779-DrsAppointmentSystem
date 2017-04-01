@@ -10,10 +10,10 @@ public class JPanelReportsAppAtt extends JPanelReportsAbstract {
     private static JPanelReportsAppAtt panelRepAppAttSingInst;
     
     private JPanelReportsAppAtt(){
-        super("ALL MONTHS APPOINTMENTS");
-        String[]  ArrAppStat = {"Attended", "Cancelled", "Missed"};
+        super("Report all Appointments for the month of...");
+        String[]  ArrAppStat = {"All Appointments","Attended", "Cancelled", "Missed"};
         JComboBox cmbAppStatus = new JComboBox(ArrAppStat);
-        AddBoxPadUnderComp eastDetail = new AddBoxPadUnderComp(cmbAppStatus);
+        JPanelAddBoxPadUnderComp eastDetail = new JPanelAddBoxPadUnderComp(cmbAppStatus);
         super.add(eastDetail, BorderLayout.EAST);
         
         

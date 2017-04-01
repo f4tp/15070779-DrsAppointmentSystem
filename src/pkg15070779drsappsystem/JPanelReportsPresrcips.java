@@ -7,7 +7,7 @@ public class JPanelReportsPresrcips extends JPanelReportsAbstract {
     private static JPanelReportsPresrcips panelRepPresSingInst;
     
     private JPanelReportsPresrcips(){
-        super("ALL MONTHS PRESCRIPTIONS");
+        super("Report all prescriptions issued for the month of...");
         //String[]  ArrAppStat = {"Attended", "Cancelled", "Missed"};
         //JComboBox cmbAppStatus = new JComboBox(ArrAppStat);
         //super.add(cmbAppStatus, BorderLayout.EAST);

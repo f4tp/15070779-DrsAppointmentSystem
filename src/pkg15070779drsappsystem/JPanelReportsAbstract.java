@@ -3,15 +3,13 @@ package pkg15070779drsappsystem;
 
 import java.awt.*;
 import javax.swing.*;
-import javax.*;
-
 
 public abstract class JPanelReportsAbstract extends JPanel {
     public JPanelReportsAbstract(String paneltitle){
    
 // @@@@@@@@@@ all components @@@@@@@@@@        
         JLabel lblMessage = new JLabel (paneltitle);
-        AddBoxPadUnderComp topDetail = new AddBoxPadUnderComp(lblMessage);
+        JPanelAddBoxPadUnderComp topDetail = new JPanelAddBoxPadUnderComp(lblMessage);
         
         
         JButton btnRunReport = new JButton ("Run report");
@@ -26,12 +24,12 @@ public abstract class JPanelReportsAbstract extends JPanel {
         String [] strYears = {"2015", "2016","2017" ,"2018"};
         JComboBox cmbYear = new JComboBox(strYears);
         
-        AddBoxPadUnderComp bottomDetail = new AddBoxPadUnderComp(cmbYear);
-        AddBoxPadUnderComp westDetail = new AddBoxPadUnderComp(cmbMonth);
+        JPanelAddBoxPadUnderComp bottomDetail = new JPanelAddBoxPadUnderComp(cmbYear);
+        JPanelAddBoxPadUnderComp westDetail = new JPanelAddBoxPadUnderComp(cmbMonth);
         
  //@@@@@@@@@@ layout @@@@@@@@@@
     
- //adds padding for better visual
+ //adds padding for better visual, sometimes doesn;t work so created JPanelAddBoxPadUnderComp
     setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
     setLayout (new BorderLayout ());
        

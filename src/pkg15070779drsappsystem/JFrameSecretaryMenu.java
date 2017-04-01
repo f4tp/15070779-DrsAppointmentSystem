@@ -30,8 +30,12 @@ public class JFrameSecretaryMenu extends JFrame {
         secMenBar.add(appsMenu);
         
         JMenuItem newApp = new JMenuItem ("New Appointment");
-        //exitItem.addActionListener(new ExitListener ()); 
+        newApp.addActionListener(new ActListRunReport("FindPatients"));
         appsMenu.add(newApp);
+        
+        JMenuItem showAvailApps = new JMenuItem ("Show All Available Appointments");
+        //showAvailApps.addActionListener(new ActListRunReport("FindPatients"));
+        appsMenu.add(showAvailApps);
         
         JMenu patientMenu = new JMenu("Patients");
         secMenBar.add(patientMenu);
@@ -45,15 +49,15 @@ public class JFrameSecretaryMenu extends JFrame {
         
         
         
-        JMenuItem runReportAppsPerDoc = new JMenuItem ("Monthly App. per Dr");
+        JMenuItem runReportAppsPerDoc = new JMenuItem ("Monthly Appointments per Dr Reports");
         runReportAppsPerDoc.addActionListener(new ActListRunReport("MonthAppPerDr")); 
         reportMenu.add(runReportAppsPerDoc);
         
-        JMenuItem runReportAppsAtt = new JMenuItem ("App. attendence");
+        JMenuItem runReportAppsAtt = new JMenuItem ("Monthly Appointment Attendence Reports");
         runReportAppsAtt.addActionListener(new ActListRunReport("MonthlyApssAtt")); 
         reportMenu.add(runReportAppsAtt);
         
-        JMenuItem runReportPrescs = new JMenuItem ("Prescriptions");
+        JMenuItem runReportPrescs = new JMenuItem ("Monthly Prescriptions Reports");
         runReportPrescs.addActionListener(new ActListRunReport("MonthlyPrescs"));
         reportMenu.add(runReportPrescs);        
                 
