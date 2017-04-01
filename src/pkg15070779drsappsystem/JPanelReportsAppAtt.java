@@ -22,7 +22,6 @@ public class JPanelReportsAppAtt extends JPanelReportsAbstract {
         if (panelRepAppAttSingInst == null){
             panelRepAppAttSingInst = new JPanelReportsAppAtt();
         }
-        panelRepAppAttSingInst.setVisible(true);
         return panelRepAppAttSingInst;
     }
     

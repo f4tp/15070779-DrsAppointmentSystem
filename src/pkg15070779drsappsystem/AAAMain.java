@@ -61,8 +61,7 @@ public class AAAMain {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 JFrameSecretaryMenu SecMenuMain = JFrameSecretaryMenu.getInstance();
-                SecMenuMain.setVisible(true);
-           } 
+            } 
         });
            
         

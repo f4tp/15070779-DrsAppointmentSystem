@@ -10,6 +10,7 @@ public class JFrameSecretaryMenu extends JFrame {
     //holds the string to tell the menu which south border to display
     private static String currentSouthBordPanel; 
     
+    
     private JFrameSecretaryMenu(){
         super ("Secretary menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,6 +43,8 @@ public class JFrameSecretaryMenu extends JFrame {
         JMenu reportMenu = new JMenu("Reports");
         secMenBar.add(reportMenu);
         
+        
+        
         JMenuItem runReportAppsPerDoc = new JMenuItem ("Monthly App. per Dr");
         runReportAppsPerDoc.addActionListener(new ActListRunReport("MonthAppPerDr")); 
         reportMenu.add(runReportAppsPerDoc);
@@ -50,9 +53,9 @@ public class JFrameSecretaryMenu extends JFrame {
         runReportAppsAtt.addActionListener(new ActListRunReport("MonthlyApssAtt")); 
         reportMenu.add(runReportAppsAtt);
         
-        JMenuItem runReport = new JMenuItem ("Prescriptions");
-        //exitItem.addActionListener(new ExitListener ()); 
-        reportMenu.add(runReport);        
+        JMenuItem runReportPrescs = new JMenuItem ("Prescriptions");
+        runReportPrescs.addActionListener(new ActListRunReport("MonthlyPrescs"));
+        reportMenu.add(runReportPrescs);        
                 
         setLayout (new BorderLayout ());
         
@@ -70,7 +73,7 @@ public class JFrameSecretaryMenu extends JFrame {
     public static JFrameSecretaryMenu getInstance(){
         if (SecMenuSingInst == null){
             SecMenuSingInst = new JFrameSecretaryMenu();
-        }
+                    }
         return SecMenuSingInst;
     }
     
@@ -82,36 +85,38 @@ public class JFrameSecretaryMenu extends JFrame {
     
     private void setSouthBorderPanel(){
          //@@@@@@@@@@ all this needs to be done dynamically, create the objects when they are called (factory design pattern I think)
+        JPanelReportsAppAtt JPanelAppsAtt = JPanelReportsAppAtt.getInstance();
+        JPanelReportsDrsApps JPanelDrsApps = JPanelReportsDrsApps.getInstance(); 
+        JPanelReportsPresrcips JPanelPrescs= JPanelReportsPresrcips.getInstance();
+     
         if (currentSouthBordPanel == "MonthlyApssAtt"){
-            JPanelReportsAppAtt JPanelAppsAtt = JPanelReportsAppAtt.getInstance();
+            JPanelDrsApps.setVisible(false);
+            JPanelPrescs.setVisible(false);
             JPanelAppsAtt.setVisible(true);
             SecMenuSingInst.add(JPanelAppsAtt, BorderLayout.SOUTH);
-            refreshJFrame();
-           System.out.println("monthly apps called");
+      
         }
-        
-        
+       
         if (currentSouthBordPanel == "MonthAppPerDr"){
-            JPanelReportsDrsApps JPanelDrsApps = JPanelReportsDrsApps.getInstance();
-            //setLayout (new BorderLayout ());
+            JPanelAppsAtt.setVisible(false);
+            JPanelPrescs.setVisible(false);
+            JPanelDrsApps.setVisible(true);
             SecMenuSingInst.add(JPanelDrsApps, BorderLayout.SOUTH);
-            refreshJFrame();
-            System.out.println("drs called");
         }
         
-        //JPanelDrsApps.setVisible(true);
-        
+        if (currentSouthBordPanel == "MonthlyPrescs"){
+            JPanelAppsAtt.setVisible(false);
+            JPanelDrsApps.setVisible(false);
+            JPanelPrescs.setVisible(true);
+            SecMenuSingInst.add(JPanelPrescs, BorderLayout.SOUTH);
+                
+        }
+        //these have to be called otherwise the Jframe doesn't refresh and
+         //the menu doesn't display
+        revalidate();
+        repaint();
       
     }
-    
-    public void refreshJFrame(){
-         //these have to be called otherwise the Jframe doesn't refresh and
-         //the menu doesn't display
-            revalidate();
-            repaint();
-            
-    }
-    
       
     
 }

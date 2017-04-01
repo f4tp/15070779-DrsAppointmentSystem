@@ -13,7 +13,9 @@ public class JPanelReportsDrsApps extends JPanelReportsAbstract {
     
     private JPanelReportsDrsApps(){
         super("DRs MONTHLY APPOINTMENT REPORT");
+        //updates the combobox with all Drs that are registered
         JComboBox cmbDrs = new JComboBox(Doctor.getListAllDoctors().toArray());
+        //adds the combobox to the abstract 
         super.add(cmbDrs, BorderLayout.EAST);
         
     }
@@ -22,7 +24,7 @@ public class JPanelReportsDrsApps extends JPanelReportsAbstract {
         if (panelRepDrsAppsSingInst == null){
             panelRepDrsAppsSingInst = new JPanelReportsDrsApps();
         }
-        panelRepDrsAppsSingInst.setVisible(true);
+        //panelRepDrsAppsSingInst.setVisible(true);
         return panelRepDrsAppsSingInst;
     }
     

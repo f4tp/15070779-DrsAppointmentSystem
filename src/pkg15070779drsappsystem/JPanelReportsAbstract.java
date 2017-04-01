@@ -31,7 +31,7 @@ public abstract class JPanelReportsAbstract extends JPanel {
        add(cmbMonth, BorderLayout.WEST);
        add(cmbYear, BorderLayout.CENTER);
        add(btnRunReport, BorderLayout.SOUTH);
-        setSize(400,105);
+       
     }
     
     
