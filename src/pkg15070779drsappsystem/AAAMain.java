@@ -6,16 +6,16 @@ public class AAAMain {
     
         public static void main(String[] args) {
          
-        Patient pat1 = new Patient("Alan", "Turing","Mr", "01011900", "01234 567 890", "gregory.house.01011911");
-        Patient pat2 = new Patient("Donald", "Knuth","Mr", "01011901", "01234 567 890","peter.venkman.01011912");
-        Patient pat3 = new Patient("Grace", "Hopper","Mrs", "01011902", "01234 567 890","egon.spengler.01011913");
-        Patient pat4 = new Patient("Ada", "Lovelace","Miss", "01011903", "01234 567 890","ray.stance.01011914");
-        Patient pat5 = new Patient("Tim", "Berners-Lee","Mr", "01011904", "01234 567 890","winstone.zeddermore.01011915");
-        Patient pat6 = new Patient("Tony", "Hoare","Mr", "01011905", "01234 567 890","winstone.zeddermore.01011915");
-        Patient pat7 = new Patient("Claude", "Shannon","Mr", "01011906", "01234 567 890","winstone.zeddermore.01011915");
-        Patient pat8 = new Patient("Larry", "Page","Mr", "01011907", "01234 567 890","winstone.zeddermore.01011915");
-        Patient pat9 = new Patient("Hal", "Abeson","Mr", "01011908", "01234 567 890","winstone.zeddermore.01011915");
-        Patient pat10 = new Patient("Shafi", "Goldswasser","Mrs", "01011909", "01234 567 890","winstone.zeddermore.01011915");
+        Patient pat1 = new Patient("Alan", "Turing","Mr", "01011900", "01234 567 890", "gregory.house.01011910");
+        Patient pat2 = new Patient("Donald", "Knuth","Mr", "01011901", "01234 567 890","peter.venkman.01011911");
+        Patient pat3 = new Patient("Grace", "Hopper","Mrs", "01011902", "01234 567 890","egon.spengler.01011912");
+        Patient pat4 = new Patient("Ada", "Lovelace","Miss", "01011903", "01234 567 890","ray.stance.01011913");
+        Patient pat5 = new Patient("Tim", "Berners-Lee","Mr", "01011904", "01234 567 890","winstone.zeddermore.01011914");
+        Patient pat6 = new Patient("Tony", "Hoare","Mr", "01011905", "01234 567 890","winstone.zeddermore.01011914");
+        Patient pat7 = new Patient("Claude", "Shannon","Mr", "01011906", "01234 567 890","winstone.zeddermore.01011914");
+        Patient pat8 = new Patient("Larry", "Page","Mr", "01011907", "01234 567 890","winstone.zeddermore.01011914");
+        Patient pat9 = new Patient("Hal", "Abeson","Mr", "01011908", "01234 567 890","winstone.zeddermore.01011914");
+        Patient pat10 = new Patient("Shafi", "Goldswasser","Mrs", "01011909", "01234 567 890","winstone.zeddermore.01011914");
         
         Doctor dr1 = new Doctor("Gregory", "House","Dr", "01011910", "Test");
         Doctor dr2 = new Doctor("Peter", "Venkman","Dr", "01011911", "Test");

@@ -18,6 +18,7 @@ public class ActListFindPatient implements ActionListener {
         
     }
     
+    @Override
     public void actionPerformed(ActionEvent e){
         
         if (this.TfFirstName.getText().isEmpty()){
@@ -43,34 +44,42 @@ public class ActListFindPatient implements ActionListener {
         
         else{
         
-            this.userIdForMap = this.TfFirstName.getText()+ "." + this.TfSurName.getText() + "." + this.TfDob.getText();
+            this.userIdForMap = this.TfFirstName.getText().toLowerCase()+ "." + this.TfSurName.getText().toLowerCase() + "." + this.TfDob.getText().toLowerCase();
             System.out.println(this.userIdForMap);
-            this.setAndCheckPatient(this.userIdForMap);
+            this.setAndCheckPatientFindPatient(this.userIdForMap);
             
         
         }
         
  
     }
-    private void setAndCheckPatient(String userid){
-        this.FoundPatient.getSystemUserComponent(userid);
+    
+    
+    private void setAndCheckPatientFindPatient(String userid){
+        this.FoundPatient = SystemUserComponent.getSystemUserComponent(userid);
         if (this.FoundPatient != null) {
                  
             if (this.FoundPatient instanceof Patient){
+                //this means there has been a user found and it is  apatient object
                 
             }
             else{
                 //error message
+                runGenericErrorMessage();
             }
             
         }
         
         else{
-            JOptionPane.showMessageDialog (null,
+            runGenericErrorMessage();
+        }
+    }
+    
+    private static void runGenericErrorMessage(){
+        JOptionPane.showMessageDialog (null,
                 "The patient has not been found in the system. Please try different details.",
                 "Patient not found",
                 JOptionPane.ERROR_MESSAGE);
-        }
     }
     
     
