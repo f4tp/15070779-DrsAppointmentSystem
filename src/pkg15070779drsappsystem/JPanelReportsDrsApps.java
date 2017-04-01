@@ -7,10 +7,23 @@ import java.util.*;
 //different report border layout, specialised version as we have to have Drs as well
 public class JPanelReportsDrsApps extends JPanelReportsAbstract {
     
-    public JPanelReportsDrsApps(){
+    //only one menu will ever need be generated so singleton DP has been setup
+    //the single instance should be accessed using the getInstance() method
+    private static JPanelReportsDrsApps panelRepDrsAppsSingInst;
+    
+    private JPanelReportsDrsApps(){
         super("DRs MONTHLY APPOINTMENT REPORT");
         JComboBox cmbDrs = new JComboBox(Doctor.getListAllDoctors().toArray());
         super.add(cmbDrs, BorderLayout.EAST);
         
     }
+    
+    public static JPanelReportsDrsApps getInstance(){
+        if (panelRepDrsAppsSingInst == null){
+            panelRepDrsAppsSingInst = new JPanelReportsDrsApps();
+        }
+        panelRepDrsAppsSingInst.setVisible(true);
+        return panelRepDrsAppsSingInst;
+    }
+    
 }

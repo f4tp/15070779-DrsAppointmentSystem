@@ -4,12 +4,17 @@ import javax.swing.*;
 //
 public class JFrameSecretaryMenu extends JFrame {
     JDesktopPane desktop;
+    //singleton DP, only one instance is ever needed
+    private static JFrameSecretaryMenu SecMenuSingInst;
     
-    public JFrameSecretaryMenu(){
+    //holds the string to tell the menu which south border to display
+    private static String currentSouthBordPanel; 
+    
+    private JFrameSecretaryMenu(){
         super ("Secretary menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
- JMenuBar secMenBar = new JMenuBar();
+        JMenuBar secMenBar = new JMenuBar();
         setJMenuBar(secMenBar);
         
         JMenu fileMenu = new JMenu("File");
@@ -38,41 +43,73 @@ public class JFrameSecretaryMenu extends JFrame {
         secMenBar.add(reportMenu);
         
         JMenuItem runReportAppsPerDoc = new JMenuItem ("Monthly App. per Dr");
-        exitItem.addActionListener(new ActListRunReport("MonthAppPerDr")); 
+        runReportAppsPerDoc.addActionListener(new ActListRunReport("MonthAppPerDr")); 
         reportMenu.add(runReportAppsPerDoc);
         
         JMenuItem runReportAppsAtt = new JMenuItem ("App. attendence");
-        //exitItem.addActionListener(new ExitListener ()); 
+        runReportAppsAtt.addActionListener(new ActListRunReport("MonthlyApssAtt")); 
         reportMenu.add(runReportAppsAtt);
         
         JMenuItem runReport = new JMenuItem ("Prescriptions");
         //exitItem.addActionListener(new ExitListener ()); 
         reportMenu.add(runReport);        
-        
-        
-        
-        
-//@@@@@@@@@@ all this needs to be done dynamically, create the objects when they are called (factory design pattern I think)
-        JPanelReportsAppAtt JPanelAppsAtt = new JPanelReportsAppAtt();
-        //JPanelAppsAtt.setVisible(true);
-        
-        JPanelReportsDrsApps JPanelDrsApps = new JPanelReportsDrsApps();
-        //JPanelDrsApps.setVisible(true);
-        
-               
+                
         setLayout (new BorderLayout ());
-        add(JPanelDrsApps, BorderLayout.SOUTH);
-                       
-      
-        //code below sets the menu to the screen size
+        
+         //code below sets the menu to the screen size
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         pack();
         setBounds(0,0,screenSize.width, screenSize.height-40); //minus 40 for the task bar (which we want present)
       
         setVisible(true);
+        
+    }
+ 
+    //singleton design pattern as was struggling working with the instance created in
+    //the AAAmain class
+    public static JFrameSecretaryMenu getInstance(){
+        if (SecMenuSingInst == null){
+            SecMenuSingInst = new JFrameSecretaryMenu();
+        }
+        return SecMenuSingInst;
+    }
+    
+    
+    public void setSouthBorderString(String paneltoset){
+        currentSouthBordPanel = paneltoset;
+        SecMenuSingInst.setSouthBorderPanel();
+    }
+    
+    private void setSouthBorderPanel(){
+         //@@@@@@@@@@ all this needs to be done dynamically, create the objects when they are called (factory design pattern I think)
+        if (currentSouthBordPanel == "MonthlyApssAtt"){
+            JPanelReportsAppAtt JPanelAppsAtt = JPanelReportsAppAtt.getInstance();
+            JPanelAppsAtt.setVisible(true);
+            SecMenuSingInst.add(JPanelAppsAtt, BorderLayout.SOUTH);
+            refreshJFrame();
+           System.out.println("monthly apps called");
+        }
+        
+        
+        if (currentSouthBordPanel == "MonthAppPerDr"){
+            JPanelReportsDrsApps JPanelDrsApps = JPanelReportsDrsApps.getInstance();
+            //setLayout (new BorderLayout ());
+            SecMenuSingInst.add(JPanelDrsApps, BorderLayout.SOUTH);
+            refreshJFrame();
+            System.out.println("drs called");
+        }
+        
+        //JPanelDrsApps.setVisible(true);
+        
       
-        
-        
+    }
+    
+    public void refreshJFrame(){
+         //these have to be called otherwise the Jframe doesn't refresh and
+         //the menu doesn't display
+            revalidate();
+            repaint();
+            
     }
     
       

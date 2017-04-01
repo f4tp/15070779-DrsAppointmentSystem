@@ -60,8 +60,8 @@ public class AAAMain {
         
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                JFrameSecretaryMenu run = new JFrameSecretaryMenu();
-                run.setVisible(true);
+                JFrameSecretaryMenu SecMenuMain = JFrameSecretaryMenu.getInstance();
+                SecMenuMain.setVisible(true);
            } 
         });
            
@@ -72,8 +72,8 @@ public class AAAMain {
         /*
          javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                JPanelReportsAbstract run = new JPanelReportsAbstract("hello");
-                run.setVisible(true);
+                JPanelReportsAbstract tester2 = new JPanelReportsAbstract("hello");
+                tester2.setVisible(true);
            } 
         });
         */
