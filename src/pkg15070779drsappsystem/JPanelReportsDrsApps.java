@@ -15,8 +15,11 @@ public class JPanelReportsDrsApps extends JPanelReportsAbstract {
         super("DRs MONTHLY APPOINTMENT REPORT");
         //updates the combobox with all Drs that are registered
         JComboBox cmbDrs = new JComboBox(Doctor.getListAllDoctors().toArray());
-        //adds the combobox to the abstract 
-        super.add(cmbDrs, BorderLayout.EAST);
+        AddBoxPadUnderComp eastDetail = new AddBoxPadUnderComp(cmbDrs);
+            
+
+//adds the combobox to the abstract 
+        super.add(eastDetail, BorderLayout.EAST);   
         
     }
     

@@ -59,6 +59,8 @@ public class JFrameSecretaryMenu extends JFrame {
                 
         setLayout (new BorderLayout ());
         
+     
+        
          //code below sets the menu to the screen size
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         pack();
@@ -95,7 +97,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelAppsAtt.setVisible(true);
-            SecMenuSingInst.add(JPanelAppsAtt, BorderLayout.SOUTH);
+            SecMenuSingInst.add(JPanelAppsAtt, BorderLayout.NORTH);
       
         }
        
@@ -104,7 +106,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelDrsApps.setVisible(true);
-            SecMenuSingInst.add(JPanelDrsApps, BorderLayout.SOUTH);
+            SecMenuSingInst.add(JPanelDrsApps, BorderLayout.NORTH);
         }
         
         if (currentSouthBordPanel == "MonthlyPrescs"){
@@ -112,7 +114,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelDrsApps.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelPrescs.setVisible(true);
-            SecMenuSingInst.add(JPanelPrescs, BorderLayout.SOUTH);
+            SecMenuSingInst.add(JPanelPrescs, BorderLayout.NORTH);
                 
         }
         
@@ -122,7 +124,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(true);
             
-            SecMenuSingInst.add(JPanelFindPat, BorderLayout.SOUTH);
+            SecMenuSingInst.add(JPanelFindPat, BorderLayout.NORTH);
                 
         }
         //these have to be called otherwise the Jframe doesn't refresh and
