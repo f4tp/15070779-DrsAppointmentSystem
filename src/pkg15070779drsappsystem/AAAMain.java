@@ -6,29 +6,29 @@ public class AAAMain {
     
         public static void main(String[] args) {
          
-        Patient pat1 = new Patient("Alan", "Turing","Mr", 1900, "01234 567 890", "gregory.house.01011911");
-        Patient pat2 = new Patient("Donald", "Knuth","Mr", 1901, "01234 567 890","peter.venkman.01011912");
-        Patient pat3 = new Patient("Grace", "Hopper","Mrs", 1902, "01234 567 890","egon.spengler.01011913");
-        Patient pat4 = new Patient("Ada", "Lovelace","Miss", 1903, "01234 567 890","ray.stance.01011914");
-        Patient pat5 = new Patient("Tim", "Berners-Lee","Mr", 1904, "01234 567 890","winstone.zeddermore.01011915");
-        Patient pat6 = new Patient("Tony", "Hoare","Mr", 1905, "01234 567 890","winstone.zeddermore.01011915");
-        Patient pat7 = new Patient("Claude", "Shannon","Mr", 1906, "01234 567 890","winstone.zeddermore.01011915");
-        Patient pat8 = new Patient("Larry", "Page","Mr", 1907, "01234 567 890","winstone.zeddermore.01011915");
-        Patient pat9 = new Patient("Hal", "Abeson","Mr", 1908, "01234 567 890","winstone.zeddermore.01011915");
-        Patient pat10 = new Patient("Shafi", "Goldswasser","Mrs", 1909, "01234 567 890","winstone.zeddermore.01011915");
+        Patient pat1 = new Patient("Alan", "Turing","Mr", "01011900", "01234 567 890", "gregory.house.01011911");
+        Patient pat2 = new Patient("Donald", "Knuth","Mr", "01011901", "01234 567 890","peter.venkman.01011912");
+        Patient pat3 = new Patient("Grace", "Hopper","Mrs", "01011902", "01234 567 890","egon.spengler.01011913");
+        Patient pat4 = new Patient("Ada", "Lovelace","Miss", "01011903", "01234 567 890","ray.stance.01011914");
+        Patient pat5 = new Patient("Tim", "Berners-Lee","Mr", "01011904", "01234 567 890","winstone.zeddermore.01011915");
+        Patient pat6 = new Patient("Tony", "Hoare","Mr", "01011905", "01234 567 890","winstone.zeddermore.01011915");
+        Patient pat7 = new Patient("Claude", "Shannon","Mr", "01011906", "01234 567 890","winstone.zeddermore.01011915");
+        Patient pat8 = new Patient("Larry", "Page","Mr", "01011907", "01234 567 890","winstone.zeddermore.01011915");
+        Patient pat9 = new Patient("Hal", "Abeson","Mr", "01011908", "01234 567 890","winstone.zeddermore.01011915");
+        Patient pat10 = new Patient("Shafi", "Goldswasser","Mrs", "01011909", "01234 567 890","winstone.zeddermore.01011915");
         
-        Doctor dr1 = new Doctor("Gregory", "House","Dr", 1911, "Test");
-        Doctor dr2 = new Doctor("Peter", "Venkman","Dr", 1912, "Test");
-        Doctor dr3 = new Doctor("Egon", "Spengler","Dr", 1913, "Test");
-        Doctor dr4 = new Doctor("Ray", "Stance","Dr", 1914, "Test");
-        Doctor dr5 = new Doctor("Winstone", "Zeddermore","Dr", 1915, "Test");
+        Doctor dr1 = new Doctor("Gregory", "House","Dr", "01011910", "Test");
+        Doctor dr2 = new Doctor("Peter", "Venkman","Dr", "01011911", "Test");
+        Doctor dr3 = new Doctor("Egon", "Spengler","Dr", "01011912", "Test");
+        Doctor dr4 = new Doctor("Ray", "Stance","Dr", "01011913", "Test");
+        Doctor dr5 = new Doctor("Winstone", "Zeddermore","Dr", "01011914", "Test");
         
-        Secretary rec1 = new Secretary("Elizabeth", "Moore","Mrs", 1921, "Test");
-        Secretary rec2 = new Secretary("Harry", "Doin","Mr", 1922, "Test");
-        Secretary rec3 = new Secretary("Sarah", "Jessica","Miss", 1923, "Test");
+        Secretary rec1 = new Secretary("Elizabeth", "Moore","Mrs", "01011915", "Test");
+        Secretary rec2 = new Secretary("Harry", "Doin","Mr", "01011916", "Test");
+        Secretary rec3 = new Secretary("Sarah", "Jessica","Miss", "01011917", "Test");
         
-        Pharmacist pharm1 = new Pharmacist("Pharm", "Asutical","Dr", 2001, "Test");
-        Pharmacist pharm2 = new Pharmacist("Liam", "Foster","Dr", 2002, "Test");
+        Pharmacist pharm1 = new Pharmacist("Pharm", "Asutical","Dr", "01011918", "Test");
+        Pharmacist pharm2 = new Pharmacist("Liam", "Foster","Dr", "01011919", "Test");
         //above are the existing system users being put into the system
         
            

@@ -8,9 +8,9 @@ public class Doctor extends SystemUserComponent {
     //private static Map<String, SystemUserComponent> mapDoctors = new HashMap<>(); //holds all doctor system users
     private static List<String> lstDoctors = new ArrayList <>();
     private String uniqueDrName;
-    public Doctor(String fname, String sname, String title, int yob, String newer){
+    public Doctor(String fname, String sname, String title, String dob, String newer){
         //needs to be in subclasses when abstract
-        super(fname, sname, title, yob);
+        super(fname, sname, title, dob);
         //this.apptest = newer;
         this.uniqueDrName = this.setGenerateUniqueDrName();
         setAddDoctorToMaps(this.uniqueDrName,this);

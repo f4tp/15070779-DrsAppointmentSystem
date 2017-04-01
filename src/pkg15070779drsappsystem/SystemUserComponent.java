@@ -9,15 +9,15 @@ public abstract class SystemUserComponent {
 //@@@@@@@@@@ instance variables  @@@@@@@@@@
     
     private String strFirstName, strSurname, strTitle, strUserName;
-    private int dateOfBirth;
+    private String dateOfBirth;
 
 //@@@@@@@@@@ constructors  @@@@@@@@@@
-    protected SystemUserComponent(String fname, String sname, String title, int dob){
+    protected SystemUserComponent(String fname, String sname, String title, String dob){
         setCreateSystemUser(fname, sname, title, dob);//creates a new system user and adds it to the system user list
         //reportAllUsers(); //this code was used to test the report all users method, not needed
     }
     
-    private void setCreateSystemUser(String fname, String sname, String title, int dob){
+    private void setCreateSystemUser(String fname, String sname, String title, String dob){
         this.strFirstName = fname;
         this.strSurname = sname;
         this.strTitle = title;
@@ -63,9 +63,8 @@ public abstract class SystemUserComponent {
     }
     
 //@@@@@@@@@@ SETTERS@@@@@@@@@@
-    private String setGenerateUsername(String fname, String sname, int yob){
-        String yobAsString = Integer.toString(yob);
-        return fname.toLowerCase() + "." + sname.toLowerCase() + "." + yobAsString;
+    private String setGenerateUsername(String fname, String sname, String dob){
+        return fname.toLowerCase() + "." + sname.toLowerCase() + "." + dob.toLowerCase();
     }
        
 
@@ -78,7 +77,7 @@ public abstract class SystemUserComponent {
      //getObject() - object details passed back like this
     @Override
     public String toString () {
-        return "UserName: " + strUserName + ", Details: " + strTitle + " " + strFirstName + " " + strSurname + ", Year of Birth: " + Integer.toString(dateOfBirth) + " Object Type: " + super.toString();
+        return "UserName: " + strUserName + ", Details: " + strTitle + " " + strFirstName + " " + strSurname + ", Year of Birth: " + dateOfBirth + " Object Type: " + super.toString();
     }
      
     //this can be deleted when it isn't needed

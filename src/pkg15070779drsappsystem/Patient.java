@@ -16,8 +16,8 @@ public class Patient extends SystemUserComponent {
     private List<String> lstMedicine; //stores string details only to display in each file, medicine objects stored in component class
 
 //@@@@@@@@@@ constructor method @@@@@@@@@@
-    public Patient(String fname, String sname, String title, int yob, String telnum, String dronfile){
-        super(fname, sname, title, yob); //initialise this object using its superclass    
+    public Patient(String fname, String sname, String title, String dob, String telnum, String dronfile){
+        super(fname, sname, title, dob); //initialise this object using its superclass    
         telNumber = telnum;
         lstDrsRegsWith  = new ArrayList<>(); //each patient gets a new list to store dr username
         setAddDrRegsWith(dronfile); //forces at least one dr to be registered
