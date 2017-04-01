@@ -37,7 +37,7 @@ public class JFrameSecretaryMenu extends JFrame {
         secMenBar.add(patientMenu);
         
         JMenuItem findPatient = new JMenuItem ("Find Patient");
-        //exitItem.addActionListener(new ExitListener ()); 
+        findPatient.addActionListener(new ActListRunReport("FindPatients"));
         patientMenu.add(findPatient);
         
         JMenu reportMenu = new JMenu("Reports");
@@ -88,10 +88,12 @@ public class JFrameSecretaryMenu extends JFrame {
         JPanelReportsAppAtt JPanelAppsAtt = JPanelReportsAppAtt.getInstance();
         JPanelReportsDrsApps JPanelDrsApps = JPanelReportsDrsApps.getInstance(); 
         JPanelReportsPresrcips JPanelPrescs= JPanelReportsPresrcips.getInstance();
-     
+        JPanelFindPatient JPanelFindPat = JPanelFindPatient.getInstance();
+        //"FindPatients"
         if (currentSouthBordPanel == "MonthlyApssAtt"){
             JPanelDrsApps.setVisible(false);
             JPanelPrescs.setVisible(false);
+            JPanelFindPat.setVisible(false);
             JPanelAppsAtt.setVisible(true);
             SecMenuSingInst.add(JPanelAppsAtt, BorderLayout.SOUTH);
       
@@ -100,6 +102,7 @@ public class JFrameSecretaryMenu extends JFrame {
         if (currentSouthBordPanel == "MonthAppPerDr"){
             JPanelAppsAtt.setVisible(false);
             JPanelPrescs.setVisible(false);
+            JPanelFindPat.setVisible(false);
             JPanelDrsApps.setVisible(true);
             SecMenuSingInst.add(JPanelDrsApps, BorderLayout.SOUTH);
         }
@@ -107,8 +110,19 @@ public class JFrameSecretaryMenu extends JFrame {
         if (currentSouthBordPanel == "MonthlyPrescs"){
             JPanelAppsAtt.setVisible(false);
             JPanelDrsApps.setVisible(false);
+            JPanelFindPat.setVisible(false);
             JPanelPrescs.setVisible(true);
             SecMenuSingInst.add(JPanelPrescs, BorderLayout.SOUTH);
+                
+        }
+        
+        if (currentSouthBordPanel == "FindPatients"){
+            JPanelAppsAtt.setVisible(false);
+            JPanelDrsApps.setVisible(false);
+            JPanelPrescs.setVisible(false);
+            JPanelFindPat.setVisible(true);
+            
+            SecMenuSingInst.add(JPanelFindPat, BorderLayout.SOUTH);
                 
         }
         //these have to be called otherwise the Jframe doesn't refresh and
