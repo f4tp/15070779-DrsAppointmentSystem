@@ -23,7 +23,7 @@ public class JFramePatientMenu extends JFrame {
         exitItem.addActionListener(new ActLisExitProg ());
         fileMenu.add(exitItem);
         
-        JFrameBorLaytFillScreen.applyLayout(this);
+        JFrameAbsBorLayFillScreen.applyLayout(this);
         
         /*
         setLayout (new BorderLayout ());

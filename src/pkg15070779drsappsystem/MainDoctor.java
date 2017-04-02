@@ -3,12 +3,12 @@ package pkg15070779drsappsystem;
 import java.util.*;
 
 
-public class Doctor extends SystemUserComponent {
+public class MainDoctor extends MainAbsSystemUserComponent {
     private String apptest;
-    //private static Map<String, SystemUserComponent> mapDoctors = new HashMap<>(); //holds all doctor system users
+    //private static Map<String, MainAbsSystemUserComponent> mapDoctors = new HashMap<>(); //holds all doctor system users
     private static List<String> lstDoctors = new ArrayList <>();
     private String uniqueDrName;
-    public Doctor(String fname, String sname, String title, String dob, String newer){
+    public MainDoctor(String fname, String sname, String title, String dob, String newer){
         //needs to be in subclasses when abstract
         super(fname, sname, title, dob);
         //this.apptest = newer;
@@ -23,7 +23,7 @@ public class Doctor extends SystemUserComponent {
     
 
         
-    private void setAddDoctorToMaps(String uniqDrName, Doctor doc){
+    private void setAddDoctorToMaps(String uniqDrName, MainDoctor doc){
         //mapDoctors.put(uniqDrName,this); //add to Dr composite (Map) - sub composite of system user Map
         //lstDoctors.add(apptest)
         setPutInMap(this); //add to System user composite (Map)

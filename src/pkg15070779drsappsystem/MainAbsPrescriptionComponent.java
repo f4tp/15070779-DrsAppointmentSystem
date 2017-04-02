@@ -3,10 +3,10 @@ package pkg15070779drsappsystem;
 import java.util.*;
 
 
-public abstract class PrescriptionComponent {
-    private static Map<String, Appointment> mapPrescription = new TreeMap<>();
+public abstract class MainAbsPrescriptionComponent {
+    private static Map<String, MainAppointment> mapPrescription = new TreeMap<>();
     
-    protected PrescriptionComponent(){
+    protected MainAbsPrescriptionComponent(){
         generatePresUniKey();
         
     }

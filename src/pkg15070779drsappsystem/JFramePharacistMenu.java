@@ -40,7 +40,7 @@ public class JFramePharacistMenu extends JFrame {
         reportMenu.add(runReportPrescs);
         
         //lays out the frame using thsi abstract class
-        JFrameBorLaytFillScreen.applyLayout(this);
+        JFrameAbsBorLayFillScreen.applyLayout(this);
         /*
         setLayout (new BorderLayout ());
         

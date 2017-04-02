@@ -6,29 +6,29 @@ public class AAAMain {
     
         public static void main(String[] args) {
          
-        Patient pat1 = new Patient("Alan", "Turing","Mr", "01011900", "01234 567 890", "gregory.house.01011910");
-        Patient pat2 = new Patient("Donald", "Knuth","Mr", "01011901", "01234 567 890","peter.venkman.01011911");
-        Patient pat3 = new Patient("Grace", "Hopper","Mrs", "01011902", "01234 567 890","egon.spengler.01011912");
-        Patient pat4 = new Patient("Ada", "Lovelace","Miss", "01011903", "01234 567 890","ray.stance.01011913");
-        Patient pat5 = new Patient("Tim", "Berners-Lee","Mr", "01011904", "01234 567 890","winstone.zeddermore.01011914");
-        Patient pat6 = new Patient("Tony", "Hoare","Mr", "01011905", "01234 567 890","winstone.zeddermore.01011914");
-        Patient pat7 = new Patient("Claude", "Shannon","Mr", "01011906", "01234 567 890","winstone.zeddermore.01011914");
-        Patient pat8 = new Patient("Larry", "Page","Mr", "01011907", "01234 567 890","winstone.zeddermore.01011914");
-        Patient pat9 = new Patient("Hal", "Abeson","Mr", "01011908", "01234 567 890","winstone.zeddermore.01011914");
-        Patient pat10 = new Patient("Shafi", "Goldswasser","Mrs", "01011909", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat1 = new MainPatient("Alan", "Turing","Mr", "01011900", "01234 567 890", "gregory.house.01011910");
+        MainPatient pat2 = new MainPatient("Donald", "Knuth","Mr", "01011901", "01234 567 890","peter.venkman.01011911");
+        MainPatient pat3 = new MainPatient("Grace", "Hopper","Mrs", "01011902", "01234 567 890","egon.spengler.01011912");
+        MainPatient pat4 = new MainPatient("Ada", "Lovelace","Miss", "01011903", "01234 567 890","ray.stance.01011913");
+        MainPatient pat5 = new MainPatient("Tim", "Berners-Lee","Mr", "01011904", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat6 = new MainPatient("Tony", "Hoare","Mr", "01011905", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat7 = new MainPatient("Claude", "Shannon","Mr", "01011906", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat8 = new MainPatient("Larry", "Page","Mr", "01011907", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat9 = new MainPatient("Hal", "Abeson","Mr", "01011908", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat10 = new MainPatient("Shafi", "Goldswasser","Mrs", "01011909", "01234 567 890","winstone.zeddermore.01011914");
         
-        Doctor dr1 = new Doctor("Gregory", "House","Dr", "01011910", "Test");
-        Doctor dr2 = new Doctor("Peter", "Venkman","Dr", "01011911", "Test");
-        Doctor dr3 = new Doctor("Egon", "Spengler","Dr", "01011912", "Test");
-        Doctor dr4 = new Doctor("Ray", "Stance","Dr", "01011913", "Test");
-        Doctor dr5 = new Doctor("Winstone", "Zeddermore","Dr", "01011914", "Test");
+        MainDoctor dr1 = new MainDoctor("Gregory", "House","Dr", "01011910", "Test");
+        MainDoctor dr2 = new MainDoctor("Peter", "Venkman","Dr", "01011911", "Test");
+        MainDoctor dr3 = new MainDoctor("Egon", "Spengler","Dr", "01011912", "Test");
+        MainDoctor dr4 = new MainDoctor("Ray", "Stance","Dr", "01011913", "Test");
+        MainDoctor dr5 = new MainDoctor("Winstone", "Zeddermore","Dr", "01011914", "Test");
         
-        Secretary rec1 = new Secretary("Elizabeth", "Moore","Mrs", "01011915", "Test");
-        Secretary rec2 = new Secretary("Harry", "Doin","Mr", "01011916", "Test");
-        Secretary rec3 = new Secretary("Sarah", "Jessica","Miss", "01011917", "Test");
+        MainSecretary rec1 = new MainSecretary("Elizabeth", "Moore","Mrs", "01011915", "Test");
+        MainSecretary rec2 = new MainSecretary("Harry", "Doin","Mr", "01011916", "Test");
+        MainSecretary rec3 = new MainSecretary("Sarah", "Jessica","Miss", "01011917", "Test");
         
-        Pharmacist pharm1 = new Pharmacist("Pharm", "Asutical","Dr", "01011918", "Test");
-        Pharmacist pharm2 = new Pharmacist("Liam", "Foster","Dr", "01011919", "Test");
+        MainPharmacist pharm1 = new MainPharmacist("Pharm", "Asutical","Dr", "01011918", "Test");
+        MainPharmacist pharm2 = new MainPharmacist("Liam", "Foster","Dr", "01011919", "Test");
         //above are the existing system users being put into the system
         
            

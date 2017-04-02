@@ -1,6 +1,6 @@
 package pkg15070779drsappsystem;
 import java.util.*;
-public class Appointment extends AppointmentComponent {
+public class MainAppointment extends MainAbsAppointmentComponent {
 //@@@@@@@@@@@ Instance Variables @@@@@@@@@@    
     private String AppUniqueKey, patientName, appDrComments, appMedicine;
     private String drAppWith;
@@ -10,7 +10,7 @@ public class Appointment extends AppointmentComponent {
 
 //@@@@@@@@@@@ Constructors @@@@@@@@@@    
          
-    public Appointment(String patientname, Date appdate, long apptime, String drwith){
+    public MainAppointment(String patientname, Date appdate, long apptime, String drwith){
         setCreateAppointment(patientname, appdate, apptime, drwith);
     }
     
@@ -55,7 +55,7 @@ public class Appointment extends AppointmentComponent {
     @Override //this does the exact same thing in the super class... do I need this here?
     //can I call this differently?
        
-    public Appointment getAppointment(String uniqueKey){
+    public MainAppointment getAppointment(String uniqueKey){
         return super.getAppointment(uniqueKey);
     }
     

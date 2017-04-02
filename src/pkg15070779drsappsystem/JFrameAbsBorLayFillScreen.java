@@ -6,7 +6,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 
-public abstract class JFrameBorLaytFillScreen extends JFrame {
+public abstract class JFrameAbsBorLayFillScreen extends JFrame {
     
     
     public static void applyLayout(JFrame pushedin){

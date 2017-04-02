@@ -95,11 +95,15 @@ public class JFrameSecretaryMenu extends JFrame {
         JPanelReportsDrsApps JPanelDrsApps = JPanelReportsDrsApps.getInstance(); 
         JPanelReportsPresrcips JPanelPrescs= JPanelReportsPresrcips.getInstance();
         JPanelFindPatient JPanelFindPat = JPanelFindPatient.getInstance();
+        JPanelPatientRecord JPanelPatrec = JPanelPatientRecord.getInstance();
+        
+        
         //"FindPatients"
         if (currentSouthBordPanel == "MonthlyApssAtt"){
             JPanelDrsApps.setVisible(false);
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
+            JPanelPatrec.setVisible(false);
             JPanelAppsAtt.setVisible(true);
             SecMenuSingInst.add(JPanelAppsAtt, BorderLayout.NORTH);
       
@@ -109,6 +113,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelAppsAtt.setVisible(false);
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
+            JPanelPatrec.setVisible(false);
             JPanelDrsApps.setVisible(true);
             SecMenuSingInst.add(JPanelDrsApps, BorderLayout.NORTH);
             
@@ -118,7 +123,9 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelAppsAtt.setVisible(false);
             JPanelDrsApps.setVisible(false);
             JPanelFindPat.setVisible(false);
+            JPanelPatrec.setVisible(false);
             JPanelPrescs.setVisible(true);
+            
             SecMenuSingInst.add(JPanelPrescs, BorderLayout.NORTH);
                 
         }
@@ -127,12 +134,25 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelAppsAtt.setVisible(false);
             JPanelDrsApps.setVisible(false);
             JPanelPrescs.setVisible(false);
+            JPanelPatrec.setVisible(false);
             JPanelFindPat.setVisible(true);
             
             SecMenuSingInst.add(JPanelFindPat, BorderLayout.NORTH);
-            //SecMenuSingInst.add(new JPanelPatientRecord(),BorderLayout.NORTH);
+            
                 
         }
+        
+        
+        if (currentSouthBordPanel == "DisplayPatientDetails"){
+            JPanelAppsAtt.setVisible(false);
+            JPanelPrescs.setVisible(false);
+            JPanelFindPat.setVisible(false);
+            JPanelDrsApps.setVisible(false);
+            JPanelPatrec.setVisible(true);
+            SecMenuSingInst.add(JPanelPatrec, BorderLayout.NORTH);
+            
+        }
+        
         //these have to be called otherwise the Jframe doesn't refresh and
          //the menu doesn't display
         revalidate();

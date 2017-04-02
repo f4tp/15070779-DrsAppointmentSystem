@@ -9,7 +9,7 @@ public class ActListFindPatient implements ActionListener {
     private JTextField TfSurName;
     private JTextField TfDob;
     private String userIdForMap;
-    private SystemUserComponent FoundPatient;
+    private MainAbsSystemUserComponent FoundPatient;
     
     public ActListFindPatient(JTextField firstnamepassedin, JTextField surnamepassedin, JTextField dobpassedin){
         this.TfFirstName = firstnamepassedin;
@@ -64,20 +64,25 @@ public class ActListFindPatient implements ActionListener {
     
     }
     
-    //this checks the user id, and object type... it will set the Patient.currentPatient field 
-    //as the current patient to work on if the user exists and it is of type Patient
+    //this checks the user id, and object type... it will set the MainPatient.currentPatient field 
+    //as the current patient to work on if the user exists and it is of type MainPatient
     private void setAndCheckPatientFindPatient(String userid){
-        this.FoundPatient = SystemUserComponent.getSystemUserComponent(userid);
+        this.FoundPatient = MainAbsSystemUserComponent.getSystemUserComponent(userid);
         
         //if a user has been found...
         if (this.FoundPatient != null) {
             
-            //only if it is an instance of the Patient class will it set the currentPatient field
-            if (this.FoundPatient instanceof Patient){
+            //only if it is an instance of the MainPatient class will it set the currentPatient field
+            if (this.FoundPatient instanceof MainPatient){
                 //this means there has been a user found and it is  a patient object
-                //polymorphism in action, the SystemUserComponent object is cast to a Patient object
-                Patient.currentPatient = (Patient) this.FoundPatient;
-                System.out.println(Patient.currentPatient);
+                //polymorphism in action, the MainAbsSystemUserComponent object is cast to a MainPatient object
+                MainPatient.currentPatient = (MainPatient) this.FoundPatient;
+                System.out.println(MainPatient.currentPatient);
+                
+                JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
+                SecMenuRef.setSouthBorderString("DisplayPatientDetails");
+                
+                
             }
             else{
                 //error message
@@ -92,7 +97,7 @@ public class ActListFindPatient implements ActionListener {
     }
     
     //generic error message when user is not found for what ever reason (may not 
-    //exist or user found may not be Patient object
+    //exist or user found may not be MainPatient object
     private static void runGenericErrorMessage(){
         JOptionPane.showMessageDialog (null,
                 "The patient has not been found in the system. Please try different details.",

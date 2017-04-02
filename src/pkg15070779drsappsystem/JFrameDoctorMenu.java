@@ -33,7 +33,7 @@ public class JFrameDoctorMenu extends JFrame {
         patientMenu.add(findPatient);
         
         //lays out the frame using thsi abstract class
-        JFrameBorLaytFillScreen.applyLayout(this);
+        JFrameAbsBorLayFillScreen.applyLayout(this);
         /*
         setLayout (new BorderLayout ());
         

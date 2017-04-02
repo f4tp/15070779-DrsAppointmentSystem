@@ -4,9 +4,10 @@ package pkg15070779drsappsystem;
 import java.awt.BorderLayout;
 import javax.swing.*;
 
+
 public class JPanelPatientRecord extends JPanel {
-    
-    public JPanelPatientRecord(){
+    public static JPanelPatientRecord JPanPatRecSingInst;
+    private JPanelPatientRecord(){
         JLabel lblTitle = new JLabel ("Title:          ");
         //lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel lblFirstName = new JLabel ("First Name:     ");
@@ -35,6 +36,20 @@ public class JPanelPatientRecord extends JPanel {
         setLayout (new BorderLayout ());
         add(patientScreen, BorderLayout.NORTH);
 
+    }
+    
+    //singleton object generation here
+    public static JPanelPatientRecord getInstance(){
+         if (JPanPatRecSingInst == null){
+            JPanPatRecSingInst = new JPanelPatientRecord();
+        }
+  
+        return JPanPatRecSingInst;
+    }
+    
+    //set all textfields to the correct data;
+    private static void setPatientJPanel(){
+        
     }
 
 }

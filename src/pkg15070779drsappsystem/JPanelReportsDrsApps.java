@@ -14,7 +14,7 @@ public class JPanelReportsDrsApps extends JPanelReportsAbstract {
     private JPanelReportsDrsApps(){
         super("Report Doctor's appointments for the month of...");
         //updates the combobox with all Drs that are registered
-        JComboBox cmbDrs = new JComboBox(Doctor.getListAllDoctors().toArray());
+        JComboBox cmbDrs = new JComboBox(MainDoctor.getListAllDoctors().toArray());
         JPanelAddBoxPadUnderComp eastDetail = new JPanelAddBoxPadUnderComp(cmbDrs);
             
 

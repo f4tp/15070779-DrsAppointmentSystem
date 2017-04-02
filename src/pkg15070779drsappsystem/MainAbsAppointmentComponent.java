@@ -1,8 +1,8 @@
 
 package pkg15070779drsappsystem;
 import java.util.*;
-public abstract class AppointmentComponent {
-    private static Map<String, Appointment> mapAppointments = new TreeMap<>(); 
+public abstract class MainAbsAppointmentComponent {
+    private static Map<String, MainAppointment> mapAppointments = new TreeMap<>(); 
     
     //the array will store the Drs name in here if they have an appointment on a certain day, at a certaintime
     //@@@@@ need to work out how many days the first part of the array is from the first index set of the array - thsi will give the date
@@ -22,11 +22,11 @@ public abstract class AppointmentComponent {
     }
     
     
-    public void setPutInMap(String uKey, Appointment passedIn){
+    public void setPutInMap(String uKey, MainAppointment passedIn){
          mapAppointments.put(uKey, passedIn);
     }
     
-    public Appointment getAppointment(String uniqueKey){
+    public MainAppointment getAppointment(String uniqueKey){
         return mapAppointments.get(uniqueKey);
     }
     

@@ -29,7 +29,7 @@ public class JPanelLoginScreen extends JPanel {
         //add(inpUserName, BorderLayout.CENTER); 
               
         JButton btnLogin = new JButton("login");
-        btnLogin.addActionListener(new ActListCheckLogin(inpUserName));
+        btnLogin.addActionListener(new ActListLogUSerIn(inpUserName));
         btnLogin.setToolTipText("Your username is in the format firstname.surname.year born - i.e. john.smith.1994");
         btnLogin.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
         //add (btnLogin, BorderLayout.SOUTH);

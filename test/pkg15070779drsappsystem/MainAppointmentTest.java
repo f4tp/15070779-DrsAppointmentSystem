@@ -4,7 +4,7 @@ import java.util.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class AppointmentTest {
+public class MainAppointmentTest {
     
     @Test
     public void testSetCreateAppointment(){

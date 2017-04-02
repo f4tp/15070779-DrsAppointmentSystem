@@ -2,15 +2,15 @@ package pkg15070779drsappsystem;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-public class Patient extends SystemUserComponent {
+public class MainPatient extends MainAbsSystemUserComponent {
 //instance variables that are not essential to initialisation
     private String MedicalNotes;//comments about the patient, generated from appointment comments
-    private Appointment newAppinstance; //object composition - new appointment object each time the patient
+    private MainAppointment newAppinstance; //object composition - new appointment object each time the patient
     private String fullName;
-    private String telNumber;
+    private String contactDetail;
     
 //public static variables
-    public static Patient currentPatient; //holds the current patient that any class is working on / with
+    public static MainPatient currentPatient; //holds the current patient that any class is working on / with
     
 //collections of objects that the patient has to have one of
     private List<String> lstDrsRegsWith; //list of Doctors for each patient - stores dr username, can use this to return doctor name
@@ -19,9 +19,9 @@ public class Patient extends SystemUserComponent {
     private List<String> lstMedicine; //stores string details only to display in each file, medicine objects stored in component class
 
 //@@@@@@@@@@ constructor method @@@@@@@@@@
-    public Patient(String fname, String sname, String title, String dob, String telnum, String dronfile){
+    public MainPatient(String fname, String sname, String title, String dob, String telnum, String dronfile){
         super(fname, sname, title, dob); //initialise this object using its superclass    
-        telNumber = telnum;
+        contactDetail = telnum;
         lstDrsRegsWith  = new ArrayList<>(); //each patient gets a new list to store dr username
         setAddDrRegsWith(dronfile); //forces at least one dr to be registered
         lstPatientApps = new ArrayList<>(); //each paient gets a new arraylist of appointments
@@ -51,7 +51,7 @@ public class Patient extends SystemUserComponent {
         Date appDate = appdate;
         long appTime = apptime;
         String drWith = drwith;
-        this.newAppinstance = new Appointment (Name, appDate, appTime, drWith);
+        this.newAppinstance = new MainAppointment (Name, appDate, appTime, drWith);
         
         this.lstPatientApps.add(newAppinstance.getAppUniqueKey());
         //added again again
@@ -69,6 +69,10 @@ public class Patient extends SystemUserComponent {
     
     private String getUserName(){
         return super.getUserName(this);
+    }
+    
+     public String getContactDetail(){
+        return this.contactDetail;
     }
     
     

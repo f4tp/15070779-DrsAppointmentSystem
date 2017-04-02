@@ -11,7 +11,7 @@ public class JFrameLoginScreen extends JFrame{
     private JFrameLoginScreen(){
     super ("Login to the Doctor's Surgery System: ");
     setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        setLayout (new BorderLayout());
+    setLayout (new BorderLayout());
         
         
         /*
@@ -23,11 +23,12 @@ public class JFrameLoginScreen extends JFrame{
         setVisible(true);
         */
         
-        //lays out the frame using thsi abstract class
-        JFrameBorLaytFillScreen.applyLayout(this);
+        //lays out the frame using this abstract class
+        JFrameAbsBorLayFillScreen.applyLayout(this);
         add (new JPanelLoginScreen(), BorderLayout.NORTH);
     }
     
+    //get single instance so no other instances are created
     public static JFrameLoginScreen getInstance(){
         if (LoginScreenSingInst == null){
             LoginScreenSingInst = new JFrameLoginScreen();

@@ -1,18 +1,18 @@
 package pkg15070779drsappsystem;
 
 import java.util.*;
-public abstract class SystemUserComponent {
+public abstract class MainAbsSystemUserComponent {
 //@@@@@@@@@@ class variables  @@@@@@@@@@
-    protected static Map<String, SystemUserComponent> mapSystemUsers = new HashMap<>();
+    protected static Map<String, MainAbsSystemUserComponent> mapSystemUsers = new HashMap<>();
     public static String currentUsername;
-    public static SystemUserComponent currentSystemUser; //polymorphism - this will be initialised with an object of its subtype
+    public static MainAbsSystemUserComponent currentSystemUser; //polymorphism - this will be initialised with an object of its subtype
 //@@@@@@@@@@ instance variables  @@@@@@@@@@
     
     private String strFirstName, strSurname, strTitle, strUserName;
     private String dateOfBirth;
 
 //@@@@@@@@@@ constructors  @@@@@@@@@@
-    protected SystemUserComponent(String fname, String sname, String title, String dob){
+    protected MainAbsSystemUserComponent(String fname, String sname, String title, String dob){
         setCreateSystemUser(fname, sname, title, dob);//creates a new system user and adds it to the system user list
         //reportAllUsers(); //this code was used to test the report all users method, not needed
     }
@@ -27,25 +27,29 @@ public abstract class SystemUserComponent {
     
 //@@@@@@@@@@ getters  @@@@@@@@@@
     
-     //returns a SystemUserComponent object when passed a key
-     public static SystemUserComponent getSystemUserComponent(String key){
+     //returns a MainAbsSystemUserComponent object when passed a key
+     public static MainAbsSystemUserComponent getSystemUserComponent(String key){
          return mapSystemUsers.get(key);
      }
      
             
-    protected String getUserName(SystemUserComponent sysUseObj){
+    protected String getUserName(MainAbsSystemUserComponent sysUseObj){
         return sysUseObj.strUserName;
     }
     
-    protected String getFirstName(SystemUserComponent uName){
+    protected String getDOB(MainAbsSystemUserComponent sysUseObj){
+        return sysUseObj.dateOfBirth;
+    }
+    
+    protected String getFirstName(MainAbsSystemUserComponent uName){
         return uName.strFirstName;
     }
     
-    protected String getSurname(SystemUserComponent uName){
+    protected String getSurname(MainAbsSystemUserComponent uName){
         return uName.strSurname;
     }
     
-     protected String getTitle(SystemUserComponent uName){
+     protected String getTitle(MainAbsSystemUserComponent uName){
         return uName.strTitle;
     }
     
@@ -68,7 +72,7 @@ public abstract class SystemUserComponent {
     }
        
 
-    public void setPutInMap(SystemUserComponent passedIn){
+    public void setPutInMap(MainAbsSystemUserComponent passedIn){
         String uname = getUserName(this);
         mapSystemUsers.put(uname,passedIn);
     }
@@ -82,7 +86,7 @@ public abstract class SystemUserComponent {
      
     //this can be deleted when it isn't needed
      private void reportAllUsers(){
-        for (SystemUserComponent sysUser : mapSystemUsers.values ()) {                        // <4>
+        for (MainAbsSystemUserComponent sysUser : mapSystemUsers.values ()) {                        // <4>
             System.out.println (sysUser);
         }
      }
