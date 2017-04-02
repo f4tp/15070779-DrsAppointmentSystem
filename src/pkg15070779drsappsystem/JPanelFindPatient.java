@@ -13,7 +13,7 @@ public class JPanelFindPatient extends JPanel {
        //lblFirstName.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
        JLabel lblSurname = new JLabel ("Enter the SURNAME of a patient");
        //lblSurname.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
-       JLabel lblYearOfBirth = new JLabel ("Enter the patient's DOB as a single number (e.g. 01012010 is the 1st Jan 2010");
+       JLabel lblDob = new JLabel ("Enter the patient's DOB as a single number (e.g. 01012010 is the 1st Jan 2010");
        //lblYearOfBirth.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
        JTextField JTFFirstName = new JTextField();
        //JTFFirstName.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -21,7 +21,7 @@ public class JPanelFindPatient extends JPanel {
        //JTFSurname.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
        JTextField JTFdob = new JTextField();
        //JTFdob.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-       JPanelSixGridView searchFields = new JPanelSixGridView(lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblYearOfBirth,JTFdob);
+       JPanelSixGridView searchFields = new JPanelSixGridView(lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob);
        
        
        

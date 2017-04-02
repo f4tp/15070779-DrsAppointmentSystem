@@ -3,8 +3,8 @@ import java.awt.*;
 import javax.swing.*;
 //
 public class JFrameSecretaryMenu extends JFrame {
-    JDesktopPane desktop;
-    //singleton DP, only one instance is ever needed
+    //JDesktopPane desktop;
+    //singleton DP, only one instance is ever needed as only one sec logs in at once
     private static JFrameSecretaryMenu SecMenuSingInst;
     
     //holds the string to tell the menu which south border to display
@@ -111,6 +111,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelFindPat.setVisible(false);
             JPanelDrsApps.setVisible(true);
             SecMenuSingInst.add(JPanelDrsApps, BorderLayout.NORTH);
+            
         }
         
         if (currentSouthBordPanel == "MonthlyPrescs"){
@@ -129,6 +130,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelFindPat.setVisible(true);
             
             SecMenuSingInst.add(JPanelFindPat, BorderLayout.NORTH);
+            //SecMenuSingInst.add(new JPanelPatientRecord(),BorderLayout.NORTH);
                 
         }
         //these have to be called otherwise the Jframe doesn't refresh and

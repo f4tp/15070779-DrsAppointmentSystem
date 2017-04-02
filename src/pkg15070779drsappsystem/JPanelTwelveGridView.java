@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class JPanelTwelveGridView extends JPanel{
     public JPanelTwelveGridView(JLabel LabOne, JTextField TextTwo, JLabel LabThree, JTextField TextFour, JLabel LabFive, JTextField TextSix, JLabel LabSeven, JTextField TextEight, JLabel LabNine, JTextField TextTen, JButton ButEleven, JButton ButTweleve ){
-       setLayout(new GridLayout(5,2));
+       setLayout(new GridLayout(6,2));
        add(LabOne);
        add(TextTwo);
        add(LabThree);

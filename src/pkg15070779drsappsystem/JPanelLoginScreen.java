@@ -9,7 +9,7 @@ import javax.swing.*;
 public class JPanelLoginScreen extends JPanel {
     
     public JPanelLoginScreen(){
-                    
+                   
         //setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
         setLayout (new BorderLayout ());
@@ -20,7 +20,7 @@ public class JPanelLoginScreen extends JPanel {
         
         JPanelAddBoxPadUnderComp northDetail = new JPanelAddBoxPadUnderComp(loginLabel);
         
-        JTextField inpUserName = new JTextField();
+        JTextField inpUserName = new JTextField("elizabeth.moore.01011915");
         inpUserName.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
         JPanelAddBoxPadUnderComp centerDetail = new JPanelAddBoxPadUnderComp(inpUserName);
      

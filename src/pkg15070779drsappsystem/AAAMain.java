@@ -55,42 +55,7 @@ public class AAAMain {
                 mainLoginScreen.setVisibility(true);
             } 
         });
-       
-        
-        
-        
-           
-        
-
-        
-        
-        /*
-         javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                JPanelReportsAbstract tester2 = new JPanelReportsAbstract("hello");
-                tester2.setVisible(true);
-           } 
-        });
-        */
-        
-        /*
-          javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                JPanelReportsAppAtt run = new JPanelReportsAppAtt();
-                run.setVisible(true);
-           } 
-        });
-        */
-        
-        /*
-           javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                JFrameReportsDrsApps run = new JFrameReportsDrsApps();
-                run.setVisible(true);
-           } 
-        });
-*/
-                
+                   
     }
     
 }

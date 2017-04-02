@@ -49,15 +49,35 @@ public class ActListCheckLogin implements ActionListener {
             }
               
               else if (SystemUserComponent.currentSystemUser instanceof Doctor){
+                  JFrameLoginScreen.setVisibility(false);
                   
+                  javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                    JFrameDoctorMenu DocMenuMain = new JFrameDoctorMenu();
+                    DocMenuMain.setVisibility(true);
+                    } 
+                });
               }
               
               else if (SystemUserComponent.currentSystemUser instanceof Pharmacist){
-                  
+                  JFrameLoginScreen.setVisibility(false);
+                  javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                    JFramePharacistMenu PharmMenuMain = new JFramePharacistMenu();
+                    PharmMenuMain.setVisibility(true);
+                    } 
+                });
               }
               
               else if (SystemUserComponent.currentSystemUser instanceof Patient){
+                  JFrameLoginScreen.setVisibility(false);
                   
+                  javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                    JFramePatientMenu PatMenuMain = new JFramePatientMenu();
+                    PatMenuMain.setVisibility(true);
+                    } 
+                });
               }
             
         }
