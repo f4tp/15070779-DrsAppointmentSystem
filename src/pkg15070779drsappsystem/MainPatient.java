@@ -11,6 +11,7 @@ public class MainPatient extends MainAbsSystemUserComponent {
     
 //public static variables
     public static MainPatient currentPatient; //holds the current patient that any class is working on / with
+    //does not hold an instance, acts as a pointer to the main object
     
 //collections of objects that the patient has to have one of
     private List<String> lstDrsRegsWith; //list of Doctors for each patient - stores dr username, can use this to return doctor name
@@ -74,6 +75,25 @@ public class MainPatient extends MainAbsSystemUserComponent {
      public String getContactDetail(){
         return this.contactDetail;
     }
+     
+     public String getTitle(){
+         return  super.getTitle(this);
+   
+     }
+     
+     public String getFirstName(){
+         return  super.getFirstName(this);
+   
+     }
+      public String getSurname(){
+         return  super.getSurname(this);
+   
+     }
+      
+      public String getDOB(){
+         return  super.getDOB(this);
+   
+     }
     
     
     //@@@@@ needs to return a composite of all toString calls on the objects inside of the Doctors ArrayList @@@@@

@@ -32,7 +32,7 @@ public class ActListLogUSerIn implements ActionListener {
         else{
             //set the current system user to whoever has just logged in
             MainAbsSystemUserComponent.currentSystemUser = 
-                    MainAbsSystemUserComponent.getSystemUserComponent(lowerCaseUserName);
+                    MainAbsSystemUserComponent.getSystemUserComponent(lowerCaseUserName); //polymorphism in here
             
               //opens the correct menu when the type of object is discovered
               if (MainAbsSystemUserComponent.currentSystemUser instanceof MainSecretary){

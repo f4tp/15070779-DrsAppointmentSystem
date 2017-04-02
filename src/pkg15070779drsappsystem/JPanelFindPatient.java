@@ -8,7 +8,8 @@ public class JPanelFindPatient extends JPanel {
     public static JPanelFindPatient FindPatSingInst;
     
     private JPanelFindPatient(){
-       
+        
+              
        JLabel lblFirstName = new JLabel ("Enter the FIRST NAME of a patient");
        //lblFirstName.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
        JLabel lblSurname = new JLabel ("Enter the SURNAME of a patient");

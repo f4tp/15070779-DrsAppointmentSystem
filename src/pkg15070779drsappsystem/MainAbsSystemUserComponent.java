@@ -79,10 +79,12 @@ public abstract class MainAbsSystemUserComponent {
     
 //@@@@@@@@@@ Other methods @@@@@@@@@@
      //getObject() - object details passed back like this
+    
     @Override
     public String toString () {
         return "UserName: " + strUserName + ", Details: " + strTitle + " " + strFirstName + " " + strSurname + ", Year of Birth: " + dateOfBirth + " Object Type: " + super.toString();
     }
+
      
     //this can be deleted when it isn't needed
      private void reportAllUsers(){

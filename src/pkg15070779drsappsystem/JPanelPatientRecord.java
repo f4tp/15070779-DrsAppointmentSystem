@@ -7,8 +7,7 @@ import javax.swing.*;
 
 public class JPanelPatientRecord extends JPanel {
     public static JPanelPatientRecord JPanPatRecSingInst;
-    private JPanelPatientRecord(){
-        JLabel lblTitle = new JLabel ("Title:          ");
+    JLabel lblTitle = new JLabel ("Title:          ");
         //lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel lblFirstName = new JLabel ("First Name:     ");
         //lblFirstName.setHorizontalAlignment(SwingConstants.CENTER);
@@ -31,6 +30,8 @@ public class JPanelPatientRecord extends JPanel {
         JButton btnNewApp = new JButton("New Appointment");
         JPanelTwelveGridView patientScreen = new JPanelTwelveGridView(lblTitle, JTFTitle, lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob, lblContact, JTFContact, btnAllApps, btnNewApp);
 
+    private JPanelPatientRecord(){
+        
 
         setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
         setLayout (new BorderLayout ());
@@ -50,6 +51,14 @@ public class JPanelPatientRecord extends JPanel {
     //set all textfields to the correct data;
     private static void setPatientJPanel(){
         
+    }
+    
+    public void setUpdatetextField(){
+        JTFTitle.setText(MainPatient.currentPatient.getTitle());
+        JTFFirstName.setText(MainPatient.currentPatient.getFirstName());
+        JTFSurname.setText(MainPatient.currentPatient.getSurname());
+        JTFdob.setText(MainPatient.currentPatient.getDOB());
+        JTFContact.setText(MainPatient.currentPatient.getContactDetail());
     }
 
 }
