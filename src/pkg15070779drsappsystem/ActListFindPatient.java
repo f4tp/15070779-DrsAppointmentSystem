@@ -17,10 +17,13 @@ public class ActListFindPatient implements ActionListener {
         this.TfDob = dobpassedin;
         
     }
-    
+    //checks to see if the patient exists in teh map by generating the map id and using it to look for the user
     @Override
     public void actionPerformed(ActionEvent e){
         
+        
+        
+        //validation - makign sure none of the text fields are empty
         if (this.TfFirstName.getText().isEmpty()){
             JOptionPane.showMessageDialog (null,
                 "You haven't entered a FIRSTNAME to search for, please enter one in the corresponding text box",
@@ -43,9 +46,10 @@ public class ActListFindPatient implements ActionListener {
         }
         
         else{
+            //if they are all full it will generate the username to search for
+            setGenerateUserName();
         
-            this.userIdForMap = this.TfFirstName.getText().toLowerCase()+ "." + this.TfSurName.getText().toLowerCase() + "." + this.TfDob.getText().toLowerCase();
-            System.out.println(this.userIdForMap);
+           //searches for user
             this.setAndCheckPatientFindPatient(this.userIdForMap);
             
         
@@ -53,15 +57,27 @@ public class ActListFindPatient implements ActionListener {
         
  
     }
+    //generates the username to search for
+    private void setGenerateUserName(){
+            this.userIdForMap = this.TfFirstName.getText().toLowerCase()+ "." + this.TfSurName.getText().toLowerCase() + "." + this.TfDob.getText().toLowerCase();
+            System.out.println(this.userIdForMap);
     
+    }
     
+    //this checks the user id, and object type... it will set the Patient.currentPatient field 
+    //as the current patient to work on if the user exists and it is of type Patient
     private void setAndCheckPatientFindPatient(String userid){
         this.FoundPatient = SystemUserComponent.getSystemUserComponent(userid);
+        
+        //if a user has been found...
         if (this.FoundPatient != null) {
-                 
+            
+            //only if it is an instance of the Patient class will it set the currentPatient field
             if (this.FoundPatient instanceof Patient){
-                //this means there has been a user found and it is  apatient object
-                
+                //this means there has been a user found and it is  a patient object
+                //polymorphism in action, the SystemUserComponent object is cast to a Patient object
+                Patient.currentPatient = (Patient) this.FoundPatient;
+                System.out.println(Patient.currentPatient);
             }
             else{
                 //error message
@@ -75,6 +91,8 @@ public class ActListFindPatient implements ActionListener {
         }
     }
     
+    //generic error message when user is not found for what ever reason (may not 
+    //exist or user found may not be Patient object
     private static void runGenericErrorMessage(){
         JOptionPane.showMessageDialog (null,
                 "The patient has not been found in the system. Please try different details.",

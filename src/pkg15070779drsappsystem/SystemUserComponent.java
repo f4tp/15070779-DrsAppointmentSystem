@@ -5,7 +5,7 @@ public abstract class SystemUserComponent {
 //@@@@@@@@@@ class variables  @@@@@@@@@@
     protected static Map<String, SystemUserComponent> mapSystemUsers = new HashMap<>();
     public static String currentUsername;
-    public static SystemUserComponent currentUser; //polymorphism - this will be initialised with an object of its subtype
+    public static SystemUserComponent currentSystemUser; //polymorphism - this will be initialised with an object of its subtype
 //@@@@@@@@@@ instance variables  @@@@@@@@@@
     
     private String strFirstName, strSurname, strTitle, strUserName;
@@ -53,8 +53,8 @@ public abstract class SystemUserComponent {
     public static Boolean getCheckLogin(String userNamePassed) {
         if (mapSystemUsers.containsKey(userNamePassed)){
             currentUsername = userNamePassed;
-            currentUser = getSystemUserComponent(userNamePassed);
-            System.out.println(currentUser);
+            currentSystemUser = getSystemUserComponent(userNamePassed);
+            System.out.println(currentSystemUser);
             return true;
         }
         else {;

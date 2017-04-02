@@ -47,22 +47,18 @@ public class AAAMain {
         //pat5.setAddDrRegsWith("peter.venkman.1912");
         //pat1.setAddDrRegsWith("gregory.house.1911"); //a test to see if the validation is working - needs putting in the testing unit
                
-        /*
+        
  //Login screen - should be first thing to see
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                JFrameLoginScreen mainLoginScreen = new JFrameLoginScreen ();
-                mainLoginScreen.setVisible(true);
+                JFrameLoginScreen mainLoginScreen = JFrameLoginScreen.getInstance();
+                mainLoginScreen.setVisibility(true);
             } 
         });
-       */
+       
         
         
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                JFrameSecretaryMenu SecMenuMain = JFrameSecretaryMenu.getInstance();
-            } 
-        });
+        
            
         
 

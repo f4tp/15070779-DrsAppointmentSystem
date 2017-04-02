@@ -9,6 +9,9 @@ public class Patient extends SystemUserComponent {
     private String fullName;
     private String telNumber;
     
+//public static variables
+    public static Patient currentPatient; //holds the current patient that any class is working on / with
+    
 //collections of objects that the patient has to have one of
     private List<String> lstDrsRegsWith; //list of Doctors for each patient - stores dr username, can use this to return doctor name
 //collections of objects that the patient might have / are all optional

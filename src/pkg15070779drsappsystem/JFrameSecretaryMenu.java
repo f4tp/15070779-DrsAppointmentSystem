@@ -137,6 +137,12 @@ public class JFrameSecretaryMenu extends JFrame {
         repaint();
       
     }
+    public static void setVisibility(boolean vis){
+        
+        SecMenuSingInst.setVisible(vis);
+        
+    }
+    
       
     
 }
