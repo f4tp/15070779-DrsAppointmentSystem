@@ -21,7 +21,15 @@ public class MainDoctor extends MainAbsSystemUserComponent {
         return super.getTitle(this) + " " + super.getFirstName(this)+ " " + super.getSurname(this); //creates a unique dr name 
     }
     
-
+    public static String setGenerateUniqueDrNameStatic(String userID){
+        
+        return "Change me";
+    }
+    
+    public static List<String> getListAllDoctors(){
+                       
+        return lstDoctors;
+    }
         
     private void setAddDoctorToMaps(String uniqDrName, MainDoctor doc){
         //mapDoctors.put(uniqDrName,this); //add to Dr composite (Map) - sub composite of system user Map
@@ -30,10 +38,7 @@ public class MainDoctor extends MainAbsSystemUserComponent {
         
     }
     
-    public static List<String> getListAllDoctors(){
-                       
-        return lstDoctors;
-    }
+   
     
     //@Override
    //public String toString () {

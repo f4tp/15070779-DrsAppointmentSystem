@@ -64,15 +64,16 @@ public class MainPatient extends MainAbsSystemUserComponent {
          return "CHANGE ME  " + drUniqueKey;
     }
     
-     public String getFullName(){
-        return super.getFirstName(this) + " " + super.getSurname(this);
-    }
-    
     private String getUserName(){
         return super.getUserName(this);
     }
     
-     public String getContactDetail(){
+    public String getFullName(){
+        return super.getFirstName(this) + " " + super.getSurname(this);
+    }
+    
+    
+    public String getContactDetail(){
         return this.contactDetail;
     }
      
@@ -97,26 +98,50 @@ public class MainPatient extends MainAbsSystemUserComponent {
     
     
     //@@@@@ needs to return a composite of all toString calls on the objects inside of the Doctors ArrayList @@@@@
-    public String getDrsRegWith(){ 
+    public String getDrsRegWithAsStringAsUserNames(){ 
          String allDrs="";
         
          //iterator design pattern
         for (String Drs : this.lstDrsRegsWith) {                        // <4>
             System.out.println (Drs);
-            if (allDrs == ""){
-                //allDrs = Drs;
-            }
-            else {
+            
                 allDrs = allDrs + ", " + Drs;
-            }
+          
         }
         
         if (allDrs == "") {
-            return "the patient is not regisered with any doctors";
+            return "the patient is not registered with any doctors";
+        }
+        else {
+            return allDrs.substring(2);
+        }
+    }
+    
+    public String getDrsRegWithAsStringAsDrsnames(){ 
+         String allDrs="";
+        
+         //iterator design pattern
+        for (String Drs : this.lstDrsRegsWith) {                        // <4>
+            System.out.println (Drs);
+            MainDoctor drgenerator = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(Drs);
+            allDrs = drgenerator.setGenerateUniqueDrName() + ",";
+         
+        }
+        
+        if (allDrs == "") {
+            return "the patient is not registered with any doctors";
         }
         else {
             return allDrs;
+            //.substring(2)
         }
+    }
+    
+    //returns the patient object's Drs they are regsitered with as a list
+    //these will be usernames, will need converting into Dr names
+    public List<String> getDrsRegWithAsList(){
+        
+        return this.lstDrsRegsWith;
     }
     
        

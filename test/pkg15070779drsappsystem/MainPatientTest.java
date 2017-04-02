@@ -10,7 +10,7 @@ public class MainPatientTest {
     @Test
     public void testSetAddDrRegsWith(){
         //pat1.setAddDrRegsWith("peter.venkman.1912");
-        //String datatoTest = pat1.getDrsRegWith();
+        //String datatoTest = pat1.getDrsRegWithAsStringAsUserNames();
         //assertEquals(true, datatoTest.contains("peter.venkman.1912"));
         
        
@@ -42,9 +42,9 @@ public class MainPatientTest {
     
     //method not complete
     @Test
-    public void testGetDrsRegWith(){
+    public void testGetDrsRegWithAsStringAsUserNames(){
         //Patient pat6 = new MainPatient("Tony", "Hoare","Mr", 1905, "winstone.zeddermore.1915");
-        //assertEquals("Dr Winstone Zeddermore", pat6.getDrsRegWith());      
+        //assertEquals("Dr Winstone Zeddermore", pat6.getDrsRegWithAsStringAsUserNames());      
     } 
  
     @Test
