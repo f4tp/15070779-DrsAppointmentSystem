@@ -74,7 +74,10 @@ public class ActListLogUSerIn implements ActionListener {
                     JFrameLoginScreen.setVisibility(false);
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                       public void run() {
-                      JFramePatientMenu PatMenuMain = new JFramePatientMenu();
+                      
+                        JFramePatientMenu PatMenuMain = JFramePatientMenu.getInstance();
+                        //JFramePatientMenu PatMenuMain = new JFramePatientMenu();
+                       //SecMenuSingInst
                       PatMenuMain.setVisibility(true);
                       } 
                   });

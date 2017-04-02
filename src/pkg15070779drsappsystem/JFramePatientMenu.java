@@ -8,6 +8,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 public class JFramePatientMenu extends JFrame {
+    private static JFramePatientMenu PatMenuSingInst;
+    
     
     public JFramePatientMenu(){
         super ("Patient's menu");
@@ -23,6 +25,10 @@ public class JFramePatientMenu extends JFrame {
         exitItem.addActionListener(new ActLisExitProg ());
         fileMenu.add(exitItem);
         
+        JPanelPatientRecord JPanelPatrecMenNorth = JPanelPatientRecord.getInstance();
+        
+        
+        
         JFrameAbsBorLayFillScreen.applyLayout(this);
         
         /*
@@ -34,8 +40,25 @@ public class JFramePatientMenu extends JFrame {
       
         setVisible(true);
         */
+        
+        add(JPanelPatrecMenNorth, BorderLayout.NORTH);
+         //these have to be called otherwise the Jframe doesn't refresh and
+         //the menu doesn't display
+         
+        revalidate();
+        repaint();
     
     }
+    
+    
+    
+     public static JFramePatientMenu getInstance(){
+        if (PatMenuSingInst == null){
+            PatMenuSingInst = new JFramePatientMenu();
+                    }
+        return PatMenuSingInst;
+    }
+    
     
     public void setVisibility(boolean vis){
         
