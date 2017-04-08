@@ -24,9 +24,12 @@ public class JFramePatientMenu extends JFrame {
         JMenu fileMenu = new JMenu("File");
         pharmMenBar.add(fileMenu);
         
-        JMenuItem exitItem = new JMenuItem ("Exit");
-        exitItem.addActionListener(new ActLisExitProg ());
-        fileMenu.add(exitItem);
+        JMenuItem logOutItem = new JMenuItem ("Logout");
+        //logOutItem.addActionListener(new ActLisExitProg ());
+        logOutItem.addActionListener(new ActListLogOut());
+        fileMenu.add(logOutItem);
+        
+        
         
         
         
@@ -49,7 +52,7 @@ public class JFramePatientMenu extends JFrame {
         //JPanelPatrecMenNorth.setUpdateTextFields();
         
         add(JPanelPatrecMenNorth, BorderLayout.NORTH);
-        //JPanelPatrecMenNorth.setUpdateTextFields();
+   
         
         //these have to be called otherwise the Jframe doesn't refresh and
          //the menu doesn't display
