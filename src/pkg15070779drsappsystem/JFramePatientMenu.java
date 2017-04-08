@@ -42,9 +42,10 @@ public class JFramePatientMenu extends JFrame {
         */
         
         add(JPanelPatrecMenNorth, BorderLayout.NORTH);
-         //these have to be called otherwise the Jframe doesn't refresh and
+        
+        
+        //these have to be called otherwise the Jframe doesn't refresh and
          //the menu doesn't display
-         
         revalidate();
         repaint();
     

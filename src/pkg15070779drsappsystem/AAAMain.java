@@ -34,11 +34,11 @@ public class AAAMain {
            
         
         
-        pat1.setAddNewAppointment(pat1.getFullName(), new Date(1001001), 99200029, "gregory.house.01011911");
-        pat2.setAddNewAppointment(pat2.getFullName(), new Date(1991001), 99449595, "peter.venkman.01011912");
-        pat3.setAddNewAppointment(pat3.getFullName(), new Date(9022992), 67578584, "egon.spengler.01011913");
-        pat4.setAddNewAppointment(pat4.getFullName(), new Date(45563667), 33883883, "ray.stance.01011914");
-        pat5.setAddNewAppointment(pat5.getFullName(), new Date(33938837), 27728872, "winstone.zeddermore.01011915");
+        pat1.addNewAppointment(new Date(1001001), 99200029, "gregory.house.01011911");
+        pat2.addNewAppointment( new Date(1991001), 99449595, "peter.venkman.01011912");
+        pat3.addNewAppointment(new Date(9022992), 67578584, "egon.spengler.01011913");
+        pat4.addNewAppointment(new Date(45563667), 33883883, "ray.stance.01011914");
+        pat5.addNewAppointment(new Date(33938837), 27728872, "winstone.zeddermore.01011915");
         
         //pat1.setAddDrRegsWith("peter.venkman.1912");
         //pat2.setAddDrRegsWith("gregory.house.1911");

@@ -1,8 +1,8 @@
 package pkg15070779drsappsystem;
 import java.util.*;
-public class MainAppointment extends MainAbsAppointmentComponent {
+public final class MainAppointment extends MainAbsAppointmentComponent {
 //@@@@@@@@@@@ Instance Variables @@@@@@@@@@    
-    private String AppUniqueKey, patientName, appDrComments, appMedicine;
+    private String AppUniqueKey, patientUniqueID, patientFirstname,patientSurname, appDrComments, appMedicine;
     private String drAppWith;
     private Boolean appAttended,appCancelled; 
     private Date appDate;
@@ -10,13 +10,15 @@ public class MainAppointment extends MainAbsAppointmentComponent {
 
 //@@@@@@@@@@@ Constructors @@@@@@@@@@    
          
-    public MainAppointment(String patientname, Date appdate, long apptime, String drwith){
-        setCreateAppointment(patientname, appdate, apptime, drwith);
+    public MainAppointment(String patientfirstname, String patientsurname, String uniqueID, Date appdate, long apptime, String drwith){
+        setCreateAppointment(patientfirstname, patientsurname, uniqueID, appdate, apptime, drwith);
     }
     
-    public void setCreateAppointment(String patientname, Date appdate, long apptime, String drwith){
+    private void setCreateAppointment(String firstname, String surname, String uniqueid, Date appdate, long apptime, String drwith){
         this.AppUniqueKey = generateAppUniqueKey(); //creates a key for the map
-        this.patientName = patientname;
+        this.patientFirstname = firstname;
+        this.patientSurname = surname;
+        this.patientUniqueID = uniqueid;
         
         this.drAppWith = drwith; //patient needs regsitering with a Dr before this can be set
         

@@ -27,7 +27,6 @@ public class JPanelPatientRecord extends JPanel {
         JTextField JTFSurname = new JTextField();
         JTextField JTFdob = new JTextField();
         JTextField JTFContact = new JTextField();
-        
         JTextField JTFDrsRegsWith = new JTextField();
 
 
@@ -54,11 +53,11 @@ public class JPanelPatientRecord extends JPanel {
     }
     
     //set all textfields to the correct data;
-    private static void setPatientJPanel(){
-        
-    }
+    //private static void setPatientJPanel(){
+        //setUpdateTextField();
+    //}
     
-    public void setUpdatetextField(){
+    public void setUpdateTextField(){
         JTFTitle.setText(MainPatient.currentPatient.getTitle());
         JTFFirstName.setText(MainPatient.currentPatient.getFirstName());
         JTFSurname.setText(MainPatient.currentPatient.getSurname());

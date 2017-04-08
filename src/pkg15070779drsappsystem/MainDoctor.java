@@ -18,7 +18,7 @@ public class MainDoctor extends MainAbsSystemUserComponent {
     }
     
     public String setGenerateUniqueDrName(){
-        return super.getTitle(this) + " " + super.getFirstName(this)+ " " + super.getSurname(this); //creates a unique dr name 
+        return this.getTitle() + " " + this.getFirstName()+ " " + this.getSurname(); //creates a unique dr name 
     }
     
     public static String setGenerateUniqueDrNameStatic(String userID){

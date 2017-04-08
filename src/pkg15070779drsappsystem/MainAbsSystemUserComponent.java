@@ -1,7 +1,7 @@
 package pkg15070779drsappsystem;
 
 import java.util.*;
-public abstract class MainAbsSystemUserComponent {
+public abstract class MainAbsSystemUserComponent implements MainIntAbsUserComponent {
 //@@@@@@@@@@ class variables  @@@@@@@@@@
     protected static Map<String, MainAbsSystemUserComponent> mapSystemUsers = new HashMap<>();
     public static String currentUsername;
@@ -27,31 +27,38 @@ public abstract class MainAbsSystemUserComponent {
     
 //@@@@@@@@@@ getters  @@@@@@@@@@
     
+       public String getUserName(){
+        return this.strUserName;
+    }
+    
+    protected String getDOB(){
+        return this.dateOfBirth;
+    }
+    
+    public String getFirstName(){
+        return this.strFirstName;
+    }
+    
+    public String getSurname(){
+        return this.strSurname;
+    }
+    
+     public String getTitle(){
+        return this.strTitle;
+    }
+    
+    
+    
+    
      //returns a MainAbsSystemUserComponent object when passed a key
+    //used in adding Doctors to patient objects
+    //used in setting the system user preferences
      public static MainAbsSystemUserComponent getSystemUserComponent(String key){
          return mapSystemUsers.get(key);
      }
      
             
-    protected String getUserName(MainAbsSystemUserComponent sysUseObj){
-        return sysUseObj.strUserName;
-    }
-    
-    protected String getDOB(MainAbsSystemUserComponent sysUseObj){
-        return sysUseObj.dateOfBirth;
-    }
-    
-    protected String getFirstName(MainAbsSystemUserComponent uName){
-        return uName.strFirstName;
-    }
-    
-    protected String getSurname(MainAbsSystemUserComponent uName){
-        return uName.strSurname;
-    }
-    
-     protected String getTitle(MainAbsSystemUserComponent uName){
-        return uName.strTitle;
-    }
+ 
     
      //see if the login name is in the map, returns true if it is
     public static Boolean getCheckLogin(String userNamePassed) {
@@ -73,7 +80,7 @@ public abstract class MainAbsSystemUserComponent {
        
 
     public void setPutInMap(MainAbsSystemUserComponent passedIn){
-        String uname = getUserName(this);
+        String uname = this.getUserName();
         mapSystemUsers.put(uname,passedIn);
     }
     

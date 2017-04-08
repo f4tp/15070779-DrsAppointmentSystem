@@ -153,7 +153,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelFindPat.setVisible(false);
             JPanelDrsApps.setVisible(false);
             JPanelPatrecNorth.setVisible(true);
-            JPanelPatrecNorth.setUpdatetextField();
+            JPanelPatrecNorth.setUpdateTextField();
             JPanelPatrecSouth.setVisible(true);
             SecMenuSingInst.add(JPanelPatrecNorth, BorderLayout.NORTH);
             SecMenuSingInst.add(JPanelPatrecSouth, BorderLayout.CENTER);

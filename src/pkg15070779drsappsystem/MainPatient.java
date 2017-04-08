@@ -6,7 +6,7 @@ public class MainPatient extends MainAbsSystemUserComponent {
 //instance variables that are not essential to initialisation
     private String MedicalNotes;//comments about the patient, generated from appointment comments
     private MainAppointment newAppinstance; //object composition - new appointment object each time the patient
-    private String fullName;
+    private String firstName, surName, userID;
     private String contactDetail;
     
 //public static variables
@@ -46,59 +46,30 @@ public class MainPatient extends MainAbsSystemUserComponent {
         
     }
     
-    public void setAddNewAppointment(String name, Date appdate, long apptime, String drwith){
+    public void addNewAppointment(Date appdate, long apptime, String drwith){
        
-        String Name = name;
         Date appDate = appdate;
         long appTime = apptime;
         String drWith = drwith;
-        this.newAppinstance = new MainAppointment (Name, appDate, appTime, drWith);
+        this.newAppinstance = new MainAppointment (this.getFirstName(), this.getSurname(), this.getUserName(), appDate, appTime, drWith);
         
         this.lstPatientApps.add(newAppinstance.getAppUniqueKey());
         //added again again
     }
     
-// @@@@@@@@@@ getters @@@@@@@@@@
-    //when passed the username of a Doctor, it will return their Dr Name
-    private String getDoctorNameWithKy(String drUniqueKey){
-         return "CHANGE ME  " + drUniqueKey;
-    }
+// @@@@@@@@@@ getters for this subclass @@@@@@@@@@
     
-    private String getUserName(){
-        return super.getUserName(this);
-    }
-    
-    public String getFullName(){
-        return super.getFirstName(this) + " " + super.getSurname(this);
-    }
-    
-    
+
+//only patients have their contact details stored on system so this wasn't in the 
+//abstract class or interface    
     public String getContactDetail(){
-        return this.contactDetail;
+       return this.contactDetail;
     }
      
-     public String getTitle(){
-         return  super.getTitle(this);
-   
-     }
-     
-     public String getFirstName(){
-         return  super.getFirstName(this);
-   
-     }
-      public String getSurname(){
-         return  super.getSurname(this);
-   
-     }
-      
-      public String getDOB(){
-         return  super.getDOB(this);
-   
-     }
-    
-    
+        
     //@@@@@ needs to return a composite of all toString calls on the objects inside of the Doctors ArrayList @@@@@
-    public String getDrsRegWithAsStringAsUserNames(){ 
+    //for parts of the program which need to retireve all doctors a patient is registered with
+    /*public String getDrsRegWithAsStringAsUserNames(){ 
          String allDrs="";
         
          //iterator design pattern
@@ -113,10 +84,13 @@ public class MainPatient extends MainAbsSystemUserComponent {
             return "the patient is not registered with any doctors";
         }
         else {
-            return allDrs.substring(2);
+            return allDrs.substring(2); //substring(2) crops unwanted commas
         }
-    }
+   }
+     */
     
+    //for parts of the program which need to retrieve all doctors that a patient is registered with
+    //but as a string, not a list collection
     public String getDrsRegWithAsStringAsDrsnames(){ 
          String allDrs="";
         

@@ -17,7 +17,7 @@ public class MainPatientTest {
     } 
            
     @Test
-    public void testSetAddNewAppointment(){
+    public void testAddNewAppointment(){
             
     }
     
