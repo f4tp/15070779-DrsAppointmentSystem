@@ -8,6 +8,7 @@ public abstract interface MainIntAbsUserComponent {
     String getFirstName();
     String getSurname();
     String getTitle();
+    String getDOB();
     
     
             

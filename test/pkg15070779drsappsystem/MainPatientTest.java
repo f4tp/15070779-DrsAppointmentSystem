@@ -8,8 +8,8 @@ public class MainPatientTest {
                 
    //method not complete
     @Test
-    public void testSetAddDrRegsWith(){
-        //pat1.setAddDrRegsWith("peter.venkman.1912");
+    public void testAddDrRegsWith(){
+        //pat1.addDrRegsWith("peter.venkman.1912");
         //String datatoTest = pat1.getDrsRegWithAsStringAsUserNames();
         //assertEquals(true, datatoTest.contains("peter.venkman.1912"));
         

@@ -6,16 +6,16 @@ public class AAAMain {
     
         public static void main(String[] args) {
          
-        MainPatient pat1 = new MainPatient("Alan", "Turing","Mr", "01011900", "01234 567 890", "gregory.house.01011910");
-        MainPatient pat2 = new MainPatient("Donald", "Knuth","Mr", "01011901", "01234 567 890","peter.venkman.01011911");
-        MainPatient pat3 = new MainPatient("Grace", "Hopper","Mrs", "01011902", "01234 567 890","egon.spengler.01011912");
-        MainPatient pat4 = new MainPatient("Ada", "Lovelace","Miss", "01011903", "01234 567 890","ray.stance.01011913");
-        MainPatient pat5 = new MainPatient("Tim", "Berners-Lee","Mr", "01011904", "01234 567 890","winstone.zeddermore.01011914");
-        MainPatient pat6 = new MainPatient("Tony", "Hoare","Mr", "01011905", "01234 567 890","winstone.zeddermore.01011914");
-        MainPatient pat7 = new MainPatient("Claude", "Shannon","Mr", "01011906", "01234 567 890","winstone.zeddermore.01011914");
-        MainPatient pat8 = new MainPatient("Larry", "Page","Mr", "01011907", "01234 567 890","winstone.zeddermore.01011914");
-        MainPatient pat9 = new MainPatient("Hal", "Abeson","Mr", "01011908", "01234 567 890","winstone.zeddermore.01011914");
-        MainPatient pat10 = new MainPatient("Shafi", "Goldswasser","Mrs", "01011909", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat1 = new MainPatient("Mr", "Alan", "Turing", "01011900", "01234 567 890", "gregory.house.01011910");
+        MainPatient pat2 = new MainPatient("Mr", "Donald", "Knuth", "01011901", "01234 567 890","peter.venkman.01011911");
+        MainPatient pat3 = new MainPatient("Mrs", "Grace", "Hopper", "01011902", "01234 567 890","egon.spengler.01011912");
+        MainPatient pat4 = new MainPatient("Miss", "Ada", "Lovelace", "01011903", "01234 567 890","ray.stance.01011913");
+        MainPatient pat5 = new MainPatient("Mr", "Tim", "Berners-Lee", "01011904", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat6 = new MainPatient("Mr", "Tony", "Hoare","01011905", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat7 = new MainPatient("Mr","Claude", "Shannon","01011906", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat8 = new MainPatient("Mr","Larry", "Page", "01011907", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat9 = new MainPatient("Mr","Hal", "Abeson","01011908", "01234 567 890","winstone.zeddermore.01011914");
+        MainPatient pat10 = new MainPatient("Mr","Shafi", "Goldswasser","01011909", "01234 567 890","winstone.zeddermore.01011914");
         
         MainDoctor dr1 = new MainDoctor("Gregory", "House","Dr", "01011910", "Test");
         MainDoctor dr2 = new MainDoctor("Peter", "Venkman","Dr", "01011911", "Test");
@@ -40,12 +40,12 @@ public class AAAMain {
         pat4.addNewAppointment(new Date(45563667), 33883883, "ray.stance.01011914");
         pat5.addNewAppointment(new Date(33938837), 27728872, "winstone.zeddermore.01011915");
         
-        //pat1.setAddDrRegsWith("peter.venkman.1912");
-        //pat2.setAddDrRegsWith("gregory.house.1911");
-        //pat3.setAddDrRegsWith("peter.venkman.1912");
-        //pat4.setAddDrRegsWith("peter.venkman.1912");
-        //pat5.setAddDrRegsWith("peter.venkman.1912");
-        //pat1.setAddDrRegsWith("gregory.house.1911"); //a test to see if the validation is working - needs putting in the testing unit
+        //pat1.addDrRegsWith("peter.venkman.1912");
+        //pat2.addDrRegsWith("gregory.house.1911");
+        //pat3.addDrRegsWith("peter.venkman.1912");
+        //pat4.addDrRegsWith("peter.venkman.1912");
+        //pat5.addDrRegsWith("peter.venkman.1912");
+        //pat1.addDrRegsWith("gregory.house.1911"); //a test to see if the validation is working - needs putting in the testing unit
                
         
  //Login screen - should be first thing to see

@@ -3,6 +3,7 @@ package pkg15070779drsappsystem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import static pkg15070779drsappsystem.MainAbsSystemUserComponent.foundSystemUser;
 
 public class ActListFindPatient implements ActionListener {
     private JTextField TfFirstName; //holds text field passed in
@@ -65,8 +66,12 @@ public class ActListFindPatient implements ActionListener {
     //this checks the user id, and object type... it will set the MainPatient.currentPatient field 
     //as the current patient to work on if the user exists and it is of type MainPatient
     private void setAndCheckPatientFindPatient(String userid){
-        FoundPatient = MainAbsSystemUserComponent.getSystemUserComponent(userid);
         
+        MainAbsSystemUserComponent.setFoundUser(userid);
+        System.out.println(MainAbsSystemUserComponent.foundSystemUser);
+        FoundPatient = MainAbsSystemUserComponent.getSystemUserComponent(userid);
+                //MainAbsSystemUserComponent.getSystemUserComponent(userid);
+        System.out.println(FoundPatient);
         //if a user has been found...
         if (FoundPatient != null) {
             

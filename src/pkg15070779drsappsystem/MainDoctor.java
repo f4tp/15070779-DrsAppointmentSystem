@@ -3,18 +3,44 @@ package pkg15070779drsappsystem;
 import java.util.*;
 
 
-public class MainDoctor extends MainAbsSystemUserComponent {
+public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbsUserComponent  {
     private String apptest;
     //private static Map<String, MainAbsSystemUserComponent> mapDoctors = new HashMap<>(); //holds all doctor system users
+    private String strTitle, strFirstName, strSurname, strDOB, strKeyUserNamel;
     private static List<String> lstDoctors = new ArrayList <>();
     private String uniqueDrName;
     public MainDoctor(String fname, String sname, String title, String dob, String newer){
-        //needs to be in subclasses when abstract
-        super(fname, sname, title, dob);
-        //this.apptest = newer;
+     
+        strTitle = title;
+        strFirstName = fname;
+        strSurname = sname;
+        strDOB = dob;
+        strKeyUserNamel = setGenerateUsername(this.strFirstName, this.strSurname, this.strDOB);
+        setPutInMap(this.strKeyUserNamel, this); //add the user object to the map
+        
         this.uniqueDrName = this.setGenerateUniqueDrName();
-        setAddDoctorToMaps(this.uniqueDrName,this);
         lstDoctors.add(setGenerateUniqueDrName());
+    }
+    
+    
+    
+    //@@@@@@@@@@ interface getters @@@@@@@@@@
+    public String getUserName(){
+        return this.strKeyUserNamel;
+    }
+    
+    public String getTitle(){
+        return this.strTitle;
+    }
+    public String getFirstName(){
+        return this.strFirstName;
+    }
+    public String getSurname(){
+        return this.strSurname;
+    }
+
+    public String getDOB(){
+        return this.strDOB;
     }
     
     public String setGenerateUniqueDrName(){
@@ -31,13 +57,7 @@ public class MainDoctor extends MainAbsSystemUserComponent {
         return lstDoctors;
     }
         
-    private void setAddDoctorToMaps(String uniqDrName, MainDoctor doc){
-        //mapDoctors.put(uniqDrName,this); //add to Dr composite (Map) - sub composite of system user Map
-        //lstDoctors.add(apptest)
-        setPutInMap(this); //add to System user composite (Map)
-        
-    }
-    
+       
    
     
     //@Override
