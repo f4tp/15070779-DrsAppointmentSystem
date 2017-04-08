@@ -3,12 +3,13 @@ package pkg15070779drsappsystem;
 import java.awt.event.*;
 import javax.swing.*;
 
+
 public class ActListLogUSerIn implements ActionListener {
     //takes the username from a textfield, checks to see if the username exists in the
     //system
    
     //textfield passed in so username can be taken from here
-    private final JTextField INPUTTEXT;
+    private JTextField INPUTTEXT;
   
     
     public ActListLogUSerIn(JTextField InpText){
@@ -32,7 +33,12 @@ public class ActListLogUSerIn implements ActionListener {
         else{
             //set the current system user to whoever has just logged in
             MainAbsSystemUserComponent.currentSystemUser = 
-                    MainAbsSystemUserComponent.getSystemUserComponent(lowerCaseUserName); //polymorphism in here
+                    MainAbsSystemUserComponent.getSystemUserComponent(lowerCaseUserName); 
+                    
+
+                //polymorphism here, object is initialised with subtype -
+                //this subtype is checked to pull up the correct JFrame adhering to
+                //the user type
             
               //opens the correct menu when the type of object is discovered
               if (MainAbsSystemUserComponent.currentSystemUser instanceof MainSecretary){
@@ -48,6 +54,28 @@ public class ActListLogUSerIn implements ActionListener {
                     });
                
             }
+              
+              
+              else if (MainAbsSystemUserComponent.currentSystemUser instanceof MainPatient){
+                    JFrameLoginScreen.setVisibility(false);
+                    javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                      public void run() {
+                        MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.currentSystemUser;     
+                        JFramePatientMenu PatMenuMain = JFramePatientMenu.getInstance();
+                        
+                        //JFramePatientMenu PatMenuMain = new JFramePatientMenu();
+                       //SecMenuSingInst
+                       
+                       
+                      //PatMenuMain.setVisibility(true);
+                      } 
+                  });
+              }
+              
+              
+              
+              
+              
               
               else if (MainAbsSystemUserComponent.currentSystemUser instanceof MainDoctor){
                     JFrameLoginScreen.setVisibility(false);
@@ -70,18 +98,7 @@ public class ActListLogUSerIn implements ActionListener {
                   });
               }
               
-              else if (MainAbsSystemUserComponent.currentSystemUser instanceof MainPatient){
-                    JFrameLoginScreen.setVisibility(false);
-                    javax.swing.SwingUtilities.invokeLater(new Runnable() {
-                      public void run() {
-                      
-                        JFramePatientMenu PatMenuMain = JFramePatientMenu.getInstance();
-                        //JFramePatientMenu PatMenuMain = new JFramePatientMenu();
-                       //SecMenuSingInst
-                      PatMenuMain.setVisibility(true);
-                      } 
-                  });
-              }
+            
             
         }
     }

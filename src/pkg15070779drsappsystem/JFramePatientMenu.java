@@ -15,6 +15,9 @@ public class JFramePatientMenu extends JFrame {
         super ("Patient's menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        JPanelPatientRecord JPanelPatrecMenNorth = JPanelPatientRecord.getInstance();
+        JPanelPatrecMenNorth.setUpdateTextFields();
+        
         JMenuBar pharmMenBar = new JMenuBar();
         setJMenuBar(pharmMenBar);
         
@@ -25,11 +28,14 @@ public class JFramePatientMenu extends JFrame {
         exitItem.addActionListener(new ActLisExitProg ());
         fileMenu.add(exitItem);
         
-        JPanelPatientRecord JPanelPatrecMenNorth = JPanelPatientRecord.getInstance();
+        
         
         
         
         JFrameAbsBorLayFillScreen.applyLayout(this);
+ 
+        
+        
         
         /*
         setLayout (new BorderLayout ());
@@ -40,15 +46,18 @@ public class JFramePatientMenu extends JFrame {
       
         setVisible(true);
         */
+        //JPanelPatrecMenNorth.setUpdateTextFields();
         
         add(JPanelPatrecMenNorth, BorderLayout.NORTH);
-        
+        //JPanelPatrecMenNorth.setUpdateTextFields();
         
         //these have to be called otherwise the Jframe doesn't refresh and
          //the menu doesn't display
+        setVisible(true);
+      
         revalidate();
         repaint();
-    
+   
     }
     
     
@@ -56,7 +65,7 @@ public class JFramePatientMenu extends JFrame {
      public static JFramePatientMenu getInstance(){
         if (PatMenuSingInst == null){
             PatMenuSingInst = new JFramePatientMenu();
-                    }
+        }
         return PatMenuSingInst;
     }
     

@@ -79,7 +79,7 @@ public class JFrameSecretaryMenu extends JFrame {
     public static JFrameSecretaryMenu getInstance(){
         if (SecMenuSingInst == null){
             SecMenuSingInst = new JFrameSecretaryMenu();
-                    }
+        }
         return SecMenuSingInst;
     }
     
@@ -90,7 +90,8 @@ public class JFrameSecretaryMenu extends JFrame {
     }
     
     private void setSouthBorderPanel(){
-         //@@@@@@@@@@ all this needs to be done dynamically, create the objects when they are called (factory design pattern I think)
+         //@@@@@@@@@@ TO DO - refactoring all this needs to be done dynamically, 
+         //create the objects when they are called (factory design pattern I think)
         JPanelReportsAppAtt JPanelAppsAtt = JPanelReportsAppAtt.getInstance();
         JPanelReportsDrsApps JPanelDrsApps = JPanelReportsDrsApps.getInstance(); 
         JPanelReportsPresrcips JPanelPrescs= JPanelReportsPresrcips.getInstance();
@@ -153,7 +154,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelFindPat.setVisible(false);
             JPanelDrsApps.setVisible(false);
             JPanelPatrecNorth.setVisible(true);
-            JPanelPatrecNorth.setUpdateTextField();
+            JPanelPatrecNorth.setUpdateTextFields();
             JPanelPatrecSouth.setVisible(true);
             SecMenuSingInst.add(JPanelPatrecNorth, BorderLayout.NORTH);
             SecMenuSingInst.add(JPanelPatrecSouth, BorderLayout.CENTER);
