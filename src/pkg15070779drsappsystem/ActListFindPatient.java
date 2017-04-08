@@ -3,7 +3,7 @@ package pkg15070779drsappsystem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import static pkg15070779drsappsystem.MainAbsSystemUserComponent.foundSystemUser;
+
 
 public class ActListFindPatient implements ActionListener {
     private JTextField TfFirstName; //holds text field passed in
@@ -59,19 +59,18 @@ public class ActListFindPatient implements ActionListener {
     //generates the username to search for
     private void setGenerateUserName(){
             this.userIdForMap = this.TfFirstName.getText().toLowerCase()+ "." + this.TfSurName.getText().toLowerCase() + "." + this.TfDob.getText().toLowerCase();
-            System.out.println(this.userIdForMap);
-    
+            
     }
     
     //this checks the user id, and object type... it will set the MainPatient.currentPatient field 
     //as the current patient to work on if the user exists and it is of type MainPatient
     private void setAndCheckPatientFindPatient(String userid){
         
-        MainAbsSystemUserComponent.setFoundUser(userid);
-        System.out.println(MainAbsSystemUserComponent.foundSystemUser);
+        //MainAbsSystemUserComponent.setFoundSystemUser(userid);
+        
         FoundPatient = MainAbsSystemUserComponent.getSystemUserComponent(userid);
                 //MainAbsSystemUserComponent.getSystemUserComponent(userid);
-        System.out.println(FoundPatient);
+      
         //if a user has been found...
         if (FoundPatient != null) {
             
@@ -82,10 +81,8 @@ public class ActListFindPatient implements ActionListener {
                 //MainPatient.currentPatient = (MainPatient) FoundPatient; //convert to patient object
                 
                 MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
-                System.out.println(MainPatient.currentPatient);
-                System.out.println(MainAbsSystemUserComponent.getSystemUserComponent("alan.turing.01011901"));
                 JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
-                SecMenuRef.setSouthBorderString("DisplayPatientDetails");
+                SecMenuRef.setSecSouthBorderString("DisplayPatientDetails");
                 
                 
             }

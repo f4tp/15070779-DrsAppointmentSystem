@@ -13,6 +13,8 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
     public static MainPatient currentPatient; //holds the current patient that any class is working on / with
     //does not hold an instance, acts as a pointer to the main object
     
+    
+    
 //collections of objects that the patient has to have one of
     private List<String> lstStrDrsRegsWith; //list of Doctors for each patient - stores dr username, can use this to return doctor name
 //collections of objects that the patient might have / are all optional
@@ -28,7 +30,7 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
         this.strDOB = dob;
         this.strContactDetail = telnum;
         this.lstStrDrsRegsWith  = new ArrayList<>(); //each patient gets a new list to store dr username
-        addDrRegsWith(dronfile); //forces at least one dr to be registered
+        this.initialiseDrsRegsWith(dronfile); //forces at least one dr to be registered
         this.lstStrPatientApps = new ArrayList<>(); //each paient gets a new arraylist of appointments
         this.strKeyUserName = setGenerateUsername(this.strFirstName, this.strSurname, this.strDOB);
         setPutInMap(this.strKeyUserName, this); //add the user object to the map
@@ -58,7 +60,9 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
     
         @Override
     public String toString () {
-        return "UserName: " + strKeyUserName + ", Details: " + this.getTitle() + " " + this.getFirstName() + " " +this. getSurname() + ", Year of Birth: " + this.getDOB() + " Object Type: " + super.toString();
+        return "UserName: " + strKeyUserName + ", Details: " + this.getTitle() + " " + this.getFirstName() + 
+                " " +this. getSurname() + ", Year of Birth: " + this.getDOB() + " Object Type: " + super.toString() + 
+                " Drs regs. With: " + this.getDrsRegWithAsStringAsDrsnames();
     }
     
  
@@ -66,7 +70,18 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
     
 //@@@@@@@@@@ SETTERS @@@@@@@@@@    
     //adds the username of a new dr that the patient will be regsitered with to the list
-    public void addDrRegsWith(String drToAdd){
+    
+     public static void setFoundPatient(String key){
+         //polymorphism - sets object subtype here
+          currentPatient = (MainPatient)MainAbsSystemUserComponent.getSystemUserComponent(key);
+     }
+    
+    
+    public void initialiseDrsRegsWith(String drToAdd){
+                  this.lstStrDrsRegsWith.add(drToAdd);
+     }
+    
+    public  void addDrRegsWith(String drToAdd,  String keyToUpdate){
         if (this.lstStrDrsRegsWith.contains(drToAdd)){
             JOptionPane.showMessageDialog (null,"The patient is already registered with this Dr",
                 "Dr Already Registered With Patient",
@@ -75,6 +90,9 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
         else {
             this.lstStrDrsRegsWith.add(drToAdd);
         }
+        //will update the existing record - with new Doctor in the list
+        MainAbsSystemUserComponent.setPutInMap(keyToUpdate, this);
+        
                 
     }
     
@@ -131,10 +149,14 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
          String allDrs="";
         
          //iterator design pattern
-        for (String Drs : this.lstStrDrsRegsWith) {                        // <4>
-            System.out.println (Drs);
-            MainDoctor drgenerator = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(Drs);
-            allDrs = drgenerator.setGenerateUniqueDrName() + ",";
+       
+         
+        for (String Drs : this.lstStrDrsRegsWith) {
+        
+            //MainDoctor drgenerator = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(Drs);
+        
+            //allDrs = drgenerator.getUserName() + ",";
+            allDrs = allDrs + ", " + Drs;
          
         }
         
@@ -142,7 +164,7 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
             return "the patient is not registered with any doctors";
         }
         else {
-            return allDrs;
+            return allDrs.substring(2);
             //.substring(2)
         }
     }

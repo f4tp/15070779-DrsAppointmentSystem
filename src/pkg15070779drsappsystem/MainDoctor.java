@@ -6,27 +6,30 @@ import java.util.*;
 public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbsUserComponent  {
     private String apptest;
     //private static Map<String, MainAbsSystemUserComponent> mapDoctors = new HashMap<>(); //holds all doctor system users
-    private String strTitle, strFirstName, strSurname, strDOB, strKeyUserNamel;
+    private String strTitle, strFirstName, strSurname, strDOB, strKeyUserName;
     private static List<String> lstDoctors = new ArrayList <>();
-    private String uniqueDrName;
+    
+    //private String strUniqueDrName;
     public MainDoctor(String fname, String sname, String title, String dob, String newer){
      
-        strTitle = title;
-        strFirstName = fname;
-        strSurname = sname;
-        strDOB = dob;
-        strKeyUserNamel = setGenerateUsername(this.strFirstName, this.strSurname, this.strDOB);
-        setPutInMap(this.strKeyUserNamel, this); //add the user object to the map
+        this.strTitle = title;
+        this.strFirstName = fname;
+        this.strSurname = sname;
+        this.strDOB = dob;
+        this.strKeyUserName = setGenerateUsername(this.strFirstName, this.strSurname, this.strDOB);
+      
+        //this.strUniqueDrName = this.setGenerateUniqueDrName();
+       // System.out.println(strUniqueDrName);
+        lstDoctors.add(strKeyUserName);
+         setPutInMap(this.strKeyUserName, this); //add the user object to the map
         
-        this.uniqueDrName = this.setGenerateUniqueDrName();
-        lstDoctors.add(setGenerateUniqueDrName());
     }
     
     
     
     //@@@@@@@@@@ interface getters @@@@@@@@@@
     public String getUserName(){
-        return this.strKeyUserNamel;
+        return this.strKeyUserName;
     }
     
     public String getTitle(){
@@ -43,9 +46,10 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         return this.strDOB;
     }
     
-    public String setGenerateUniqueDrName(){
-        return this.getTitle() + " " + this.getFirstName()+ " " + this.getSurname(); //creates a unique dr name 
-    }
+    //public String setGenerateUniqueDrName(){
+        //return this.getTitle() + " " + this.getFirstName()+ " " + this.getSurname(); //creates a unique dr name 
+        
+    //}
     
     public static String setGenerateUniqueDrNameStatic(String userID){
         
@@ -56,6 +60,8 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
                        
         return lstDoctors;
     }
+    
+    
         
        
    

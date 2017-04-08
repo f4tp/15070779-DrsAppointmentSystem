@@ -1,12 +1,15 @@
 package pkg15070779drsappsystem;
 
 import java.util.*;
+import static jdk.nashorn.internal.objects.NativeArray.map;
 public abstract class MainAbsSystemUserComponent {
 //@@@@@@@@@@ class variables  @@@@@@@@@@
     protected static Map<String, MainAbsSystemUserComponent> mapSystemUsers = new HashMap<>();
     
     public static MainAbsSystemUserComponent currentSystemUser; //polymorphism - this will be initialised with an object of its subtype
-    public static MainAbsSystemUserComponent foundSystemUser; //polymorphism - this will be initialised with an object of its subtype
+    //public static MainAbsSystemUserComponent foundSystemUser; //polymorphism - this will be initialised with an object of its subtype
+    
+    
     public static String currentUsername;
 //@@@@@@@@@@ instance variables  @@@@@@@@@@
     
@@ -64,21 +67,37 @@ public abstract class MainAbsSystemUserComponent {
           currentSystemUser = getSystemUserComponent(key);
      }
      
-     public static void setFoundUser(String key){
+     
+     //will return a doctor object when passed a value that the doctor will have in it
+     //can use to get the key from the Doctor name that will appear in the combo box
+     public static Object resolvekeyWithDrName(Object drname){
+         
+        // if(mapSystemUsers.containsValue(drname)){
+           for (Object o : mapSystemUsers.keySet()) {
+                if (mapSystemUsers.get(o).equals(drname)) {
+                    return o;
+                }
+            }
+                return null;
+        // }		
+
+    }
+     
+     
+     //public static void setFoundSystemUser(String key){
          //polymorphism - sets object subtype here
-          foundSystemUser = getSystemUserComponent(key);
-     }
+         // foundSystemUser = getSystemUserComponent(key);
+     //}
      
-  
+    
      
- 
+
     
      //see if the login name is in the map, returns true if it is
     public static Boolean getCheckLogin(String userNamePassed) {
         if (mapSystemUsers.containsKey(userNamePassed)){
             currentUsername = userNamePassed;
             currentSystemUser = getSystemUserComponent(userNamePassed);
-            System.out.println(currentSystemUser);
             return true;
         }
         else {;
@@ -94,7 +113,7 @@ public abstract class MainAbsSystemUserComponent {
 
     public static void setPutInMap(String key, MainAbsSystemUserComponent passedIn){
          mapSystemUsers.put(key, passedIn);
-         System.out.println(key);
+
     }
     
 //@@@@@@@@@@ Other methods @@@@@@@@@@

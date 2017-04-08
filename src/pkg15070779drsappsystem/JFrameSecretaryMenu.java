@@ -8,7 +8,7 @@ public class JFrameSecretaryMenu extends JFrame {
     private static JFrameSecretaryMenu SecMenuSingInst;
     
     //holds the string to tell the menu which south border to display
-    private static String currentSouthBordPanel; 
+    private static String currenSecNorthBordPanel; 
     
     
     private JFrameSecretaryMenu(){
@@ -84,12 +84,12 @@ public class JFrameSecretaryMenu extends JFrame {
     }
     
     
-    public void setSouthBorderString(String paneltoset){
-        currentSouthBordPanel = paneltoset;
-        SecMenuSingInst.setSouthBorderPanel();
+    public void setSecSouthBorderString(String paneltoset){
+        currenSecNorthBordPanel = paneltoset;
+        SecMenuSingInst.setSecNorthBorderPanel();
     }
     
-    private void setSouthBorderPanel(){
+    private void setSecNorthBorderPanel(){
          //@@@@@@@@@@ TO DO - refactoring all this needs to be done dynamically, 
          //create the objects when they are called (factory design pattern I think)
         JPanelReportsAppAtt JPanelAppsAtt = JPanelReportsAppAtt.getInstance();
@@ -97,49 +97,55 @@ public class JFrameSecretaryMenu extends JFrame {
         JPanelReportsPresrcips JPanelPrescs= JPanelReportsPresrcips.getInstance();
         JPanelFindPatient JPanelFindPat = JPanelFindPatient.getInstance();
         JPanelPatientRecord JPanelPatrecNorth = JPanelPatientRecord.getInstance();
-        JPanelPatRecButtonPanel JPanelPatrecSouth = JPanelPatRecButtonPanel.getInstance();
+        JPanelPatientRecordButPan JPanelPatrecSouth = JPanelPatientRecordButPan.getInstance();
+        JPanelPatientAddDoctor JPanelPatAddDoc = JPanelPatientAddDoctor.getInstance();
         
         //"FindPatients"
-        if (currentSouthBordPanel == "MonthlyApssAtt"){
+        if (currenSecNorthBordPanel == "MonthlyApssAtt"){
             JPanelDrsApps.setVisible(false);
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelPatrecNorth.setVisible(false);
             JPanelPatrecSouth.setVisible(false);
             JPanelAppsAtt.setVisible(true);
+            JPanelPatAddDoc.setVisible(false);
             SecMenuSingInst.add(JPanelAppsAtt, BorderLayout.NORTH);
       
         }
        
-        if (currentSouthBordPanel == "MonthAppPerDr"){
+        if (currenSecNorthBordPanel == "MonthAppPerDr"){
             JPanelAppsAtt.setVisible(false);
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelPatrecNorth.setVisible(false);
             JPanelPatrecSouth.setVisible(false);
+             JPanelPatAddDoc.setVisible(false);
             JPanelDrsApps.setVisible(true);
+           
             SecMenuSingInst.add(JPanelDrsApps, BorderLayout.NORTH);
             
         }
         
-        if (currentSouthBordPanel == "MonthlyPrescs"){
+        if (currenSecNorthBordPanel == "MonthlyPrescs"){
             JPanelAppsAtt.setVisible(false);
             JPanelDrsApps.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelPatrecNorth.setVisible(false);
             JPanelPatrecSouth.setVisible(false);
+             JPanelPatAddDoc.setVisible(false);
             JPanelPrescs.setVisible(true);
             
             SecMenuSingInst.add(JPanelPrescs, BorderLayout.NORTH);
                 
         }
         
-        if (currentSouthBordPanel == "FindPatients"){
+        if (currenSecNorthBordPanel == "FindPatients"){
             JPanelAppsAtt.setVisible(false);
             JPanelDrsApps.setVisible(false);
             JPanelPrescs.setVisible(false);
             JPanelPatrecNorth.setVisible(false);
             JPanelPatrecSouth.setVisible(false);
+             JPanelPatAddDoc.setVisible(false);
             JPanelFindPat.setVisible(true);
             
             SecMenuSingInst.add(JPanelFindPat, BorderLayout.NORTH);
@@ -148,11 +154,13 @@ public class JFrameSecretaryMenu extends JFrame {
         }
         
         
-        if (currentSouthBordPanel == "DisplayPatientDetails"){
+        if (currenSecNorthBordPanel == "DisplayPatientDetails"){
             JPanelAppsAtt.setVisible(false);
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelDrsApps.setVisible(false);
+            JPanelPatAddDoc.setVisible(false);
+            
             JPanelPatrecNorth.setVisible(true);
             JPanelPatrecNorth.setUpdateTextFields();
             JPanelPatrecSouth.setVisible(true);
@@ -160,6 +168,18 @@ public class JFrameSecretaryMenu extends JFrame {
             SecMenuSingInst.add(JPanelPatrecSouth, BorderLayout.CENTER);
             
             
+        }
+        
+         if (currenSecNorthBordPanel == "AddDocsPanel"){
+            JPanelDrsApps.setVisible(false);
+            JPanelPrescs.setVisible(false);
+            JPanelFindPat.setVisible(false);
+            JPanelPatrecNorth.setVisible(false);
+            JPanelPatrecSouth.setVisible(false);
+            JPanelAppsAtt.setVisible(false);
+             JPanelPatAddDoc.setVisible(true);
+            SecMenuSingInst.add(JPanelPatAddDoc, BorderLayout.NORTH);
+      
         }
         
         //these have to be called otherwise the Jframe doesn't refresh and

@@ -18,7 +18,7 @@ public class ActListRunReport implements ActionListener {
          //get the single instance of the Sec menu and call the method on it 
         //with the right border to set - passed in from the menu option
         JFrameSecretaryMenu holder = JFrameSecretaryMenu.getInstance();
-        holder.setSouthBorderString(this.typeOfReport);
+        holder.setSecSouthBorderString(this.typeOfReport);
         
     }
     
