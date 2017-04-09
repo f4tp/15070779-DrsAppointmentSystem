@@ -81,18 +81,20 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
                   this.lstStrDrsRegsWith.add(drToAdd);
      }
     
-    public  void addDrRegsWith(String drToAdd,  String keyToUpdate){
+    public  Boolean addDrRegsWith(String drToAdd,  String keyToUpdate){
         if (this.lstStrDrsRegsWith.contains(drToAdd)){
             JOptionPane.showMessageDialog (null,"The patient is already registered with this Dr",
                 "Dr Already Registered With Patient",
                 JOptionPane.ERROR_MESSAGE);
+            return false;
         }
         else {
             this.lstStrDrsRegsWith.add(drToAdd);
-        }
-        //will update the existing record - with new Doctor in the list
-        MainAbsSystemUserComponent.setPutInMap(keyToUpdate, this);
         
+            //will update the existing record - with new Doctor in the list
+            MainAbsSystemUserComponent.setPutInMap(keyToUpdate, this);
+            return true;
+        }
                 
     }
     

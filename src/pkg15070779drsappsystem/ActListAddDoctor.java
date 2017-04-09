@@ -16,18 +16,11 @@ public class ActListAddDoctor implements ActionListener {
     public void actionPerformed(ActionEvent e) {
       
         docToAdd = drsComboBox.getSelectedItem().toString();
-        System.out.println(docToAdd);
-   
-       //if (MainAbsSystemUserComponent.foundSystemUser instanceof MainPatient){
-           System.out.println(MainPatient.currentPatient);
-           
-                 
-               MainPatient.currentPatient.addDrRegsWith(docToAdd, MainPatient.currentPatient.getUserName());
-              System.out.println("hhhh " + MainPatient.currentPatient.toString());
-        //}
-        
-        JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
+       if (MainPatient.currentPatient.addDrRegsWith(docToAdd, MainPatient.currentPatient.getUserName()) == true){
+            JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
         SecMenuRef.setSecSouthBorderString("DisplayPatientDetails");
+       }
+       
     }
     
 }
