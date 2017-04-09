@@ -8,8 +8,10 @@ public class MainAbsSystemUserComponentTest {
     
     //@@@@@ need to write
     @Test
-    public void testSetSystemUser(){
-        
+    public void testSetCurrentSystemUser(){
+        MainAbsSystemUserComponent testUser = new MainPatient("Sandra", "BEans", "Mrs", "01011901", "01234 567 890", "01011900");
+        MainAbsSystemUserComponent.setCurrentSystemUser("sandra.beans.01011901");
+        assertEquals(true, testUser.getCheckLogin("sandra.beans.01011901"));
     } 
     
     //called indirectly so testign not needed
@@ -37,22 +39,15 @@ public class MainAbsSystemUserComponentTest {
     
     }
        
-    @Test
-    public void testGetusername(){
-        MainAbsSystemUserComponent testUser = new MainPatient("Sandra", "BEans", "Mrs", "01011901", "01234 567 890", "More data");
-        assertEquals("sandra.beans.01011901", testUser.getUserName(testUser));
-    }
-    
-    
-    
+
     @Test
     public void testCheckLogin(){
                        
-        MainAbsSystemUserComponent testUser = new MainPatient("Sandra", "BEans", "Mrs", "01011901", "01234 567 890", "More data");
+        MainAbsSystemUserComponent testUser = new MainPatient("Miss", "Sandra", "BEans",  "01011901", "01234 567 890", "sandra.beans.01011901");
         assertEquals(true, testUser.getCheckLogin("sandra.beans.01011901"));
         
-       MainAbsSystemUserComponent testUser2 = new MainPatient("Emily", "PETER", "Mrs", "01011901", "01234 567 890", "More data");
-       assertEquals(false, testUser2.getCheckLogin("norma.peters.01011901"));
+       MainAbsSystemUserComponent testUser2 = new MainPatient("Miss", "Emily", "peters",  "01011902", "01234 567 890", "sandra.beans.01011902");
+       assertEquals(false, testUser2.getCheckLogin("norma.peters.01011902"));
     }
     
    

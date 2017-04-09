@@ -27,11 +27,11 @@ public class MainAbsAppointmentComponentTest {
         MainDoctor dr4 = new MainDoctor("Ray", "Stance","Dr", "01011913", "Test");
         MainDoctor dr5 = new MainDoctor("Winstone", "Zeddermore","Dr", "01011914", "Test");
         
-        pat1.addNewAppointment(pat1.getFullName(), new Date(1001001), 99200029, "gregory.house.01011910");
-        pat2.addNewAppointment(pat2.getFullName(), new Date(1991001), 99449595, "peter.venkman.01011911");
-        pat3.addNewAppointment(pat3.getFullName(), new Date(9022992), 67578584, "egon.spengler.01011912");
-        pat4.addNewAppointment(pat4.getFullName(), new Date(45563667), 33883883, "ray.stance.01011913");
-        pat5.addNewAppointment(pat5.getFullName(), new Date(33938837), 27728872, "winstone.zeddermore.01011914");
+       // pat1.addNewAppointment(pat1.getFullName(), new Date(1001001), 99200029, "gregory.house.01011910");
+       // pat2.addNewAppointment(pat2.getFullName(), new Date(1991001), 99449595, "peter.venkman.01011911");
+       // pat3.addNewAppointment(pat3.getFullName(), new Date(9022992), 67578584, "egon.spengler.01011912");
+        //pat4.addNewAppointment(pat4.getFullName(), new Date(45563667), 33883883, "ray.stance.01011913");
+       // pat5.addNewAppointment(pat5.getFullName(), new Date(33938837), 27728872, "winstone.zeddermore.01011914");
         
         //assertEquals("hello", pat1.getAppointment("Appointment1")); needs looking at
     }

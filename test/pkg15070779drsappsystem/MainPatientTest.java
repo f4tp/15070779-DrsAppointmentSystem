@@ -28,16 +28,12 @@ public class MainPatientTest {
     }
     
     
-    @Test
-    public void testgetFullName(){
-    MainPatient pat1 = new MainPatient("Alan", "Turing","Mr", "01011901", "01234 567 890", "gregory.house.01011910");
-    assertEquals("Alan Turing", pat1.getFullName()); 
-    }
+   
     
     @Test
     public void testgetUserName(){
-    MainPatient pat1 = new MainPatient("Alan", "Turing","Mr", "01011901", "01234 567 890", "gregory.house.01011910");
-    assertEquals("alan.turing.01011901", pat1.getUserName(pat1)); 
+    MainPatient pat1 = new MainPatient("Mr", "Alan", "Turing", "01011901", "01234 567 890", "gregory.house.01011910");
+    assertEquals("alan.turing.01011901", pat1.getUserName()); 
     }
     
     //method not complete
