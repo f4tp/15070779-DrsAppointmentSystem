@@ -3,10 +3,10 @@ package pkg15070779drsappsystem;
 
 import javax.swing.*;
 
-public class JPanelPatientRecordButPan extends JPanel {
-    public static JPanelPatientRecordButPan JPanButRecInst;
+public class JPanelPatientRecButPanSEC extends JPanel {
+    public static JPanelPatientRecButPanSEC JPanButRecInst;
     
-    private JPanelPatientRecordButPan(){
+    private JPanelPatientRecButPanSEC(){
         
         setBorder(BorderFactory.createEmptyBorder(100,0,0,0));
         //default has flow layout, so just add buttons
@@ -22,9 +22,9 @@ public class JPanelPatientRecordButPan extends JPanel {
     }
     
     //singleton object generation here
-    public static JPanelPatientRecordButPan getInstance(){
+    public static JPanelPatientRecButPanSEC getInstance(){
          if (JPanButRecInst == null){
-            JPanButRecInst = new JPanelPatientRecordButPan();
+            JPanButRecInst = new JPanelPatientRecButPanSEC();
         }
   
         return JPanButRecInst;

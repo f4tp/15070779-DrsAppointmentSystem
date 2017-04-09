@@ -97,7 +97,7 @@ public class JFrameSecretaryMenu extends JFrame {
         JPanelReportsPresrcips JPanelPrescs= JPanelReportsPresrcips.getInstance();
         JPanelFindPatient JPanelFindPat = JPanelFindPatient.getInstance();
         JPanelPatientRecord JPanelPatrecNorth = JPanelPatientRecord.getInstance();
-        JPanelPatientRecordButPan JPanelPatrecSouth = JPanelPatientRecordButPan.getInstance();
+        JPanelPatientRecButPanSEC JPanelPatrecSouth = JPanelPatientRecButPanSEC.getInstance();
         JPanelPatientAddDoctor JPanelPatAddDoc = JPanelPatientAddDoctor.getInstance();
         
         //"FindPatients"

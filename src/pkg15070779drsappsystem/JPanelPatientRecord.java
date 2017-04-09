@@ -35,7 +35,7 @@ public class JPanelPatientRecord extends JPanel {
         //JButton btnAllApps = new JButton("View All appointments");
         //JButton btnNewApp = new JButton("New Appointment");
         JPanelTwelveGridView patientScreen = new JPanelTwelveGridView(lblTitle, JTFTitle, lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob, lblContact, JTFContact, lblDrsRegsWith, JTFDrsRegsWith);
-
+        JPanelPatientRecButPanPAT patientButtons = JPanelPatientRecButPanPAT.getInstance();
     
     private JPanelPatientRecord(){
      
@@ -43,6 +43,7 @@ public class JPanelPatientRecord extends JPanel {
         setLayout (new BorderLayout ());
         
         add(patientScreen, BorderLayout.NORTH);
+         add(patientButtons, BorderLayout.CENTER);
         
 
     }

@@ -58,11 +58,11 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
  //@@@@@@@@@@ class specific getters @@@@@@@@@@
     
     
-        @Override
+    @Override
     public String toString () {
         return "UserName: " + strKeyUserName + ", Details: " + this.getTitle() + " " + this.getFirstName() + 
-                " " +this. getSurname() + ", Year of Birth: " + this.getDOB() + " Object Type: " + super.toString() + 
-                " Drs regs. With: " + this.getDrsRegWithAsStringAsDrsnames();
+                " " +this. getSurname() + ", Year of Birth: " + this.getDOB() +  
+                ", Drs regs. With: " + this.getDrsRegWithAsStringAsDrsnames();
     }
     
  
