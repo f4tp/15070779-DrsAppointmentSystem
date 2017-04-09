@@ -9,8 +9,9 @@ public class ActListDispAddDocPan implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        System.out.println("I have succeeded");
         JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
-         SecMenuRef.setSecSouthBorderString("AddDocsPanel");
+        SecMenuRef.setSecSouthBorderString("AddDocsPanel");
     }
     
 }

@@ -84,6 +84,7 @@ public class ActListFindPatient implements ActionListener {
                 //MainPatient.currentPatient = (MainPatient) FoundPatient; //convert to patient object
                 
                 MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
+                System.out.println(MainPatient.currentPatient);
                 JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
                 SecMenuRef.setSecSouthBorderString("DisplayPatientDetails");
                 

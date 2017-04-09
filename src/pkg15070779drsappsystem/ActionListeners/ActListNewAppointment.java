@@ -7,14 +7,11 @@ import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 
 public class ActListNewAppointment implements ActionListener {
     
-    public ActListNewAppointment(){
-        
-    }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
-         SecMenuRef.setSecSouthBorderString("AddnewAppointmentPanel");
+        JFrameSecretaryMenu menRef = JFrameSecretaryMenu.getInstance();
+         menRef.setSecSouthBorderString("AddnewAppointmentPanel");
     }
     
 }

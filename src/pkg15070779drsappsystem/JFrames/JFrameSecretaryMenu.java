@@ -203,13 +203,14 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelAppsAtt.setVisible(false);
             JPanNewApp.setVisible(false);
             JPanNewAppButPanel.setVisible(false);
-             JPanelPatAddDoc.setVisible(true);
+            
+            JPanelPatAddDoc.setVisible(true);
             SecMenuSingInst.add(JPanelPatAddDoc, BorderLayout.NORTH);
       
         }
          
-          if (currenSecNorthBordPanel == "AddDocsPanel"){
-            JPanelDrsApps.setVisible(false);
+          if (currenSecNorthBordPanel == "AddnewAppointmentPanel"){
+             JPanelDrsApps.setVisible(false);
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelPatrecNorth.setVisible(false);
@@ -220,7 +221,9 @@ public class JFrameSecretaryMenu extends JFrame {
              
             
             JPanNewApp.setVisible(true);
+            
             JPanNewAppButPanel.setVisible(true);
+            JPanNewApp.updateForm();
             SecMenuSingInst.add(JPanNewApp, BorderLayout.NORTH);
             SecMenuSingInst.add(JPanNewAppButPanel, BorderLayout.CENTER);
             
