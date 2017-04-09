@@ -1,4 +1,5 @@
 package pkg15070779drsappsystem.MainClasses;
+import java.time.LocalDateTime;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.Interfaces.MainIntAbsUserComponent;
 import java.util.*;
@@ -104,12 +105,11 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
         
     }
     
-    public void addNewAppointment(Date appdate, long apptime, String drwith){
+    public void addNewAppointment(LocalDateTime appdateandtime,  String drwith){
        
-        Date appDate = appdate;
-        long appTime = apptime;
+        LocalDateTime appDateAndTime = appdateandtime;
         String drWith = drwith;
-        this.newAppinstance = new MainAppointment (this.getFirstName(), this.getSurname(), this.getUserName(), appDate, appTime, drWith);
+        this.newAppinstance = new MainAppointment (this.getFirstName(), this.getSurname(), this.getUserName(), appDateAndTime,drWith);
         
         this.lstStrPatientApps.add(newAppinstance.getAppUniqueKey());
         //added again again

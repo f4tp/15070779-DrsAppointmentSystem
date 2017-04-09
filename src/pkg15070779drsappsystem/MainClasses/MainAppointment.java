@@ -1,4 +1,5 @@
 package pkg15070779drsappsystem.MainClasses;
+import java.time.LocalDateTime;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsAppointmentComponent;
 import java.util.*;
 public final class MainAppointment extends MainAbsAppointmentComponent {
@@ -6,16 +7,16 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     private String AppUniqueKey, patientUniqueID, patientFirstname,patientSurname, appDrComments, appMedicine;
     private String drAppWith;
     private Boolean appAttended,appCancelled; 
-    private Date appDate;
+    private LocalDateTime appDateAndTime;
     private long appTime;
 
 //@@@@@@@@@@@ Constructors @@@@@@@@@@    
          
-    public MainAppointment(String patientfirstname, String patientsurname, String uniqueID, Date appdate, long apptime, String drwith){
-        setCreateAppointment(patientfirstname, patientsurname, uniqueID, appdate, apptime, drwith);
+    public MainAppointment(String patientfirstname, String patientsurname, String uniqueID, LocalDateTime appDateAndTime, String drwith){
+        setCreateAppointment(patientfirstname, patientsurname, uniqueID, appDateAndTime, drwith);
     }
     
-    private void setCreateAppointment(String firstname, String surname, String uniqueid, Date appdate, long apptime, String drwith){
+    private void setCreateAppointment(String firstname, String surname, String uniqueid, LocalDateTime appdaateandtime, String drwith){
         this.AppUniqueKey = generateAppUniqueKey(); //creates a key for the map
         this.patientFirstname = firstname;
         this.patientSurname = surname;
@@ -23,8 +24,8 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         
         this.drAppWith = drwith; //patient needs regsitering with a Dr before this can be set
         
-        this.appDate = appdate;
-        this.appTime = apptime;
+        this.appDateAndTime = appdaateandtime;
+
         this.appAttended = false;
         this.appCancelled = false;
         this.appDrComments="please enter comments";

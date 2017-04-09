@@ -1,11 +1,13 @@
 
 package pkg15070779drsappsystem.AAAInitialClasses;
 
+import java.time.LocalDateTime;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainPharmacist;
 import pkg15070779drsappsystem.MainClasses.MainSecretary;
 import java.util.Date;
+import pkg15070779drsappsystem.AbstractClasses.MainDateResolution;
 
 public abstract class AABLoadData {
     
@@ -41,13 +43,13 @@ public abstract class AABLoadData {
         //above are the existing system users being put into the system
         
            
+
         
-        
-        pat1.addNewAppointment(new Date(1001001), 99200029, "gregory.house.01011911");
-        pat2.addNewAppointment( new Date(1991001), 99449595, "peter.venkman.01011912");
-        pat3.addNewAppointment(new Date(9022992), 67578584, "egon.spengler.01011913");
-        pat4.addNewAppointment(new Date(45563667), 33883883, "ray.stance.01011914");
-        pat5.addNewAppointment(new Date(33938837), 27728872, "winstone.zeddermore.01011915");
+        pat1.addNewAppointment(New LocalDateTime(MainDateResolution.convStringToDateAndTime("010220171450")), "gregory.house.01011911");
+        //pat2.addNewAppointment( new Date(1991001), 99449595, "peter.venkman.01011912");
+        //pat3.addNewAppointment(new Date(9022992), 67578584, "egon.spengler.01011913");
+        //pat4.addNewAppointment(new Date(45563667), 33883883, "ray.stance.01011914");
+        //pat5.addNewAppointment(new Date(33938837), 27728872, "winstone.zeddermore.01011915");
         
         //pat1.addDrRegsWith("peter.venkman.1912");
         //pat2.addDrRegsWith("gregory.house.1911");

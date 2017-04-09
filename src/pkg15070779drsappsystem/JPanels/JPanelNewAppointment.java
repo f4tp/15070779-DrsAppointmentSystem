@@ -2,12 +2,12 @@ package pkg15070779drsappsystem.JPanels;
 
 import java.awt.GridLayout;
 import java.util.List;
-import javax.swing.JButton;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
+
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 public class JPanelNewAppointment extends JPanel{
