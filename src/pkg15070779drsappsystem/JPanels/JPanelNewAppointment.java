@@ -12,7 +12,8 @@ import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 public class JPanelNewAppointment extends JPanel{
     
-         String arrFebDays [] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "32", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
+    //@@@@@@@@@@ iteration could be used here - sort when get time
+    String arrFebDays [] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "32", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
         "28"};
         
         String arrThirtyDays [] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "32", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
@@ -25,19 +26,28 @@ public class JPanelNewAppointment extends JPanel{
         
         String arrYears[] = {"2017", "2018"};
         
-          JLabel lblFirstName = new JLabel ("Patient's First Name:");
+        String arrTimes[] = {"0900", "0915", "0930", "0945", "1000", "1015", "1030", "1045", "1100", "1115", "1130", "1145", 
+            "1200", "1215", "1230", "1245", "1300", "1315", "1330", "1345", "1400", "1415", "1430", "1445", "1500", "1515", "1530", "1545",
+            "1600", "1615", "1630", "1645"};
+        
+        
+        JLabel lblTitle = new JLabel ("Patient's Title:");
+       //lblFirstName.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
+       JTextField JTFTitle = new JTextField();
+        
+        JLabel lblFirstName = new JLabel ("Patient's First Name:");
        //lblFirstName.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
        JTextField JTFFirstName = new JTextField();
        
         JLabel lblSurname = new JLabel ("Patient's Surname");
-        JTextField JTFSurname = new JTextField();
+       JTextField JTFSurname = new JTextField();
        
        
        JLabel lblDob = new JLabel ("Patient's Date of Birth");
         JTextField JTFdob = new JTextField();
        
        JLabel lblUserName= new JLabel ("Patient's System User Name");
-       JTextField JTFUserName = new JTextField();
+        JTextField JTFUserName = new JTextField(); 
         
        JLabel lblSelDoc= new JLabel("Please select the doctor you wish to have an appointment with:");
        JComboBox cmbSelDoctor = new JComboBox(); 
@@ -54,6 +64,9 @@ public class JPanelNewAppointment extends JPanel{
        
        JLabel lblSelYear = new JLabel("Please select a year for the appointment");
        JComboBox cmbSelYear = new JComboBox(arrYears);
+       JLabel lblSelTime= new JLabel("Please select a time for the appointment");
+       JComboBox cmbSelTime = new JComboBox(arrTimes);
+       
        
     
     private static JPanelNewAppointment jPanNewAppSingInst;
@@ -65,12 +78,15 @@ public class JPanelNewAppointment extends JPanel{
   //@@@@@@@@@@layout the screen
       
        
-       setLayout(new GridLayout(8,2));
+       setLayout(new GridLayout(10,2));
        addComponents();
      
     }
     
     private void addComponents(){
+       
+       add(lblTitle);
+       add(JTFTitle);
         add(lblFirstName);
        add(JTFFirstName);
        add(lblSurname);
@@ -87,6 +103,9 @@ public class JPanelNewAppointment extends JPanel{
        add(cmbSelMonth);
         add(lblSelYear);
         add(cmbSelYear);
+        add(lblSelTime);
+        add(cmbSelTime);
+        
     }
     
      
@@ -111,6 +130,7 @@ public class JPanelNewAppointment extends JPanel{
             
         }
         
+        JTFTitle.setText(MainPatient.currentPatient.getTitle());
          JTFFirstName.setText(MainPatient.currentPatient.getFirstName());
          JTFSurname.setText(MainPatient.currentPatient.getSurname());
         JTFdob.setText(MainPatient.currentPatient.getDOB());
@@ -122,7 +142,37 @@ public class JPanelNewAppointment extends JPanel{
     }
     
  
+    public String getDay(){
+        JPanelNewAppointment tempHolder = getInstance();
+        return  tempHolder.cmbSelDay.getSelectedItem().toString();
+     
+    }
     
+
+    public String getDoctor(){
+        JPanelNewAppointment tempHolder = getInstance();
+        return  tempHolder.cmbSelDoctor.getSelectedItem().toString();
+     
+    }
+    
+    
+    public String getMonth(){
+        JPanelNewAppointment tempHolder = getInstance();
+        return  tempHolder.cmbSelMonth.getSelectedItem().toString();
+     
+    }
+    
+     public String getYear(){
+        JPanelNewAppointment tempHolder = getInstance();
+        return  tempHolder.cmbSelYear.getSelectedItem().toString();
+     
+    }
+     
+      public String getTime(){
+        JPanelNewAppointment tempHolder = getInstance();
+        return  tempHolder.cmbSelTime.getSelectedItem().toString();
+     
+    }
     
     //singleton design - only 1 JPanel ever needed
     public static JPanelNewAppointment getInstance(){

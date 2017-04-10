@@ -45,7 +45,9 @@ public abstract class AABLoadData {
         MainPharmacist pharm2 = new MainPharmacist("Liam", "Foster","Dr", "01011919", "Test");
         //above are the existing system users being put into the system
         
-           
+        //fill the list with all available appointments per doctor   
+        MainAppointmentSchedule.generateAvailableAppointments();
+        
 
      //   LocalDateTime tester = new LocalDateTime(LocalDateTime(MainAppointmentSchedule.getConvStringToDateTime("010220171450"));
         
@@ -67,22 +69,8 @@ public abstract class AABLoadData {
         //pat1.addDrRegsWith("gregory.house.1911"); //a test to see if the validation is working - needs putting in the testing unit
         
        
-        //routine works out all available times that appointments can be taken, then feeds these into a collection which can modified
-        //to work out which dates and appointments are left
-        //saturdays and sundays are not in here
-        //@@@@@@@@@@ , but Christmans day / boxing day etc are still in  - take these out
-        LocalDateTime startDateIn = MainAppointmentSchedule.getConvStringToDateTime("010120170900");
-        LocalDateTime endDate = MainAppointmentSchedule.getConvStringToDateTime("311220171700");
-        List<LocalDateTime> lstAllAppointmentDates = new ArrayList<>();
+       
         
-        for (LocalDateTime startDateTime = startDateIn; startDateTime.isBefore(endDate); startDateTime = startDateTime.plusMinutes(15L)){
-                startDateTime.plusMinutes(15);
-                
-                if (startDateTime.getHour()>8 && startDateTime.getHour()<17 && startDateTime.getDayOfWeek() != DayOfWeek.SATURDAY && startDateTime.getDayOfWeek() != DayOfWeek.SUNDAY){
-                    lstAllAppointmentDates.add(startDateIn);
-                }
-            
-            
-        }
+
      }
 }

@@ -4,6 +4,7 @@ package pkg15070779drsappsystem.JPanels;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import pkg15070779drsappsystem.ActionListeners.ActListAddAppointment;
 
 public class JPanelNewAppButPan extends JPanel {
     public static JPanelNewAppButPan JPanNewAppButSingInst;
@@ -16,7 +17,9 @@ public class JPanelNewAppButPan extends JPanel {
         JButton btnCheckDate = new JButton("Check date for free appointments");
        //action listener
        JButton btnaddAppointment = new JButton("Create the appoinment");
-       //ction listener
+       btnaddAppointment.addActionListener(new ActListAddAppointment());
+       //JPanelNewAppointment.JTFUserName;
+       
        
        add(btnCheckDate);
        add(btnaddAppointment);
