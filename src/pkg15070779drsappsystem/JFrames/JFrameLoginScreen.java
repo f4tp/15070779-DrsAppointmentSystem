@@ -26,7 +26,7 @@ public class JFrameLoginScreen extends JFrame{
         
         //lays out the frame using this abstract class
         JFrameAbsBorLayFillScreen.applyLayout(this);
-        add (new JPanelLoginScreen(), BorderLayout.NORTH);
+        add (JPanelLoginScreen.getInstance(), BorderLayout.NORTH);
     }
     
     //get single instance so no other instances are created

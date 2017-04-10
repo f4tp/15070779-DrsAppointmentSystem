@@ -5,10 +5,11 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainClasses.MainSecretary;
 
 //jpanel for the patient record when it has been found
-public class JPanelPatientRecord extends JPanel {
-    public static JPanelPatientRecord JPanPatRecSingInst;
+public class JPanelPatientRecordSecView extends JPanel {
+    public static JPanelPatientRecordSecView JPanPatRecSingInst;
         JLabel lblTitle = new JLabel ("Title:          ");
         //lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel lblFirstName = new JLabel ("First Name:     ");
@@ -37,29 +38,25 @@ public class JPanelPatientRecord extends JPanel {
         //JButton btnAllApps = new JButton("View All appointments");
         //JButton btnNewApp = new JButton("New Appointment");
         JPanelTwelveGridView patientScreen = new JPanelTwelveGridView(lblTitle, JTFTitle, lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob, lblContact, JTFContact, lblDrsRegsWith, JTFDrsRegsWith);
-        JPanelPatientRecButPanPAT patientButtons = JPanelPatientRecButPanPAT.getInstance();
+        //JPanelPatientRecButPanPAT patientButtons = JPanelPatientRecButPanPAT.getInstance();
+        
+        JPanelPatientRecButPanSEC secretaryButtons = JPanelPatientRecButPanSEC.getInstance();
     
-    private JPanelPatientRecord(){
+    private JPanelPatientRecordSecView(){
      
         setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
         setLayout (new BorderLayout ());
         
         add(patientScreen, BorderLayout.NORTH);
+        add(secretaryButtons, BorderLayout.CENTER);
         
-        //same screen as secretary sees, so the patient buttons only display if a patient has logged on
-        if (MainAbsSystemUserComponent.currentSystemUser instanceof MainPatient){
-            add(patientButtons, BorderLayout.CENTER);
-        }
-        
-        
-        
-
+    
     }
     
     //singleton object generation here
-   public static JPanelPatientRecord getInstance(){
+   public static JPanelPatientRecordSecView getInstance(){
          if (JPanPatRecSingInst == null){
-            JPanPatRecSingInst = new JPanelPatientRecord();
+            JPanPatRecSingInst = new JPanelPatientRecordSecView();
          }
         
         return JPanPatRecSingInst;
@@ -71,14 +68,19 @@ public class JPanelPatientRecord extends JPanel {
     //}
     
     public void setUpdateTextFields(){
+
        
-        JTFTitle.setText(MainPatient.currentPatient.getTitle());
-        JTFFirstName.setText(MainPatient.currentPatient.getFirstName());
-        JTFSurname.setText(MainPatient.currentPatient.getSurname());
-        JTFdob.setText(MainPatient.currentPatient.getDOB());
-        JTFContact.setText(MainPatient.currentPatient.getContactDetail());
-        //JTADrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsUserNames());
-        JTFDrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsDrsnames());
+        if (MainAbsSystemUserComponent.currentSystemUser != null){
+            JTFTitle.setText(MainPatient.currentPatient.getTitle());
+            JTFFirstName.setText(MainPatient.currentPatient.getFirstName());
+            JTFSurname.setText(MainPatient.currentPatient.getSurname());
+            JTFdob.setText(MainPatient.currentPatient.getDOB());
+            JTFContact.setText(MainPatient.currentPatient.getContactDetail());
+            //JTADrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsUserNames());
+            JTFDrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsDrsnames());
+        }
+        
+        
        
     }
 

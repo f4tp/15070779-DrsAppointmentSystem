@@ -8,7 +8,9 @@ import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
 import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.JPanels.JPanelPatientRecord;
+import pkg15070779drsappsystem.JPanels.AbsApplyButtonsToPatRecPanel;
+import pkg15070779drsappsystem.JPanels.JPanelPatientRecordPatView;
+import pkg15070779drsappsystem.JPanels.JPanelPatientRecordSecView;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainPharmacist;
@@ -60,7 +62,17 @@ public class ActListLogUSerIn implements ActionListener {
                     //run teh right login screen
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                         public void run() {
+                          
+                         MainSecretary.currentSecretary = (MainSecretary) MainAbsSystemUserComponent.currentSystemUser; 
+                         
                         JFrameSecretaryMenu SecMenuMain = JFrameSecretaryMenu.getInstance();
+                        
+                        //sets the Patient Record JPanel to have the right buttons on as the patient sees the same JPanel
+                        //as the secretary, just with fewer options
+                        //AbsApplyButtonsToPatRecPanel.setButtonsToPatientRecordJPanel();  
+                        
+                        //JPanelPatientRecordSecView tmpInst = JPanelPatientRecordSecView.getInstance();
+                        //tmpInst.setUpdateTextFields();
                         SecMenuMain.setVisible(true);
                         } 
                     });
@@ -77,8 +89,12 @@ public class ActListLogUSerIn implements ActionListener {
                          MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.currentSystemUser;     
                         JFramePatientMenu PatMenuMain = JFramePatientMenu.getInstance();
                         
-                        JPanelPatientRecord tmpInst = JPanelPatientRecord.getInstance();
-                       tmpInst.setUpdateTextFields();
+                        //sets the Patient Record JPanel to have the right buttons on as the patient sees the same JPanel
+                        //as the secretary, just with fewer options
+                        //AbsApplyButtonsToPatRecPanel.setButtonsToPatientRecordJPanel();  
+                        
+                        JPanelPatientRecordPatView tmpInst = JPanelPatientRecordPatView.getInstance();
+                        tmpInst.setUpdateTextFields();
                         
                         PatMenuMain.setVisible(true);
                         

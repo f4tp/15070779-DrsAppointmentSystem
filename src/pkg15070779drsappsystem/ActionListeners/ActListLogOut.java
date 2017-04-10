@@ -9,9 +9,11 @@ import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
 import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import static pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu.getInstance;
+import pkg15070779drsappsystem.JPanels.JPanelLoginScreen;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainClasses.MainSecretary;
 
 public class ActListLogOut implements ActionListener {
     
@@ -21,11 +23,15 @@ public class ActListLogOut implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //set all static users to null
+        
         MainAbsSystemUserComponent.currentSystemUser = null;
         MainPatient.currentPatient = null;
         MainAppointment.currentAppointment = null;
         MainDoctor.currentDoctor = null;
+        MainSecretary.currentSecretary = null;
         
+      //set all JFrames to invisible
         JFrameSecretaryMenu instHolder = JFrameSecretaryMenu.getInstance();
         instHolder.setVisible(false);
         
@@ -38,8 +44,12 @@ public class ActListLogOut implements ActionListener {
         //JFramePharmacistMenu instHolderrrr = JFramePharmacistMenu.getInstance();
         //instHolderrrr.setVisible(false);
         
+     //set login screen back to visible
         JFrameLoginScreen loginInstance = JFrameLoginScreen.getInstance();
         loginInstance.setVisible(true);
+        
+        JPanelLoginScreen tempLoginJPan = JPanelLoginScreen.getInstance();
+        tempLoginJPan.updateLogintext();
             
     }
     

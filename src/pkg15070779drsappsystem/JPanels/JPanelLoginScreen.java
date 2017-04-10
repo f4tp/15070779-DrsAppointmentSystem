@@ -8,8 +8,11 @@ import javax.swing.*;
 
 
 public class JPanelLoginScreen extends JPanel {
+    JTextField inpUserName = new JTextField("elizabeth.moore.01011915 | alan.turing.01011900 | gregory.house.01011910 | donald.knuth.01011901");
     
-    public JPanelLoginScreen(){
+    public static JPanelLoginScreen LoginScreenSingleInst;
+    
+    private JPanelLoginScreen(){
                    
         //setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
@@ -21,7 +24,7 @@ public class JPanelLoginScreen extends JPanel {
         
         JPanelAddBoxPadUnderComp northDetail = new JPanelAddBoxPadUnderComp(loginLabel);
         
-        JTextField inpUserName = new JTextField("elizabeth.moore.01011915");
+        
         inpUserName.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
         JPanelAddBoxPadUnderComp centerDetail = new JPanelAddBoxPadUnderComp(inpUserName);
      
@@ -40,5 +43,18 @@ public class JPanelLoginScreen extends JPanel {
         add (btnLogin, BorderLayout.SOUTH);
         //setSize(400,100);
         
+    }
+    
+    public static JPanelLoginScreen getInstance(){
+        if (LoginScreenSingleInst == null){
+            LoginScreenSingleInst = new JPanelLoginScreen();
+        
+        }
+        return LoginScreenSingleInst;
+    }
+    
+    //to set  defautl users to test the system
+    public void updateLogintext(){
+        inpUserName.setText("elizabeth.moore.01011915 | alan.turing.01011900 | gregory.house.01011910 | donald.knuth.01011901");
     }
 }

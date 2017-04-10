@@ -4,7 +4,10 @@ import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.Interfaces.MainIntAbsUserComponent;
 
 public class MainSecretary extends MainAbsSystemUserComponent implements MainIntAbsUserComponent  {
-   private String apptest;
+   
+    public static MainSecretary currentSecretary;
+    
+    private String apptest;
     private String strTitle, strFirstName, strSurname, strDOB, strKeyUserNamel;
     public MainSecretary(String fname, String sname, String title, String dob, String newer){
         strTitle = title;

@@ -9,7 +9,7 @@ import pkg15070779drsappsystem.JPanels.JPanelNewAppButPan;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppointment;
 import pkg15070779drsappsystem.JPanels.JPanelPatientAddDoctor;
 import pkg15070779drsappsystem.JPanels.JPanelPatientRecButPanSEC;
-import pkg15070779drsappsystem.JPanels.JPanelPatientRecord;
+import pkg15070779drsappsystem.JPanels.JPanelPatientRecordSecView;
 import pkg15070779drsappsystem.JPanels.JPanelReportsAppAtt;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPanelReportsPresrcips;
@@ -33,7 +33,10 @@ public class JFrameSecretaryMenu extends JFrame {
         JMenu fileMenu = new JMenu("File");
         secMenBar.add(fileMenu);
         
-
+        JMenuItem logOutItem = new JMenuItem ("Logout");
+        //logOutItem.addActionListener(new ActLisExitProg ());
+        logOutItem.addActionListener(new ActListLogOut());
+        fileMenu.add(logOutItem);
         
         JMenuItem exitItem = new JMenuItem ("Exit");
         exitItem.addActionListener(new ActLisExitProg ());
@@ -110,8 +113,8 @@ public class JFrameSecretaryMenu extends JFrame {
         JPanelReportsDrsApps JPanelDrsApps = JPanelReportsDrsApps.getInstance(); 
         JPanelReportsPresrcips JPanelPrescs= JPanelReportsPresrcips.getInstance();
         JPanelFindPatient JPanelFindPat = JPanelFindPatient.getInstance();
-        JPanelPatientRecord JPanelPatrecNorth = JPanelPatientRecord.getInstance();
-        JPanelPatientRecButPanSEC JPanelPatrecSouth = JPanelPatientRecButPanSEC.getInstance();
+        JPanelPatientRecordSecView JPanelPatrecNorth = JPanelPatientRecordSecView.getInstance();
+        //JPanelPatientRecButPanSEC JPanelPatrecSouth = JPanelPatientRecButPanSEC.getInstance();
         JPanelPatientAddDoctor JPanelPatAddDoc = JPanelPatientAddDoctor.getInstance();
         JPanelNewAppointment JPanNewApp = JPanelNewAppointment.getInstance();
         JPanelNewAppButPan JPanNewAppButPanel = JPanelNewAppButPan.getInstance();
@@ -122,7 +125,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelPatrecNorth.setVisible(false);
-            JPanelPatrecSouth.setVisible(false);
+            //JPanelPatrecSouth.setVisible(false);
             JPanelPatAddDoc.setVisible(false);
             JPanNewApp.setVisible(false);
             JPanNewAppButPanel.setVisible(false);
@@ -137,7 +140,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelPatrecNorth.setVisible(false);
-            JPanelPatrecSouth.setVisible(false);
+            //JPanelPatrecSouth.setVisible(false);
              JPanelPatAddDoc.setVisible(false);
              JPanNewApp.setVisible(false);
              JPanNewAppButPanel.setVisible(false);
@@ -152,7 +155,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelDrsApps.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelPatrecNorth.setVisible(false);
-            JPanelPatrecSouth.setVisible(false);
+           // JPanelPatrecSouth.setVisible(false);
              JPanelPatAddDoc.setVisible(false);
              JPanNewApp.setVisible(false);
              JPanNewAppButPanel.setVisible(false);
@@ -167,7 +170,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelDrsApps.setVisible(false);
             JPanelPrescs.setVisible(false);
             JPanelPatrecNorth.setVisible(false);
-            JPanelPatrecSouth.setVisible(false);
+           // JPanelPatrecSouth.setVisible(false);
              JPanelPatAddDoc.setVisible(false);
              JPanNewApp.setVisible(false);
              JPanNewAppButPanel.setVisible(false);
@@ -190,9 +193,9 @@ public class JFrameSecretaryMenu extends JFrame {
             
             JPanelPatrecNorth.setVisible(true);
             JPanelPatrecNorth.setUpdateTextFields();
-            JPanelPatrecSouth.setVisible(true);
+            //JPanelPatrecSouth.setVisible(true);
             SecMenuSingInst.add(JPanelPatrecNorth, BorderLayout.NORTH);
-            SecMenuSingInst.add(JPanelPatrecSouth, BorderLayout.CENTER);
+            //SecMenuSingInst.add(JPanelPatrecSouth, BorderLayout.CENTER);
             
             
         }
@@ -202,7 +205,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelPatrecNorth.setVisible(false);
-            JPanelPatrecSouth.setVisible(false);
+            //JPanelPatrecSouth.setVisible(false);
             JPanelAppsAtt.setVisible(false);
             JPanNewApp.setVisible(false);
             JPanNewAppButPanel.setVisible(false);
@@ -217,7 +220,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);
             JPanelPatrecNorth.setVisible(false);
-            JPanelPatrecSouth.setVisible(false);
+            //JPanelPatrecSouth.setVisible(false);
             JPanelAppsAtt.setVisible(false);
             JPanelPatAddDoc.setVisible(false);
              
