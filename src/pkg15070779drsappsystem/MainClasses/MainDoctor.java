@@ -61,6 +61,10 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         return this.strDOB;
     }
     
+    public List getDocsAvailableAppointments(){
+        return this.lstDocsAvailAppointments;
+    }
+    
     //public String setGenerateUniqueDrName(){
         //return this.getTitle() + " " + this.getFirstName()+ " " + this.getSurname(); //creates a unique dr name 
         
@@ -76,10 +80,7 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         return lstDoctors;
     }
     
-    
         
-       
-   
     
     //@Override
    //public String toString () {

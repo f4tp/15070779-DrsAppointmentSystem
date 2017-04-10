@@ -26,18 +26,20 @@ public abstract class MainAppointmentSchedule {
     //@@@@@@@@@@ , but Christmans day / boxing day etc are still in  - take these out
     public static List<LocalDateTime> generateAvailableAppointments(){
         
-        LocalDateTime startDateIn = MainAppointmentSchedule.getConvStringToDateTime("010120170900");
-        LocalDateTime endDate = MainAppointmentSchedule.getConvStringToDateTime("311220171700");
+        LocalDateTime startDateIn = MainAppointmentSchedule.getConvStringToDateTime("01Jan20170900");
+        LocalDateTime endDate = MainAppointmentSchedule.getConvStringToDateTime("31Dec20181700");
         List<LocalDateTime> lstAllAppointmentDates = new ArrayList<>(); 
                 for (LocalDateTime startDateTime = startDateIn; startDateTime.isBefore(endDate); startDateTime = startDateTime.plusMinutes(15L)){
                 startDateTime.plusMinutes(15);
                 
                     if (startDateTime.getHour()>8 && startDateTime.getHour()<17 && startDateTime.getDayOfWeek() != DayOfWeek.SATURDAY && startDateTime.getDayOfWeek() != DayOfWeek.SUNDAY){
-                       lstAllAppointmentDates.add(startDateIn);
+                       lstAllAppointmentDates.add(startDateTime);
+                       //System.out.println(startDateTime);
                     }
+                     
             
                  }
-                
+               
                 return lstAllAppointmentDates;
     }
     
@@ -49,10 +51,16 @@ public abstract class MainAppointmentSchedule {
         //throws ParseException
         //example string
        // String str = "040520031230";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyyHHmm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyyHHmm");
         LocalDateTime dateTime = LocalDateTime.parse(datein, formatter);
         return dateTime;
 
+    }
+    
+    public static String getFormattedDate(String day, String month, String year, String time ){
+        
+        return day + month + year + time;
+        
     }
     
      //returns current date;
