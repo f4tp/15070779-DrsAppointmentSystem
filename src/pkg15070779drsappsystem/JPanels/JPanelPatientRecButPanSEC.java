@@ -3,6 +3,7 @@ package pkg15070779drsappsystem.JPanels;
 
 import pkg15070779drsappsystem.ActionListeners.ActListDispAddDocPan;
 import javax.swing.*;
+import pkg15070779drsappsystem.ActionListeners.ActListDisplayPatientApps;
 import pkg15070779drsappsystem.ActionListeners.ActListNewAppointment;
 
 public class JPanelPatientRecButPanSEC extends JPanel {
@@ -13,6 +14,9 @@ public class JPanelPatientRecButPanSEC extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(100,0,0,0));
         //default has flow layout, so just add buttons
         JButton btnAllApps = new JButton("View All Appointments");
+        btnAllApps.addActionListener(new ActListDisplayPatientApps());
+        
+        
         
         JButton btnNewApp = new JButton("New Appointment");
         btnNewApp.addActionListener(new ActListNewAppointment());

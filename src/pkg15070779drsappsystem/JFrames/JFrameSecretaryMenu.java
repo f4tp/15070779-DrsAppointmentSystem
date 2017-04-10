@@ -13,6 +13,7 @@ import pkg15070779drsappsystem.JPanels.JPanelPatientRecordSecView;
 import pkg15070779drsappsystem.JPanels.JPanelReportsAppAtt;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPanelReportsPresrcips;
+import pkg15070779drsappsystem.JPanels.JPanelViewAllAppointments;
 //
 public class JFrameSecretaryMenu extends JFrame {
     //JDesktopPane desktop;
@@ -118,6 +119,7 @@ public class JFrameSecretaryMenu extends JFrame {
         JPanelPatientAddDoctor JPanelPatAddDoc = JPanelPatientAddDoctor.getInstance();
         JPanelNewAppointment JPanNewApp = JPanelNewAppointment.getInstance();
         JPanelNewAppButPan JPanNewAppButPanel = JPanelNewAppButPan.getInstance();
+        JPanelViewAllAppointments JPanViewAllApps = JPanelViewAllAppointments.getInstance();
         
         //"FindPatients"
         if (currenSecNorthBordPanel == "MonthlyApssAtt"){
@@ -129,6 +131,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelPatAddDoc.setVisible(false);
             JPanNewApp.setVisible(false);
             JPanNewAppButPanel.setVisible(false);
+            JPanViewAllApps.setVisible(false);
             JPanelAppsAtt.setVisible(true);
             
             SecMenuSingInst.add(JPanelAppsAtt, BorderLayout.NORTH);
@@ -144,6 +147,7 @@ public class JFrameSecretaryMenu extends JFrame {
              JPanelPatAddDoc.setVisible(false);
              JPanNewApp.setVisible(false);
              JPanNewAppButPanel.setVisible(false);
+             JPanViewAllApps.setVisible(false);
             JPanelDrsApps.setVisible(true);
            
             SecMenuSingInst.add(JPanelDrsApps, BorderLayout.NORTH);
@@ -159,6 +163,7 @@ public class JFrameSecretaryMenu extends JFrame {
              JPanelPatAddDoc.setVisible(false);
              JPanNewApp.setVisible(false);
              JPanNewAppButPanel.setVisible(false);
+             JPanViewAllApps.setVisible(false);
             JPanelPrescs.setVisible(true);
             
             SecMenuSingInst.add(JPanelPrescs, BorderLayout.NORTH);
@@ -174,6 +179,7 @@ public class JFrameSecretaryMenu extends JFrame {
              JPanelPatAddDoc.setVisible(false);
              JPanNewApp.setVisible(false);
              JPanNewAppButPanel.setVisible(false);
+             JPanViewAllApps.setVisible(false);
             JPanelFindPat.setVisible(true);
             
             SecMenuSingInst.add(JPanelFindPat, BorderLayout.NORTH);
@@ -190,6 +196,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelPatAddDoc.setVisible(false);
             JPanNewAppButPanel.setVisible(false);
             JPanNewApp.setVisible(false);
+            JPanViewAllApps.setVisible(false);
             
             JPanelPatrecNorth.setVisible(true);
             JPanelPatrecNorth.setUpdateTextFields();
@@ -209,6 +216,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelAppsAtt.setVisible(false);
             JPanNewApp.setVisible(false);
             JPanNewAppButPanel.setVisible(false);
+            JPanViewAllApps.setVisible(false);
             
             JPanelPatAddDoc.setVisible(true);
             SecMenuSingInst.add(JPanelPatAddDoc, BorderLayout.NORTH);
@@ -223,6 +231,7 @@ public class JFrameSecretaryMenu extends JFrame {
             //JPanelPatrecSouth.setVisible(false);
             JPanelAppsAtt.setVisible(false);
             JPanelPatAddDoc.setVisible(false);
+            JPanViewAllApps.setVisible(false);
              
              
             
@@ -233,6 +242,22 @@ public class JFrameSecretaryMenu extends JFrame {
             SecMenuSingInst.add(JPanNewApp, BorderLayout.NORTH);
             SecMenuSingInst.add(JPanNewAppButPanel, BorderLayout.CENTER);
             
+      
+        }
+          
+          if (currenSecNorthBordPanel == "DispPatientAppointments"){
+            JPanelDrsApps.setVisible(false);
+            JPanelPrescs.setVisible(false);
+            JPanelFindPat.setVisible(false);
+            JPanelPatrecNorth.setVisible(false);
+            //JPanelPatrecSouth.setVisible(false);
+            JPanelAppsAtt.setVisible(false);
+            JPanNewApp.setVisible(false);
+            JPanNewAppButPanel.setVisible(false);
+            JPanelPatAddDoc.setVisible(false);
+            
+            JPanViewAllApps.setVisible(true);
+            SecMenuSingInst.add(JPanViewAllApps, BorderLayout.NORTH);
       
         }
         

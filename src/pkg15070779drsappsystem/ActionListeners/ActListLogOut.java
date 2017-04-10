@@ -8,7 +8,6 @@ import pkg15070779drsappsystem.JFrames.JFrameLoginScreen;
 import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
 import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
-import static pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu.getInstance;
 import pkg15070779drsappsystem.JPanels.JPanelLoginScreen;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
