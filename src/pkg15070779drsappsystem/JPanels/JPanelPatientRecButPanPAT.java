@@ -3,6 +3,7 @@ package pkg15070779drsappsystem.JPanels;
 
 import pkg15070779drsappsystem.ActionListeners.ActListPrintCurUserRec;
 import javax.swing.*;
+import pkg15070779drsappsystem.ActionListeners.ActListPatAttendAppoint;
 
 public class JPanelPatientRecButPanPAT extends JPanel {
     
@@ -14,6 +15,8 @@ public class JPanelPatientRecButPanPAT extends JPanel {
         //default has flow layout, so just add buttons
     
         JButton btnCheckInApp= new JButton("Check into your appointment");
+        btnCheckInApp.addActionListener(new ActListPatAttendAppoint());
+        
         JButton btnPrintRecord = new JButton("Print My Patient Record");
         btnPrintRecord.addActionListener(new ActListPrintCurUserRec());
        

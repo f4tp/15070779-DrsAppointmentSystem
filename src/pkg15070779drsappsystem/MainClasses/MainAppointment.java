@@ -2,7 +2,13 @@ package pkg15070779drsappsystem.MainClasses;
 import java.time.LocalDateTime;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsAppointmentComponent;
 import java.util.*;
+import javax.swing.JOptionPane;
 public final class MainAppointment extends MainAbsAppointmentComponent {
+//@@@@@@@@@@@ static variables @@@@@@@@@@@
+    //will hold the appointment that the user of the system is working with
+    public static MainAppointment currentAppointment;
+
+
 //@@@@@@@@@@@ Instance Variables @@@@@@@@@@    
     private String AppUniqueKey, patientUniqueID, strTitle, patientFirstname,patientSurname, appDrComments, appMedicine;
     private String drUniqueKeyAppWith;
@@ -32,17 +38,29 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         this.appCancelled = false;
         this.appDrComments="please enter comments";
         this.appMedicine="please update this if medicine is required for this appointment";
-        setPutInMap(this.AppUniqueKey, this);
+        MainAbsAppointmentComponent.setPutInMap(this.AppUniqueKey, this);
     }
     
 //@@@@@@@@@@@ Setters @@@@@@@@@@   
     
     public void setAppAttend(){
-        if (this.appAttended = false){
+        System.out.println(this.appAttended);
+        
+        if (this.appAttended == false){
             this.appAttended = true;
+            
+            JOptionPane.showMessageDialog (null,
+                "Thank you. Your appointment has now been marked as ATTENDED",
+                "Appointment Attended",
+                JOptionPane.ERROR_MESSAGE);
         }
         else if (this.appAttended = true){
-            this.appAttended = false;
+            //this.appAttended = false;
+            
+            JOptionPane.showMessageDialog (null,
+                "Thank you. Your appointment has already  been marked as ATTENDED",
+                "Appointment attended",
+                JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -58,12 +76,19 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
  //@@@@@@@@@@@ Getters @@@@@@@@@@  
      
         
-    @Override //this does the exact same thing in the super class... do I need this here?
+    //@Override //this does the exact same thing in the super class... do I need this here?
     //can I call this differently?
        
-    public MainAppointment getAppointment(String uniqueKey){
-        return super.getAppointment(uniqueKey);
+    //public MainAppointment getAppointment(String uniqueKey){
+      //  return super.getAppointment(uniqueKey);
+  // }
+    
+    
+    public void getAllAppointments(){
+        
+       
     }
+   
     
         
     
@@ -72,6 +97,15 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     //the key can be used to get the appointment if needed later
     public String getAppUniqueKey(){
         return this.AppUniqueKey;
+    }
+    
+    public static void setAppointmentAsAttended(String appID){
+        
+    }
+    
+    //returns the date and time object for the appointment that it is called on
+    public LocalDateTime getAPPDateAndTime(){
+         return this.appDateAndTime;
     }
                 
 

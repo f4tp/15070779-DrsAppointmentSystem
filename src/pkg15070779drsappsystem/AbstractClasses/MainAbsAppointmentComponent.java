@@ -23,11 +23,11 @@ public abstract class MainAbsAppointmentComponent {
     }
     
     
-    public void setPutInMap(String uKey, MainAppointment passedIn){
+    public static void setPutInMap(String uKey, MainAppointment passedIn){
          mapAppointments.put(uKey, passedIn);
     }
     
-    public MainAppointment getAppointment(String uniqueKey){
+    public  static MainAppointment getAppointment(String uniqueKey){
         return mapAppointments.get(uniqueKey);
     }
     

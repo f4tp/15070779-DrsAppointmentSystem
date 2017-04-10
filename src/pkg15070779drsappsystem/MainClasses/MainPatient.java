@@ -185,8 +185,13 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
     }
     
        
+    //will return a list containing the appointment keys of all a patient's appointments
+    //data will be strings
+    public List getPatientAppointmentKeys(){
+        return this.lstStrPatientApps;
+    }
     
-    public void getAppointment(){
+    public void setAppointmentAsAttended(){
         
     }
 }

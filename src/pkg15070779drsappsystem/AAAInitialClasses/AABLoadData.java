@@ -51,7 +51,7 @@ public abstract class AABLoadData {
 
      //   LocalDateTime tester = new LocalDateTime(LocalDateTime(MainAppointmentSchedule.getConvStringToDateTime("010220171450"));
         
-        pat1.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("01Dec20171450"), "gregory.house.01011911");
+        pat1.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("10Apr20171450"), "gregory.house.01011911");
         //pat2.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("020220171500"), "gregory.house.01011911");
         //pat3.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("030220171510"), "gregory.house.01011911");
         //pat4.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("040220171450"), "gregory.house.01011911");
