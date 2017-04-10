@@ -5,10 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.AbstractClasses.MainAppointmentSchedule;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
@@ -45,7 +44,7 @@ public class ActListPatAttendAppoint implements ActionListener {
             if (temp.getAPPDateAndTime().getDayOfMonth() == currentDate.getDayOfMonth() && 
                 temp.getAPPDateAndTime().getMonth()== currentDate.getMonth() &&
                     temp.getAPPDateAndTime().getYear() == currentDate.getYear()){
-                System.out.println("I have fired");
+
                 //get the key of the appointment that is on the day
                 //get the appointment out of the map using the key
                 MainAppointment.currentAppointment = temp;
@@ -56,6 +55,13 @@ public class ActListPatAttendAppoint implements ActionListener {
                  //put the MainAppointment objetc back in the map
                 MainAbsAppointmentComponent.setPutInMap(MainAppointment.currentAppointment.getAppUniqueKey(), MainAppointment.currentAppointment);
                 
+            }
+            
+            else {
+                JOptionPane.showMessageDialog (null,
+                "There does not seem to be an appointment on the system for you today. Please see the receptionist for help",
+                "Appointment not on the system",
+                JOptionPane.ERROR_MESSAGE);
             }
         }
    
