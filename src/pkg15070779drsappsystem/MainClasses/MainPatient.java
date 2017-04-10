@@ -9,7 +9,7 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
 //instance variables that are not essential to initialisation
     private String strTitle, strFirstName, strSurname, strDOB, strKeyUserName, strContactDetail;
     private String MedicalNotes;//comments about the patient, generated from appointment comments
-    private MainAppointment newAppinstance; //object composition - new appointment object each time the patient
+    private MainAppointment newAppointmentInst; //object composition - new appointment object each time the patient
     
     
 //public static variables
@@ -101,21 +101,23 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
                 
     }
     
+     public void addNewAppointment(LocalDateTime appdateandtime,  String drwith){
+       
+            LocalDateTime appDateAndTime = appdateandtime;
+            String drWith = drwith;
+            this.newAppointmentInst = new MainAppointment (this.getTitle(), this.getFirstName(), this.getSurname(), this.getUserName(), appDateAndTime, drWith);
+
+
+            //adds the appointments unique ID to a list for the patient, can be used to get all their appointments later
+            this.lstStrPatientApps.add(this.newAppointmentInst.getAppUniqueKey());
+        
+    }
+    
     public void addMedicine(String medtoadd){
         
     }
     
-    public void addNewAppointment(LocalDateTime appdateandtime,  String drwith){
-       
-        LocalDateTime appDateAndTime = appdateandtime;
-        String drWith = drwith;
-        this.newAppinstance = new MainAppointment (this.getTitle(), this.getFirstName(), this.getSurname(), this.getUserName(), appDateAndTime, drWith);
-        
-
-        //adds the appointments unique ID to a list for the patient, can be used to get all their appointments later
-        this.lstStrPatientApps.add(this.newAppinstance.getAppUniqueKey());
-        
-    }
+   
     
 // @@@@@@@@@@ getters for this subclass @@@@@@@@@@
     

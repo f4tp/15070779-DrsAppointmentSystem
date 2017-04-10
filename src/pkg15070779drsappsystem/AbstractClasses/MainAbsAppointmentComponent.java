@@ -11,7 +11,7 @@ public abstract class MainAbsAppointmentComponent {
     //@@@@@ need to work out how many slots the second part array is from 1 as this is the time of the appointment
         //e.g. above - 1 is 9:00am, 
     //@@@@@need to check Drs name before they are added to the timetable, if they are already in a slot, they can't be in there twice
-    private static String [ ][ ] arryStrAppointTimeTable = new String[364][31];
+   // private static String [ ][ ] arryStrAppointTimeTable = new String[364][31];
 
   
     //no constructor as it is an abstract class

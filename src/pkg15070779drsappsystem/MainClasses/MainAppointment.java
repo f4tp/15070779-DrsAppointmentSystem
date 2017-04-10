@@ -5,18 +5,15 @@ import java.util.*;
 public final class MainAppointment extends MainAbsAppointmentComponent {
 //@@@@@@@@@@@ Instance Variables @@@@@@@@@@    
     private String AppUniqueKey, patientUniqueID, strTitle, patientFirstname,patientSurname, appDrComments, appMedicine;
-    private String drAppWith;
+    private String drUniqueKeyAppWith;
     private Boolean appAttended,appCancelled; 
     private LocalDateTime appDateAndTime;
-    private long appTime;
 
 //@@@@@@@@@@@ Constructors @@@@@@@@@@    
          
     public MainAppointment(String title, String patientfirstname, String patientsurname, String uniqueID, LocalDateTime appDateAndTime, String drwith){
         //@@@@@@@@@@ check the Dr is not busy on the appointment set, if they are - display an error message - Dr, dateTime object
-        
-        
-        
+    
         setCreateAppointment(title, patientfirstname, patientsurname, uniqueID, appDateAndTime, drwith);
     }
     
@@ -27,7 +24,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         this.patientSurname = surname;
         this.patientUniqueID = uniqueid;
         
-        this.drAppWith = drwith; //patient needs regsitering with a Dr before this can be set
+        this.drUniqueKeyAppWith = drwith; //patient needs regsitering with a Dr before this can be set
         
         this.appDateAndTime = appdaateandtime;
 

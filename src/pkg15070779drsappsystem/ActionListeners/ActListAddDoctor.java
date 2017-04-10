@@ -18,6 +18,9 @@ public class ActListAddDoctor implements ActionListener {
     public void actionPerformed(ActionEvent e) {
       
         docToAdd = drsComboBox.getSelectedItem().toString();
+        
+        // this method returns false, it means teh patient is already regsitered with teh doctor - so a message
+        //will display, but if true, it will add the Doctor to the patients instance list, then reput them back in the map
        if (MainPatient.currentPatient.addDrRegsWith(docToAdd, MainPatient.currentPatient.getUserName()) == true){
             JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
         SecMenuRef.setSecSouthBorderString("DisplayPatientDetails");
