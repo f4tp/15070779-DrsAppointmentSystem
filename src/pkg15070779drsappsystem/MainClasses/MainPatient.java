@@ -101,11 +101,11 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
                 
     }
     
-     public void addNewAppointment(LocalDateTime appdateandtime,  String drwith){
+     public void addNewAppointment(LocalDateTime appdateandtime,  String drwith, String symptoms){
        
             LocalDateTime appDateAndTime = appdateandtime;
             String drWith = drwith;
-            this.newAppointmentInst = new MainAppointment (this.getTitle(), this.getFirstName(), this.getSurname(), this.getUserName(), appDateAndTime, drWith);
+            this.newAppointmentInst = new MainAppointment (this.getTitle(), this.getFirstName(), this.getSurname(), this.getUserName(), appDateAndTime, drWith, symptoms);
 
 
             //adds the appointments unique ID to a list for the patient, can be used to get all their appointments later

@@ -10,10 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import pkg15070779drsappsystem.ActionListeners.ActListLogOut;
 
 public class JFrameDoctorMenu extends JFrame {
     
-    public JFrameDoctorMenu(){
+    private static JFrameDoctorMenu DoctMenSingInst;
+    
+    private JFrameDoctorMenu(){
         super ("Doctor's menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -22,6 +25,7 @@ public class JFrameDoctorMenu extends JFrame {
         
         JMenu fileMenu = new JMenu("File");
         docMenBar.add(fileMenu);
+        
         
         JMenuItem exitItem = new JMenuItem ("Exit");
         exitItem.addActionListener(new ActLisExitProg ());
@@ -47,6 +51,15 @@ public class JFrameDoctorMenu extends JFrame {
         setVisible(true);
         */
         
+    }
+    
+    
+    //get single instance so no other instances are created
+    public static JFrameDoctorMenu getInstance(){
+        if (DoctMenSingInst == null){
+            DoctMenSingInst = new JFrameDoctorMenu();
+                    }
+        return DoctMenSingInst;
     }
     
     public void setVisibility(boolean vis){

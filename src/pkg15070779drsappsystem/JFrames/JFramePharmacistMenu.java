@@ -9,11 +9,12 @@ import java.awt.Toolkit;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import pkg15070779drsappsystem.ActionListeners.ActListLogOut;
 
-public class JFramePharacistMenu extends JFrame {
+public class JFramePharmacistMenu extends JFrame {
     
     
-    public JFramePharacistMenu(){
+    public JFramePharmacistMenu(){
         super ("Pharmacist's menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -22,6 +23,8 @@ public class JFramePharacistMenu extends JFrame {
         
         JMenu fileMenu = new JMenu("File");
         pharmMenBar.add(fileMenu);
+        
+
         
         JMenuItem exitItem = new JMenuItem ("Exit");
         exitItem.addActionListener(new ActLisExitProg ());

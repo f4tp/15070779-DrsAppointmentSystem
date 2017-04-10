@@ -3,6 +3,7 @@ import pkg15070779drsappsystem.ActionListeners.ActListRunReport;
 import pkg15070779drsappsystem.ActionListeners.ActLisExitProg;
 import java.awt.*;
 import javax.swing.*;
+import pkg15070779drsappsystem.ActionListeners.ActListLogOut;
 import pkg15070779drsappsystem.JPanels.JPanelFindPatient;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppButPan;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppointment;
@@ -31,6 +32,8 @@ public class JFrameSecretaryMenu extends JFrame {
         
         JMenu fileMenu = new JMenu("File");
         secMenBar.add(fileMenu);
+        
+
         
         JMenuItem exitItem = new JMenuItem ("Exit");
         exitItem.addActionListener(new ActLisExitProg ());

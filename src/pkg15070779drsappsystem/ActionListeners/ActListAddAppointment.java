@@ -5,8 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.AbstractClasses.MainAppointmentSchedule;
@@ -34,7 +32,8 @@ public class ActListAddAppointment implements ActionListener {
         String strMonth = tempHolder.getMonth();
         String strYear = tempHolder.getYear();
         String strTime= tempHolder.getTime();
-        //List<LocalDateTime> tempListHolder = new ArrayList<>();
+        String strSymptoms = tempHolder.getSymptoms();
+
         
         //sets the main doctor to the doctor we are working with now, to check their appointments list
         MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(strDoctor);
@@ -45,12 +44,12 @@ public class ActListAddAppointment implements ActionListener {
         //MainDoctor.currentDoctor
         
         //if the Dr selected (which is held in currentDoctor variable) has the date in their appointment
-        //instance list, it means the yhave that appointment free... so the patient can have that appointment
+        //instance list, it means they have that appointment free... so the patient can have that appointment
         if (MainDoctor.currentDoctor.getDocsAvailableAppointments().contains(ldtPotAppDateTime)){
             System.out.println("found!");
             
             //add the appointment via the patient
-            MainPatient.currentPatient.addNewAppointment(ldtPotAppDateTime, strDoctor);
+            MainPatient.currentPatient.addNewAppointment(ldtPotAppDateTime, strDoctor, strSymptoms);
   
             //put the patient back in the right map - updates the existing entry if teh key exists
              MainAbsSystemUserComponent.setPutInMap(MainPatient.currentPatient.getUserName(), MainPatient.currentPatient);

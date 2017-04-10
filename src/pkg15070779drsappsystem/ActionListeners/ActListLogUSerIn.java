@@ -5,13 +5,15 @@ import javax.swing.*;
 import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
 import pkg15070779drsappsystem.JFrames.JFrameLoginScreen;
 import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
-import pkg15070779drsappsystem.JFrames.JFramePharacistMenu;
+import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.JPanels.JPanelPatientRecord;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainPharmacist;
 import pkg15070779drsappsystem.MainClasses.MainSecretary;
+
 
 
 public class ActListLogUSerIn implements ActionListener {
@@ -59,6 +61,7 @@ public class ActListLogUSerIn implements ActionListener {
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                         public void run() {
                         JFrameSecretaryMenu SecMenuMain = JFrameSecretaryMenu.getInstance();
+                        SecMenuMain.setVisible(true);
                         } 
                     });
                
@@ -69,8 +72,15 @@ public class ActListLogUSerIn implements ActionListener {
                     JFrameLoginScreen.setVisibility(false);
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                       public void run() {
-                        MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.currentSystemUser;     
+                        
+          
+                         MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.currentSystemUser;     
                         JFramePatientMenu PatMenuMain = JFramePatientMenu.getInstance();
+                        
+                        JPanelPatientRecord tmpInst = JPanelPatientRecord.getInstance();
+                       tmpInst.setUpdateTextFields();
+                        
+                        PatMenuMain.setVisible(true);
                         
                         //JFramePatientMenu PatMenuMain = new JFramePatientMenu();
                        //SecMenuSingInst
@@ -91,7 +101,7 @@ public class ActListLogUSerIn implements ActionListener {
 
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                       public void run() {
-                      JFrameDoctorMenu DocMenuMain = new JFrameDoctorMenu();
+                      JFrameDoctorMenu DocMenuMain = JFrameDoctorMenu.getInstance();
                       DocMenuMain.setVisibility(true);
                       } 
                   });
@@ -101,7 +111,7 @@ public class ActListLogUSerIn implements ActionListener {
                     JFrameLoginScreen.setVisibility(false);
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                       public void run() {
-                      JFramePharacistMenu PharmMenuMain = new JFramePharacistMenu();
+                      JFramePharmacistMenu PharmMenuMain = new JFramePharmacistMenu();
                       PharmMenuMain.setVisibility(true);
                       } 
                   });

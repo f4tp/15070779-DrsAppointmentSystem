@@ -53,7 +53,8 @@ public class JPanelNewAppointment extends JPanel{
        JComboBox cmbSelDoctor = new JComboBox(); 
        //only registered doctors will be shown once a patient has been searched for
        
-
+        JLabel lblSymptoms= new JLabel ("Please enter the patient's symptoms");
+       JTextField JTFSymptoms = new JTextField();
 
        
        JLabel lblSelDay = new JLabel("Please select a date for the appointment");
@@ -78,7 +79,7 @@ public class JPanelNewAppointment extends JPanel{
   //@@@@@@@@@@layout the screen
       
        
-       setLayout(new GridLayout(10,2));
+       setLayout(new GridLayout(11,2));
        addComponents();
      
     }
@@ -95,6 +96,8 @@ public class JPanelNewAppointment extends JPanel{
        add(JTFdob);
        add(lblUserName);
        add(JTFUserName);
+       add(lblSymptoms);
+       add(JTFSymptoms);
        add(lblSelDoc);
        add(cmbSelDoctor);
        add(lblSelDay);
@@ -142,6 +145,12 @@ public class JPanelNewAppointment extends JPanel{
     }
     
  
+    public String getSymptoms(){
+        JPanelNewAppointment tempHolder = getInstance();
+        return  tempHolder.JTFSymptoms.getText();
+     
+    }
+    
     public String getDay(){
         JPanelNewAppointment tempHolder = getInstance();
         return  tempHolder.cmbSelDay.getSelectedItem().toString();
