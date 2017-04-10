@@ -4,7 +4,7 @@ import pkg15070779drsappsystem.AbstractClasses.MainAbsAppointmentComponent;
 import java.util.*;
 public final class MainAppointment extends MainAbsAppointmentComponent {
 //@@@@@@@@@@@ Instance Variables @@@@@@@@@@    
-    private String AppUniqueKey, patientUniqueID, patientFirstname,patientSurname, appDrComments, appMedicine;
+    private String AppUniqueKey, patientUniqueID, strTitle, patientFirstname,patientSurname, appDrComments, appMedicine;
     private String drAppWith;
     private Boolean appAttended,appCancelled; 
     private LocalDateTime appDateAndTime;
@@ -12,12 +12,17 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
 
 //@@@@@@@@@@@ Constructors @@@@@@@@@@    
          
-    public MainAppointment(String patientfirstname, String patientsurname, String uniqueID, LocalDateTime appDateAndTime, String drwith){
-        setCreateAppointment(patientfirstname, patientsurname, uniqueID, appDateAndTime, drwith);
+    public MainAppointment(String title, String patientfirstname, String patientsurname, String uniqueID, LocalDateTime appDateAndTime, String drwith){
+        //@@@@@@@@@@ check the Dr is not busy on the appointment set, if they are - display an error message - Dr, dateTime object
+        
+        
+        
+        setCreateAppointment(title, patientfirstname, patientsurname, uniqueID, appDateAndTime, drwith);
     }
     
-    private void setCreateAppointment(String firstname, String surname, String uniqueid, LocalDateTime appdaateandtime, String drwith){
+    private void setCreateAppointment(String title, String firstname, String surname, String uniqueid, LocalDateTime appdaateandtime, String drwith){
         this.AppUniqueKey = generateAppUniqueKey(); //creates a key for the map
+        this.strTitle = title;
         this.patientFirstname = firstname;
         this.patientSurname = surname;
         this.patientUniqueID = uniqueid;

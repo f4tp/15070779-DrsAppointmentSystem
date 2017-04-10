@@ -1,13 +1,16 @@
 
 package pkg15070779drsappsystem.AAAInitialClasses;
 
+//import java.text.ParseException;
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainPharmacist;
 import pkg15070779drsappsystem.MainClasses.MainSecretary;
-import java.util.Date;
-import pkg15070779drsappsystem.AbstractClasses.MainDateResolution;
+import java.util.List;
+import pkg15070779drsappsystem.AbstractClasses.MainAppointmentSchedule;
 
 public abstract class AABLoadData {
     
@@ -16,7 +19,7 @@ public abstract class AABLoadData {
     }
     
     
-    public static void LoadData(){
+    public static void LoadData() {
         MainPatient pat1 = new MainPatient("Mr", "Alan", "Turing", "01011900", "01234 567 890", "gregory.house.01011910");
         MainPatient pat2 = new MainPatient("Mr", "Donald", "Knuth", "01011901", "01234 567 890","peter.venkman.01011911");
         MainPatient pat3 = new MainPatient("Mrs", "Grace", "Hopper", "01011902", "01234 567 890","egon.spengler.01011912");
@@ -44,9 +47,14 @@ public abstract class AABLoadData {
         
            
 
+     //   LocalDateTime tester = new LocalDateTime(LocalDateTime(MainAppointmentSchedule.getConvStringToDateTime("010220171450"));
         
-        pat1.addNewAppointment(New LocalDateTime(MainDateResolution.convStringToDateAndTime("010220171450")), "gregory.house.01011911");
-        //pat2.addNewAppointment( new Date(1991001), 99449595, "peter.venkman.01011912");
+        pat1.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("010220171450"), "gregory.house.01011911");
+        pat2.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("020220171500"), "gregory.house.01011911");
+        pat3.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("030220171510"), "gregory.house.01011911");
+        pat4.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("040220171450"), "gregory.house.01011911");
+        //pat5.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("010220171450"), "gregory.house.01011911");
+       // pat2.addNewAppointment( new Date(1991001), 99449595, "peter.venkman.01011912");
         //pat3.addNewAppointment(new Date(9022992), 67578584, "egon.spengler.01011913");
         //pat4.addNewAppointment(new Date(45563667), 33883883, "ray.stance.01011914");
         //pat5.addNewAppointment(new Date(33938837), 27728872, "winstone.zeddermore.01011915");
@@ -57,5 +65,24 @@ public abstract class AABLoadData {
         //pat4.addDrRegsWith("peter.venkman.1912");
         //pat5.addDrRegsWith("peter.venkman.1912");
         //pat1.addDrRegsWith("gregory.house.1911"); //a test to see if the validation is working - needs putting in the testing unit
-    }
+        
+       
+        //routine works out all available times that appointments can be taken, then feeds these into a collection which can modified
+        //to work out which dates and appointments are left
+        //saturdays and sundays are not in here
+        //@@@@@@@@@@ , but Christmans day / boxing day etc are still in  - take these out
+        LocalDateTime startDateIn = MainAppointmentSchedule.getConvStringToDateTime("010120170900");
+        LocalDateTime endDate = MainAppointmentSchedule.getConvStringToDateTime("311220171700");
+        List<LocalDateTime> lstAllAppointmentDates = new ArrayList<>();
+        
+        for (LocalDateTime startDateTime = startDateIn; startDateTime.isBefore(endDate); startDateTime = startDateTime.plusMinutes(15L)){
+                startDateTime.plusMinutes(15);
+                
+                if (startDateTime.getHour()>8 && startDateTime.getHour()<17 && startDateTime.getDayOfWeek() != DayOfWeek.SATURDAY && startDateTime.getDayOfWeek() != DayOfWeek.SUNDAY){
+                    lstAllAppointmentDates.add(startDateIn);
+                }
+            
+            
+        }
+     }
 }

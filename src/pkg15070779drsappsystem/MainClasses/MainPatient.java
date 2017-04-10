@@ -109,10 +109,12 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
        
         LocalDateTime appDateAndTime = appdateandtime;
         String drWith = drwith;
-        this.newAppinstance = new MainAppointment (this.getFirstName(), this.getSurname(), this.getUserName(), appDateAndTime,drWith);
+        this.newAppinstance = new MainAppointment (this.getTitle(), this.getFirstName(), this.getSurname(), this.getUserName(), appDateAndTime, drWith);
         
-        this.lstStrPatientApps.add(newAppinstance.getAppUniqueKey());
-        //added again again
+
+        //adds the appointments unique ID to a list for the patient, can be used to get all their appointments later
+        this.lstStrPatientApps.add(this.newAppinstance.getAppUniqueKey());
+        
     }
     
 // @@@@@@@@@@ getters for this subclass @@@@@@@@@@

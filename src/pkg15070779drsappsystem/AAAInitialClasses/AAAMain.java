@@ -1,6 +1,6 @@
 package pkg15070779drsappsystem.AAAInitialClasses;
 
-import pkg15070779drsappsystem.AbstractClasses.MainDateResolution;
+import pkg15070779drsappsystem.AbstractClasses.MainAppointmentSchedule;
 import pkg15070779drsappsystem.JFrames.JFrameLoginScreen;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -16,7 +16,7 @@ public class AAAMain {
          
         AABLoadData.LoadData();
                
- /*
+ 
  //Login screen - should be first thing to see
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -24,8 +24,10 @@ public class AAAMain {
                 mainLoginScreen.setVisibility(true);
             } 
         });
-   */
+   
  
     }
+        
+
     
 }
