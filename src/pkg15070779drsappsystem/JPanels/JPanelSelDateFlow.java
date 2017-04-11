@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 
 
-public class JPanelSelDataFlow extends JPanel {
+public class JPanelSelDateFlow extends JPanel {
     JLabel lblSeDateFromTo= new JLabel("");
     JComboBox cmbSelDateFromToDay= new JComboBox((MainAbsScheduling.getDaysArr()));
     JComboBox cmbSelDateFromToMonth= new JComboBox(MainAbsScheduling.getMonthsArr());
@@ -22,7 +22,7 @@ public class JPanelSelDataFlow extends JPanel {
   // JComboBox cmbSelDateToMonth= new JComboBox(MainAbsScheduling.getMonthsArr());
    // JComboBox cmbSelDateToYear= new JComboBox(MainAbsScheduling.getYearArr());
     
-    public JPanelSelDataFlow(String titleForPanel){
+    public JPanelSelDateFlow(String titleForPanel){
         this.lblSeDateFromTo.setText(titleForPanel);
         this.add(lblSeDateFromTo);
         this.add(cmbSelDateFromToDay);
@@ -61,18 +61,7 @@ public class JPanelSelDataFlow extends JPanel {
         
     //}
    
-   public void setInitialiseWidgets(){
-       
-       for (int i = 1; i < 32; i++){
-             this.cmbSelDateFromToDay.addItem(i);
-             //this.cmbSelDateToDay.addItem(i);
-        }
-
-             //this.cmbSelDateFromToMonth.add
-
-             
-
-   }
+  
     
    
    //old routine calculates all dates for 1 year without saturdays & sundays

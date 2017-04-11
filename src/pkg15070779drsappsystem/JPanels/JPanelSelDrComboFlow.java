@@ -14,16 +14,19 @@ public class JPanelSelDrComboFlow extends JPanel {
     JComboBox cmbSelDoc = new JComboBox();
     
     private JPanelSelDrComboFlow(){
+       
         add(lblSelDoc);
+        add(cmbSelDoc);
+        //updateComboBox();
     }
     
     //gets the most recent list of Doctors when called, and adds them to the combo box to display all Drs
     public static void updateComboBox(){
-        SelDrSingInst.cmbSelDoc.removeAllItems();
+        getInstance().cmbSelDoc.removeAllItems();
         List <String> tempAppKeys= MainDoctor.getListAllDoctors();
         
          for (String temp : tempAppKeys ){
-                  SelDrSingInst.cmbSelDoc.addItem(temp);
+                  getInstance().cmbSelDoc.addItem(temp);
         }
     }
     
