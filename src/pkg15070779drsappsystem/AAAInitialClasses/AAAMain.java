@@ -9,6 +9,8 @@ import java.time.LocalTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import pkg15070779drsappsystem.JFrames.JFrameUseToTestPanels;
+import pkg15070779drsappsystem.JPanels.JPanelSelDataFlow;
 
 public class AAAMain {
     
@@ -16,7 +18,7 @@ public class AAAMain {
          
         AABLoadData.LoadData();
                
- 
+ /*
  //Login screen - should be first thing to see
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -24,7 +26,13 @@ public class AAAMain {
                 mainLoginScreen.setVisibility(true);
             } 
         });
-   
+   */
+        
+     JFrameUseToTestPanels tester = new JFrameUseToTestPanels();
+     tester.setVisible(true);
+ 
+        
+      
  
     }
         

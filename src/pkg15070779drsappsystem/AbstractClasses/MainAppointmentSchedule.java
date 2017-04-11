@@ -44,6 +44,30 @@ public abstract class MainAppointmentSchedule {
                 return lstAllAppointmentDates;
     }
     
+    //when called, it returns a list of LocalDateTime objects from the current date to 1 year in the future
+    //used to populate the select dates to and from for a combobox
+    public static List<LocalDateTime> generateSelectDates(){
+        LocalDateTime startDateIn = getDateToday();
+        LocalDateTime endDate = getDateToday().plusYears(1);
+        List<LocalDateTime> lstAllAppointmentDatesInRange = new ArrayList<>(); 
+        
+        
+        for (LocalDateTime startDateTime = startDateIn; startDateTime.isBefore(endDate); startDateTime = startDateTime.plusDays(1L)){
+                startDateTime.plusMinutes(15);
+                
+                    if (startDateTime.getDayOfWeek() != DayOfWeek.SATURDAY && startDateTime.getDayOfWeek() != DayOfWeek.SUNDAY){
+                       lstAllAppointmentDatesInRange.add(startDateTime);
+                       System.out.println(startDateTime);
+                    }
+                     
+            
+                 }
+        
+        
+        return lstAllAppointmentDatesInRange;
+        
+    }
+    
     
     
     //pass this routine a string with no spaces in like ddMMyyyyHHmm and it will create the Date & time object for you

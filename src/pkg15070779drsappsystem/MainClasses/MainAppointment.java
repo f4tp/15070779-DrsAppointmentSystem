@@ -91,7 +91,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     }
     @Override
     public String toString(){
-        return (" Date & Time of Appointment:  " + this.appDateAndTime + "| Symptoms Given: "
+        return ("Appointment ID: " + this.AppUniqueKey + "| Date & Time of Appointment:  " + this.appDateAndTime + "| Symptoms Given: "
                + this.appSymptoms + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  "| Medicine Prescribed: " +  this.appMedicine + "\n");
    }
     
