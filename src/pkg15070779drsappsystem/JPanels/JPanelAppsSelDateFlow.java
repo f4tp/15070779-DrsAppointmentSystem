@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 
 
-public class JPanelSelDateFlow extends JPanel {
+public class JPanelAppsSelDateFlow extends JPanel {
     JLabel lblSeDateFromTo= new JLabel("");
     JComboBox cmbSelDateFromToDay= new JComboBox((MainAbsScheduling.getDaysArr()));
     JComboBox cmbSelDateFromToMonth= new JComboBox(MainAbsScheduling.getMonthsArr());
@@ -22,7 +22,7 @@ public class JPanelSelDateFlow extends JPanel {
   // JComboBox cmbSelDateToMonth= new JComboBox(MainAbsScheduling.getMonthsArr());
    // JComboBox cmbSelDateToYear= new JComboBox(MainAbsScheduling.getYearArr());
     
-    public JPanelSelDateFlow(String titleForPanel){
+    public JPanelAppsSelDateFlow(String titleForPanel){
         this.lblSeDateFromTo.setText(titleForPanel);
         this.add(lblSeDateFromTo);
         this.add(cmbSelDateFromToDay);

@@ -17,17 +17,17 @@ public class JPanelSelDrComboFlow extends JPanel {
        
         add(lblSelDoc);
         add(cmbSelDoc);
-        //updateComboBox();
+        
     }
     
     //gets the most recent list of Doctors when called, and adds them to the combo box to display all Drs
-    public static void updateComboBox(){
+    public static void setDrComboBox(){
         getInstance().cmbSelDoc.removeAllItems();
         List <String> tempAppKeys= MainDoctor.getListAllDoctors();
         
-         for (String temp : tempAppKeys ){
-                  getInstance().cmbSelDoc.addItem(temp);
-        }
+        tempAppKeys.stream().forEach((temp) -> {
+            getInstance().cmbSelDoc.addItem(temp);
+        });
     }
     
     //singleton DP

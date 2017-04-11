@@ -3,8 +3,8 @@ package pkg15070779drsappsystem.JFrames;
 
 import javax.swing.JFrame;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.JPanels.JPanelSelDateFlow;
-import pkg15070779drsappsystem.JPanels.JPanelShowAvailApps;
+import pkg15070779drsappsystem.JPanels.JPanelAppsSelDateFlow;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatient;
 
 public class JFrameUseToTestPanels extends JFrame {
     
@@ -16,11 +16,11 @@ public class JFrameUseToTestPanels extends JFrame {
         
         JFrameAbsBorLayFillScreen.applyLayout(this);
         
-          MainAbsScheduling.generateSelectDates();
-        JPanelShowAvailApps newOne = JPanelShowAvailApps.getInstance();
+          //MainAbsScheduling.generateSelectDates();
+        //JPanelAppsShowAllForPatient newOne = JPanelAppsShowAllForPatient.getInstance();
      
-        newOne.setVisible(true);
-        add(newOne);
+        //newOne.setVisible(true);
+        //add(newOne);
         revalidate();
         repaint();
     }

@@ -6,14 +6,14 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class JPanelShowAvailApps extends JPanel {
-    public static JPanelShowAvailApps JPanShowAvailAppsSingInst;
+public class JPanelAppsShowAllForPatient extends JPanel {
+    public static JPanelAppsShowAllForPatient JPanShowAvailAppsSingInst;
     
     JPanelSelDrComboFlow selDrInstHold = JPanelSelDrComboFlow.getInstance();
-    JPanelSelDateFlow setDateFrom = new JPanelSelDateFlow("Select the dates FROM     ");
-    JPanelSelDateFlow setDateTo = new JPanelSelDateFlow("Select the dates TO:      ");
+    JPanelAppsSelDateFlow setDateFrom = new JPanelAppsSelDateFlow("Select the dates FROM     ");
+    JPanelAppsSelDateFlow setDateTo = new JPanelAppsSelDateFlow("Select the dates TO:      ");
     JButton btnSubmit = new JButton("Find Available Appointments");
-    private JPanelShowAvailApps(){
+    private JPanelAppsShowAllForPatient(){
        setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
        setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
        add(selDrInstHold);
@@ -25,9 +25,9 @@ public class JPanelShowAvailApps extends JPanel {
     }
     
     //singleton DP
-    public static JPanelShowAvailApps getInstance(){
+    public static JPanelAppsShowAllForPatient getInstance(){
         if (JPanShowAvailAppsSingInst == null){
-            JPanShowAvailAppsSingInst = new JPanelShowAvailApps();
+            JPanShowAvailAppsSingInst = new JPanelAppsShowAllForPatient();
         }
         
         return JPanShowAvailAppsSingInst;

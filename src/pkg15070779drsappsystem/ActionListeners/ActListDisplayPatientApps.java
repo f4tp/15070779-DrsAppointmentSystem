@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsAppointmentComponent;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
-import pkg15070779drsappsystem.JPanels.JPanelViewAllAppointments;
+import pkg15070779drsappsystem.JPanels.JPanelAppsViewAllAvailable;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 public class ActListDisplayPatientApps implements ActionListener{
@@ -15,13 +15,13 @@ public class ActListDisplayPatientApps implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         
                 
-        JPanelViewAllAppointments.clearAppointmentTextArea();
-        JPanelViewAllAppointments.updateTextFields();
+        JPanelAppsViewAllAvailable.clearAppointmentTextArea();
+        JPanelAppsViewAllAvailable.updateTextFields();
         
         //loop through the appointment list, retrieve the appointment, set to text then add to JTextArea on panel
         List <String> tempAppKeys= MainPatient.currentPatient.getPatientAppointmentKeys();
         for (String temp : tempAppKeys){
-            JPanelViewAllAppointments.updateAppointmentsTextArea(MainAbsAppointmentComponent.getAppointment(temp).toString());
+            JPanelAppsViewAllAvailable.updateAppointmentsTextArea(MainAbsAppointmentComponent.getAppointment(temp).toString());
         }
         
         

@@ -10,7 +10,7 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import pkg15070779drsappsystem.JFrames.JFrameUseToTestPanels;
-import pkg15070779drsappsystem.JPanels.JPanelSelDateFlow;
+import pkg15070779drsappsystem.JPanels.JPanelAppsSelDateFlow;
 
 public class AAAMain {
     
@@ -28,8 +28,8 @@ public class AAAMain {
         });
    
         
-     JFrameUseToTestPanels tester = new JFrameUseToTestPanels();
-     tester.setVisible(true);
+     //JFrameUseToTestPanels tester = new JFrameUseToTestPanels();
+   //  tester.setVisible(true);
  
         
       

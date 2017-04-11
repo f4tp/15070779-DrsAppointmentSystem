@@ -11,8 +11,8 @@ import javax.swing.JTextField;
 import pkg15070779drsappsystem.ActionListeners.ActListReturnPatientRec;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
-public class JPanelViewAllAppointments extends JPanel {
-    public static JPanelViewAllAppointments ViewAllAppsSingInst;
+public class JPanelAppsViewAllAvailable extends JPanel {
+    public static JPanelAppsViewAllAvailable ViewAllAppsSingInst;
     JLabel lblAppFor = new JLabel("");
     //JTextArea JTFName = new JTextArea();
     JTextArea JTFAllAppointments = new JTextArea();
@@ -21,7 +21,7 @@ public class JPanelViewAllAppointments extends JPanel {
     JButton btnReturn = new JButton("Back");
     
 
-    private JPanelViewAllAppointments(){
+    private JPanelAppsViewAllAvailable(){
         
         btnReturn.addActionListener(new ActListReturnPatientRec());
          setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -58,9 +58,9 @@ public class JPanelViewAllAppointments extends JPanel {
     }
     
     
-    public static JPanelViewAllAppointments getInstance(){
+    public static JPanelAppsViewAllAvailable getInstance(){
         if (ViewAllAppsSingInst == null){
-            ViewAllAppsSingInst = new JPanelViewAllAppointments();
+            ViewAllAppsSingInst = new JPanelAppsViewAllAvailable();
         }
         
         return ViewAllAppsSingInst;

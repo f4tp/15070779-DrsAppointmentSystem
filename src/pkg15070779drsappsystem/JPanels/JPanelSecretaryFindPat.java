@@ -5,10 +5,10 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 
 
-public class JPanelFindPatient extends JPanel {
-    public static JPanelFindPatient FindPatSingInst;
+public class JPanelSecretaryFindPat extends JPanel {
+    public static JPanelSecretaryFindPat FindPatSingInst;
     
-    private JPanelFindPatient(){
+    private JPanelSecretaryFindPat(){
         
               
        JLabel lblFirstName = new JLabel ("Enter the FIRST NAME of a patient");
@@ -55,9 +55,9 @@ public class JPanelFindPatient extends JPanel {
        add(btnRunReport, BorderLayout.SOUTH);
     }
     
-    public static JPanelFindPatient getInstance(){
+    public static JPanelSecretaryFindPat getInstance(){
          if (FindPatSingInst == null){
-            FindPatSingInst = new JPanelFindPatient();
+            FindPatSingInst = new JPanelSecretaryFindPat();
         }
         //panelRepDrsAppsSingInst.setVisible(true);
         return FindPatSingInst;
