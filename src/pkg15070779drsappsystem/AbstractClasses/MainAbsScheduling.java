@@ -1,23 +1,40 @@
 
 package pkg15070779drsappsystem.AbstractClasses;
 
-
-//import java.text.DateFormat;
-//import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import javax.swing.JOptionPane;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
 
-public abstract class MainAppointmentSchedule {
+
+public abstract class MainAbsScheduling {
     
-    //yearly available appointments
+    //used to pupulate combo boxes for user forms, for appointment dates and times etc
+   private static String arrDays [] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
+        "28", "29", "30", "31"};
+   private static     String arrMonths [] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+   private static  String arrYears[] = {"2017", "2018"};
+   
+   private static  String arrTimes[] = {"0900", "0915", "0930", "0945", "1000", "1015", "1030", "1045", "1100", "1115", "1130", "1145", 
+            "1200", "1215", "1230", "1245", "1300", "1315", "1330", "1345", "1400", "1415", "1430", "1445", "1500", "1515", "1530", "1545",
+            "1600", "1615", "1630", "1645"};
+   
+   //not used
+   
+   private static String arrFebDays [] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "32", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
+        "28"};
+        
+       private static  String arrThirtyDays [] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "32", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
+        "28", "29", "30"};
+        
+        
+        
+       
+        
+    
+//yearly available appointments
     
    
     
@@ -27,8 +44,8 @@ public abstract class MainAppointmentSchedule {
     //@@@@@@@@@@ , but Christmans day / boxing day etc are still in  - take these out
     public static List<LocalDateTime> generateAvailableAppointments(){
         
-        LocalDateTime startDateIn = MainAppointmentSchedule.getConvStringToDateTime("01Jan20170900");
-        LocalDateTime endDate = MainAppointmentSchedule.getConvStringToDateTime("31Dec20181700");
+        LocalDateTime startDateIn = MainAbsScheduling.getConvStringToDateTime("01Jan20170900");
+        LocalDateTime endDate = MainAbsScheduling.getConvStringToDateTime("31Dec20181700");
         List<LocalDateTime> lstAllAppointmentDates = new ArrayList<>(); 
                 for (LocalDateTime startDateTime = startDateIn; startDateTime.isBefore(endDate); startDateTime = startDateTime.plusMinutes(15L)){
                 startDateTime.plusMinutes(15);
@@ -43,6 +60,24 @@ public abstract class MainAppointmentSchedule {
                
                 return lstAllAppointmentDates;
     }
+    
+    public static String[] getDaysArr(){
+                return arrDays;
+    }
+    
+     public static String[] getMonthsArr(){
+                return arrMonths;
+    }
+     
+      public static String[] getYearArr(){
+                return arrYears;
+    }
+      
+       public static String[] getTimesArr(){
+                return arrTimes;
+    }
+      
+      
     
     //when called, it returns a list of LocalDateTime objects from the current date to 1 year in the future
     //used to populate the select dates to and from for a combobox

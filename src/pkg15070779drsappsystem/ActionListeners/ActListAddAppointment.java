@@ -7,7 +7,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.AbstractClasses.MainAppointmentSchedule;
+import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import static pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu.getInstance;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppointment;
@@ -39,8 +39,8 @@ public class ActListAddAppointment implements ActionListener {
         MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(strDoctor);
    
         
-       String formattedTime =  MainAppointmentSchedule.getFormattedDate(strDay, strMonth, strYear, strTime);
-       LocalDateTime ldtPotAppDateTime = MainAppointmentSchedule.getConvStringToDateTime(formattedTime);
+       String formattedTime =  MainAbsScheduling.getFormattedDate(strDay, strMonth, strYear, strTime);
+       LocalDateTime ldtPotAppDateTime = MainAbsScheduling.getConvStringToDateTime(formattedTime);
         //MainDoctor.currentDoctor
         
         //if the Dr selected (which is held in currentDoctor variable) has the date in their appointment

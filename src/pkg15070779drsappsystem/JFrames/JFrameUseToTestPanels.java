@@ -2,20 +2,24 @@
 package pkg15070779drsappsystem.JFrames;
 
 import javax.swing.JFrame;
-import pkg15070779drsappsystem.AbstractClasses.MainAppointmentSchedule;
+import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.JPanels.JPanelSelDataFlow;
 
 public class JFrameUseToTestPanels extends JFrame {
     
     public JFrameUseToTestPanels(){
-            super ("Doctor's menu");
+            super ("Test");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        MainAppointmentSchedule.generateSelectDates();
-        JPanelSelDataFlow newOne = new JPanelSelDataFlow();
-        newOne.setInitialiseWidgets();
+      
+        
+        JFrameAbsBorLayFillScreen.applyLayout(this);
+        
+          MainAbsScheduling.generateSelectDates();
+        JPanelSelDataFlow newOne = new JPanelSelDataFlow("Select Date's from");
+        
         newOne.setVisible(true);
-         JFrameAbsBorLayFillScreen.applyLayout(this);
+        add(newOne);
         revalidate();
         repaint();
     }

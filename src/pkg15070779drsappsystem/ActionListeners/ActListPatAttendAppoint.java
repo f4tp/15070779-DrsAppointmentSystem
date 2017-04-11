@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.AbstractClasses.MainAppointmentSchedule;
+import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
@@ -19,7 +19,7 @@ public class ActListPatAttendAppoint implements ActionListener {
         
         
         //holds current date to check if the current system user / current Patient has an appointment today
-        LocalDateTime currentDate = MainAppointmentSchedule.getDateToday();
+        LocalDateTime currentDate = MainAbsScheduling.getDateToday();
         
         //holds the keys of all of the current system users appointments
         List <String> tempAppKeys= MainPatient.currentPatient.getPatientAppointmentKeys();

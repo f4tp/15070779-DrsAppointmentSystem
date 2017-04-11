@@ -2,34 +2,18 @@ package pkg15070779drsappsystem.JPanels;
 
 import java.awt.GridLayout;
 import java.util.List;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 public class JPanelNewAppointment extends JPanel{
     
     //@@@@@@@@@@ iteration could be used here - sort when get time
-    String arrFebDays [] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "32", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
-        "28"};
-        
-        String arrThirtyDays [] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "32", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
-        "28", "29", "30"};
-        
-        String arrDays [] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "32", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
-        "28", "29", "30", "31"};
-        
-        String arrMonths [] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-        
-        String arrYears[] = {"2017", "2018"};
-        
-        String arrTimes[] = {"0900", "0915", "0930", "0945", "1000", "1015", "1030", "1045", "1100", "1115", "1130", "1145", 
-            "1200", "1215", "1230", "1245", "1300", "1315", "1330", "1345", "1400", "1415", "1430", "1445", "1500", "1515", "1530", "1545",
-            "1600", "1615", "1630", "1645"};
-        
+    
         
         JLabel lblTitle = new JLabel ("Patient's Title:");
        //lblFirstName.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
@@ -58,15 +42,15 @@ public class JPanelNewAppointment extends JPanel{
 
        
        JLabel lblSelDay = new JLabel("Please select a date for the appointment");
-       JComboBox cmbSelDay = new JComboBox(arrDays);
+       JComboBox cmbSelDay = new JComboBox(MainAbsScheduling.getDaysArr());
        
        JLabel lblSelMon = new JLabel("Please select a month for the appointment");
-       JComboBox cmbSelMonth = new JComboBox(arrMonths);
+       JComboBox cmbSelMonth = new JComboBox(MainAbsScheduling.getMonthsArr());
        
        JLabel lblSelYear = new JLabel("Please select a year for the appointment");
-       JComboBox cmbSelYear = new JComboBox(arrYears);
+       JComboBox cmbSelYear = new JComboBox(MainAbsScheduling.getYearArr());
        JLabel lblSelTime= new JLabel("Please select a time for the appointment");
-       JComboBox cmbSelTime = new JComboBox(arrTimes);
+       JComboBox cmbSelTime = new JComboBox(MainAbsScheduling.getTimesArr());
        
        
     

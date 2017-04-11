@@ -10,7 +10,7 @@ import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainPharmacist;
 import pkg15070779drsappsystem.MainClasses.MainSecretary;
 import java.util.List;
-import pkg15070779drsappsystem.AbstractClasses.MainAppointmentSchedule;
+import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 
 public abstract class AABLoadData {
     
@@ -46,16 +46,16 @@ public abstract class AABLoadData {
         //above are the existing system users being put into the system
         
         //fill the list with all available appointments per doctor   
-        MainAppointmentSchedule.generateAvailableAppointments();
+        MainAbsScheduling.generateAvailableAppointments();
         
 
-     //   LocalDateTime tester = new LocalDateTime(LocalDateTime(MainAppointmentSchedule.getConvStringToDateTime("010220171450"));
+     //   LocalDateTime tester = new LocalDateTime(LocalDateTime(MainAbsScheduling.getConvStringToDateTime("010220171450"));
         
-        pat1.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("10Apr20171450"), "gregory.house.01011910", "sore back");
-        pat2.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("02Apr20171500"), "peter.venkman.01011911", "backache");
-        //pat3.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("030220171510"), "gregory.house.01011911");
-        //pat4.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("040220171450"), "gregory.house.01011911");
-        //pat5.addNewAppointment(MainAppointmentSchedule.getConvStringToDateTime("010220171450"), "gregory.house.01011911");
+        pat1.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("10Apr20171450"), "gregory.house.01011910", "sore back");
+        pat2.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("02Apr20171500"), "peter.venkman.01011911", "backache");
+        //pat3.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("030220171510"), "gregory.house.01011911");
+        //pat4.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("040220171450"), "gregory.house.01011911");
+        //pat5.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("010220171450"), "gregory.house.01011911");
        // pat2.addNewAppointment( new Date(1991001), 99449595, "peter.venkman.01011912");
         //pat3.addNewAppointment(new Date(9022992), 67578584, "egon.spengler.01011913");
         //pat4.addNewAppointment(new Date(45563667), 33883883, "ray.stance.01011914");

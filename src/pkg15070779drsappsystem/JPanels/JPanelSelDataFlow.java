@@ -8,59 +8,78 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.AbstractClasses.MainAppointmentSchedule;
+import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 
 
 public class JPanelSelDataFlow extends JPanel {
-    JLabel lblSeDateFrom= new JLabel("Select date FROM:     ");
-    JComboBox cmbSelDateFromDay= new JComboBox();
-    JComboBox cmbSelDateFromMonth= new JComboBox();
-    JComboBox cmbSelDateFromYear= new JComboBox();
+    JLabel lblSeDateFromTo= new JLabel("");
+    JComboBox cmbSelDateFromToDay= new JComboBox((MainAbsScheduling.getDaysArr()));
+    JComboBox cmbSelDateFromToMonth= new JComboBox(MainAbsScheduling.getMonthsArr());
+    JComboBox cmbSelDateFromToYear= new JComboBox(MainAbsScheduling.getYearArr());
     
-    JLabel lblSeDateToDay= new JLabel("Select date TO:     ");
-    JComboBox cmbSelDateToDay= new JComboBox();
-    JComboBox cmbSelDateToMonth= new JComboBox();
-    JComboBox cmbSelDateToYear= new JComboBox();
+   //JLabel lblSeDateToDay= new JLabel("Select date TO:     ");
+  // JComboBox cmbSelDateToDay= new JComboBox(MainAbsScheduling.getDaysArr());
+  // JComboBox cmbSelDateToMonth= new JComboBox(MainAbsScheduling.getMonthsArr());
+   // JComboBox cmbSelDateToYear= new JComboBox(MainAbsScheduling.getYearArr());
     
-    public JPanelSelDataFlow(){
-         //setInitialiseWidgets();
-         this.add(cmbSelDateToDay);
+    public JPanelSelDataFlow(String titleForPanel){
+        this.lblSeDateFromTo.setText(titleForPanel);
+        this.add(lblSeDateFromTo);
+        this.add(cmbSelDateFromToDay);
+        this.add(cmbSelDateFromToMonth);
+        this.add(cmbSelDateFromToYear);
+
     }
     
     public String getFromDateDayString(){
-      return  this.cmbSelDateFromDay.getSelectedItem().toString();
+      return  this.cmbSelDateFromToDay.getSelectedItem().toString();
         
     }
     
      public String getFromDateMonthString(){
-      return  this.cmbSelDateFromMonth.getSelectedItem().toString();
+      return  this.cmbSelDateFromToMonth.getSelectedItem().toString();
         
     }
      
       public String getFromDateYearString(){
-      return  this.cmbSelDateFromYear.getSelectedItem().toString();
+      return  this.cmbSelDateFromToYear.getSelectedItem().toString();
         
     }
       
-      public String getToDateDayString(){
-      return  this.cmbSelDateToDay.getSelectedItem().toString();
+  //    public String getToDateDayString(){
+   //   return  this.cmbSelDateToDay.getSelectedItem().toString();
         
-    }
+  //  }
     
-     public String getToDateMonthString(){
-      return  this.cmbSelDateToMonth.getSelectedItem().toString();
+    // public String getToDateMonthString(){
+   //   return  this.cmbSelDateToMonth.getSelectedItem().toString();
         
-    }
+    //}
      
-   public String getToDateYearString(){
-      return  this.cmbSelDateToYear.getSelectedItem().toString();
+  // public String getToDateYearString(){
+   //   return  this.cmbSelDateToYear.getSelectedItem().toString();
         
-    }
+    //}
+   
+   public void setInitialiseWidgets(){
+       
+       for (int i = 1; i < 32; i++){
+             this.cmbSelDateFromToDay.addItem(i);
+             //this.cmbSelDateToDay.addItem(i);
+        }
+
+             //this.cmbSelDateFromToMonth.add
+
+             
+
+   }
     
-    public void setInitialiseWidgets(){
-        LocalDateTime currentDate = MainAppointmentSchedule.getDateToday();
-        LocalDateTime PlusOneWeekDate = MainAppointmentSchedule.getDateToday().plusDays(7);
-        List<LocalDateTime> listToPopComboAll = MainAppointmentSchedule.generateSelectDates();
+   
+   //old routine calculates all dates for 1 year without saturdays & sundays
+    public void setInitialiseWidgetsOld(){
+        LocalDateTime currentDate = MainAbsScheduling.getDateToday();
+        LocalDateTime PlusOneWeekDate = MainAbsScheduling.getDateToday().plusDays(7);
+        List<LocalDateTime> listToPopComboAll = MainAbsScheduling.generateSelectDates();
         List<String> tempList = new ArrayList<>();
         
         for (LocalDateTime temp : listToPopComboAll){
@@ -68,24 +87,24 @@ public class JPanelSelDataFlow extends JPanel {
              tempList.add(tempStr);
          }
         
-         this.cmbSelDateFromDay.setModel(new DefaultComboBoxModel(tempList.toArray()));
-         this.cmbSelDateToDay.setModel(new DefaultComboBoxModel(tempList.toArray()));
+         this.cmbSelDateFromToDay.setModel(new DefaultComboBoxModel(tempList.toArray()));
+         //this.cmbSelDateToDay.setModel(new DefaultComboBoxModel(tempList.toArray()));
         
          for (LocalDateTime temp : listToPopComboAll){
             String tempStr = (temp.getMonth().toString());
              tempList.add(tempStr);
          }
         
-         this.cmbSelDateFromMonth.setModel(new DefaultComboBoxModel(tempList.toArray()));
-         this.cmbSelDateToMonth.setModel(new DefaultComboBoxModel(tempList.toArray()));
+         this.cmbSelDateFromToMonth.setModel(new DefaultComboBoxModel(tempList.toArray()));
+         //this.cmbSelDateToMonth.setModel(new DefaultComboBoxModel(tempList.toArray()));
          
           for (LocalDateTime temp : listToPopComboAll){
             String tempStr = Integer.toString(temp.getYear());
              tempList.add(tempStr);
          }
         
-         this.cmbSelDateFromYear.setModel(new DefaultComboBoxModel(tempList.toArray()));
-         this.cmbSelDateToYear.setModel(new DefaultComboBoxModel(tempList.toArray()));
+         this.cmbSelDateFromToYear.setModel(new DefaultComboBoxModel(tempList.toArray()));
+         //this.cmbSelDateToYear.setModel(new DefaultComboBoxModel(tempList.toArray()));
  
     }
     

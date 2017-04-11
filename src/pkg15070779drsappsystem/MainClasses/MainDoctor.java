@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.Interfaces.MainIntAbsUserComponent;
 import java.util.*;
-import pkg15070779drsappsystem.AbstractClasses.MainAppointmentSchedule;
+import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 
 
 public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbsUserComponent  {
@@ -33,7 +33,7 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         //generates a list with all available appointments on
         //when a patient generates an appointment, it will remove this from their list
         //if it can;t be found in teh list in other routines, it means someone has already gotten that appointment
-        this.lstDocsAvailAppointments = MainAppointmentSchedule.generateAvailableAppointments();
+        this.lstDocsAvailAppointments = MainAbsScheduling.generateAvailableAppointments();
         
         //add the user object to the map
          setPutInMap(this.strKeyUserName, this); 
