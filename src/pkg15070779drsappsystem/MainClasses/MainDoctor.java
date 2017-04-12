@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 
 
 public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbsUserComponent  {
@@ -19,8 +20,10 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
     //private static Map<String, MainAbsSystemUserComponent> mapDoctors = new HashMap<>(); //holds all doctor system users
     private final String STRTITLE, STRFIRSTNAME, STRSURNAME, STRDOB, STRKEYUSERNAME;
     private static final List<String> LSTDOCTORS = new ArrayList <>();
-    private List<LocalDateTime> lstDocsAvailAppointments = new ArrayList<>();
     
+    //holds all available appointments 
+    private List<LocalDateTime> lstDocsAvailAppointments = new ArrayList<>();
+    private List<LocalDateTime> lstDocsSetAppointments = new ArrayList<>();
     //private String strUniqueDrName;
     public MainDoctor(String fname, String sname, String title, String dob, String newer){
      
@@ -74,6 +77,21 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         return this.lstDocsAvailAppointments;
     }
     
+    public static void addAppointmentToDrsList(String drkey, LocalDateTime datein){
+        
+        //sets the static varible to the doctor we are searching for
+        MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(drkey);
+        //adds the appointment time to the Drs taken appointment lists
+        MainDoctor.currentDoctor.lstDocsSetAppointments.add(datein);
+        
+        //deletes the time from their available appointments list
+        MainDoctor.currentDoctor.lstDocsAvailAppointments.remove(datein);
+        
+        //put the Dr back in the map after they have been edited
+        MainAbsSystemUserComponent.setPutInMap(drkey, MainDoctor.currentDoctor);
+    }
+    
+    
     //@@@@@NTD
     public static List<LocalDateTime> getDocsMonthlySetAppointments(MainDoctor doctorin, LocalDateTime datefrom ){
         
@@ -81,17 +99,17 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
        //using this (it will be the key for it). converts it to a MainDoctor object
         //MainDoctor searchedForDoc = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(JPanelReportsDrsApps.getInstance().getSelectedDr());
         
-        List <LocalDateTime> foundAppointments = new ArrayList<>();
+        //List <LocalDateTime> foundAppointments = new ArrayList<>();
         
         //adds one month onto teh date set so 1 months' worht of appointments are generated
         LocalDateTime dateto = datefrom.plusMonths(1L);
         
-        //loop through the doctors set appointment list, check whether they are in thi smonth, add them to the new list if they are
+        //loop through the doctors set appointment list, check whether they are in this month, add them to the new list if they are
         
         
         //return the appointments found
         
-        return foundAppointments;
+        return doctorin.lstDocsSetAppointments;
     }
     
     public static List<LocalDateTime> getDocsAvailableAppointments (MainDoctor doctorin, LocalDateTime datefrom, LocalDateTime dateto){

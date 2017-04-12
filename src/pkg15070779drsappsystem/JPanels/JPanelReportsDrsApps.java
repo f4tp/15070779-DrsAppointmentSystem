@@ -9,23 +9,23 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 //different report border layout, specialised version as we have to have Drs as well
 public class JPanelReportsDrsApps extends JPanel {
-    
-    //only one menu will ever need be generated so singleton DP has been setup
+     //only one menu will ever need be generated so singleton DP has been setup
     //the single instance should be accessed using the getInstance() method
     private static JPanelReportsDrsApps panelRepDrsAppsSingInst;
+    
+    //updates the combobox with all Drs that are registered
     public JComboBox cmbDrs = new JComboBox(MainDoctor.getListAllDoctors().toArray());
     
-         //gets months from the abstract scheduling class to keep consistency, some routines rely on the date 
-        //given as Jan Feb Mar etc
-      JComboBox cmbMonth = new JComboBox(MainAbsScheduling.getMonthsArr());
+    //gets months from the abstract scheduling class to keep consistency, some routines rely on the date 
+    //given as Jan Feb Mar etc
+    JComboBox cmbMonth = new JComboBox(MainAbsScheduling.getMonthsArr());
 
-        //gets years from the abstract scheduling class to keep consistency
-       JComboBox cmbYear = new JComboBox(MainAbsScheduling.getYearArr());
+    //gets years from the abstract scheduling class to keep consistency
+    JComboBox cmbYear = new JComboBox(MainAbsScheduling.getYearArr());
     
     
     private JPanelReportsDrsApps(){
-        //super("Report Doctor's appointments for the month of...", JPanelReportsDrsApps.getInstance());
-        //updates the combobox with all Drs that are registered
+
         JLabel lblMessage = new JLabel ("Report Doctor's appointments for the month of...");
         JPartPanelPadding topDetail = new JPartPanelPadding(lblMessage);
         
@@ -42,24 +42,15 @@ public class JPanelReportsDrsApps extends JPanel {
         
             
 
+        //layout widgents
+        setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
+        setLayout (new BorderLayout ());
+        add(topDetail, BorderLayout.NORTH);
+        add(westDetail, BorderLayout.WEST);
+        add(eastDetail, BorderLayout.EAST);
+        add(bottomDetail, BorderLayout.CENTER);
+        add(btnRunReport, BorderLayout.SOUTH);
 
- setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
-    setLayout (new BorderLayout ());
-       
-     
-       add(topDetail, BorderLayout.NORTH);
-       //add(cmbMonth, BorderLayout.WEST);
-       //add(cmbYear, BorderLayout.CENTER);
-       add(westDetail, BorderLayout.WEST);
-       add(eastDetail, BorderLayout.EAST);
-       add(bottomDetail, BorderLayout.CENTER);
-       add(btnRunReport, BorderLayout.SOUTH);
-       //add(butAndJText, BorderLayout.SOUTH);
-
-
-//adds the combobox to the abstract 
-        //super.add(eastDetail, BorderLayout.EAST);   
-        
     }
     
     public static JPanelReportsDrsApps getInstance(){

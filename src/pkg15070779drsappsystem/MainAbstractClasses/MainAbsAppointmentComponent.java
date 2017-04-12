@@ -48,8 +48,5 @@ public abstract class MainAbsAppointmentComponent {
         return mapAppointments.get(uniqueKey);
     }
     
-    
-    
-    
-    
+     
 }

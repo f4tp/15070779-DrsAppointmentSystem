@@ -33,6 +33,10 @@ public class JPartPanelTextAreaMonthReports  extends JPanel{
         return BtutextAreaSingInst;
     }
     
-    
+    public void setJtextArea(String texttoset){
+        jtaReportResults.setText("");
+        jtaReportResults.setText(texttoset);
+        //jtaReportResults.append(texttoset);
+    }
     
 }

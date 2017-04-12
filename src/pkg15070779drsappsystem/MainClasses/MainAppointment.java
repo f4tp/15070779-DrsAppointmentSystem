@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import java.util.*;
 import javax.swing.JOptionPane;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 public final class MainAppointment extends MainAbsAppointmentComponent {
 //@@@@@@@@@@@ static variables @@@@@@@@@@@
     //will hold the appointment that the user of the system is working with
@@ -21,6 +22,10 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         //@@@@@@@@@@ check the Dr is not busy on the appointment set, if they are - display an error message - Dr, dateTime object
     
         setCreateAppointment(title, patientfirstname, patientsurname, uniqueID, appDateAndTime, drwith, symptoms);
+        
+        //adds the time into the Drs appointment list
+        addAppointmentToDrsList(this.drUniqueKeyAppWith, this.appDateAndTime);
+        
     }
     
     private void setCreateAppointment(String title, String firstname, String surname, String uniqueid, LocalDateTime appdaateandtime, String drwith, String symptoms){
@@ -43,6 +48,13 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     }
     
 //@@@@@@@@@@@ Setters @@@@@@@@@@   
+    
+    
+    public void addAppointmentToDrsList(String drin, LocalDateTime apptimein){
+        MainDoctor.addAppointmentToDrsList(drin, apptimein);
+        
+    }
+    
     
     public void setAppAttend(){
         System.out.println(this.appAttended);
@@ -107,9 +119,6 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         return this.AppUniqueKey;
     }
     
-    public static void setAppointmentAsAttended(String appID){
-        
-    }
     
     //returns the date and time object for the appointment that it is called on
     public LocalDateTime getAPPDateAndTime(){
