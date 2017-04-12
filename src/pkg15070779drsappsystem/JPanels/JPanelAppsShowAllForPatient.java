@@ -3,6 +3,7 @@ package pkg15070779drsappsystem.JPanels;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -18,6 +19,8 @@ public class JPanelAppsShowAllForPatient extends JPanel {
     JTextArea JTFAllAppointments = new JTextArea();
     //JScrollPane scrollpane = new JScrollPane(JTFAllAppointments);
     
+    //will hold the keys of the appointments, so they can be selected and edited
+    JComboBox cmbAppKeys = new JComboBox();
     JButton btnReturn = new JButton("Back");
     
 
@@ -32,6 +35,7 @@ public class JPanelAppsShowAllForPatient extends JPanel {
         
         add(JTFAllAppointments);
         //add(scrollpane);
+        add(cmbAppKeys);
         add(btnReturn);
         
     }
@@ -58,6 +62,19 @@ public class JPanelAppsShowAllForPatient extends JPanel {
         //getInstance().repaint();
         
     
+    }
+    
+    public static void updateComboAppKeys(String textToAdd){
+        
+        getInstance().cmbAppKeys.addItem(textToAdd);
+
+        //getInstance().lblAppFor.setText("Showing appointments for: " + MainPatient.currentPatient.getFirstName() + " " + MainPatient.currentPatient.getSurname() );
+        //getInstance().revalidate();
+        //getInstance().repaint();
+    }
+    
+    public static void setClearCombo(){
+        getInstance().cmbAppKeys.removeAllItems();
     }
     
     

@@ -19,29 +19,44 @@ public class ActListRunReport implements ActionListener {
     private JComboBox cmbMonth;
     private JComboBox cmbYear;
     private JComboBox cmbDrIn;
+    private JComboBox cmbReportType;
     LocalDateTime ldtFirstOfMonthToSearch;
     public ActListRunReport(String typeofreport, JComboBox month, JComboBox year){
         this.typeOfReport = typeofreport;
         this.cmbMonth = month;
         this.cmbYear = year;
     }
+    
+    public ActListRunReport(String typeofreport, JComboBox month, JComboBox year, JComboBox reporttype){
+        this.typeOfReport = typeofreport;
+        this.cmbMonth = month;
+        this.cmbYear = year;
+        this.cmbReportType = reporttype;
+        
+        
+    }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         System.out.println(cmbMonth.getSelectedItem().toString());
         
-         //generate a full date, set it to the first
-         ldtFirstOfMonthToSearch = MainAbsScheduling.getConvStringToDateTime("01"+this.cmbMonth.getSelectedItem().toString()+this.cmbYear.getSelectedItem().toString()+"0000");
+         
      
         //the type of report to run is based on the text in the label of the JPanel, this determines which data is to
         //be used... the same place will be populated with the details (the abstract jpanel)
         if (typeOfReport == "Report all Appointments for the month of..."){
+            
+              //generate a full date, set it to the first
+         ldtFirstOfMonthToSearch = MainAbsScheduling.getConvStringToDateTime("01"+this.cmbMonth.getSelectedItem().toString()+this.cmbYear.getSelectedItem().toString()+"0000");
             
         }
         
         
         //report for Doctor's monthly appointments
         else if (typeOfReport == "Report Doctor's appointments for the month of..."){
+            
+            //generate a full date, set it to the first
+         ldtFirstOfMonthToSearch = MainAbsScheduling.getConvStringToDateTime("01"+this.cmbMonth.getSelectedItem().toString()+this.cmbYear.getSelectedItem().toString()+"0000");
             
              // set the currentdoctor as this doctor - keeping wit the whole platform - will be used to call the method next
              MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(JPanelReportsDrsApps.getInstance().getSelectedDr());

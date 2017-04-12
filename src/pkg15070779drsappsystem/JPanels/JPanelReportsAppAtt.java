@@ -34,7 +34,7 @@ public class JPanelReportsAppAtt extends JPanel {
       //act listener called with the text out of the title label (to identify which report is being run), the selected month and year from
       //the current panel being worked on... which is passed into this class as an object
       //the current panel is a singleton dp
-       btnRunReport.addActionListener (new ActListRunReport(lblMessage.getText(), cmbMonth, cmbYear));
+       btnRunReport.addActionListener (new ActListRunReport(lblMessage.getText(), cmbMonth, cmbYear, cmbAppStatus));
         
          JPartPanelPadding bottomDetail = new JPartPanelPadding(cmbYear);
         JPartPanelPadding westDetail = new JPartPanelPadding(cmbMonth);

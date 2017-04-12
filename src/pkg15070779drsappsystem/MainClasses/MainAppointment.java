@@ -13,7 +13,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
 //@@@@@@@@@@@ Instance Variables @@@@@@@@@@    
     private String AppUniqueKey, patientUniqueID, strTitle, patientFirstname,patientSurname, appDrComments, appMedicine, appSymptoms;
     private String drUniqueKeyAppWith;
-    private Boolean appAttended,appCancelled; 
+    private Boolean appAttended,appCancelled, appMissed; 
     private LocalDateTime appDateAndTime;
 
 //@@@@@@@@@@@ Constructors @@@@@@@@@@    
@@ -41,6 +41,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
 
         this.appAttended = false;
         this.appCancelled = false;
+        this.appMissed = false;
         this.appDrComments="please enter comments";
         this.appMedicine="please update this if medicine is required for this appointment";
         this.appSymptoms = symptoms;
@@ -86,6 +87,15 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         }
     }
     
+    public void setAppMissed(){
+        if (this.appMissed = false){
+            this.appMissed = true;
+        }
+        else if (this.appMissed = true){
+            this.appMissed= false;
+        }
+    }
+    
  //@@@@@@@@@@@ Getters @@@@@@@@@@  
      
         
@@ -104,7 +114,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     @Override
     public String toString(){
         return ("Appointment ID: " + this.AppUniqueKey + "| Date & Time of Appointment:  " + this.appDateAndTime + "| Symptoms Given: "
-               + this.appSymptoms + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  "| Medicine Prescribed: " +  this.appMedicine + "\n");
+               + this.appSymptoms + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  " | Appointment Missed: " + this.appMissed +"| Medicine Prescribed: " +  this.appMedicine + "\n");
    }
     
   
