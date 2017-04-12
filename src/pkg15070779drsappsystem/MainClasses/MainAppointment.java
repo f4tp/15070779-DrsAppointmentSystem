@@ -114,7 +114,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     @Override
     public String toString(){
         return ("Appointment ID: " + this.AppUniqueKey + "| Date & Time of Appointment:  " + this.appDateAndTime + "| Symptoms Given: "
-               + this.appSymptoms + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  " | Appointment Missed: " + this.appMissed +"| Medicine Prescribed: " +  this.appMedicine + "\n");
+               + this.appSymptoms + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  " | Appointment Missed: " + this.appMissed +"| Medicine Prescribed: " +  this.appMedicine + "\n\n");
    }
     
   

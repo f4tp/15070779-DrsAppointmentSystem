@@ -30,13 +30,7 @@ public class ActListDisplayPatientApps implements ActionListener{
         
         JFrameSecretaryMenu secMenPointer = JFrameSecretaryMenu.getInstance();
         secMenPointer.setSecSouthBorderString("DispPatientAppointments");
-       
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
-        
-        
-        
+
         
     }
     

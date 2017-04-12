@@ -17,26 +17,28 @@ public class JPanelAppsShowAllForPatient extends JPanel {
     JLabel lblAppFor = new JLabel("");
     //JTextArea JTFName = new JTextArea();
     JTextArea JTFAllAppointments = new JTextArea();
-    //JScrollPane scrollpane = new JScrollPane(JTFAllAppointments);
+    JScrollPane scrollpane = new JScrollPane(JTFAllAppointments);
     
     //will hold the keys of the appointments, so they can be selected and edited
     JComboBox cmbAppKeys = new JComboBox();
-    JButton btnReturn = new JButton("Back");
+    //JButton btnReturn = new JButton("Back");
     
+    JPartPanelAppsShowAllPatButPanel ButPanSingInst = JPartPanelAppsShowAllPatButPanel.getInstance();
 
     private JPanelAppsShowAllForPatient(){
         
-        btnReturn.addActionListener(new ActListReturnPatientRec());
+        //btnReturn.addActionListener(new ActListReturnPatientRec());
          setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
         //JTFAllAppointments.setSize(400, 400);
         JTFAllAppointments.setLineWrap(true);
         add(lblAppFor);
         //add(JTFName);
         
-        add(JTFAllAppointments);
-        //add(scrollpane);
+        //add(JTFAllAppointments);
+        add(scrollpane);
         add(cmbAppKeys);
-        add(btnReturn);
+        //add(btnReturn);
+        add(ButPanSingInst);
         
     }
     
@@ -84,5 +86,9 @@ public class JPanelAppsShowAllForPatient extends JPanel {
         }
         
         return ViewAllAppsSingInst;
+    }
+    
+    public static JComboBox getComboAppkeys(){
+        return getInstance().cmbAppKeys;
     }
 }

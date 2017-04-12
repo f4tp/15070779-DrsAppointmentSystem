@@ -3,7 +3,6 @@ package pkg15070779drsappsystem.JPanels;
 
 import pkg15070779drsappsystem.ActionListeners.ActListDispAddDocPan;
 import javax.swing.*;
-import pkg15070779drsappsystem.ActionListeners.ActListDispAmendAppPan;
 import pkg15070779drsappsystem.ActionListeners.ActListDisplayPatientApps;
 import pkg15070779drsappsystem.ActionListeners.ActListNewAppointment;
 
@@ -18,7 +17,7 @@ public class JPartPanelPatRecButPanSEC extends JPanel {
         btnAllApps.addActionListener(new ActListDisplayPatientApps());
         
         JButton btnAmendApp= new JButton("Amend an appointment");
-        btnAllApps.addActionListener(new ActListDispAmendAppPan());
+        btnAmendApp.addActionListener(new ActListDisplayPatientApps());
         
         JButton btnNewApp = new JButton("New Appointment");
         btnNewApp.addActionListener(new ActListNewAppointment());
@@ -28,6 +27,7 @@ public class JPartPanelPatRecButPanSEC extends JPanel {
        
                 
         add(btnAllApps);
+        add(btnAmendApp);
         add(btnNewApp);
         add(btnAddNewDoctor);
     }
