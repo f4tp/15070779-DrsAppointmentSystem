@@ -7,13 +7,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 
-public class JPanelSelDrComboFlow extends JPanel {
-    public static JPanelSelDrComboFlow SelDrSingInst;
+public class JPartPanelSelDrComboFlow extends JPanel {
+    public static JPartPanelSelDrComboFlow SelDrSingInst;
     
     JLabel lblSelDoc = new JLabel("Select a Doctor:     ");
     JComboBox cmbSelDoc = new JComboBox();
     
-    private JPanelSelDrComboFlow(){
+    private JPartPanelSelDrComboFlow(){
        
         add(lblSelDoc);
         add(cmbSelDoc);
@@ -31,9 +31,9 @@ public class JPanelSelDrComboFlow extends JPanel {
     }
     
     //singleton DP
-    public static JPanelSelDrComboFlow getInstance(){
+    public static JPartPanelSelDrComboFlow getInstance(){
         if(SelDrSingInst == null){
-            SelDrSingInst = new JPanelSelDrComboFlow(); 
+            SelDrSingInst = new JPartPanelSelDrComboFlow(); 
         }
         
         return SelDrSingInst;

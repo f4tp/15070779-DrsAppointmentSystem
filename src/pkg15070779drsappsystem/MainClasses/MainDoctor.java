@@ -4,11 +4,14 @@ import java.time.LocalDateTime;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.Interfaces.MainIntAbsUserComponent;
 import java.util.*;
+import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow;
 
 
 public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbsUserComponent  {
-   public static MainDoctor currentDoctor;
+   //holds the current dr who is being searched for by any user
+    public static MainDoctor currentDoctor;
     
     
     private String apptest;
@@ -61,8 +64,47 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         return this.strDOB;
     }
     
-    public List getDocsAvailableAppointments(){
+    public List<LocalDateTime> getDocsAvailableAppointments(){
         return this.lstDocsAvailAppointments;
+    }
+    
+    
+    public static List<LocalDateTime> getDocAvailableAppointmentsWithDates (LocalDateTime datefrom, LocalDateTime dateto){
+            List <LocalDateTime> foundAppointments = new ArrayList<>();
+
+            //sets the main doctor to the selected Dr in the combo box - this is a static variable used to hold any
+           //doctor that is searched for
+           MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(JPartPanelSelDrComboFlow.getInstance().getDoctorString());
+
+           //temporarily stores the list of all the doctor's available appointments
+           List docsAvailApps =   MainDoctor.currentDoctor.getDocsAvailableAppointments();
+       
+            if (dateto.isBefore(datefrom)){
+                JOptionPane.showMessageDialog (null,
+                     "The date to is before the date FROM. Please check your dates and try again",
+                     "Check Dates",
+                     JOptionPane.ERROR_MESSAGE);
+
+            }
+            else{
+
+                 //takes a day off because the routine checks for days between from and to, and we want to include those days in the search
+                  datefrom = datefrom.minusDays(1L);
+
+                  //same for the to days, but adds one on...
+                  dateto = dateto.plusDays(1L);
+                 //need display only appointments in the given from and to dates, 
+
+                 for (LocalDateTime temp : MainDoctor.currentDoctor.getDocsAvailableAppointments()){
+                        if((temp.isAfter(datefrom)) && (temp.isBefore(dateto))){
+                            foundAppointments.add(temp);
+                            System.out.println(temp);
+                        }
+
+                }
+
+           }
+         return foundAppointments;
     }
     
     //public String setGenerateUniqueDrName(){

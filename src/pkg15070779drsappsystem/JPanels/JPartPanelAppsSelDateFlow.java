@@ -11,9 +11,10 @@ import javax.swing.JPanel;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 
 
-public class JPanelAppsSelDateFlow extends JPanel {
+public class JPartPanelAppsSelDateFlow extends JPanel {
     JLabel lblSeDateFromTo= new JLabel("");
     JComboBox cmbSelDateFromToDay= new JComboBox((MainAbsScheduling.getDaysArr()));
+   
     JComboBox cmbSelDateFromToMonth= new JComboBox(MainAbsScheduling.getMonthsArr());
     JComboBox cmbSelDateFromToYear= new JComboBox(MainAbsScheduling.getYearArr());
     
@@ -22,7 +23,7 @@ public class JPanelAppsSelDateFlow extends JPanel {
   // JComboBox cmbSelDateToMonth= new JComboBox(MainAbsScheduling.getMonthsArr());
    // JComboBox cmbSelDateToYear= new JComboBox(MainAbsScheduling.getYearArr());
     
-    public JPanelAppsSelDateFlow(String titleForPanel){
+    public JPartPanelAppsSelDateFlow(String titleForPanel){
         this.lblSeDateFromTo.setText(titleForPanel);
         this.add(lblSeDateFromTo);
         this.add(cmbSelDateFromToDay);
@@ -31,17 +32,17 @@ public class JPanelAppsSelDateFlow extends JPanel {
 
     }
     
-    public String getFromDateDayString(){
+    public String getDateDayString(){
       return  this.cmbSelDateFromToDay.getSelectedItem().toString();
         
     }
     
-     public String getFromDateMonthString(){
+     public String geDateMonthString(){
       return  this.cmbSelDateFromToMonth.getSelectedItem().toString();
         
     }
      
-      public String getFromDateYearString(){
+      public String getDateYearString(){
       return  this.cmbSelDateFromToYear.getSelectedItem().toString();
         
     }

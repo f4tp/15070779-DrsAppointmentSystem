@@ -9,14 +9,14 @@ import pkg15070779drsappsystem.JPanels.JPanelSecretaryFindPat;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppButPan;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppointment;
 import pkg15070779drsappsystem.JPanels.JPanelPatientAddDoctor;
-import pkg15070779drsappsystem.JPanels.JPanelPatientRecButPanSEC;
-import pkg15070779drsappsystem.JPanels.JPanelPatientRecordSecView;
+import pkg15070779drsappsystem.JPanels.JPartPanelPatRecButPanSEC;
+import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
 import pkg15070779drsappsystem.JPanels.JPanelReportsAppAtt;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPanelReportsPresrcips;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatient;
-import pkg15070779drsappsystem.JPanels.JPanelAppsViewAllAvailable;
-import static pkg15070779drsappsystem.JPanels.JPanelSelDrComboFlow.setDrComboBox;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllAvailable;
+import static pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow.setDrComboBox;
 //
 public class JFrameSecretaryMenu extends JFrame {
     //JDesktopPane desktop;
@@ -117,12 +117,12 @@ public class JFrameSecretaryMenu extends JFrame {
         JPanelReportsDrsApps JPanelDrsApps = JPanelReportsDrsApps.getInstance(); 
         JPanelReportsPresrcips JPanelPrescs= JPanelReportsPresrcips.getInstance();
         JPanelSecretaryFindPat JPanelFindPat = JPanelSecretaryFindPat.getInstance();
-        JPanelPatientRecordSecView JPanelPatrecNorth = JPanelPatientRecordSecView.getInstance();
-        //JPanelPatientRecButPanSEC JPanelPatrecSouth = JPanelPatientRecButPanSEC.getInstance();
+        JPanelPatRecordSecView JPanelPatrecNorth = JPanelPatRecordSecView.getInstance();
+        //JPanelPatientRecButPanSEC JPanelPatrecSouth = JPartPanelPatRecButPanSEC.getInstance();
         JPanelPatientAddDoctor JPanelPatAddDoc = JPanelPatientAddDoctor.getInstance();
         JPanelNewAppointment JPanNewApp = JPanelNewAppointment.getInstance();
         JPanelNewAppButPan JPanNewAppButPanel = JPanelNewAppButPan.getInstance();
-        JPanelAppsViewAllAvailable JPanViewAllApps = JPanelAppsViewAllAvailable.getInstance();
+        JPanelAppsShowAllAvailable JPanViewAllApps = JPanelAppsShowAllAvailable.getInstance();
         JPanelAppsShowAllForPatient JpanShowApps = JPanelAppsShowAllForPatient.getInstance();
         
         //"FindPatients"

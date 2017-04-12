@@ -7,16 +7,16 @@ import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainSecretary;
 
 
-public abstract class AbsApplyButtonsToPatRecPanel {
+public abstract class ZDELETE_AbsApplyButtonsToPatRecPanel {
     
     
     public static void setButtonsToPatientRecordJPanel(){
         
-        
+   //@@@@@NTD - this is a redundant panel - delete     
         //gets the buttons to apply them
-        JPanelPatientRecButPanSEC secretaryButtons = JPanelPatientRecButPanSEC.getInstance();
-        JPanelPatientRecButPanPAT patientButtons = JPanelPatientRecButPanPAT.getInstance();
-        JPanelPatientRecordSecView JPanelRef = JPanelPatientRecordSecView.getInstance();
+        JPartPanelPatRecButPanSEC secretaryButtons = JPartPanelPatRecButPanSEC.getInstance();
+        JPartPanelPatRecButPanPAT patientButtons = JPartPanelPatRecButPanPAT.getInstance();
+        JPanelPatRecordSecView JPanelRef = JPanelPatRecordSecView.getInstance();
         
           //same screen as secretary sees, so the patient buttons only display if a patient has logged on
         if (MainAbsSystemUserComponent.currentSystemUser instanceof MainPatient){
@@ -25,13 +25,13 @@ public abstract class AbsApplyButtonsToPatRecPanel {
             JPanelRef.remove(secretaryButtons);
             
             JPanelRef.add(patientButtons, BorderLayout.CENTER);
-            System.out.println("I have fired from patient");
+           
         }
         
         if (MainAbsSystemUserComponent.currentSystemUser instanceof MainSecretary){
             JPanelRef.remove(patientButtons);
             JPanelRef.add(secretaryButtons, BorderLayout.CENTER);
-             System.out.println("I have fired from secretary");
+
         }
         
         

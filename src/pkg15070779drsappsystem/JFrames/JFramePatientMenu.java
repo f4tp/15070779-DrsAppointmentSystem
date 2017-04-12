@@ -8,8 +8,8 @@ import java.awt.Toolkit;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import pkg15070779drsappsystem.JPanels.JPanelPatientRecordPatView;
-import pkg15070779drsappsystem.JPanels.JPanelPatientRecordSecView;
+import pkg15070779drsappsystem.JPanels.JPartPanelPatRecordPatView;
+import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
 public class JFramePatientMenu extends JFrame {
     private static JFramePatientMenu PatMenuSingInst;
     
@@ -18,7 +18,7 @@ public class JFramePatientMenu extends JFrame {
         super ("Patient's menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        JPanelPatientRecordPatView JPanelPatrecMenNorth = JPanelPatientRecordPatView.getInstance();
+        JPartPanelPatRecordPatView JPanelPatrecMenNorth = JPartPanelPatRecordPatView.getInstance();
         JPanelPatrecMenNorth.setUpdateTextFields();
         
         JMenuBar pharmMenBar = new JMenuBar();

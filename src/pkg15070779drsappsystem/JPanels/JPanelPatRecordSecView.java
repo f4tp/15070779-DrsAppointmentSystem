@@ -8,8 +8,8 @@ import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainSecretary;
 
 //jpanel for the patient record when it has been found
-public class JPanelPatientRecordSecView extends JPanel {
-    public static JPanelPatientRecordSecView JPanPatRecSingInst;
+public class JPanelPatRecordSecView extends JPanel {
+    public static JPanelPatRecordSecView JPanPatRecSingInst;
         JLabel lblTitle = new JLabel ("Title:          ");
         //lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel lblFirstName = new JLabel ("First Name:     ");
@@ -37,12 +37,12 @@ public class JPanelPatientRecordSecView extends JPanel {
        
         //JButton btnAllApps = new JButton("View All appointments");
         //JButton btnNewApp = new JButton("New Appointment");
-        JPanelTwelveGridView patientScreen = new JPanelTwelveGridView(lblTitle, JTFTitle, lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob, lblContact, JTFContact, lblDrsRegsWith, JTFDrsRegsWith);
+        JPartPanelTemplateTwelveGridView patientScreen = new JPartPanelTemplateTwelveGridView(lblTitle, JTFTitle, lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob, lblContact, JTFContact, lblDrsRegsWith, JTFDrsRegsWith);
         //JPanelPatientRecButPanPAT patientButtons = JPanelPatientRecButPanPAT.getInstance();
         
-        JPanelPatientRecButPanSEC secretaryButtons = JPanelPatientRecButPanSEC.getInstance();
+        JPartPanelPatRecButPanSEC secretaryButtons = JPartPanelPatRecButPanSEC.getInstance();
     
-    private JPanelPatientRecordSecView(){
+    private JPanelPatRecordSecView(){
      
         setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
         setLayout (new BorderLayout ());
@@ -54,9 +54,9 @@ public class JPanelPatientRecordSecView extends JPanel {
     }
     
     //singleton object generation here
-   public static JPanelPatientRecordSecView getInstance(){
+   public static JPanelPatRecordSecView getInstance(){
          if (JPanPatRecSingInst == null){
-            JPanPatRecSingInst = new JPanelPatientRecordSecView();
+            JPanPatRecSingInst = new JPanelPatRecordSecView();
          }
         
         return JPanPatRecSingInst;

@@ -23,12 +23,12 @@ public class JPanelSecretaryFindPat extends JPanel {
        //JTFSurname.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
        JTextField JTFdob = new JTextField();
        //JTFdob.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-       JPanelSixGridView searchFields = new JPanelSixGridView(lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob);
+       JPartPanelTemplateSixGridView searchFields = new JPartPanelTemplateSixGridView(lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob);
        
        
        
        
-       JPanelAddBoxPadUnderComp pad = new JPanelAddBoxPadUnderComp(searchFields);
+       JPartPanelPadding pad = new JPartPanelPadding(searchFields);
        
        
        JButton btnRunReport = new JButton ("Find Patient");

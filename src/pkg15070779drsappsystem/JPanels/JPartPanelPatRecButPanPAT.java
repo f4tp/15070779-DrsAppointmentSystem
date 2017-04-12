@@ -5,11 +5,11 @@ import pkg15070779drsappsystem.ActionListeners.ActListPrintCurUserRec;
 import javax.swing.*;
 import pkg15070779drsappsystem.ActionListeners.ActListPatAttendAppoint;
 
-public class JPanelPatientRecButPanPAT extends JPanel {
+public class JPartPanelPatRecButPanPAT extends JPanel {
     
-    public static JPanelPatientRecButPanPAT JPanButPatInst;
+    public static JPartPanelPatRecButPanPAT JPanButPatInst;
     
-    private JPanelPatientRecButPanPAT(){
+    private JPartPanelPatRecButPanPAT(){
         
         setBorder(BorderFactory.createEmptyBorder(100,0,0,0));
         //default has flow layout, so just add buttons
@@ -27,9 +27,9 @@ public class JPanelPatientRecButPanPAT extends JPanel {
     }
     
     //singleton object generation here
-    public static JPanelPatientRecButPanPAT getInstance(){
+    public static JPartPanelPatRecButPanPAT getInstance(){
          if (JPanButPatInst == null){
-            JPanButPatInst = new JPanelPatientRecButPanPAT();
+            JPanButPatInst = new JPartPanelPatRecButPanPAT();
         }
   
         return JPanButPatInst;

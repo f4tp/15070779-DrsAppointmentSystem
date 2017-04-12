@@ -11,8 +11,8 @@ import javax.swing.JTextField;
 import pkg15070779drsappsystem.ActionListeners.ActListReturnPatientRec;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
-public class JPanelAppsViewAllAvailable extends JPanel {
-    public static JPanelAppsViewAllAvailable ViewAllAppsSingInst;
+public class JPanelAppsShowAllAvailable extends JPanel {
+    public static JPanelAppsShowAllAvailable ViewAllAppsSingInst;
     JLabel lblAppFor = new JLabel("");
     //JTextArea JTFName = new JTextArea();
     JTextArea JTFAllAppointments = new JTextArea();
@@ -21,7 +21,7 @@ public class JPanelAppsViewAllAvailable extends JPanel {
     JButton btnReturn = new JButton("Back");
     
 
-    private JPanelAppsViewAllAvailable(){
+    private JPanelAppsShowAllAvailable(){
         
         btnReturn.addActionListener(new ActListReturnPatientRec());
          setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -36,12 +36,14 @@ public class JPanelAppsViewAllAvailable extends JPanel {
         
     }
     
+    //updates the label with the name of the person
     public static void updateTextFields(){
         getInstance().lblAppFor.setText("Showing appointments for: " + MainPatient.currentPatient.getFirstName() + " " + MainPatient.currentPatient.getSurname() );
         //getInstance().revalidate();
         //getInstance().repaint();
     }
     
+    //clears teh appointment area ready to append with the new appointment details of the next patient
     public static void clearAppointmentTextArea(){
         getInstance().JTFAllAppointments.setText("");
        //getInstance().revalidate();
@@ -49,6 +51,7 @@ public class JPanelAppsViewAllAvailable extends JPanel {
         
     }
     
+    //appends the area with the appointment details of the current patient
     public static void updateAppointmentsTextArea(String textToAdd){
         getInstance().JTFAllAppointments.append(textToAdd);
         //getInstance().revalidate();
@@ -58,9 +61,9 @@ public class JPanelAppsViewAllAvailable extends JPanel {
     }
     
     
-    public static JPanelAppsViewAllAvailable getInstance(){
+    public static JPanelAppsShowAllAvailable getInstance(){
         if (ViewAllAppsSingInst == null){
-            ViewAllAppsSingInst = new JPanelAppsViewAllAvailable();
+            ViewAllAppsSingInst = new JPanelAppsShowAllAvailable();
         }
         
         return ViewAllAppsSingInst;

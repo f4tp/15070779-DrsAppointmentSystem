@@ -10,7 +10,7 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import pkg15070779drsappsystem.JFrames.JFrameUseToTestPanels;
-import pkg15070779drsappsystem.JPanels.JPanelAppsSelDateFlow;
+import pkg15070779drsappsystem.JPanels.JPartPanelAppsSelDateFlow;
 
 public class AAAMain {
     

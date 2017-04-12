@@ -4,10 +4,10 @@ package pkg15070779drsappsystem.JPanels;
 import javax.swing.*;
 import java.awt.*;
 
-public class JPanelSixGridView extends JPanel {
+public class JPartPanelTemplateSixGridView extends JPanel {
     
     
-    public JPanelSixGridView(JLabel LabOne, JTextField TextTwo, JLabel LabThree, JTextField TextFour, JLabel LabFive, JTextField TextSix ){
+    public JPartPanelTemplateSixGridView(JLabel LabOne, JTextField TextTwo, JLabel LabThree, JTextField TextFour, JLabel LabFive, JTextField TextSix ){
        setLayout(new GridLayout(3,2));
        add(LabOne);
        add(TextTwo);

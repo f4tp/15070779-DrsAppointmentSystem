@@ -8,9 +8,8 @@ import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
 import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.JPanels.AbsApplyButtonsToPatRecPanel;
-import pkg15070779drsappsystem.JPanels.JPanelPatientRecordPatView;
-import pkg15070779drsappsystem.JPanels.JPanelPatientRecordSecView;
+import pkg15070779drsappsystem.JPanels.JPartPanelPatRecordPatView;
+import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainPharmacist;
@@ -71,7 +70,7 @@ public class ActListLogUSerIn implements ActionListener {
                         //as the secretary, just with fewer options
                         //AbsApplyButtonsToPatRecPanel.setButtonsToPatientRecordJPanel();  
                         
-                        //JPanelPatientRecordSecView tmpInst = JPanelPatientRecordSecView.getInstance();
+                        //JPanelPatientRecordSecView tmpInst = JPanelPatRecordSecView.getInstance();
                         //tmpInst.setUpdateTextFields();
                         SecMenuMain.setVisible(true);
                         } 
@@ -93,7 +92,7 @@ public class ActListLogUSerIn implements ActionListener {
                         //as the secretary, just with fewer options
                         //AbsApplyButtonsToPatRecPanel.setButtonsToPatientRecordJPanel();  
                         
-                        JPanelPatientRecordPatView tmpInst = JPanelPatientRecordPatView.getInstance();
+                        JPartPanelPatRecordPatView tmpInst = JPartPanelPatRecordPatView.getInstance();
                         tmpInst.setUpdateTextFields();
                         
                         PatMenuMain.setVisible(true);

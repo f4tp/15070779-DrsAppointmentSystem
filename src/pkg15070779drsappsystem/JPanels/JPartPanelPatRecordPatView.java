@@ -17,10 +17,10 @@ import pkg15070779drsappsystem.MainClasses.MainPatient;
  *
  * @author Quad
  */
-public class JPanelPatientRecordPatView extends JPanel {
+public class JPartPanelPatRecordPatView extends JPanel {
     
     
-        public static JPanelPatientRecordPatView JPanPatRecPatViewSingInst;
+        public static JPartPanelPatRecordPatView JPanPatRecPatViewSingInst;
         JLabel lblTitle = new JLabel ("Title:          ");
         //lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel lblFirstName = new JLabel ("First Name:     ");
@@ -48,11 +48,11 @@ public class JPanelPatientRecordPatView extends JPanel {
        
         //JButton btnAllApps = new JButton("View All appointments");
         //JButton btnNewApp = new JButton("New Appointment");
-        JPanelTwelveGridView patientScreen = new JPanelTwelveGridView(lblTitle, JTFTitle, lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob, lblContact, JTFContact, lblDrsRegsWith, JTFDrsRegsWith);
-        JPanelPatientRecButPanPAT patientButtons = JPanelPatientRecButPanPAT.getInstance();
+        JPartPanelTemplateTwelveGridView patientScreen = new JPartPanelTemplateTwelveGridView(lblTitle, JTFTitle, lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob, lblContact, JTFContact, lblDrsRegsWith, JTFDrsRegsWith);
+        JPartPanelPatRecButPanPAT patientButtons = JPartPanelPatRecButPanPAT.getInstance();
         
         //JPanelPatientRecButPanSEC secretaryButtons = JPanelPatientRecButPanSEC.getInstance();
-    private JPanelPatientRecordPatView(){
+    private JPartPanelPatRecordPatView(){
 
         setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
         setLayout (new BorderLayout ());
@@ -63,9 +63,9 @@ public class JPanelPatientRecordPatView extends JPanel {
     }
     
     //singleton object generation here
-   public static JPanelPatientRecordPatView getInstance(){
+   public static JPartPanelPatRecordPatView getInstance(){
          if (JPanPatRecPatViewSingInst == null){
-            JPanPatRecPatViewSingInst = new JPanelPatientRecordPatView();
+            JPanPatRecPatViewSingInst = new JPartPanelPatRecordPatView();
          }
         
         return JPanPatRecPatViewSingInst;

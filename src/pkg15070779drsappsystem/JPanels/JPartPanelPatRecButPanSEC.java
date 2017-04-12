@@ -6,10 +6,10 @@ import javax.swing.*;
 import pkg15070779drsappsystem.ActionListeners.ActListDisplayPatientApps;
 import pkg15070779drsappsystem.ActionListeners.ActListNewAppointment;
 
-public class JPanelPatientRecButPanSEC extends JPanel {
-    public static JPanelPatientRecButPanSEC JPanButRecInst;
+public class JPartPanelPatRecButPanSEC extends JPanel {
+    public static JPartPanelPatRecButPanSEC JPanButRecInst;
     
-    private JPanelPatientRecButPanSEC(){
+    private JPartPanelPatRecButPanSEC(){
         
         setBorder(BorderFactory.createEmptyBorder(100,0,0,0));
         //default has flow layout, so just add buttons
@@ -31,9 +31,9 @@ public class JPanelPatientRecButPanSEC extends JPanel {
     }
     
     //singleton object generation here
-    public static JPanelPatientRecButPanSEC getInstance(){
+    public static JPartPanelPatRecButPanSEC getInstance(){
          if (JPanButRecInst == null){
-            JPanButRecInst = new JPanelPatientRecButPanSEC();
+            JPanButRecInst = new JPartPanelPatRecButPanSEC();
         }
   
         return JPanButRecInst;

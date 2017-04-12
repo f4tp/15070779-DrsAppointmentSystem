@@ -5,8 +5,8 @@ import java.awt.GridLayout;
 import javax.swing.*;
 
 
-public class JPanelTwelveGridView extends JPanel{
-    public JPanelTwelveGridView(JLabel LabOne, JTextField TextTwo, JLabel LabThree, JTextField TextFour, JLabel LabFive, JTextField TextSix, JLabel LabSeven, JTextField TextEight, JLabel LabNine, JTextField TextTen, JLabel LabEleven, JTextField TextTwelve){
+public class JPartPanelTemplateTwelveGridView extends JPanel{
+    public JPartPanelTemplateTwelveGridView(JLabel LabOne, JTextField TextTwo, JLabel LabThree, JTextField TextFour, JLabel LabFive, JTextField TextSix, JLabel LabSeven, JTextField TextEight, JLabel LabNine, JTextField TextTen, JLabel LabEleven, JTextField TextTwelve){
        setLayout(new GridLayout(6,2));
        add(LabOne);
        add(TextTwo);

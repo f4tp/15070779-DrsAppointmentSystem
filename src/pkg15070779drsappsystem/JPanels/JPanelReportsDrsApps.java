@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.util.*;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 //different report border layout, specialised version as we have to have Drs as well
-public class JPanelReportsDrsApps extends JPanelReportsAbstract {
+public class JPanelReportsDrsApps extends JPartPanelAbsReports {
     
     //only one menu will ever need be generated so singleton DP has been setup
     //the single instance should be accessed using the getInstance() method
@@ -16,7 +16,7 @@ public class JPanelReportsDrsApps extends JPanelReportsAbstract {
         super("Report Doctor's appointments for the month of...");
         //updates the combobox with all Drs that are registered
         JComboBox cmbDrs = new JComboBox(MainDoctor.getListAllDoctors().toArray());
-        JPanelAddBoxPadUnderComp eastDetail = new JPanelAddBoxPadUnderComp(cmbDrs);
+        JPartPanelPadding eastDetail = new JPartPanelPadding(cmbDrs);
             
 
 //adds the combobox to the abstract 

@@ -5,10 +5,10 @@ import javax.swing.*;
 //thsi object is to pad between a text box & button in a JTextfield
 //because adding a border just extends the size of the button, leaves no 
 //gap
-public class JPanelAddBoxPadUnderComp extends JPanel {
+public class JPartPanelPadding extends JPanel {
     
     //overloaded constructors - for different objects that are needed
-    public JPanelAddBoxPadUnderComp(JTextField passedin){
+    public JPartPanelPadding(JTextField passedin){
         setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
         
         JTextField topTextField = passedin;
@@ -19,7 +19,7 @@ public class JPanelAddBoxPadUnderComp extends JPanel {
                         
     }
     
-    public JPanelAddBoxPadUnderComp(JComboBox passedin){
+    public JPartPanelPadding(JComboBox passedin){
         setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
         
         JComboBox topComboField = passedin;
@@ -32,7 +32,7 @@ public class JPanelAddBoxPadUnderComp extends JPanel {
         
     }
     
-    public JPanelAddBoxPadUnderComp(JLabel passedin){
+    public JPartPanelPadding(JLabel passedin){
         setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
         
         JLabel topLabelField = passedin;
@@ -46,7 +46,7 @@ public class JPanelAddBoxPadUnderComp extends JPanel {
     }
     
     
-    public JPanelAddBoxPadUnderComp(JPanel passedin){
+    public JPartPanelPadding(JPanel passedin){
         setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
         
         JPanel topLabelField = passedin;

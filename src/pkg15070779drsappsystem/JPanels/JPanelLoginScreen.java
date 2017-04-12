@@ -22,11 +22,11 @@ public class JPanelLoginScreen extends JPanel {
         loginLabel.setToolTipText("Your username is in the format firstname.surname.year born - i.e. john.smith.1994");
         //add(loginLabel, BorderLayout.NORTH);
         
-        JPanelAddBoxPadUnderComp northDetail = new JPanelAddBoxPadUnderComp(loginLabel);
+        JPartPanelPadding northDetail = new JPartPanelPadding(loginLabel);
         
         
         inpUserName.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
-        JPanelAddBoxPadUnderComp centerDetail = new JPanelAddBoxPadUnderComp(inpUserName);
+        JPartPanelPadding centerDetail = new JPartPanelPadding(inpUserName);
      
         //JScrollPane scrollControl = new JScrollPane(inpUserName); //if you don't add this, you cannot scroll the text
         inpUserName.setToolTipText("Your username is in the format firstname.surname.year born - i.e. john.smith.1994");

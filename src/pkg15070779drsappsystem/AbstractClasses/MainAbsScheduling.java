@@ -81,6 +81,7 @@ public abstract class MainAbsScheduling {
     
     //when called, it returns a list of LocalDateTime objects from the current date to 1 year in the future
     //used to populate the select dates to and from for a combobox
+       //only used in redundant methods, so keep around and delete if needed to
     public static List<LocalDateTime> generateSelectDates(){
         LocalDateTime startDateIn = getDateToday();
         LocalDateTime endDate = getDateToday().plusYears(1);
@@ -114,11 +115,7 @@ public abstract class MainAbsScheduling {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyyHHmm");
         LocalDateTime dateTime = LocalDateTime.parse(datein, formatter);
         
-        
-        
-        
-        
-        
+  
         return dateTime;
 
     }
