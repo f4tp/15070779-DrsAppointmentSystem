@@ -10,7 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 /**

@@ -1,7 +1,7 @@
 package pkg15070779drsappsystem;
 
 import pkg15070779drsappsystem.MainClasses.MainPatient;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

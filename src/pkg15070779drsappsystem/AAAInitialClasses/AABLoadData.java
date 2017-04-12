@@ -10,7 +10,7 @@ import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainPharmacist;
 import pkg15070779drsappsystem.MainClasses.MainSecretary;
 import java.util.List;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 
 public abstract class AABLoadData {
     

@@ -1,6 +1,6 @@
 package pkg15070779drsappsystem.JFrames;
 
-import pkg15070779drsappsystem.ActionListeners.ActListRunReport;
+import pkg15070779drsappsystem.ActionListeners.ActListSetSecJFramePARTofFACTORYsec;
 import pkg15070779drsappsystem.ActionListeners.ActLisExitProg;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
@@ -34,14 +34,14 @@ public class JFramePharmacistMenu extends JFrame {
         pharmMenBar.add(patientMenu);
         
         JMenuItem findPatient = new JMenuItem ("Find Patient");
-        findPatient.addActionListener(new ActListRunReport("FindPatients"));
+        findPatient.addActionListener(new ActListSetSecJFramePARTofFACTORYsec("FindPatients"));
         patientMenu.add(findPatient);
         
         JMenu reportMenu = new JMenu("Reports");
         pharmMenBar.add(reportMenu);
         
         JMenuItem runReportPrescs = new JMenuItem ("Monthly Prescriptions Reports");
-        runReportPrescs.addActionListener(new ActListRunReport("MonthlyPrescs"));
+        runReportPrescs.addActionListener(new ActListSetSecJFramePARTofFACTORYsec("MonthlyPrescs"));
         reportMenu.add(runReportPrescs);
         
         //lays out the frame using thsi abstract class

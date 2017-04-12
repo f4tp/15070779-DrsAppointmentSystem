@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 

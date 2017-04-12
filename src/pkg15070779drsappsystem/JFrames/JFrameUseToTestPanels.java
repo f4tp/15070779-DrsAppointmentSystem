@@ -2,7 +2,7 @@
 package pkg15070779drsappsystem.JFrames;
 
 import javax.swing.JFrame;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.JPanels.JPartPanelAppsSelDateFlow;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
 

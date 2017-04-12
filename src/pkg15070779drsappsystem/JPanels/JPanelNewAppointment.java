@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 

@@ -1,7 +1,7 @@
 
 package pkg15070779drsappsystem;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.ActionListeners.ActListFindPatient;
 import javax.swing.*;
 import org.junit.Test;

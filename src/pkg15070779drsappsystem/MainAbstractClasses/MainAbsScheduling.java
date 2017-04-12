@@ -1,5 +1,5 @@
 
-package pkg15070779drsappsystem.AbstractClasses;
+package pkg15070779drsappsystem.MainAbstractClasses;
 
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -113,10 +113,10 @@ public abstract class MainAbsScheduling {
         //example string
        // String str = "040520031230";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyyHHmm");
-        LocalDateTime dateTime = LocalDateTime.parse(datein, formatter);
+        LocalDateTime ldtDateTime = LocalDateTime.parse(datein, formatter);
         
   
-        return dateTime;
+        return ldtDateTime;
 
     }
     

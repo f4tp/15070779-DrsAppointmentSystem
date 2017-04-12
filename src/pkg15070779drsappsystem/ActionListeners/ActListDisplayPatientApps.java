@@ -4,7 +4,7 @@ package pkg15070779drsappsystem.ActionListeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsAppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatient;
 import pkg15070779drsappsystem.MainClasses.MainPatient;

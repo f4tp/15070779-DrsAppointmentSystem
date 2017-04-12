@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 

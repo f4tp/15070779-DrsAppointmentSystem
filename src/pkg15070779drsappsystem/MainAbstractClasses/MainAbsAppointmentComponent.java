@@ -1,5 +1,5 @@
 
-package pkg15070779drsappsystem.AbstractClasses;
+package pkg15070779drsappsystem.MainAbstractClasses;
 import java.util.*;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 public abstract class MainAbsAppointmentComponent {

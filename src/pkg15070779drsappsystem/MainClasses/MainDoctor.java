@@ -1,11 +1,12 @@
 package pkg15070779drsappsystem.MainClasses;
 
 import java.time.LocalDateTime;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.Interfaces.MainIntAbsUserComponent;
 import java.util.*;
 import javax.swing.JOptionPane;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow;
 
 
@@ -73,8 +74,27 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         return this.lstDocsAvailAppointments;
     }
     
+    //@@@@@NTD
+    public static List<LocalDateTime> getDocsMonthlySetAppointments(MainDoctor doctorin, LocalDateTime datefrom ){
+        
+       // gets the username of the dr selected in the combobox and pulls the correct Dr user into searchedForDoc
+       //using this (it will be the key for it). converts it to a MainDoctor object
+        //MainDoctor searchedForDoc = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(JPanelReportsDrsApps.getInstance().getSelectedDr());
+        
+        List <LocalDateTime> foundAppointments = new ArrayList<>();
+        
+        //adds one month onto teh date set so 1 months' worht of appointments are generated
+        LocalDateTime dateto = datefrom.plusMonths(1L);
+        
+        //loop through the doctors set appointment list, check whether they are in thi smonth, add them to the new list if they are
+        
+        
+        //return the appointments found
+        
+        return foundAppointments;
+    }
     
-    public static List<LocalDateTime> getDocAvailableAppointmentsWithDates (MainDoctor doctorin, LocalDateTime datefrom, LocalDateTime dateto){
+    public static List<LocalDateTime> getDocsAvailableAppointments (MainDoctor doctorin, LocalDateTime datefrom, LocalDateTime dateto){
             List <LocalDateTime> foundAppointments = new ArrayList<>();
 
            //temporarily stores the list of all the doctor's available appointments

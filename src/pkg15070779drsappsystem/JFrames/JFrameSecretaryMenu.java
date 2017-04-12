@@ -1,5 +1,5 @@
 package pkg15070779drsappsystem.JFrames;
-import pkg15070779drsappsystem.ActionListeners.ActListRunReport;
+import pkg15070779drsappsystem.ActionListeners.ActListSetSecJFramePARTofFACTORYsec;
 import pkg15070779drsappsystem.ActionListeners.ActLisExitProg;
 import java.awt.*;
 import javax.swing.*;
@@ -52,7 +52,7 @@ public class JFrameSecretaryMenu extends JFrame {
         secMenBar.add(appsMenu);
         
         JMenuItem newApp = new JMenuItem ("New Appointment");
-        newApp.addActionListener(new ActListRunReport("FindPatients"));
+        newApp.addActionListener(new ActListSetSecJFramePARTofFACTORYsec("FindPatients"));
         appsMenu.add(newApp);
         
         JMenuItem showAvailApps = new JMenuItem ("Show All Available Appointments");
@@ -63,7 +63,7 @@ public class JFrameSecretaryMenu extends JFrame {
         secMenBar.add(patientMenu);
         
         JMenuItem findPatient = new JMenuItem ("Find Patient");
-        findPatient.addActionListener(new ActListRunReport("FindPatients"));
+        findPatient.addActionListener(new ActListSetSecJFramePARTofFACTORYsec("FindPatients"));
         patientMenu.add(findPatient);
         
         JMenu reportMenu = new JMenu("Reports");
@@ -72,15 +72,15 @@ public class JFrameSecretaryMenu extends JFrame {
         
         
         JMenuItem runReportAppsPerDoc = new JMenuItem ("Monthly Appointments per Dr Reports");
-        runReportAppsPerDoc.addActionListener(new ActListRunReport("MonthAppPerDr")); 
+        runReportAppsPerDoc.addActionListener(new ActListSetSecJFramePARTofFACTORYsec("MonthAppPerDr")); 
         reportMenu.add(runReportAppsPerDoc);
         
         JMenuItem runReportAppsAtt = new JMenuItem ("Monthly Appointment Attendence Reports");
-        runReportAppsAtt.addActionListener(new ActListRunReport("MonthlyApssAtt")); 
+        runReportAppsAtt.addActionListener(new ActListSetSecJFramePARTofFACTORYsec("MonthlyApssAtt")); 
         reportMenu.add(runReportAppsAtt);
         
         JMenuItem runReportPrescs = new JMenuItem ("Monthly Prescriptions Reports");
-        runReportPrescs.addActionListener(new ActListRunReport("MonthlyPrescs"));
+        runReportPrescs.addActionListener(new ActListSetSecJFramePARTofFACTORYsec("MonthlyPrescs"));
         reportMenu.add(runReportPrescs);        
                 
         setLayout (new BorderLayout ());
@@ -147,6 +147,7 @@ public class JFrameSecretaryMenu extends JFrame {
         }
        
         if (currenSecNorthBordPanel == "MonthAppPerDr"){
+    
             JPanelAppsAtt.setVisible(false);
             JPanelPrescs.setVisible(false);
             JPanelFindPat.setVisible(false);

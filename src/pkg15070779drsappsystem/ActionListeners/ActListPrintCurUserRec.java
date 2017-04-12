@@ -3,7 +3,7 @@ package pkg15070779drsappsystem.ActionListeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 
 public class ActListPrintCurUserRec implements ActionListener {
     

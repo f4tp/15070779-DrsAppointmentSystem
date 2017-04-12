@@ -1,7 +1,7 @@
 
 package pkg15070779drsappsystem.JFrames;
 
-import pkg15070779drsappsystem.ActionListeners.ActListRunReport;
+import pkg15070779drsappsystem.ActionListeners.ActListSetSecJFramePARTofFACTORYsec;
 import pkg15070779drsappsystem.ActionListeners.ActLisExitProg;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -39,7 +39,7 @@ public class JFrameDoctorMenu extends JFrame {
         docMenBar.add(patientMenu);
         
         JMenuItem findPatient = new JMenuItem ("Find Patient");
-        findPatient.addActionListener(new ActListRunReport("FindPatients"));
+        findPatient.addActionListener(new ActListSetSecJFramePARTofFACTORYsec("FindPatients"));
         patientMenu.add(findPatient);
         
         //lays out the frame using thsi abstract class

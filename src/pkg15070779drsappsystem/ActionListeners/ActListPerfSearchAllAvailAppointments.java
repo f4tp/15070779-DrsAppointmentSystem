@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
 import pkg15070779drsappsystem.JPanels.JPartPanelAppsSelDateFlow;
 import pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow;
@@ -51,12 +51,12 @@ public class ActListPerfSearchAllAvailAppointments implements ActionListener{
         if (lstFoundAvailableApps.isEmpty()){
             
             //run method to generate available appointments
-            lstFoundAvailableApps = MainDoctor.getDocAvailableAppointmentsWithDates(MainDoctor.currentDoctor, ldtFrom, ldtTo);
+            lstFoundAvailableApps = MainDoctor.getDocsAvailableAppointments(MainDoctor.currentDoctor, ldtFrom, ldtTo);
         }
         else{
         lstFoundAvailableApps.clear();
         //run method to generate available appointments
-        lstFoundAvailableApps = MainDoctor.getDocAvailableAppointmentsWithDates(MainDoctor.currentDoctor, ldtFrom, ldtTo);
+        lstFoundAvailableApps = MainDoctor.getDocsAvailableAppointments(MainDoctor.currentDoctor, ldtFrom, ldtTo);
         }
         
         JPanelAppsShowAllForDoctor.updateFoundAppointments(lstFoundAvailableApps);

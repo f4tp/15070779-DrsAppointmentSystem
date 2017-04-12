@@ -3,7 +3,7 @@ package pkg15070779drsappsystem.JPanels;
 
 import java.awt.BorderLayout;
 import javax.swing.*;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainSecretary;
 

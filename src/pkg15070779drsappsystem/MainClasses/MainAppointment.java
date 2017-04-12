@@ -1,6 +1,6 @@
 package pkg15070779drsappsystem.MainClasses;
 import java.time.LocalDateTime;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsAppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import java.util.*;
 import javax.swing.JOptionPane;
 public final class MainAppointment extends MainAbsAppointmentComponent {
@@ -114,6 +114,13 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     //returns the date and time object for the appointment that it is called on
     public LocalDateTime getAPPDateAndTime(){
          return this.appDateAndTime;
+    }
+    
+    public static List <MainAppointment> getAppointmentsOfDoc (MainDoctor doctorin){
+        List<MainAppointment> lstFoundAppointments = new ArrayList<>();
+        
+        return lstFoundAppointments;
+        
     }
                 
 
