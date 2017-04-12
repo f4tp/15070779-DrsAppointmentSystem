@@ -17,6 +17,7 @@ import pkg15070779drsappsystem.JPanels.JPanelReportsPresrcips;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatient;
 import static pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow.setDrComboBox;
+import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
 //
 public class JFrameSecretaryMenu extends JFrame {
     //JDesktopPane desktop;
@@ -124,6 +125,7 @@ public class JFrameSecretaryMenu extends JFrame {
         JPanelNewAppButPan JPanNewAppButPanel = JPanelNewAppButPan.getInstance();
         JPanelAppsShowAllForPatient JPanViewAllApps = JPanelAppsShowAllForPatient.getInstance();
         JPanelAppsShowAllForDoctor JpanShowApps = JPanelAppsShowAllForDoctor.getInstance();
+        JPartPanelTextAreaMonthReports JPanTextFieldForReports = JPartPanelTextAreaMonthReports.getInstance();
         
         //"FindPatients"
         if (currenSecNorthBordPanel == "MonthlyApssAtt"){
@@ -138,9 +140,10 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanViewAllApps.setVisible(false);
             JpanShowApps.setVisible(false);
             JPanelAppsAtt.setVisible(true);
+            JPanTextFieldForReports.setVisible(true);
             
             SecMenuSingInst.add(JPanelAppsAtt, BorderLayout.NORTH);
-      
+            SecMenuSingInst.add(JPanTextFieldForReports, BorderLayout.CENTER);
         }
        
         if (currenSecNorthBordPanel == "MonthAppPerDr"){
@@ -155,8 +158,10 @@ public class JFrameSecretaryMenu extends JFrame {
              JPanViewAllApps.setVisible(false);
              JpanShowApps.setVisible(false);
             JPanelDrsApps.setVisible(true);
+            JPanTextFieldForReports.setVisible(true);
            
             SecMenuSingInst.add(JPanelDrsApps, BorderLayout.NORTH);
+            SecMenuSingInst.add(JPanTextFieldForReports, BorderLayout.CENTER);
             
         }
         
@@ -172,8 +177,10 @@ public class JFrameSecretaryMenu extends JFrame {
              JPanViewAllApps.setVisible(false);
              JpanShowApps.setVisible(false);
             JPanelPrescs.setVisible(true);
+            JPanTextFieldForReports.setVisible(true);
             
             SecMenuSingInst.add(JPanelPrescs, BorderLayout.NORTH);
+            SecMenuSingInst.add(JPanTextFieldForReports, BorderLayout.CENTER);
                 
         }
         
@@ -188,6 +195,7 @@ public class JFrameSecretaryMenu extends JFrame {
              JPanNewAppButPanel.setVisible(false);
              JPanViewAllApps.setVisible(false);
              JpanShowApps.setVisible(false);
+             JPanTextFieldForReports.setVisible(false);
             JPanelFindPat.setVisible(true);
             
             SecMenuSingInst.add(JPanelFindPat, BorderLayout.NORTH);
@@ -206,6 +214,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanNewApp.setVisible(false);
             JPanViewAllApps.setVisible(false);
             JpanShowApps.setVisible(false);
+            JPanTextFieldForReports.setVisible(false);
             
             JPanelPatrecNorth.setVisible(true);
             JPanelPatrecNorth.setUpdateTextFields();
@@ -227,6 +236,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanNewAppButPanel.setVisible(false);
             JPanViewAllApps.setVisible(false);
             JpanShowApps.setVisible(false);
+            JPanTextFieldForReports.setVisible(false);
             
             JPanelPatAddDoc.setVisible(true);
             SecMenuSingInst.add(JPanelPatAddDoc, BorderLayout.NORTH);
@@ -243,6 +253,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanelPatAddDoc.setVisible(false);
             JPanViewAllApps.setVisible(false);
             JpanShowApps.setVisible(false);
+            JPanTextFieldForReports.setVisible(false);
              
              
             
@@ -267,6 +278,7 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanNewAppButPanel.setVisible(false);
             JPanelPatAddDoc.setVisible(false);
             JpanShowApps.setVisible(false);
+            JPanTextFieldForReports.setVisible(false);
             
             JPanViewAllApps.setVisible(true);
             SecMenuSingInst.add(JPanViewAllApps, BorderLayout.NORTH);
@@ -283,15 +295,34 @@ public class JFrameSecretaryMenu extends JFrame {
             JPanNewApp.setVisible(false);
             JPanNewAppButPanel.setVisible(false);
             JPanelPatAddDoc.setVisible(false);
+            JPanTextFieldForReports.setVisible(false);
             
             
             JPanViewAllApps.setVisible(false);
             JpanShowApps.setVisible(true);
             
-            //updates teh combobox on this form with Drs registered on teh system (when it is called);
+            //updates the combobox on this form with Drs registered on teh system (when it is called);
             //this form contains two instances of the same JPanel - dates from and to
             setDrComboBox();
             SecMenuSingInst.add(JpanShowApps, BorderLayout.NORTH);
+      
+        }
+           //@@@@@ NTD
+            if (currenSecNorthBordPanel == "ReportDrsMonthlyAppointments"){
+            JPanelDrsApps.setVisible(false);
+            JPanelPrescs.setVisible(false);
+            JPanelFindPat.setVisible(false);
+            JPanelPatrecNorth.setVisible(false);
+            //JPanelPatrecSouth.setVisible(false);
+            JPanelAppsAtt.setVisible(false);
+            JPanNewApp.setVisible(false);
+            JPanNewAppButPanel.setVisible(false);
+            JPanelPatAddDoc.setVisible(false);
+            JpanShowApps.setVisible(false);
+            JPanTextFieldForReports.setVisible(false); //????? NTD
+            
+            JPanViewAllApps.setVisible(true);
+            SecMenuSingInst.add(JPanViewAllApps, BorderLayout.NORTH);
       
         }
         

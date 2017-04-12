@@ -2,7 +2,7 @@
 package pkg15070779drsappsystem.JPanels;
 
 import javax.swing.*;
-//thsi object is to pad between a text box & button in a JTextfield
+//this object is to pad between a text box & button in a JTextfield
 //because adding a border just extends the size of the button, leaves no 
 //gap
 public class JPartPanelPadding extends JPanel {
