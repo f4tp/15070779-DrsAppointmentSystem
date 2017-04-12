@@ -50,16 +50,19 @@ public class JPanelPatRecordPatView extends JPanel {
         //JButton btnNewApp = new JButton("New Appointment");
         JPartPanelTemplateTwelveGridView patientScreen = new JPartPanelTemplateTwelveGridView(lblTitle, JTFTitle, lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob, lblContact, JTFContact, lblDrsRegsWith, JTFDrsRegsWith);
         JPartPanelPatRecButPanPAT patientButtons = JPartPanelPatRecButPanPAT.getInstance();
-        
+        JPartPanelTextAreaMonthReports JtASingInst = JPartPanelTextAreaMonthReports.getInstance();
         //JPanelPatientRecButPanSEC secretaryButtons = JPanelPatientRecButPanSEC.getInstance();
     private JPanelPatRecordPatView(){
 
         setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
         setLayout (new BorderLayout ());
         
+        //clear the text in case anything is in it from another user
+        JtASingInst.setJtextArea("");
+        
         add(patientScreen, BorderLayout.NORTH);
         add(patientButtons, BorderLayout.CENTER);
-    
+        add(JtASingInst, BorderLayout.SOUTH);
     }
     
     //singleton object generation here
