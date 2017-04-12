@@ -29,18 +29,19 @@ public class JPanelReportsDrsApps extends JPanel {
         JLabel lblMessage = new JLabel ("Report Doctor's appointments for the month of...");
         JPartPanelPadding topDetail = new JPartPanelPadding(lblMessage);
         
-       JButton btnRunReport = new JButton ("Run report");
-      //act listener called with the text out of the title label (to identify which report is being run), the selected month and year from
-      //the current panel being worked on... which is passed into this class as an object
-      //the current panel is a singleton dp
-        btnRunReport.addActionListener (new ActListRunReport(lblMessage.getText(), cmbMonth.getSelectedItem().toString(), cmbYear.getSelectedItem().toString()));
+       
+       
         
         JPartPanelPadding eastDetail = new JPartPanelPadding(cmbDrs);
         JPartPanelPadding bottomDetail = new JPartPanelPadding(cmbYear);
         JPartPanelPadding westDetail = new JPartPanelPadding(cmbMonth);
         
         
-            
+       JButton btnRunReport = new JButton ("Run report");
+      //act listener called with the text out of the title label (to identify which report is being run), the selected month and year from
+      //the current panel being worked on... which is passed into this class as an object
+      //the current panel is a singleton dp
+        btnRunReport.addActionListener (new ActListRunReport(lblMessage.getText(), cmbMonth, cmbYear));
 
         //layout widgents
         setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
@@ -64,6 +65,17 @@ public class JPanelReportsDrsApps extends JPanel {
     public String getSelectedDr(){
         
         return cmbDrs.getSelectedItem().toString();
+    }
+    
+    
+     public String getSelectedMonth(){
+        
+        return cmbMonth.getSelectedItem().toString();
+    }
+     
+      public String getSelectedYear(){
+        
+        return cmbYear.getSelectedItem().toString();
     }
     
 }

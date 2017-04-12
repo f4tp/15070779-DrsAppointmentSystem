@@ -92,24 +92,26 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
     }
     
     
-    //@@@@@NTD
+    //for reports
     public static List<LocalDateTime> getDocsMonthlySetAppointments(MainDoctor doctorin, LocalDateTime datefrom ){
         
        // gets the username of the dr selected in the combobox and pulls the correct Dr user into searchedForDoc
        //using this (it will be the key for it). converts it to a MainDoctor object
-        //MainDoctor searchedForDoc = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(JPanelReportsDrsApps.getInstance().getSelectedDr());
-        
-        //List <LocalDateTime> foundAppointments = new ArrayList<>();
-        
-        //adds one month onto teh date set so 1 months' worht of appointments are generated
-        LocalDateTime dateto = datefrom.plusMonths(1L);
-        
+
+        List<LocalDateTime> lstMonthlyApps = new ArrayList<>();
+        //adds one month onto the date set so 1 months' worht of appointments are generated
+  
         //loop through the doctors set appointment list, check whether they are in this month, add them to the new list if they are
         
+        for(LocalDateTime temp: doctorin.lstDocsSetAppointments){
+            if(temp.getMonth() == datefrom.getMonth() && temp.getYear() == datefrom.getYear()){
+                lstMonthlyApps.add(temp);
+            }
+        }
         
-        //return the appointments found
+        //return the appointments found list
         
-        return doctorin.lstDocsSetAppointments;
+        return lstMonthlyApps;
     }
     
     public static List<LocalDateTime> getDocsAvailableAppointments (MainDoctor doctorin, LocalDateTime datefrom, LocalDateTime dateto){
