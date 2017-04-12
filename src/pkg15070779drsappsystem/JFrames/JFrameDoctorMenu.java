@@ -26,6 +26,10 @@ public class JFrameDoctorMenu extends JFrame {
         JMenu fileMenu = new JMenu("File");
         docMenBar.add(fileMenu);
         
+         JMenuItem logOutItem = new JMenuItem ("Logout");
+        //logOutItem.addActionListener(new ActLisExitProg ());
+        logOutItem.addActionListener(new ActListLogOut());
+        fileMenu.add(logOutItem);
         
         JMenuItem exitItem = new JMenuItem ("Exit");
         exitItem.addActionListener(new ActLisExitProg ());

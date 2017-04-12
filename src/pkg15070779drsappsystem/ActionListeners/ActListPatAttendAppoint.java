@@ -28,7 +28,7 @@ public class ActListPatAttendAppoint implements ActionListener {
         //holds the appointments that have have been resolved using the keys
         List <MainAppointment> allAppoints = new ArrayList<>();
 
-        //loop through the current patient's appointment list and for each string in their resolve the appointment into a temnporary list
+        //loop through the current patient's appointment list and for each string in their resolve the appointment into a temporary list
         
         for (String temp : tempAppKeys ){
                    allAppoints.add(MainAbsAppointmentComponent.getAppointment(temp));
@@ -39,6 +39,7 @@ public class ActListPatAttendAppoint implements ActionListener {
             
         //if it doesn't, display a message sayign they don;t have an appointment today, and detail all appointments marked as not attended
         
+        Boolean appFound = false;
         for (MainAppointment temp : allAppoints ){
            //if they have an appointment on the same day they have arrived in the Doctors and logged into the system        
             if (temp.getAPPDateAndTime().getDayOfMonth() == currentDate.getDayOfMonth() && 
@@ -55,15 +56,18 @@ public class ActListPatAttendAppoint implements ActionListener {
                  //put the MainAppointment objetc back in the map
                 MainAbsAppointmentComponent.setPutInMap(MainAppointment.currentAppointment.getAppUniqueKey(), MainAppointment.currentAppointment);
                 
+                appFound = true;
             }
             
-            else {
+            
+        }
+        
+        if (appFound == false) {
                 JOptionPane.showMessageDialog (null,
                 "There does not seem to be an appointment on the system for you today. Please see the receptionist for help",
                 "Appointment not on the system",
                 JOptionPane.ERROR_MESSAGE);
             }
-        }
    
 
     }

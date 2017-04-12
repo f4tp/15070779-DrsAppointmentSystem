@@ -17,10 +17,10 @@ import pkg15070779drsappsystem.MainClasses.MainPatient;
  *
  * @author Quad
  */
-public class JPartPanelPatRecordPatView extends JPanel {
+public class JPanelPatRecordPatView extends JPanel {
     
     
-        public static JPartPanelPatRecordPatView JPanPatRecPatViewSingInst;
+        public static JPanelPatRecordPatView JPanPatRecPatViewSingInst;
         JLabel lblTitle = new JLabel ("Title:          ");
         //lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel lblFirstName = new JLabel ("First Name:     ");
@@ -52,7 +52,7 @@ public class JPartPanelPatRecordPatView extends JPanel {
         JPartPanelPatRecButPanPAT patientButtons = JPartPanelPatRecButPanPAT.getInstance();
         
         //JPanelPatientRecButPanSEC secretaryButtons = JPanelPatientRecButPanSEC.getInstance();
-    private JPartPanelPatRecordPatView(){
+    private JPanelPatRecordPatView(){
 
         setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
         setLayout (new BorderLayout ());
@@ -63,9 +63,9 @@ public class JPartPanelPatRecordPatView extends JPanel {
     }
     
     //singleton object generation here
-   public static JPartPanelPatRecordPatView getInstance(){
+   public static JPanelPatRecordPatView getInstance(){
          if (JPanPatRecPatViewSingInst == null){
-            JPanPatRecPatViewSingInst = new JPartPanelPatRecordPatView();
+            JPanPatRecPatViewSingInst = new JPanelPatRecordPatView();
          }
         
         return JPanPatRecPatViewSingInst;

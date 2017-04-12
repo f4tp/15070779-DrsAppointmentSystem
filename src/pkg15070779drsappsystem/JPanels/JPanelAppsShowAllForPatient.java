@@ -1,46 +1,71 @@
 
 package pkg15070779drsappsystem.JPanels;
 
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.ActionListeners.ActListPerfSearchAllAvailAppointments;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import pkg15070779drsappsystem.ActionListeners.ActListReturnPatientRec;
+import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 public class JPanelAppsShowAllForPatient extends JPanel {
-    public static JPanelAppsShowAllForPatient JPanShowAvailAppsSingInst;
+    public static JPanelAppsShowAllForPatient ViewAllAppsSingInst;
+    JLabel lblAppFor = new JLabel("");
+    //JTextArea JTFName = new JTextArea();
+    JTextArea JTFAllAppointments = new JTextArea();
+    //JScrollPane scrollpane = new JScrollPane(JTFAllAppointments);
     
-    JPartPanelSelDrComboFlow selDrInstHold = JPartPanelSelDrComboFlow.getInstance();
-    JPartPanelAppsSelDateFlow setDateFrom = new JPartPanelAppsSelDateFlow("Select the dates FROM     ");
-    JPartPanelAppsSelDateFlow setDateTo = new JPartPanelAppsSelDateFlow("Select the dates TO:      ");
-    JButton btnSubmit = new JButton("Find Available Appointments");
+    JButton btnReturn = new JButton("Back");
+    
+
     private JPanelAppsShowAllForPatient(){
-       setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
-       setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
-       
-       btnSubmit.addActionListener(new ActListPerfSearchAllAvailAppointments(setDateFrom, setDateTo ));
-     
-      
-       //adds the components
-       add(selDrInstHold);
-       add(setDateFrom);
-       add(setDateTo);
-       add(btnSubmit);
         
-       //@@@@' NTD not working, need to solve getting the instance of this Jcombo
-         //sets the selected item in the FROM combo box at today's date
-       setDateFrom.cmbSelDateFromToDay.setSelectedItem(MainAbsScheduling.getDateToday().getDayOfMonth());
-       setDateFrom.cmbSelDateFromToMonth.setSelectedItem(MainAbsScheduling.getDateToday().getMonth());
+        btnReturn.addActionListener(new ActListReturnPatientRec());
+         setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
+        //JTFAllAppointments.setSize(400, 400);
+        JTFAllAppointments.setLineWrap(true);
+        add(lblAppFor);
+        //add(JTFName);
+        
+        add(JTFAllAppointments);
+        //add(scrollpane);
+        add(btnReturn);
         
     }
     
-    //singleton DP
+    //updates the label with the name of the person
+    public static void updateTextFields(){
+        getInstance().lblAppFor.setText("Showing appointments for: " + MainPatient.currentPatient.getFirstName() + " " + MainPatient.currentPatient.getSurname() );
+        //getInstance().revalidate();
+        //getInstance().repaint();
+    }
+    
+    //clears teh appointment area ready to append with the new appointment details of the next patient
+    public static void clearAppointmentTextArea(){
+        getInstance().JTFAllAppointments.setText("");
+       //getInstance().revalidate();
+       // getInstance().repaint();
+        
+    }
+    
+    //appends the area with the appointment details of the current patient
+    public static void updateAppointmentsTextArea(String textToAdd){
+        getInstance().JTFAllAppointments.append(textToAdd);
+        //getInstance().revalidate();
+        //getInstance().repaint();
+        
+    
+    }
+    
+    
     public static JPanelAppsShowAllForPatient getInstance(){
-        if (JPanShowAvailAppsSingInst == null){
-            JPanShowAvailAppsSingInst = new JPanelAppsShowAllForPatient();
+        if (ViewAllAppsSingInst == null){
+            ViewAllAppsSingInst = new JPanelAppsShowAllForPatient();
         }
         
-        return JPanShowAvailAppsSingInst;
+        return ViewAllAppsSingInst;
     }
 }

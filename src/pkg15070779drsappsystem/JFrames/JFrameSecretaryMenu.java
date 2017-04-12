@@ -14,8 +14,8 @@ import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
 import pkg15070779drsappsystem.JPanels.JPanelReportsAppAtt;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPanelReportsPresrcips;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatient;
-import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllAvailable;
 import static pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow.setDrComboBox;
 //
 public class JFrameSecretaryMenu extends JFrame {
@@ -122,8 +122,8 @@ public class JFrameSecretaryMenu extends JFrame {
         JPanelPatientAddDoctor JPanelPatAddDoc = JPanelPatientAddDoctor.getInstance();
         JPanelNewAppointment JPanNewApp = JPanelNewAppointment.getInstance();
         JPanelNewAppButPan JPanNewAppButPanel = JPanelNewAppButPan.getInstance();
-        JPanelAppsShowAllAvailable JPanViewAllApps = JPanelAppsShowAllAvailable.getInstance();
-        JPanelAppsShowAllForPatient JpanShowApps = JPanelAppsShowAllForPatient.getInstance();
+        JPanelAppsShowAllForPatient JPanViewAllApps = JPanelAppsShowAllForPatient.getInstance();
+        JPanelAppsShowAllForDoctor JpanShowApps = JPanelAppsShowAllForDoctor.getInstance();
         
         //"FindPatients"
         if (currenSecNorthBordPanel == "MonthlyApssAtt"){

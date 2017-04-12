@@ -4,7 +4,7 @@ package pkg15070779drsappsystem.JFrames;
 import javax.swing.JFrame;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.JPanels.JPartPanelAppsSelDateFlow;
-import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatient;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
 
 public class JFrameUseToTestPanels extends JFrame {
     
@@ -17,7 +17,7 @@ public class JFrameUseToTestPanels extends JFrame {
         JFrameAbsBorLayFillScreen.applyLayout(this);
         
           //MainAbsScheduling.generateSelectDates();
-        //JPanelAppsShowAllForPatient newOne = JPanelAppsShowAllForPatient.getInstance();
+        //JPanelAppsShowAllForPatient newOne = JPanelAppsShowAllForDoctor.getInstance();
      
         //newOne.setVisible(true);
         //add(newOne);

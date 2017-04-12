@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
 import pkg15070779drsappsystem.JPanels.JPartPanelAppsSelDateFlow;
 import pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
@@ -39,18 +40,26 @@ public class ActListPerfSearchAllAvailAppointments implements ActionListener{
         //get the to date selected by the user and construct it into a LocalDateTime object - time set at 0000
         LocalDateTime ldtTo = MainAbsScheduling.getConvStringToDateTime(this.dateToJPan.getDateDayString() + this.dateToJPan.geDateMonthString() + this.dateToJPan.getDateYearString() + "0000");
   
+        
+         //sets the main doctor to the selected Dr in the combo box - this is a static variable used to hold any
+           //doctor that is searched for
+           MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(JPartPanelSelDrComboFlow.getInstance().getDoctorString());
+        
+        
         //   public static list is cleared each time a search is done, then populated with found available appointments
         //for the given Dr
         if (lstFoundAvailableApps.isEmpty()){
             
             //run method to generate available appointments
-            lstFoundAvailableApps = MainDoctor.getDocAvailableAppointmentsWithDates(ldtFrom, ldtTo);
+            lstFoundAvailableApps = MainDoctor.getDocAvailableAppointmentsWithDates(MainDoctor.currentDoctor, ldtFrom, ldtTo);
         }
         else{
         lstFoundAvailableApps.clear();
         //run method to generate available appointments
-        lstFoundAvailableApps = MainDoctor.getDocAvailableAppointmentsWithDates(ldtFrom, ldtTo);
+        lstFoundAvailableApps = MainDoctor.getDocAvailableAppointmentsWithDates(MainDoctor.currentDoctor, ldtFrom, ldtTo);
         }
+        
+        JPanelAppsShowAllForDoctor.updateFoundAppointments(lstFoundAvailableApps);
   
     }
     

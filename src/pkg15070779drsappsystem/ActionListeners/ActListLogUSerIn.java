@@ -8,7 +8,7 @@ import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
 import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.AbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.JPanels.JPartPanelPatRecordPatView;
+import pkg15070779drsappsystem.JPanels.JPanelPatRecordPatView;
 import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
@@ -92,7 +92,7 @@ public class ActListLogUSerIn implements ActionListener {
                         //as the secretary, just with fewer options
                         //AbsApplyButtonsToPatRecPanel.setButtonsToPatientRecordJPanel();  
                         
-                        JPartPanelPatRecordPatView tmpInst = JPartPanelPatRecordPatView.getInstance();
+                        JPanelPatRecordPatView tmpInst = JPanelPatRecordPatView.getInstance();
                         tmpInst.setUpdateTextFields();
                         
                         PatMenuMain.setVisible(true);
