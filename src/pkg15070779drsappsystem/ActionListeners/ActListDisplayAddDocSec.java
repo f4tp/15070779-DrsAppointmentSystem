@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 
-public class ActListDispAddDocPan implements ActionListener{
+public class ActListDisplayAddDocSec implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {

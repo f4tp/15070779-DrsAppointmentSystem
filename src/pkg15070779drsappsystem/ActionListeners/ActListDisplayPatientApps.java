@@ -12,6 +12,8 @@ import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 public class ActListDisplayPatientApps implements ActionListener{
 
+    
+    //shows appointments for a particular patient, updates a combo box on the form
     @Override
     public void actionPerformed(ActionEvent ae) {
         

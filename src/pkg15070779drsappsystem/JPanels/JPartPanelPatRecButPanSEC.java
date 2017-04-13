@@ -1,7 +1,7 @@
 
 package pkg15070779drsappsystem.JPanels;
 
-import pkg15070779drsappsystem.ActionListeners.ActListDispAddDocPan;
+import pkg15070779drsappsystem.ActionListeners.ActListDisplayAddDocSec;
 import javax.swing.*;
 import pkg15070779drsappsystem.ActionListeners.ActListDisplayPatientApps;
 import pkg15070779drsappsystem.ActionListeners.ActListNewAppointment;
@@ -23,7 +23,7 @@ public class JPartPanelPatRecButPanSEC extends JPanel {
         btnNewApp.addActionListener(new ActListNewAppointment());
         
         JButton btnAddNewDoctor = new JButton("Add New Doctor");
-        btnAddNewDoctor.addActionListener(new ActListDispAddDocPan());
+        btnAddNewDoctor.addActionListener(new ActListDisplayAddDocSec());
        
                 
         add(btnAllApps);

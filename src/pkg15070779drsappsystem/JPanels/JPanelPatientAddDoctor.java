@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import pkg15070779drsappsystem.ActionListeners.ActListReturnPatientRec;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 
 
@@ -20,10 +21,14 @@ public class JPanelPatientAddDoctor extends JPanel {
             JButton btnAddDoctor = new JButton("Register Patient With Doctor");
             btnAddDoctor.addActionListener(new ActListAddDoctor(cmbDrs));
             
+            JButton btnCancel = new JButton("Cancel");
+            btnCancel.addActionListener(new ActListReturnPatientRec());
+            
             setLayout (new BoxLayout(this, BoxLayout.X_AXIS));
             add(lblTitle);
             add(cmbDrs);
             add(btnAddDoctor);
+            add(btnCancel);
         }
         
             //singleton object generation here

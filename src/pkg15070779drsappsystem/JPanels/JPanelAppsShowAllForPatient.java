@@ -14,13 +14,13 @@ import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 public class JPanelAppsShowAllForPatient extends JPanel {
     public static JPanelAppsShowAllForPatient ViewAllAppsSingInst;
-    JLabel lblAppFor = new JLabel("");
+  public static  JLabel lblAppFor = new JLabel("");
     //JTextArea JTFName = new JTextArea();
-    JTextArea JTFAllAppointments = new JTextArea();
-    JScrollPane scrollpane = new JScrollPane(JTFAllAppointments);
+   private static JTextArea JTFAllAppointments = new JTextArea();
+   private static  JScrollPane scrollpane = new JScrollPane(JTFAllAppointments);
     
     //will hold the keys of the appointments, so they can be selected and edited
-    JComboBox cmbAppKeys = new JComboBox();
+    private static JComboBox cmbAppKeys = new JComboBox();
     //JButton btnReturn = new JButton("Back");
     
     JPartPanelAppsShowAllPatButPanel ButPanSingInst = JPartPanelAppsShowAllPatButPanel.getInstance();
@@ -44,14 +44,14 @@ public class JPanelAppsShowAllForPatient extends JPanel {
     
     //updates the label with the name of the person
     public static void updateTextFields(){
-        getInstance().lblAppFor.setText("Showing appointments for: " + MainPatient.currentPatient.getFirstName() + " " + MainPatient.currentPatient.getSurname() );
+        lblAppFor.setText("Showing appointments for: " + MainPatient.currentPatient.getFirstName() + " " + MainPatient.currentPatient.getSurname() );
         //getInstance().revalidate();
         //getInstance().repaint();
     }
     
     //clears teh appointment area ready to append with the new appointment details of the next patient
     public static void clearAppointmentTextArea(){
-        getInstance().JTFAllAppointments.setText("");
+        JTFAllAppointments.setText("");
        //getInstance().revalidate();
        // getInstance().repaint();
         
@@ -59,7 +59,7 @@ public class JPanelAppsShowAllForPatient extends JPanel {
     
     //appends the area with the appointment details of the current patient
     public static void updateAppointmentsTextArea(String textToAdd){
-        getInstance().JTFAllAppointments.append(textToAdd);
+        JTFAllAppointments.append(textToAdd);
         //getInstance().revalidate();
         //getInstance().repaint();
         
@@ -68,7 +68,7 @@ public class JPanelAppsShowAllForPatient extends JPanel {
     
     public static void updateComboAppKeys(String textToAdd){
         
-        getInstance().cmbAppKeys.addItem(textToAdd);
+        cmbAppKeys.addItem(textToAdd);
 
         //getInstance().lblAppFor.setText("Showing appointments for: " + MainPatient.currentPatient.getFirstName() + " " + MainPatient.currentPatient.getSurname() );
         //getInstance().revalidate();
@@ -76,7 +76,7 @@ public class JPanelAppsShowAllForPatient extends JPanel {
     }
     
     public static void setClearCombo(){
-        getInstance().cmbAppKeys.removeAllItems();
+        cmbAppKeys.removeAllItems();
     }
     
     
@@ -89,6 +89,6 @@ public class JPanelAppsShowAllForPatient extends JPanel {
     }
     
     public static JComboBox getComboAppkeys(){
-        return getInstance().cmbAppKeys;
+        return cmbAppKeys;
     }
 }

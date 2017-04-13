@@ -8,8 +8,8 @@ import pkg15070779drsappsystem.ActionListeners.ActListReturnPatientRec;
 
 public class JPartPanelAppsShowAllPatButPanel extends JPanel {
     
-    JButton btnReturn = new JButton("Back");
-    JButton btnAmendSelApp = new JButton("Amend Selected Appointment");
+   public static  JButton btnReturn = new JButton("Back");
+    public static   JButton btnAmendSelApp = new JButton("Amend Selected Appointment");
     public static JPartPanelAppsShowAllPatButPanel ButPanSingleInst;
     private JPartPanelAppsShowAllPatButPanel(){
         //flow layout as standard
