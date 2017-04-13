@@ -1,11 +1,14 @@
 package pkg15070779drsappsystem.MainClasses;
 
+import java.util.ArrayList;
+import java.util.List;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
 
 public class MainPrescription extends MainAbsPrescriptionComponent{
     
-    //holds the current prescription that is being worked on by a doctor, secretary or phramacist
-    public static MainPrescription currentPrescription;
+    //holds the current prescriptions that are being worked on by a doctor, secretary or phramacist
+    //there can be multipel prescriptions for each appointment so this holds all of them
+    public static List <MainPrescription> currentPrescription = new ArrayList<>();
     private String presUniqueKey;
     private String presMedicineDesc;
     private String presMedAmount;
@@ -33,7 +36,7 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
         return this.patUniqueID;
     }
     
-    public String getPresMedicineDesc(){
+    public String getPresDescAsString(){
          if (this.presMedicineDesc == null){
              this.presMedicineDesc = "there is no prescription for this appointment yet";
          }

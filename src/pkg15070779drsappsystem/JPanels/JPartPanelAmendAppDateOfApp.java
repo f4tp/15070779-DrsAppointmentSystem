@@ -37,26 +37,27 @@ public class JPartPanelAmendAppDateOfApp extends JPanel {
         public static void updateFormWidgets(LocalDateTime appdatetime){
   
         
-        cmbDateDay.setSelectedItem(Integer.toString(appdatetime.getDayOfMonth()));
-        
-        //editing teh month as it comes back for example JANUARY and needs to be Jan
+        //cmbDateDay.setSelectedItem(Integer.toString(appdatetime.getDayOfMonth()));
+        cmbDateDay.setSelectedItem(MainAbsScheduling.getConvDateTimeToStringDay(appdatetime));
+        //editing the month as it comes back for example JANUARY and needs to be Jan
         
         //gets teh first letter
-        String editedMonthfirst = appdatetime.getMonth().toString().substring(0, 1).toUpperCase();
+       // String editedMonthfirst = appdatetime.getMonth().toString().substring(0, 1).toUpperCase();
         
         //gets the next twon letters and makes them lower case
-        String editedMonth = appdatetime.getMonth().toString().substring(1, 3).toLowerCase();
+       // String editedMonth = appdatetime.getMonth().toString().substring(1, 3).toLowerCase();
         
         //gets the first letter
-        String editedMonthFinal = editedMonthfirst + editedMonth;
+       // String editedMonthFinal = editedMonthfirst + editedMonth;
         
-        System.out.println(appdatetime.getMonth());
-        System.out.println(editedMonthFinal);
-        cmbDateMonth.setSelectedItem(editedMonthFinal);
+        //System.out.println(appdatetime.getMonth());
+       // System.out.println(editedMonthFinal);
+        //cmbDateMonth.setSelectedItem(editedMonthFinal);
+        cmbDateMonth.setSelectedItem(MainAbsScheduling.getConvDateTimeToStringMonth(appdatetime));
         
         
-        
-        cmbDateYear.setSelectedItem(Integer.toString(appdatetime.getYear()));
+        //cmbDateYear.setSelectedItem(Integer.toString(appdatetime.getYear()));
+        cmbDateYear.setSelectedItem(MainAbsScheduling.getConvDateTimeToStringYear(appdatetime));
         }
     }
     

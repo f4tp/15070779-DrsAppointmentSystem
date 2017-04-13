@@ -50,7 +50,7 @@ public class JPanelPatRecordPatView extends JPanel {
         //JButton btnNewApp = new JButton("New Appointment");
         JPartPanelTemplateTwelveGridView patientScreen = new JPartPanelTemplateTwelveGridView(lblTitle, JTFTitle, lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob, lblContact, JTFContact, lblDrsRegsWith, JTFDrsRegsWith);
         JPartPanelPatRecButPanPAT patientButtons = JPartPanelPatRecButPanPAT.getInstance();
-        JPartPanelTextAreaMonthReports JtASingInst = JPartPanelTextAreaMonthReports.getInstance();
+        JPartPanelTextAreaPrintPatRec JtASingInst = JPartPanelTextAreaPrintPatRec.getInstance();
         //JPanelPatientRecButPanSEC secretaryButtons = JPanelPatientRecButPanSEC.getInstance();
     private JPanelPatRecordPatView(){
 

@@ -39,7 +39,7 @@ public class ActListDisplayPatientApps implements ActionListener{
                     JPanelAppsShowAllForPatient.updateAppointmentsTextArea(MainAbsAppointmentComponent.getAppointment(temp).toString());
                     
                     //if the appointment also has a prescription issued, print this to screen also, or pritn no prescription for this app
-                    JPanelAppsShowAllForPatient.updateAppointmentsTextArea(MainAbsAppointmentComponent.getAppointment(temp).getPrescriptionID());
+                    JPanelAppsShowAllForPatient.updateAppointmentsTextArea(MainAbsAppointmentComponent.getAppointment(temp).getAllPresDetailsForAppAsString());
                     
                     
                     

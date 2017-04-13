@@ -111,7 +111,7 @@ public abstract class MainAbsScheduling {
        
         //throws ParseException
         //example string
-       // String str = "040520031230";
+       // String str = "04May20031230";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyyHHmm");
         LocalDateTime ldtDateTime = LocalDateTime.parse(datein, formatter);
         
@@ -119,6 +119,56 @@ public abstract class MainAbsScheduling {
         return ldtDateTime;
 
     }
+    
+    //pass it a date and it will pass back a string of the day in a consistent format (relative to theprogram)
+     public static String getConvDateTimeToStringDay(LocalDateTime datein) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyyHHmm");
+        //LocalDateTime ldtDateTime = LocalDateTime.parse(datein, formatter);
+        String dayOfDate = datein.format(formatter);
+        String returnDay = dayOfDate.substring(0,2);
+        System.out.println(returnDay);
+        return returnDay;
+    }
+     
+     public static String getConvDateTimeToStringMonth(LocalDateTime datein) {
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyyHHmm");
+         String dmonthOfDate = datein.format(formatter);
+         String returnMonth = dmonthOfDate.substring(2,5);
+         System.out.println(returnMonth);
+        return returnMonth;
+     }
+     
+     public static String getConvDateTimeToStringYear(LocalDateTime datein) {
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyyHHmm");
+         String dmonthOfDate = datein.format(formatter);
+         String returnMonth = dmonthOfDate.substring(5,9);
+         System.out.println(returnMonth);
+        return returnMonth;
+     }
+     
+      public static String getConvDateTimeToStringHour(LocalDateTime datein) {
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyyHHmm");
+         String dmonthOfDate = datein.format(formatter);
+         String returnMonth = dmonthOfDate.substring(9,10);
+         System.out.println(returnMonth);
+        return returnMonth;
+     }
+      
+      public static String getConvDateTimeToStringMinute(LocalDateTime datein) {
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyyHHmm");
+         String dmonthOfDate = datein.format(formatter);
+         String returnMonth = dmonthOfDate.substring(11,13);
+         System.out.println(returnMonth);
+        return returnMonth;
+     }
+      
+      public static String getConvDateTimeToStringHourAndMin(LocalDateTime datein) {
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyyHHmm");
+         String dmonthOfDate = datein.format(formatter);
+         String returnMonth = dmonthOfDate.substring(9);
+         System.out.println(returnMonth);
+        return returnMonth;
+     }
     
 
     

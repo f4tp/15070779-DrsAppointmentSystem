@@ -4,6 +4,7 @@ package pkg15070779drsappsystem.ActionListeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
+import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaPrintPatRec;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 
 public class ActListPrintCurUserRec implements ActionListener {
@@ -22,7 +23,7 @@ public class ActListPrintCurUserRec implements ActionListener {
     }
     
     public void outputToWidget(){
-        JPartPanelTextAreaMonthReports JTASingInst = JPartPanelTextAreaMonthReports.getInstance();
+        JPartPanelTextAreaPrintPatRec JTASingInst = JPartPanelTextAreaPrintPatRec.getInstance();
            String tempDetails = MainAbsSystemUserComponent.currentSystemUser.toString();
            JTASingInst.setVisible(true);
         JTASingInst.setJtextArea(tempDetails);

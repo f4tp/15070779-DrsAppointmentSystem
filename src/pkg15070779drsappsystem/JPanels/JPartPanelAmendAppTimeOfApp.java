@@ -31,9 +31,10 @@ public class JPartPanelAmendAppTimeOfApp extends JPanel {
     
     //sets the hour and minute to the string version of the appointment's time
     public static void updateFormWidgets(LocalDateTime appdatetime){
-            String consTime = Integer.toString(appdatetime.getHour()) + Integer.toString(appdatetime.getMinute());
-            System.out.println(consTime);
-            cmbTime.setSelectedItem(consTime);
+            //String consTime = Integer.toString(appdatetime.getHour()) + Integer.toString(appdatetime.getMinute());
+            
+            //System.out.println(consTime);
+            cmbTime.setSelectedItem(MainAbsScheduling.getConvDateTimeToStringHourAndMin(appdatetime));
             //cmbTimeMin.addItem(Integer.toString(appdatetime.getMinute()));
         }
     

@@ -36,9 +36,14 @@ public class ActListAmendSelPatientRec implements ActionListener{
          
           //if there is a prescription for this appointment, set the current prescription based on the current 
           //appointment  to the one you want to work on
-          if (MainAppointment.currentAppointment.getPrescriptionID() != null){
-              MainPrescription.currentPrescription = (MainPrescription) MainAbsPrescriptionComponent.getMainPrescription(MainAppointment.currentAppointment.getPrescriptionID());
-          }
+          if (MainAppointment.currentAppointment.getHasPrescBeenGenerated() == true){
+              MainPrescription.currentPrescription.clear(); //clear the list so it doesn't have old prescriptions in it
+              
+              //for all prescriptions IDs in this appointment precription list...
+              for(String temp: MainAppointment.currentAppointment.getListOfPrescriptionIDs())
+                  //resolve the prescription and store in the Main appointment list
+                  MainPrescription.currentPrescription.add((MainPrescription) MainAbsPrescriptionComponent.getMainPrescription(temp));
+               }
        
          
          
@@ -60,18 +65,13 @@ public class ActListAmendSelPatientRec implements ActionListener{
          Boolean curAppCancelled = MainAppointment.currentAppointment.getCancelled();
          Boolean currAppMissed = MainAppointment.currentAppointment.getMissed();
          
-         String currPresID;
-         String currPresMedDesc;
-         String currPresMedAmount;
-         if (MainAppointment.currentAppointment.getPrescriptionID()== "There is no prescription for this appointment yet"){
-            currPresID = "";
-             currPresMedDesc = "";
-             currPresMedAmount = "";
+         String currPresDetails;
+
+         if (MainAppointment.currentAppointment.getAllPresDetailsForAppAsString()== "There is no prescription for this appointment yet"){
+            currPresDetails = "";
          }
          else {
-             currPresID = MainPrescription.currentPrescription.getPresUniqueID();
-            currPresMedDesc = MainPrescription.currentPrescription.getPresMedicineDesc();
-            currPresMedAmount = MainPrescription.currentPrescription.getPresMedAmount();
+             currPresDetails = MainAppointment.currentAppointment.getAllPresDetailsForAppAsString();
          }
          
        
@@ -79,7 +79,8 @@ public class ActListAmendSelPatientRec implements ActionListener{
          //JPanelAppAmendSecView jpanAmmendAppSingInst = JPanelAppAmendSecView.getInstance();
          JPanelAppAmendSecView.updateFormComponents(curPatTitle, curPatFirstname, curPatSurname, 
                  curPatUsername, curAppId, curAppDrWith, curAppDateTime, currAppsymptoms, curAppAttended, 
-                 curAppCancelled, currAppMissed, currPresID, currPresMedDesc, currPresMedAmount);
+                 curAppCancelled, currAppMissed, currPresDetails);
+        
         
         
          JFrameSecretaryMenu refHolder = JFrameSecretaryMenu.getInstance();

@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 import pkg15070779drsappsystem.ActionListeners.ActListBackToPatientApps;
 
 public class JPanelAppAmendSecView extends JPanel {
+    
+    private static Boolean formUpdated = false;
     public static JPanelAppAmendSecView jpanAppAmendSingInst;
     
     JLabel jlTitle = new JLabel("Title");
@@ -58,14 +60,10 @@ public class JPanelAppAmendSecView extends JPanel {
     JLabel lblMissed= new JLabel ("Missed:");
     private static JCheckBox jtbMissed = new JCheckBox();
     
-    JLabel lblPresID= new JLabel ("Prescription ID:");
-     private static JLabel lblPresIDRes= new JLabel ();
+    JLabel lblPresDetails= new JLabel ("Prescription ID:");
+     private static JLabel lblPrescDetailRes= new JLabel ();
     
-    JLabel lblMedPrescribed= new JLabel ("Medicine Prescribed:");
-     private static JLabel lblMedPrescribedRes= new JLabel ();
-     
-    JLabel lblMedAmount= new JLabel ("Medicine Amount:");
-    private static JLabel lblMedAmountRes= new JLabel ();
+
     
     JButton btnCancel = new JButton("Cancel");
     JButton btnAmend = new JButton("Amend Appointment");
@@ -96,12 +94,10 @@ public class JPanelAppAmendSecView extends JPanel {
         add(jtbCancelled);
         add(lblMissed);
         add(jtbMissed);
-        add(lblMedPrescribed);
-        add(lblMedPrescribedRes);
-        add(lblMedPrescribed);
-        add(lblMedPrescribedRes);
-        add(lblMedAmount);
-        add(lblMedAmountRes);
+
+        add(lblPresDetails);
+        add(lblPrescDetailRes);
+
         add(btnCancel);
         add(btnAmend);
         
@@ -117,7 +113,7 @@ public class JPanelAppAmendSecView extends JPanel {
         return jpanAppAmendSingInst;
     }
     
-    public static void updateFormComponents(String title, String name, String surname, String username, String appointmentid, String drwith, LocalDateTime datetimein, String symptoms, Boolean attended, Boolean cancelled, Boolean missed, String presid, String medicinepres, String medicineamount){
+    public static void updateFormComponents(String title, String name, String surname, String username, String appointmentid, String drwith, LocalDateTime datetimein, String symptoms, Boolean attended, Boolean cancelled, Boolean missed, String presdetails){
         
         jlTitleRes.setText(title);
         lblFirstNameRes.setText(name);
@@ -133,10 +129,26 @@ public class JPanelAppAmendSecView extends JPanel {
         jtbAttend.setSelected(attended);
         jtbCancelled.setSelected(cancelled);
         jtbMissed.setSelected(missed);
-        lblMedPrescribedRes.setText(presid);
-        lblMedPrescribedRes.setText(medicinepres);
-       lblMedAmountRes.setText(medicineamount);
+        lblPrescDetailRes.setText(presdetails);
+        
 
+    }
+    
+    //if someone changes somethign on this form, this value will be set to true
+    //when someone presses the update button, if the value is false it won;t update anything, but if it is true it will run 
+    //through the routine of updating all objects involved
+    //this will be set back to false after the updating has taken place so another appointment can be amended
+    public void setFormUpdated(Boolean formneedsupdating){
+        formUpdated = formneedsupdating;
+    }
+    
+    
+     //if someone changes somethign on this form, this value will be set to true
+    //when someone presses the update button, if the value is false it won;t update anything, but if it is true it will run 
+    //through the routine of updating all objects involved
+    //this will be set back to false after the updating has taken place so another appointment can be amended
+    public Boolean getFormUpdated(){
+        return formUpdated;
     }
     
     

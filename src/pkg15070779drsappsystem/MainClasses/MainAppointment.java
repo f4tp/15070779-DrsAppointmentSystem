@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import java.util.*;
 import javax.swing.JOptionPane;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 public final class MainAppointment extends MainAbsAppointmentComponent {
 //@@@@@@@@@@@ static variables @@@@@@@@@@@
@@ -11,7 +12,8 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
 
 
 //@@@@@@@@@@@ Instance Variables @@@@@@@@@@    
-    private String AppUniqueKey, patientUniqueID, strTitle, patientFirstname,patientSurname, appDrComments, appSymptoms, presUniqueID;
+    private String AppUniqueKey, patientUniqueID, strTitle, patientFirstname,patientSurname, appDrComments, appSymptoms;
+    private List <String> lstPrescriptionsUniqueID;
     private List<String> lstStrPatientApps;
     private String drUniqueKeyAppWith;
     private Boolean appAttended,appCancelled, appMissed; 
@@ -46,6 +48,9 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         this.appDrComments="please enter comments";
         //his.appMedicine="please update this if medicine is required for this appointment";
         this.appSymptoms = symptoms;
+        
+        //each appointment has an array list to store IDs of prescriptions for this appointment
+        this.lstPrescriptionsUniqueID = new ArrayList<>();
         MainAbsAppointmentComponent.setPutInMap(this.AppUniqueKey, this);
     }
     
@@ -99,21 +104,59 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     
     //returns false if the appointment doesn't have a prescription yet
     //returns true if it does
-    public String getPrescriptionID(){
-        if (this.presUniqueID == null){
+    public String getPrescriptionIDsff(){
+        if (this.lstPrescriptionsUniqueID.isEmpty()){
             return "There is no prescription for this appointment yet";
         }
         else{
-            return presUniqueID;
+            String presToRet = "";
+            for (String temp: this.lstPrescriptionsUniqueID){
+                presToRet = presToRet + temp;
+            }
+            
+            return presToRet;
         }
     }
     
+    public Boolean getHasPrescBeenGenerated(){
+        if (this.lstPrescriptionsUniqueID.isEmpty()){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
     
-    public void setPrescriptionForApp(String meddesc, String medamount, String patientid, String drwith){
+    public List<String> getListOfPrescriptionIDs(){
+        return this.lstPrescriptionsUniqueID;
+    }
+    
+    //for every prescription ID in the appointment prescription ID list, it will return the prescription as a String - all
+    //prescription details for this appointment will be returned
+    public String getAllPresDetailsForAppAsString(){
+        
+         if (this.lstPrescriptionsUniqueID.isEmpty()){
+            return "There is no prescription for this appointment yet";
+        }
+         
+         else{
+             
+         
+                String presToRet = "";
+                   for (String temp: this.lstPrescriptionsUniqueID){
+                       presToRet = presToRet + MainAbsPrescriptionComponent.getMainPrescription(temp).toString();
+                   }
+
+                   return presToRet;
+         }
+    }
+    
+    
+    public void addPrescriptionForApp(String meddesc, String medamount, String patientid, String drwith){
         //object composition - create new prescitpion called from here
         //used rather than interface or implements inheritence as a 
         MainPrescription appPres = new MainPrescription(meddesc, medamount, patientid, drwith);
-        this.presUniqueID = appPres.getPresUniqueID();
+        this.lstPrescriptionsUniqueID.add(appPres.getPresUniqueID());
     }
     
  //@@@@@@@@@@@ Getters @@@@@@@@@@  
