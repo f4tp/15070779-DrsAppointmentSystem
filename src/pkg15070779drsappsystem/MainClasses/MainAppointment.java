@@ -170,7 +170,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         return this.appSymptoms;
     }
     
-    public Boolean geAttended(){
+    public Boolean getAttended(){
         return this.appAttended;
     }
     public Boolean getMissed(){

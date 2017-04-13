@@ -24,6 +24,7 @@ public class ActListPrintCurUserRec implements ActionListener {
     public void outputToWidget(){
         JPartPanelTextAreaMonthReports JTASingInst = JPartPanelTextAreaMonthReports.getInstance();
            String tempDetails = MainAbsSystemUserComponent.currentSystemUser.toString();
+           JTASingInst.setVisible(true);
         JTASingInst.setJtextArea(tempDetails);
     }
     

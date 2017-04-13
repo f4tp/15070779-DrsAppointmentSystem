@@ -58,6 +58,9 @@ public class JPanelAppAmendSecView extends JPanel {
     JLabel lblMissed= new JLabel ("Missed:");
     private static JCheckBox jtbMissed = new JCheckBox();
     
+    JLabel lblPresID= new JLabel ("Prescription ID:");
+     private static JLabel lblPresIDRes= new JLabel ();
+    
     JLabel lblMedPrescribed= new JLabel ("Medicine Prescribed:");
      private static JLabel lblMedPrescribedRes= new JLabel ();
      
@@ -68,7 +71,7 @@ public class JPanelAppAmendSecView extends JPanel {
     JButton btnAmend = new JButton("Amend Appointment");
     
     private JPanelAppAmendSecView(){
-        setLayout(new GridLayout(15,2));
+        setLayout(new GridLayout(16,2));
         add(jlTitle);
         add(jlTitleRes);
         add(lblFirstName);
@@ -95,6 +98,8 @@ public class JPanelAppAmendSecView extends JPanel {
         add(jtbMissed);
         add(lblMedPrescribed);
         add(lblMedPrescribedRes);
+        add(lblMedPrescribed);
+        add(lblMedPrescribedRes);
         add(lblMedAmount);
         add(lblMedAmountRes);
         add(btnCancel);
@@ -112,7 +117,7 @@ public class JPanelAppAmendSecView extends JPanel {
         return jpanAppAmendSingInst;
     }
     
-    public static void updateFormComponents(String title, String name, String surname, String username, String appointmentid, String drwith, LocalDateTime datetimein, String symptoms, Boolean attended, Boolean cancelled, Boolean missed, String medicinepres, String medicineamount){
+    public static void updateFormComponents(String title, String name, String surname, String username, String appointmentid, String drwith, LocalDateTime datetimein, String symptoms, Boolean attended, Boolean cancelled, Boolean missed, String presid, String medicinepres, String medicineamount){
         
         jlTitleRes.setText(title);
         lblFirstNameRes.setText(name);
@@ -128,6 +133,7 @@ public class JPanelAppAmendSecView extends JPanel {
         jtbAttend.setSelected(attended);
         jtbCancelled.setSelected(cancelled);
         jtbMissed.setSelected(missed);
+        lblMedPrescribedRes.setText(presid);
         lblMedPrescribedRes.setText(medicinepres);
        lblMedAmountRes.setText(medicineamount);
 
