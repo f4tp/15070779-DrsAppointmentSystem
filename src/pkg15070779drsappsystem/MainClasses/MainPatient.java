@@ -57,6 +57,12 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
     public String getDOB(){
         return this.strDOB;
     }
+    
+    //checks whether the patient has an appointment, if they have one it will be in their appointment list
+    //if they don;t have one, their appointment list will be empty and return false
+    public Boolean getAppointmentExist(){
+          return this.lstStrPatientApps.isEmpty();
+       }
   
  //@@@@@@@@@@ class specific getters @@@@@@@@@@
     
@@ -102,7 +108,9 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
     }
     
      public void addNewAppointment(LocalDateTime appdateandtime,  String drwith, String symptoms){
-       
+            
+
+            //object composition to create the relationship over inheritence
             LocalDateTime appDateAndTime = appdateandtime;
             String drWith = drwith;
             this.newAppointmentInst = new MainAppointment (this.getTitle(), this.getFirstName(), this.getSurname(), this.getUserName(), appDateAndTime, drWith, symptoms);

@@ -11,7 +11,8 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
 
 
 //@@@@@@@@@@@ Instance Variables @@@@@@@@@@    
-    private String AppUniqueKey, patientUniqueID, strTitle, patientFirstname,patientSurname, appDrComments, appMedicine, appSymptoms;
+    private String AppUniqueKey, patientUniqueID, strTitle, patientFirstname,patientSurname, appDrComments, appSymptoms, presUniqueID;
+    private List<String> lstStrPatientApps;
     private String drUniqueKeyAppWith;
     private Boolean appAttended,appCancelled, appMissed; 
     private LocalDateTime appDateAndTime;
@@ -28,7 +29,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         
     }
     
-    private void setCreateAppointment(String title, String firstname, String surname, String uniqueid, LocalDateTime appdaateandtime, String drwith, String symptoms){
+    private void setCreateAppointment(String title, String firstname, String surname, String uniqueid, LocalDateTime appdateandtime, String drwith, String symptoms){
         this.AppUniqueKey = generateAppUniqueKey(); //creates a key for the map
         this.strTitle = title;
         this.patientFirstname = firstname;
@@ -37,13 +38,13 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         
         this.drUniqueKeyAppWith = drwith; //patient needs regsitering with a Dr before this can be set
         
-        this.appDateAndTime = appdaateandtime;
+        this.appDateAndTime = appdateandtime;
 
         this.appAttended = false;
         this.appCancelled = false;
         this.appMissed = false;
         this.appDrComments="please enter comments";
-        this.appMedicine="please update this if medicine is required for this appointment";
+        //his.appMedicine="please update this if medicine is required for this appointment";
         this.appSymptoms = symptoms;
         MainAbsAppointmentComponent.setPutInMap(this.AppUniqueKey, this);
     }
@@ -96,6 +97,25 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         }
     }
     
+    //returns false if the appointment doesn't have a prescription yet
+    //returns true if it does
+    public String getPrescriptionID(){
+        if (this.presUniqueID == null){
+            return "There is no prescription for this appointment yet";
+        }
+        else{
+            return presUniqueID;
+        }
+    }
+    
+    
+    public void setPrescriptionForApp(String meddesc, String medamount, String patientid, String drwith){
+        //object composition - create new prescitpion called from here
+        //used rather than interface or implements inheritence as a 
+        MainPrescription appPres = new MainPrescription(meddesc, medamount, patientid, drwith);
+        this.presUniqueID = appPres.getPresUniqueID();
+    }
+    
  //@@@@@@@@@@@ Getters @@@@@@@@@@  
      
         
@@ -113,9 +133,9 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     }
     @Override
     public String toString(){
-        return ("Appointment ID: " + this.AppUniqueKey + "| Date & Time of Appointment:  " + this.appDateAndTime + "| Symptoms Given: "
-               + this.appSymptoms + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  " | Appointment Missed: " + this.appMissed +"| Medicine Prescribed: " +  this.appMedicine + "\n\n");
-   }
+              return ("\n" + "Appointment ID: " + this.AppUniqueKey + "| Date & Time of Appointment:  " + this.appDateAndTime + "| Symptoms Given: "
+               + this.appSymptoms + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  " | Appointment Missed: " + this.appMissed);
+    }
     
   
    
@@ -141,6 +161,28 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         return lstFoundAppointments;
         
     }
+    
+    public String getDrAppWith(){
+        return this.drUniqueKeyAppWith;
+    }
+    
+    public String getSymptoms(){
+        return this.appSymptoms;
+    }
+    
+    public Boolean geAttended(){
+        return this.appAttended;
+    }
+    public Boolean getMissed(){
+        return this.appMissed;
+    }
+    public Boolean getCancelled(){
+        return this.appCancelled;
+    }
+    
+    //public static String getPresID
+    
+    
                 
 
     

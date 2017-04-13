@@ -12,7 +12,7 @@ public abstract class MainAbsPrescriptionComponent {
         
     }
     
-    private String generatePresUniKey(){
+    public String generatePresUniKey(){
         int noExistApps = mapPrescription.size() + 1;
         return "Medicine" + Integer.toString(noExistApps);
     }

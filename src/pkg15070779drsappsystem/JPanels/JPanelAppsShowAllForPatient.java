@@ -43,7 +43,7 @@ public class JPanelAppsShowAllForPatient extends JPanel {
     }
     
     //updates the label with the name of the person
-    public static void updateTextFields(){
+    public static void updateLabelTitleForShowPatApps(){
         lblAppFor.setText("Showing appointments for: " + MainPatient.currentPatient.getFirstName() + " " + MainPatient.currentPatient.getSurname() );
         //getInstance().revalidate();
         //getInstance().repaint();

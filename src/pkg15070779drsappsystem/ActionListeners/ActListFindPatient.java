@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
+import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
@@ -84,7 +85,13 @@ public class ActListFindPatient implements ActionListener {
                 //MainPatient.currentPatient = (MainPatient) FoundPatient; //convert to patient object
                 
                 MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
-                System.out.println(MainPatient.currentPatient);
+                System.out.println("Main patient set when find patient button has been pressed on find patient screen, patient is:  " + MainPatient.currentPatient);
+                
+                
+               //the patient details are updated in the Secretary JFrame - when the setSecSouthBorderStrins is set...
+               //it sets the visibility of teh right JPanel so we can see the pateint record, but not before updatign all 
+               //of teh details usign the setUpdateTextFields(); method from the JPanelPatRecordSecView class
+                
                 JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
                 SecMenuRef.setSecSouthBorderString("DisplayPatientDetails");
                 

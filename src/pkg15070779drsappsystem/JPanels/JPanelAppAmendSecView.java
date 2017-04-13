@@ -101,6 +101,7 @@ public class JPanelAppAmendSecView extends JPanel {
         add(btnAmend);
         
         btnCancel.addActionListener(new ActListBackToPatientApps());
+        //btnAmend.addActionListener(newActList());
     }
     
     public static JPanelAppAmendSecView getInstance(){
