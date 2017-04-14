@@ -7,15 +7,16 @@ import javax.swing.JPanel;
 import javax.swing.*;
 
 import java.time.LocalDateTime;
-import pkg15070779drsappsystem.ActionListeners.ActListAmendAppFormChanged;
+import pkg15070779drsappsystem.ActionListeners.ActListAmendAppFormChangedDateAffected;
+import pkg15070779drsappsystem.ActionListeners.ActListAmendAppFormChangedDateNotAffected;
 import pkg15070779drsappsystem.ActionListeners.ActListAmendAppointment;
 import pkg15070779drsappsystem.ActionListeners.ActListBackToPatientApps;
-import pkg15070779drsappsystem.ItemListeners.FocusListAmendAppSymptomsJTF;
+import pkg15070779drsappsystem.ItemListeners.FocusListAmendAppSymptomsJTFDateNotAffected;
 //import pkg15070779drsappsystem.ItemListeners.ItemListAmendAppFormChanged;
-
 public class JPanelAppAmendSecView extends JPanel {
     
-    private static Boolean formUpdated;
+    private static Boolean formUpdatedNotDateTime;
+    private static Boolean formUpdatedDateTime;
     public static JPanelAppAmendSecView jpanAppAmendSingInst;
     
     JLabel jlTitle = new JLabel("Title");
@@ -74,10 +75,12 @@ public class JPanelAppAmendSecView extends JPanel {
     
     private JPanelAppAmendSecView(){
         
-          jtfSymptoms.addFocusListener(new FocusListAmendAppSymptomsJTF());
-          jcbAttended.addActionListener(new ActListAmendAppFormChanged());
-         jcbCancelled.addActionListener(new ActListAmendAppFormChanged());
-        jcbMissed.addActionListener(new ActListAmendAppFormChanged());
+          jtfSymptoms.addFocusListener(new FocusListAmendAppSymptomsJTFDateNotAffected());
+          jcbAttended.addActionListener(new ActListAmendAppFormChangedDateNotAffected());
+          jcbMissed.addActionListener(new ActListAmendAppFormChangedDateNotAffected());
+          
+         jcbCancelled.addActionListener(new ActListAmendAppFormChangedDateAffected());
+        
         btnCancel.addActionListener(new ActListBackToPatientApps());
         
         //calls the amend details act list with all components needed to make the change
@@ -164,16 +167,25 @@ public class JPanelAppAmendSecView extends JPanel {
         jcbCancelled.setSelected(cancelled);
         jcbMissed.setSelected(missed);
         lblPrescDetailRes.setText(presdetails);
-        formUpdated = false;
-        System.out.println(formUpdated);
+        
+        //all widgets have been set up, so the changed status is set to false. This will change if there is any movement
+        //on any of the items
+        formUpdatedNotDateTime = false;
+        formUpdatedDateTime = false;
+        System.out.println(formUpdatedNotDateTime);
+        System.out.println(formUpdatedDateTime);
     }
     
     //if someone changes somethign on this form, this value will be set to true
     //when someone presses the update button, if the value is false it won;t update anything, but if it is true it will run 
     //through the routine of updating all objects involved
     //this will be set back to false after the updating has taken place so another appointment can be amended
-    public void setFormUpdated(Boolean formneedsupdating){
-        formUpdated = formneedsupdating;
+    public void setFormUpdatedNotDateTime(Boolean formneedsupdating){
+        formUpdatedNotDateTime = formneedsupdating;
+    }
+    
+     public void setFormUpdatedDateTime(Boolean formneedsupdating){
+        formUpdatedDateTime = formneedsupdating;
     }
     
     
@@ -181,8 +193,12 @@ public class JPanelAppAmendSecView extends JPanel {
     //when someone presses the update button, if the value is false it won;t update anything, but if it is true it will run 
     //through the routine of updating all objects involved
     //this will be set back to false after the updating has taken place so another appointment can be amended
-    public Boolean getFormUpdated(){
-        return formUpdated;
+    public Boolean getFormUpdatedNotDateTime(){
+        return formUpdatedNotDateTime;
+    }
+    
+     public Boolean getFormUpdatedDateTime(){
+        return formUpdatedDateTime;
     }
     
     

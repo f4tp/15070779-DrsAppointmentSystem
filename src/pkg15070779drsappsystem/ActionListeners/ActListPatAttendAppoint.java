@@ -52,7 +52,7 @@ public class ActListPatAttendAppoint implements ActionListener {
                 
                 //setthe appointment to attended
                 
-                MainAppointment.currentAppointment.setAppAttend();
+                MainAppointment.currentAppointment.setAppAttendPatientResponse();
                  //put the MainAppointment objetc back in the map
                 MainAbsAppointmentComponent.setPutInMap(MainAppointment.currentAppointment.getAppUniqueKey(), MainAppointment.currentAppointment);
                 

@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
 
-public class ActListAmendAppFormChanged implements ActionListener {
+public class ActListAmendAppFormChangedDateNotAffected implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -14,8 +14,8 @@ public class ActListAmendAppFormChanged implements ActionListener {
         //when amendments have taken place, the variable must be set back to false
         System.out.println("Action listener triggered");
         JPanelAppAmendSecView refHolder = JPanelAppAmendSecView.getInstance();
-        refHolder.setFormUpdated(true);
-        System.out.println(JPanelAppAmendSecView.getInstance().getFormUpdated());
+        refHolder.setFormUpdatedNotDateTime(true);
+        System.out.println(JPanelAppAmendSecView.getInstance().getFormUpdatedNotDateTime());
     }
     
 }

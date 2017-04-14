@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.ItemListeners.ItemListAmendAppFormChanged;
+import pkg15070779drsappsystem.ItemListeners.ItemListAmendAppFormChangedDateAffected;
 //import static pkg15070779drsappsystem.JPanels.JPartPanelAmendAppDateOfApp.cmbDateDay;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 
@@ -19,7 +19,7 @@ public class JPartPanelAmendAppTimeOfApp extends JPanel {
     
     public JPartPanelAmendAppTimeOfApp(){
     
-        cmbTime.addItemListener(new ItemListAmendAppFormChanged());
+        cmbTime.addItemListener(new ItemListAmendAppFormChangedDateAffected());
         add(lblTimeOfApp);
     add(cmbTime);
     //add(cmbTimeMin);

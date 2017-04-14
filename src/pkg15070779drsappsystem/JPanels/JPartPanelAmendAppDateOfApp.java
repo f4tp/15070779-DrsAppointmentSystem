@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.ItemListeners.ItemListAmendAppFormChanged;
+import pkg15070779drsappsystem.ItemListeners.ItemListAmendAppFormChangedDateAffected;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 
 
@@ -24,9 +24,9 @@ public class JPartPanelAmendAppDateOfApp extends JPanel {
             
             //item listeners just set the form changed status to true so the amend routine knows to update and not
             //display a message sayign nothing has changed
-            cmbDateDay.addItemListener(new ItemListAmendAppFormChanged());
-            cmbDateMonth.addItemListener(new ItemListAmendAppFormChanged());
-            cmbDateYear.addItemListener(new ItemListAmendAppFormChanged());
+            cmbDateDay.addItemListener(new ItemListAmendAppFormChangedDateAffected());
+            cmbDateMonth.addItemListener(new ItemListAmendAppFormChangedDateAffected());
+            cmbDateYear.addItemListener(new ItemListAmendAppFormChangedDateAffected());
             
             add(lblDateOfApp);
             add(cmbDateDay);

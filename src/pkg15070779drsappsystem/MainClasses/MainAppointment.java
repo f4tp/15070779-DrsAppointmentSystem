@@ -62,9 +62,14 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         
     }
     
+    public void setAppAttendSec(Boolean attendstatus){
+        this.appAttended = attendstatus;
+    }
     
-    public void setAppAttend(){
-        System.out.println(this.appAttended);
+    
+    //used for teh patient's access screen - so they can book themselves in
+    public void setAppAttendPatientResponse(){
+
         
         if (this.appAttended == false){
             this.appAttended = true;
@@ -82,24 +87,20 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
                 "Appointment attended",
                 JOptionPane.ERROR_MESSAGE);
         }
+        
+        //NTD - put the appointment back in the map
     }
     
-    public void setAppCancelled(){
-        if (this.appCancelled = false){
-            this.appCancelled = true;
-        }
-        else if (this.appCancelled = true){
-            this.appCancelled = false;
-        }
+    public void setSymptoms(String symptomstoset){
+        this.appSymptoms = symptomstoset;
     }
     
-    public void setAppMissed(){
-        if (this.appMissed = false){
-            this.appMissed = true;
-        }
-        else if (this.appMissed = true){
-            this.appMissed= false;
-        }
+    public void setAppCancelled(Boolean cancelledstatus){
+        this.appCancelled = cancelledstatus;
+    }
+    
+    public void setAppMissed(Boolean missedstatus){
+       this.appMissed = missedstatus;
     }
     
     //returns false if the appointment doesn't have a prescription yet
