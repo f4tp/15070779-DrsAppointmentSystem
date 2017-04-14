@@ -10,7 +10,10 @@ import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainPharmacist;
 import pkg15070779drsappsystem.MainClasses.MainSecretary;
 import java.util.List;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainClasses.MainAppointment;
 
 public abstract class AABLoadData {
     
@@ -30,6 +33,7 @@ public abstract class AABLoadData {
         MainPatient pat8 = new MainPatient("Mr","Larry", "Page", "01011907", "01234 567 890","winstone.zeddermore.01011914");
         MainPatient pat9 = new MainPatient("Mr","Hal", "Abeson","01011908", "01234 567 890","winstone.zeddermore.01011914");
         MainPatient pat10 = new MainPatient("Mr","Shafi", "Goldswasser","01011909", "01234 567 890","winstone.zeddermore.01011914");
+
         
         MainDoctor dr1 = new MainDoctor("Gregory", "House","Dr", "01011910", "Test");
         MainDoctor dr2 = new MainDoctor("Peter", "Venkman","Dr", "01011911", "Test");
@@ -51,26 +55,69 @@ public abstract class AABLoadData {
 
      //   LocalDateTime tester = new LocalDateTime(LocalDateTime(MainAbsScheduling.getConvStringToDateTime("010220171450"));
         
-        pat1.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("14Apr20171445"), "gregory.house.01011910", "sore back");
-        pat2.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("02Apr20171500"), "peter.venkman.01011911", "backache");
-        //pat3.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("030220171510"), "gregory.house.01011911");
-        //pat4.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("040220171450"), "gregory.house.01011911");
-        //pat5.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("010220171450"), "gregory.house.01011911");
-       // pat2.addNewAppointment( new Date(1991001), 99449595, "peter.venkman.01011912");
-        //pat3.addNewAppointment(new Date(9022992), 67578584, "egon.spengler.01011913");
-        //pat4.addNewAppointment(new Date(45563667), 33883883, "ray.stance.01011914");
-        //pat5.addNewAppointment(new Date(33938837), 27728872, "winstone.zeddermore.01011915");
+        pat1.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("20Apr20171445"), "gregory.house.01011910", "sore back");
+        pat2.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("21Apr20171500"), "peter.venkman.01011911", "back ache");
+        pat3.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("22Apr20171500"), "egon.spengler.01011912", "headaches");
+       pat4.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("24Apr20171500"), "ray.stance.01011913", "neck ache");
+       pat5.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("25Apr20171500"), "winstone.zeddermore.01011914", "arm hurts");
+       pat6.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("26Apr20171500"), "winstone.zeddermore.01011914", "tummy problems");
+       pat7.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("27Apr20171500"), "winstone.zeddermore.01011914", "headaches");
+        pat8.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("28Apr20171500"), "winstone.zeddermore.01011914", "neck ache");
+        pat9.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("01May20171500"), "winstone.zeddermore.01011914", "earache");
+        pat10.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("05May20171500"), "winstone.zeddermore.01011914", "foot problems");
+       
         
-        //pat1.addDrRegsWith("peter.venkman.1912");
-        //pat2.addDrRegsWith("gregory.house.1911");
-        //pat3.addDrRegsWith("peter.venkman.1912");
-        //pat4.addDrRegsWith("peter.venkman.1912");
-        //pat5.addDrRegsWith("peter.venkman.1912");
-        //pat1.addDrRegsWith("gregory.house.1911"); //a test to see if the validation is working - needs putting in the testing unit
+        
+        pat1.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("03May20171445"), "gregory.house.01011910", "sore head");
+        pat2.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("04May20171500"), "peter.venkman.01011911", "head ache");
+        pat3.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("05May20171500"), "egon.spengler.01011912", "neck aches");
+        pat4.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("08May20171500"), "ray.stance.01011913", "head ache");
+       pat5.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("09May20171500"), "winstone.zeddermore.01011914", "leg hurts");
+        pat6.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("10May20171500"), "winstone.zeddermore.01011914", "foot problems");
+        pat7.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("11May20171500"), "winstone.zeddermore.01011914", "tooth ache");
+        pat8.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("12May20171500"), "winstone.zeddermore.01011914", "head ache");
+        pat9.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("15May20171500"), "winstone.zeddermore.01011914", " aremache");
+       pat10.addNewAppointment(MainAbsScheduling.getConvStringToDateTime("16May20171500"), "winstone.zeddermore.01011914", "ear problems");
         
        
-       
+       //add Doctors to each patient
+       pat1.addDrRegsWith("peter.venkman.01011911", pat1.getUserName());
+        pat2.addDrRegsWith("gregory.house.01011910", pat2.getUserName());
+        pat3.addDrRegsWith("gregory.house.01011910", pat3.getUserName());
+        pat4.addDrRegsWith("gregory.house.01011910", pat4.getUserName());
+        pat5.addDrRegsWith("gregory.house.01011910", pat5.getUserName());
+        pat6.addDrRegsWith("gregory.house.01011910", pat6.getUserName());
+        pat7.addDrRegsWith("gregory.house.01011910", pat7.getUserName());
+        pat8.addDrRegsWith("gregory.house.01011910", pat8.getUserName());
+        pat9.addDrRegsWith("gregory.house.01011910", pat9.getUserName());
+        pat10.addDrRegsWith("gregory.house.01011910", pat10.getUserName());
+        
+        
+        //amend some appointments
+        MainAppointment app1 = (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment1");
+        app1.setAppMissed(true);
+        
+        MainAppointment app2 = (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment2");
+        app2.setAppMissed(true);
+        
+         MainAppointment app3 = (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment3");
+        app3.setAppAttendSec(true);
+        
+        MainAppointment app4 = (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment4");
+        app2.setAppAttendSec(true);
+        
+        MainAppointment app5= (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment5");
+        app5.setAppCancelled(true);
+        
+        MainDoctor currentDoctorInst = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent("gregory.house.01011910");
+        LocalDateTime currentLTDtoCancel = app5.getAPPDateAndTime();
+         //remove the appointment time from the doctors appointment time staken list
+         currentDoctorInst.setRemoveLDTFromAppTimesTakenList(currentLTDtoCancel);
+        //add the appointment time to the doctors appointments available list
+         currentDoctorInst.setAddLDTToAppTimesAvailableList(currentLTDtoCancel);
+         
         
 
+   
      }
 }
