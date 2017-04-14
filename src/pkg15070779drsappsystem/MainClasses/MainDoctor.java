@@ -165,6 +165,33 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         return LSTDOCTORS;
     }
     
+      //removes the given appointment time from the doctors taken appointment times  list
+    public void setRemoveLDTFromAppTimesTakenList(LocalDateTime datetimetoremove){
+        this.lstDocsSetAppointments.remove(datetimetoremove);
+    }
+    
+      //removes the given appointment time from the doctors available appointment times  list
+    public void setRemoveLDTFromAppTimesAvailableList(LocalDateTime datetimetoremove){
+        this.lstDocsAvailAppointments.remove(datetimetoremove);
+    }
+    
+    //adds and appointment time to the doctors taken appointments list
+     public void setAddLDTToAppTimesTakenList(LocalDateTime datetimetoadd){
+        this.lstDocsSetAppointments.add(datetimetoadd);
+        
+        //NTD - do I sort the list afterwards? how do I do this when the objects are dates?
+    }
+    
+    
+     //adds an appointment time to the doctors appointments available list
+     public void setAddLDTToAppTimesAvailableList(LocalDateTime datetimetoadd){
+        this.lstDocsAvailAppointments.add(datetimetoadd);
+        
+        //NTD - do I sort the list afterwards? how do I do this when the objects are dates?
+    }
+     
+     
+    
         
     
     //@Override

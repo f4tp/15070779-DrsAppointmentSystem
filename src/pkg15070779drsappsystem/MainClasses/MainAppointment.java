@@ -89,6 +89,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         }
         
         //NTD - put the appointment back in the map
+        //didn't need to put it back in the map - when updating variables it will automatically do this
     }
     
     public void setSymptoms(String symptomstoset){
@@ -226,6 +227,9 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     
     //public static String getPresID
     
+    public void setAppDateTime(LocalDateTime appDateTime){
+        this.appDateAndTime = appDateTime;
+    }
     
                 
 

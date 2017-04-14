@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.time.LocalDateTime;
 import pkg15070779drsappsystem.ActionListeners.ActListAmendAppFormChangedDateAffected;
 import pkg15070779drsappsystem.ActionListeners.ActListAmendAppFormChangedDateNotAffected;
+import pkg15070779drsappsystem.ActionListeners.ActListAmendAppFormChangedDateNotAffectedAppDocAre;
 import pkg15070779drsappsystem.ActionListeners.ActListAmendAppointment;
 import pkg15070779drsappsystem.ActionListeners.ActListBackToPatientApps;
 import pkg15070779drsappsystem.ItemListeners.FocusListAmendAppSymptomsJTFDateNotAffected;
@@ -16,6 +17,7 @@ import pkg15070779drsappsystem.ItemListeners.FocusListAmendAppSymptomsJTFDateNot
 public class JPanelAppAmendSecView extends JPanel {
     
     private static Boolean formUpdatedNotDateTime;
+    private static Boolean formUpdatedNotDateTimeBuTAppAndDoc;
     private static Boolean formUpdatedDateTime;
     public static JPanelAppAmendSecView jpanAppAmendSingInst;
     
@@ -79,7 +81,7 @@ public class JPanelAppAmendSecView extends JPanel {
           jcbAttended.addActionListener(new ActListAmendAppFormChangedDateNotAffected());
           jcbMissed.addActionListener(new ActListAmendAppFormChangedDateNotAffected());
           
-         jcbCancelled.addActionListener(new ActListAmendAppFormChangedDateAffected());
+         jcbCancelled.addActionListener(new ActListAmendAppFormChangedDateNotAffectedAppDocAre());
         
         btnCancel.addActionListener(new ActListBackToPatientApps());
         
@@ -168,9 +170,11 @@ public class JPanelAppAmendSecView extends JPanel {
         jcbMissed.setSelected(missed);
         lblPrescDetailRes.setText(presdetails);
         
-        //all widgets have been set up, so the changed status is set to false. This will change if there is any movement
+        //all widgets have been set up, so the changed status of teh form is set to false using these three 
+        //variables (the form can be changed in 3 different ways. This will change if there is any movement
         //on any of the items
         formUpdatedNotDateTime = false;
+        formUpdatedNotDateTimeBuTAppAndDoc = false;
         formUpdatedDateTime = false;
         System.out.println(formUpdatedNotDateTime);
         System.out.println(formUpdatedDateTime);
@@ -187,6 +191,11 @@ public class JPanelAppAmendSecView extends JPanel {
      public void setFormUpdatedDateTime(Boolean formneedsupdating){
         formUpdatedDateTime = formneedsupdating;
     }
+     
+     public void setFormUpdatedNotDateTimeButAppAndDoc(Boolean formneedsupdating){
+         formUpdatedNotDateTimeBuTAppAndDoc = formneedsupdating;
+     }
+     
     
     
      //if someone changes somethign on this form, this value will be set to true
@@ -200,6 +209,10 @@ public class JPanelAppAmendSecView extends JPanel {
      public Boolean getFormUpdatedDateTime(){
         return formUpdatedDateTime;
     }
+     
+      public Boolean getFormUpdatedNotDateTimeButAppAndDoc(){
+         return formUpdatedNotDateTimeBuTAppAndDoc;
+      }
     
     
 
