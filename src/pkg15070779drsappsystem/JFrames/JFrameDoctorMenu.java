@@ -4,17 +4,27 @@ package pkg15070779drsappsystem.JFrames;
 import pkg15070779drsappsystem.ActionListeners.ActListSetSecJFramePARTofFACTORYsec;
 import pkg15070779drsappsystem.ActionListeners.ActLisExitProg;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import pkg15070779drsappsystem.ActionListeners.ActListDisplayFindPatDocView;
 import pkg15070779drsappsystem.ActionListeners.ActListLogOut;
+import pkg15070779drsappsystem.JPanels.JPanelPatFindDocView;
+import pkg15070779drsappsystem.JPanels.JPanelPatRecordDocView;
+
 
 public class JFrameDoctorMenu extends JFrame {
     
+     //singleton DP, only one instance is ever needed as only one sec logs in at once
     private static JFrameDoctorMenu DoctMenSingInst;
+    
+      
+    //private static JFrameSecretaryMenu SecMenuSingInst;
+    
+    //holds the string to tell the menu which south border to display
+    private static String currenDocNorthBordPanel; 
     
     private JFrameDoctorMenu(){
         super ("Doctor's menu");
@@ -39,7 +49,7 @@ public class JFrameDoctorMenu extends JFrame {
         docMenBar.add(patientMenu);
         
         JMenuItem findPatient = new JMenuItem ("Find Patient");
-        findPatient.addActionListener(new ActListSetSecJFramePARTofFACTORYsec("FindPatients"));
+        findPatient.addActionListener(new ActListDisplayFindPatDocView("FindPatients"));
         patientMenu.add(findPatient);
         
         //lays out the frame using thsi abstract class
@@ -55,6 +65,45 @@ public class JFrameDoctorMenu extends JFrame {
         setVisible(true);
         */
         
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    private void setDocNorthBorderPanel(){
+        JPanelPatFindDocView JPanelFindPat = JPanelPatFindDocView.getInstance();
+        JPanelPatRecordDocView jpanPatRecDocViewSingInst = JPanelPatRecordDocView.getInstance();
+                
+                
+        
+          if (currenDocNorthBordPanel == "FindPatients"){
+              jpanPatRecDocViewSingInst.setVisible(false);
+              
+              
+             JPanelFindPat.setVisible(true); 
+             DoctMenSingInst.add(JPanelFindPat, BorderLayout.NORTH);
+            
+            
+            
+          }
+          
+           if (currenDocNorthBordPanel == "DisplayPatientDetails"){
+             JPanelFindPat.setVisible(false);
+             
+             
+             jpanPatRecDocViewSingInst.setVisible(true);
+             jpanPatRecDocViewSingInst.setUpdateTextFields();
+            
+            DoctMenSingInst.add(jpanPatRecDocViewSingInst, BorderLayout.NORTH);
+          }
+          
+          
+        revalidate();
+        repaint();
     }
     
     
@@ -70,6 +119,11 @@ public class JFrameDoctorMenu extends JFrame {
         
         this.setVisible(vis);
         
+    }
+    
+    public void setDocSouthBorderString(String paneltoset){
+        currenDocNorthBordPanel = paneltoset;
+        DoctMenSingInst.setDocNorthBorderPanel();
     }
     
     

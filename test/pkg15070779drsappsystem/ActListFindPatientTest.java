@@ -2,7 +2,7 @@
 package pkg15070779drsappsystem;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.ActionListeners.ActListFindPatient;
+import pkg15070779drsappsystem.ActionListeners.ActListFindPatientSec;
 import javax.swing.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -24,7 +24,7 @@ public class ActListFindPatientTest {
         JTextField sname = new JTextField("turing");
         JTextField dob = new JTextField("01011900");
         String username = "alan.turing.01011900";
-        ActListFindPatient testAct1 = new ActListFindPatient(fname,sname,dob);
+        ActListFindPatientSec testAct1 = new ActListFindPatientSec(fname,sname,dob);
         
         assertNotNull(testAct1);
    

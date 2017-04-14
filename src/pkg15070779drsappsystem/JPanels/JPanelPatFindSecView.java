@@ -1,14 +1,14 @@
 package pkg15070779drsappsystem.JPanels;
 
-import pkg15070779drsappsystem.ActionListeners.ActListFindPatient;
+import pkg15070779drsappsystem.ActionListeners.ActListFindPatientSec;
 import java.awt.BorderLayout;
 import javax.swing.*;
 
 
-public class JPanelSecretaryFindPat extends JPanel {
-    public static JPanelSecretaryFindPat FindPatSingInst;
+public class JPanelPatFindSecView extends JPanel {
+    public static JPanelPatFindSecView FindPatSingInst;
     
-    private JPanelSecretaryFindPat(){
+    private JPanelPatFindSecView(){
         
               
        JLabel lblFirstName = new JLabel ("Enter the FIRST NAME of a patient");
@@ -32,7 +32,7 @@ public class JPanelSecretaryFindPat extends JPanel {
        
        
        JButton btnRunReport = new JButton ("Find Patient");
-       btnRunReport.addActionListener(new ActListFindPatient(JTFFirstName, JTFSurname, JTFdob));
+       btnRunReport.addActionListener(new ActListFindPatientSec(JTFFirstName, JTFSurname, JTFdob));
        btnRunReport.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
        
        
@@ -55,9 +55,9 @@ public class JPanelSecretaryFindPat extends JPanel {
        add(btnRunReport, BorderLayout.SOUTH);
     }
     
-    public static JPanelSecretaryFindPat getInstance(){
+    public static JPanelPatFindSecView getInstance(){
          if (FindPatSingInst == null){
-            FindPatSingInst = new JPanelSecretaryFindPat();
+            FindPatSingInst = new JPanelPatFindSecView();
         }
         //panelRepDrsAppsSingInst.setVisible(true);
         return FindPatSingInst;

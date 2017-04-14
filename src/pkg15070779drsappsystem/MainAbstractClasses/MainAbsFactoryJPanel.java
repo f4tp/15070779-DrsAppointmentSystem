@@ -13,7 +13,7 @@ import pkg15070779drsappsystem.JPanels.JPanelPatientAddDoctor;
 import pkg15070779drsappsystem.JPanels.JPanelReportsAppAtt;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPanelReportsPresrcips;
-import pkg15070779drsappsystem.JPanels.JPanelSecretaryFindPat;
+import pkg15070779drsappsystem.JPanels.JPanelPatFindSecView;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
 
 public abstract class MainAbsFactoryJPanel {
@@ -24,7 +24,7 @@ public abstract class MainAbsFactoryJPanel {
         JPanelReportsAppAtt JPanelAppsAtt;
         JPanelReportsDrsApps JPanelDrsApps;
         JPanelReportsPresrcips JPanelPrescs;
-        JPanelSecretaryFindPat JPanelFindPat;
+        JPanelPatFindSecView JPanelFindPat;
         JPanelPatRecordSecView JPanelPatrecNorth;
         
         JPanelPatientAddDoctor JPanelPatAddDoc;

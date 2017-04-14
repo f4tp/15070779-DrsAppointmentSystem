@@ -1,32 +1,33 @@
+
 package pkg15070779drsappsystem.ActionListeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
-import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
-import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
-
-public class ActListFindPatient implements ActionListener {
+public class ActListFindPatientDoc implements ActionListener {
+    
     private JTextField TfFirstName; //holds text field passed in
     private JTextField TfSurName;  //holds text field passed in
     private JTextField TfDob;  //holds text field passed in
     private String userIdForMap;  //holds user id to seatch for in the SystemUserComp map
     private static MainAbsSystemUserComponent FoundPatient; //holds the reference to the system user if / when found
     
-    public ActListFindPatient(JTextField firstnamepassedin, JTextField surnamepassedin, JTextField dobpassedin){
+    public ActListFindPatientDoc(JTextField firstnamepassedin, JTextField surnamepassedin, JTextField dobpassedin){
         this.TfFirstName = firstnamepassedin;
         this.TfSurName = surnamepassedin;
         this.TfDob = dobpassedin;
         
     }
-    //checks to see if the patient exists in teh map by generating the map id and using it to look for the user
+
     @Override
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent ae) {
         
-        //validation - making sure none of the text fields are empty
+         //validation - making sure none of the text fields are empty
         if (this.TfFirstName.getText().isEmpty()){
             JOptionPane.showMessageDialog (null,
                 "You haven't entered a FIRSTNAME to search for, please enter one in the corresponding text box",
@@ -59,14 +60,19 @@ public class ActListFindPatient implements ActionListener {
         }
         
  
+        
     }
+    
+    
+    
+    
     //generates the username to search for
     private void setGenerateUserName(){
             this.userIdForMap = this.TfFirstName.getText().toLowerCase()+ "." + this.TfSurName.getText().toLowerCase() + "." + this.TfDob.getText().toLowerCase();
             
     }
     
-    //this checks the user id, and object type... it will set the MainPatient.currentPatient field 
+      //this checks the user id, and object type... it will set the MainPatient.currentPatient field 
     //as the current patient to work on if the user exists and it is of type MainPatient
     private void setAndCheckPatientFindPatient(String userid){
         
@@ -92,8 +98,8 @@ public class ActListFindPatient implements ActionListener {
                //it sets the visibility of teh right JPanel so we can see the pateint record, but not before updatign all 
                //of teh details usign the setUpdateTextFields(); method from the JPanelPatRecordSecView class
                 
-                JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
-                SecMenuRef.setSecSouthBorderString("DisplayPatientDetails");
+                JFrameDoctorMenu DocMenuRef = JFrameDoctorMenu.getInstance();
+                DocMenuRef.setDocSouthBorderString("DisplayPatientDetails");
                 
                 
             }
@@ -109,6 +115,7 @@ public class ActListFindPatient implements ActionListener {
         }
     }
     
+    
     //generic error message when user is not found for what ever reason (may not 
     //exist or user found may not be MainPatient object
     private static void runGenericErrorMessage(){
@@ -117,6 +124,5 @@ public class ActListFindPatient implements ActionListener {
                 "Patient not found",
                 JOptionPane.ERROR_MESSAGE);
     }
-    
     
 }

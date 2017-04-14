@@ -6,7 +6,7 @@ import javax.swing.*;
 import pkg15070779drsappsystem.ActionListeners.ActListDisplayAllAvailAppsSec;
 import pkg15070779drsappsystem.ActionListeners.ActListLogOut;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
-import pkg15070779drsappsystem.JPanels.JPanelSecretaryFindPat;
+import pkg15070779drsappsystem.JPanels.JPanelPatFindSecView;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppButPan;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppointment;
 import pkg15070779drsappsystem.JPanels.JPanelPatientAddDoctor;
@@ -120,7 +120,7 @@ public class JFrameSecretaryMenu extends JFrame {
         JPanelReportsAppAtt JPanelAppsAtt = JPanelReportsAppAtt.getInstance();
         JPanelReportsDrsApps JPanelDrsApps = JPanelReportsDrsApps.getInstance(); 
         JPanelReportsPresrcips JPanelPrescs= JPanelReportsPresrcips.getInstance();
-        JPanelSecretaryFindPat JPanelFindPat = JPanelSecretaryFindPat.getInstance();
+        JPanelPatFindSecView JPanelFindPat = JPanelPatFindSecView.getInstance();
         JPanelPatRecordSecView JPanelPatrecNorth = JPanelPatRecordSecView.getInstance();
         //JPanelPatientRecButPanSEC JPanelPatrecSouth = JPartPanelPatRecButPanSEC.getInstance();
         JPanelPatientAddDoctor JPanelPatAddDoc = JPanelPatientAddDoctor.getInstance();
@@ -348,42 +348,16 @@ public class JFrameSecretaryMenu extends JFrame {
       
         }
            
-           
-           
-           
-           
-           
-           
-           //@@@@@ NTD
-          //  if (currenSecNorthBordPanel == "ReportDrsMonthlyAppointments"){
-           // JPanelDrsApps.setVisible(false);
-           // JPanelPrescs.setVisible(false);
-            //JPanelFindPat.setVisible(false);
-            //JPanelPatrecNorth.setVisible(false);
-            
-            //JPanelAppsAtt.setVisible(false);
-           // JPanNewApp.setVisible(false);
-           // JPanNewAppButPanel.setVisible(false);
-           // JPanelPatAddDoc.setVisible(false);
-          //  JpanShowApps.setVisible(false);
-           // JPanTextFieldForReports.setVisible(false); //????? NTD
-            
-            //JPanViewAllApps.setVisible(true);
-           // SecMenuSingInst.add(JPanViewAllApps, BorderLayout.NORTH);
-      
-       // }
-        
-        //these have to be called otherwise the Jframe doesn't refresh and
-         //the menu doesn't display
+       
         revalidate();
         repaint();
       
     }
-    public static void setVisibility(boolean vis){
+    //public static void setVisibility(boolean vis){
         
-        SecMenuSingInst.setVisible(vis);
+      //  SecMenuSingInst.setVisible(vis);
         
-    }
+   // }
     
       
     

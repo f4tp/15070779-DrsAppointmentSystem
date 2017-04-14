@@ -19,9 +19,10 @@ import pkg15070779drsappsystem.JPanels.JPanelPatientAddDoctor;
 import pkg15070779drsappsystem.JPanels.JPanelReportsAppAtt;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPanelReportsPresrcips;
-import pkg15070779drsappsystem.JPanels.JPanelSecretaryFindPat;
+import pkg15070779drsappsystem.JPanels.JPanelPatFindSecView;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaPrintPatRec;
+import pkg15070779drsappsystem.JPanels.JPanelPatFindDocView;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
@@ -61,7 +62,7 @@ public class ActListLogOut implements ActionListener {
         JPanelDrsApps.setVisible(false);
         JPanelReportsPresrcips JPanelPrescs= JPanelReportsPresrcips.getInstance();
         JPanelPrescs.setVisible(false);
-        JPanelSecretaryFindPat JPanelFindPat = JPanelSecretaryFindPat.getInstance();
+        JPanelPatFindSecView JPanelFindPat = JPanelPatFindSecView.getInstance();
        JPanelFindPat .setVisible(false);
         JPanelPatRecordSecView JPanelPatrecNorth = JPanelPatRecordSecView.getInstance();
         JPanelPatrecNorth.setVisible(false);
@@ -80,6 +81,8 @@ public class ActListLogOut implements ActionListener {
         JPanTextFieldForReports.setVisible(false);
         JPanelAppAmendSecView JPanAmendApp = JPanelAppAmendSecView.getInstance();
         
+        JPanelPatFindDocView inst = JPanelPatFindDocView.getInstance();
+         JPanTextFieldForReports.setVisible(false);
         
         
         
