@@ -5,13 +5,17 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.*;
-import java.awt.*;
+
 import java.time.LocalDateTime;
+import pkg15070779drsappsystem.ActionListeners.ActListAmendAppFormChanged;
+import pkg15070779drsappsystem.ActionListeners.ActListAmendAppointment;
 import pkg15070779drsappsystem.ActionListeners.ActListBackToPatientApps;
+import pkg15070779drsappsystem.ItemListeners.FocusListAmendAppSymptomsJTF;
+//import pkg15070779drsappsystem.ItemListeners.ItemListAmendAppFormChanged;
 
 public class JPanelAppAmendSecView extends JPanel {
     
-    private static Boolean formUpdated = false;
+    private static Boolean formUpdated;
     public static JPanelAppAmendSecView jpanAppAmendSingInst;
     
     JLabel jlTitle = new JLabel("Title");
@@ -50,15 +54,15 @@ public class JPanelAppAmendSecView extends JPanel {
     
     //can update this on this form
     JLabel lblAttended= new JLabel ("Attended");
-    private static JCheckBox jtbAttend = new JCheckBox();
+    private static JCheckBox jcbAttended = new JCheckBox();
     
     //can update this on this form
     JLabel lblCancelled= new JLabel ("Cancelled:");
-    private static JCheckBox jtbCancelled= new JCheckBox();
+    private static JCheckBox jcbCancelled= new JCheckBox();
     
     //can update this on this form
     JLabel lblMissed= new JLabel ("Missed:");
-    private static JCheckBox jtbMissed = new JCheckBox();
+    private static JCheckBox jcbMissed = new JCheckBox();
     
     JLabel lblPresDetails= new JLabel ("Prescription ID:");
      private static JLabel lblPrescDetailRes= new JLabel ();
@@ -69,6 +73,21 @@ public class JPanelAppAmendSecView extends JPanel {
     JButton btnAmend = new JButton("Amend Appointment");
     
     private JPanelAppAmendSecView(){
+        
+          jtfSymptoms.addFocusListener(new FocusListAmendAppSymptomsJTF());
+          jcbAttended.addActionListener(new ActListAmendAppFormChanged());
+         jcbCancelled.addActionListener(new ActListAmendAppFormChanged());
+        jcbMissed.addActionListener(new ActListAmendAppFormChanged());
+        btnCancel.addActionListener(new ActListBackToPatientApps());
+        
+        //calls the amend details act list with all components needed to make the change
+        btnAmend.addActionListener(new ActListAmendAppointment(lblUserNameRes, lblAppIDRes, lblDrWithRes,
+                JPartPanelAmendAppDateOfApp.getInstance().getJComboDay(), 
+                JPartPanelAmendAppDateOfApp.getInstance().getJComboMonth(), 
+                JPartPanelAmendAppDateOfApp.getInstance().getJComboYear(), 
+                JPartPanelAmendAppTimeOfApp.getInstance().getJComboTime(), jtfSymptoms, jcbAttended, jcbCancelled, jcbMissed));
+    
+        
         setLayout(new GridLayout(16,2));
         add(jlTitle);
         add(jlTitleRes);
@@ -83,17 +102,31 @@ public class JPanelAppAmendSecView extends JPanel {
         add(lblDrWith);
         add(lblDrWithRes);
         add(lblDate);
-        add(jpanDate);
+        
+        add(jpanDate);// item listeners set in the part Jpanel
+        
         add(lblTime);
-        add(jpanTime);
+        
+        add(jpanTime);// item listeners set in the part Jpanel
+        
         add(lblSymptoms);
-        add(jtfSymptoms);
+        
+      
+        add(jtfSymptoms);//
+        
         add(lblAttended);
-        add(jtbAttend);
+      
+        
+        add(jcbAttended);//
+        
         add(lblCancelled);
-        add(jtbCancelled);
+        
+       
+        add(jcbCancelled);//
         add(lblMissed);
-        add(jtbMissed);
+        
+        
+        add(jcbMissed);//
 
         add(lblPresDetails);
         add(lblPrescDetailRes);
@@ -101,8 +134,9 @@ public class JPanelAppAmendSecView extends JPanel {
         add(btnCancel);
         add(btnAmend);
         
-        btnCancel.addActionListener(new ActListBackToPatientApps());
-        //btnAmend.addActionListener(newActList());
+        
+        
+      
     }
     
     public static JPanelAppAmendSecView getInstance(){
@@ -122,16 +156,16 @@ public class JPanelAppAmendSecView extends JPanel {
         lblAppIDRes.setText(appointmentid);
        lblDrWithRes.setText(drwith);
        //update the form with the date combos - pass it the datetime object and in there it will split strings of day, month and year
-        JPartPanelAmendAppDateOfApp.updateFormWidgets(datetimein);
+        JPartPanelAmendAppDateOfApp.getInstance().updateFormWidgets(datetimein);
         //update the form with the time combos - pass it the datetime object and in there it will split strings of hour and minute
-        JPartPanelAmendAppTimeOfApp.updateFormWidgets(datetimein);
+        JPartPanelAmendAppTimeOfApp.getInstance().updateFormWidgets(datetimein);
         jtfSymptoms.setText(symptoms);
-        jtbAttend.setSelected(attended);
-        jtbCancelled.setSelected(cancelled);
-        jtbMissed.setSelected(missed);
+        jcbAttended.setSelected(attended);
+        jcbCancelled.setSelected(cancelled);
+        jcbMissed.setSelected(missed);
         lblPrescDetailRes.setText(presdetails);
-        
-
+        formUpdated = false;
+        System.out.println(formUpdated);
     }
     
     //if someone changes somethign on this form, this value will be set to true

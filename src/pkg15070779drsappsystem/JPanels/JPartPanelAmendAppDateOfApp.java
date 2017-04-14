@@ -1,10 +1,13 @@
-
+//NOTE - this class is set up properly - no static components, use to help sort teh rest of the static components
+//classes involved are this one, JPanelAppAmendSecView, ActListAmendAppointment, JPartPanelAmendAppTimeOfApp
+//components involved are teh three comboboxes
 package pkg15070779drsappsystem.JPanels;
 
 import java.time.LocalDateTime;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import pkg15070779drsappsystem.ItemListeners.ItemListAmendAppFormChanged;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 
 
@@ -13,11 +16,17 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 public class JPartPanelAmendAppDateOfApp extends JPanel {
             public static JPartPanelAmendAppDateOfApp DatePanSingInst;
             JLabel lblDateOfApp= new JLabel ("Date of appointment:");
-            public static JComboBox cmbDateDay = new JComboBox(MainAbsScheduling.getDaysArr());
-            public static JComboBox cmbDateMonth = new JComboBox(MainAbsScheduling.getMonthsArr());
-            public static JComboBox cmbDateYear = new JComboBox(MainAbsScheduling.getYearArr());
+            private  JComboBox cmbDateDay = new JComboBox(MainAbsScheduling.getDaysArr());
+            private  JComboBox cmbDateMonth = new JComboBox(MainAbsScheduling.getMonthsArr());
+            private  JComboBox cmbDateYear = new JComboBox(MainAbsScheduling.getYearArr());
         
         public JPartPanelAmendAppDateOfApp() {
+            
+            //item listeners just set the form changed status to true so the amend routine knows to update and not
+            //display a message sayign nothing has changed
+            cmbDateDay.addItemListener(new ItemListAmendAppFormChanged());
+            cmbDateMonth.addItemListener(new ItemListAmendAppFormChanged());
+            cmbDateYear.addItemListener(new ItemListAmendAppFormChanged());
             
             add(lblDateOfApp);
             add(cmbDateDay);
@@ -34,7 +43,7 @@ public class JPartPanelAmendAppDateOfApp extends JPanel {
         }
         
         //sets the day, month and year to the string version of the appointment's date
-        public static void updateFormWidgets(LocalDateTime appdatetime){
+        public void updateFormWidgets(LocalDateTime appdatetime){
   
         
         //cmbDateDay.setSelectedItem(Integer.toString(appdatetime.getDayOfMonth()));
@@ -58,6 +67,18 @@ public class JPartPanelAmendAppDateOfApp extends JPanel {
         
         //cmbDateYear.setSelectedItem(Integer.toString(appdatetime.getYear()));
         cmbDateYear.setSelectedItem(MainAbsScheduling.getConvDateTimeToStringYear(appdatetime));
+        }
+        
+        public JComboBox getJComboDay(){
+            return cmbDateDay;
+        }
+        
+        public JComboBox getJComboMonth(){
+            return cmbDateMonth;
+        }
+        
+        public JComboBox getJComboYear(){
+            return cmbDateYear;
         }
     }
     
