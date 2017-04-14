@@ -21,9 +21,14 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
     private final String STRTITLE, STRFIRSTNAME, STRSURNAME, STRDOB, STRKEYUSERNAME;
     private static final List<String> LSTDOCTORS = new ArrayList <>();
     
-    //holds all available appointments 
+    //holds all available appointment times - used for scheduling
     private List<LocalDateTime> lstDocsAvailAppointments = new ArrayList<>();
+    //holds all taken appointment times - used for scheduling
     private List<LocalDateTime> lstDocsSetAppointments = new ArrayList<>();
+    //holds all appointment keys that this doctor has, will be used to generate reports
+    //appointment keys are never deleted from here once in, as appointments aren;t deleted
+    //they are amended or marked as cancelled or missed for example.
+    private List<String> lstAppointmentKeys = new ArrayList<>();
     //private String strUniqueDrName;
     public MainDoctor(String fname, String sname, String title, String dob, String newer){
      
@@ -77,18 +82,37 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         return this.lstDocsAvailAppointments;
     }
     
-    public static void addAppointmentToDrsList(String drkey, LocalDateTime datein){
+    public  void addAppointmentToDrsList(LocalDateTime datein, String appkeyin){
         
         //sets the static varible to the doctor we are searching for
-        MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(drkey);
+        //MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(drkey);
         //adds the appointment time to the Drs taken appointment lists
-        MainDoctor.currentDoctor.lstDocsSetAppointments.add(datein);
+        this.lstDocsSetAppointments.add(datein);
         
         //deletes the time from their available appointments list
-        MainDoctor.currentDoctor.lstDocsAvailAppointments.remove(datein);
+        this.lstDocsAvailAppointments.remove(datein);
+        
+        //adds the key to the doctors appointment list
+        this.setAddAppKeyToList(appkeyin);
         
         //put the Dr back in the map after they have been edited
-        MainAbsSystemUserComponent.setPutInMap(drkey, MainDoctor.currentDoctor);
+        MainAbsSystemUserComponent.setPutInMap(this.getUserName(), this);
+    }
+    
+  
+    //add a key to the doctors map
+    //is public as appointments have to be ammended
+    public void setAddAppKeyToList(String keyin){
+        this.lstAppointmentKeys.add(keyin);
+    }
+    //appointments never removed, even if cancelled or missed, they stay on record - for reports
+    //so no remove app key list
+   // public void setRemoveAppKeyFromList(String keyin){
+    //    this.lstAppointmentKeys.remove(keyin);
+   // }
+    
+    public List<String> getAppKeyList(){
+        return this.lstAppointmentKeys;
     }
     
     

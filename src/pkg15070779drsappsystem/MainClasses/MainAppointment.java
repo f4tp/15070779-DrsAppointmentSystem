@@ -10,11 +10,13 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     //will hold the appointment that the user of the system is working with
     public static MainAppointment currentAppointment;
 
+    //holds all appointments so they can be searched, never deleted from as all appointments stay on file
+    private static List<String> lstStrAllAppKeys = new ArrayList<>();
 
 //@@@@@@@@@@@ Instance Variables @@@@@@@@@@    
     private String AppUniqueKey, patientUniqueID, strTitle, patientFirstname,patientSurname, appDrComments, appSymptoms;
     private List <String> lstPrescriptionsUniqueID;
-    private List<String> lstStrPatientApps;
+    
     private String drUniqueKeyAppWith;
     private Boolean appAttended,appCancelled, appMissed; 
     private LocalDateTime appDateAndTime;
@@ -27,7 +29,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         setCreateAppointment(title, patientfirstname, patientsurname, uniqueID, appDateAndTime, drwith, symptoms);
         
         //adds the time into the Drs appointment list
-        addAppointmentToDrsList(this.drUniqueKeyAppWith, this.appDateAndTime);
+        addAppointmentToDrsList(this.drUniqueKeyAppWith, this.appDateAndTime, this.AppUniqueKey);
         
     }
     
@@ -51,14 +53,26 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         
         //each appointment has an array list to store IDs of prescriptions for this appointment
         this.lstPrescriptionsUniqueID = new ArrayList<>();
+        
+        //adds the key to a list of all appointment keys, so it ca nbe searched for teh reports later
+        addAppKeyToList(this.AppUniqueKey);
         MainAbsAppointmentComponent.setPutInMap(this.AppUniqueKey, this);
     }
     
 //@@@@@@@@@@@ Setters @@@@@@@@@@   
     
+    public static void addAppKeyToList(String appkeyin){
+        lstStrAllAppKeys.add(appkeyin);
+    }
     
-    public void addAppointmentToDrsList(String drin, LocalDateTime apptimein){
-        MainDoctor.addAppointmentToDrsList(drin, apptimein);
+    public static List <String> getAppKeyList(){
+        return lstStrAllAppKeys;
+    }
+    public void addAppointmentToDrsList(String drin, LocalDateTime apptimein, String appkeyin){
+        //object composition to create relationship
+        MainDoctor tempDoc = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(drin);
+        tempDoc.addAppointmentToDrsList(apptimein, appkeyin);
+    
         
     }
     
@@ -179,7 +193,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     @Override
     public String toString(){
               return ("\n" + "Appointment ID: " + this.AppUniqueKey + "| Date & Time of Appointment:  " + this.appDateAndTime + "| Symptoms Given: "
-               + this.appSymptoms + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  " | Appointment Missed: " + this.appMissed);
+               + this.appSymptoms + "Dr with: " + this.drUniqueKeyAppWith + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  " | Appointment Missed: " + this.appMissed);
     }
     
   
