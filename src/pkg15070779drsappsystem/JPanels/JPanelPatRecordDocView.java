@@ -44,14 +44,14 @@ public class JPanelPatRecordDocView extends JPanel {
         
         
         //NTD - add Dr buttons here after creating the panel
-        JPartPanelPatRecButPanSEC secretaryButtons = JPartPanelPatRecButPanSEC.getInstance();
+        JPartPanelPatRecButPanDOC docButtons = JPartPanelPatRecButPanDOC.getInstance();
         
         private JPanelPatRecordDocView(){
              setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
         setLayout (new BorderLayout ());
         
         add(patientScreen, BorderLayout.NORTH);
-        add(secretaryButtons, BorderLayout.CENTER);
+        add(docButtons, BorderLayout.CENTER);
         
         }
         
