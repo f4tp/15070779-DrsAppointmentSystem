@@ -107,14 +107,11 @@ public abstract class AABLoadData {
         app2.setAppAttendSec(true);
         
         MainAppointment app5= (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment5");
-        app5.setAppCancelled(true);
+        
         
         MainDoctor currentDoctorInst = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent("gregory.house.01011910");
         LocalDateTime currentLTDtoCancel = app5.getAPPDateAndTime();
-         //remove the appointment time from the doctors appointment time staken list
-         currentDoctorInst.setRemoveLDTFromAppTimesTakenList(currentLTDtoCancel);
-        //add the appointment time to the doctors appointments available list
-         currentDoctorInst.setAddLDTToAppTimesAvailableList(currentLTDtoCancel);
+        app5.setAppCancelled(true, currentDoctorInst, currentLTDtoCancel );
          
         
 

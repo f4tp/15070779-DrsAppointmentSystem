@@ -110,8 +110,19 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         this.appSymptoms = symptomstoset;
     }
     
-    public void setAppCancelled(Boolean cancelledstatus){
+    public void setAppointmentDateTimeChanged(MainDoctor drin, LocalDateTime ldtToCheck, LocalDateTime ldtCurrent){
+        
+    }
+    
+    
+    public void setAppCancelled(Boolean cancelledstatus, MainDoctor drin, LocalDateTime ltdfordredit){
         this.appCancelled = cancelledstatus;
+        MainDoctor docToUpdate = drin;
+        LocalDateTime ldtToupdateDoctorWith;
+        //remove the appointment time from the doctors appointment times taken list
+        docToUpdate.setRemoveLDTFromAppTimesTakenList(ltdfordredit);
+        //add the appointment time to the doctors appointments available list
+        docToUpdate.setAddLDTToAppTimesAvailableList(ltdfordredit);
     }
     
     public void setAppMissed(Boolean missedstatus){

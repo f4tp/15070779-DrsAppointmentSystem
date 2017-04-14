@@ -153,19 +153,11 @@ public class ActListAmendAppointment implements ActionListener {
                 //need updating (the appointment time taking out of theri taken list, and putting back in the available
                 //list
                 if(amendAppFormInst.getFormUpdatedNotDateTimeButAppAndDoc() == true){
-
-
-                      //set appointment cancelled status
-                    currentAppointmentInst.setAppCancelled(cancelledIn.isSelected());
-
                     //get the date and time of appointment as an object
                    currentDateTimeOfInst = currentAppointmentInst.getAPPDateAndTime();
-
-                    //remove the appointment time from the doctors appointment time staken list
-                    currentDoctorInst.setRemoveLDTFromAppTimesTakenList(currentDateTimeOfInst);
-
-                    //add the appointment time to the doctors appointments available list
-                    currentDoctorInst.setAddLDTToAppTimesAvailableList(currentDateTimeOfInst);
+                   //set appointment cancelled status - need doctor to update and teh date to remove from appointment take list & 
+                   //to update the appointments available list with too
+                    currentAppointmentInst.setAppCancelled(cancelledIn.isSelected(), currentDoctorInst, currentDateTimeOfInst);
 
                     //*appointment still stays on file so no further action
 
