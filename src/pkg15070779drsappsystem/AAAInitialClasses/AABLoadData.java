@@ -93,18 +93,24 @@ public abstract class AABLoadData {
         pat10.addDrRegsWith("gregory.house.01011910", pat10.getUserName());
         
         
-        //amend some appointments
+        //amend some appointments with prescriptions
         MainAppointment app1 = (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment1");
-        app1.setAppMissed(true);
+        app1.setAppAttendSec(true);
+        app1.addPrescriptionForApp("Paracetemol", "24 X 500mg", "alan.turing.01011900", "gregory.house.01011910", "Appointment1");
+        
         
         MainAppointment app2 = (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment2");
-        app2.setAppMissed(true);
+        app1.setAppAttendSec(true);
+        app2.addPrescriptionForApp("Ibuprofen", "24 X 250mg", "donald.knuth.01011902", "peter.venkman.01011911", "Appointment2");
+        
+        
+        //amend some appointments without prescriptions - so they can be added later
         
          MainAppointment app3 = (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment3");
-        app3.setAppAttendSec(true);
+        app3.setAppMissed(true);
         
         MainAppointment app4 = (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment4");
-        app2.setAppAttendSec(true);
+        app2.setAppMissed(true);
         
         MainAppointment app5= (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment5");
         

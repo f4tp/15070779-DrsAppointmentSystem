@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import pkg15070779drsappsystem.ActionListeners.ActListAddPrescription;
+import pkg15070779drsappsystem.ActionListeners.ActListDisplayJPanePatientRecDocView;
 
 public class JPanelAppAddPrescrip extends JPanel {
     public static JPanelAppAddPrescrip jpanAddPresSingInst;
@@ -35,6 +36,7 @@ public class JPanelAppAddPrescrip extends JPanel {
          add(btnAddPres);
        // btnAddPres.addActionListener(new ActListAddPrescription(AppIdIn, patIDIn, DrIDIn, jtfMedicineDesc, jtfMedicineAmount));
         btnAddPres.addActionListener(new ActListAddPrescription(jtfMedicineDesc, jtfMedicineAmount));
+        btnCancel.addActionListener(new ActListDisplayJPanePatientRecDocView());
     }
     
     public static JPanelAppAddPrescrip getInstance(){

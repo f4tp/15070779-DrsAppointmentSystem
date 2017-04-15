@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppAddPrescrip;
+import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
@@ -35,7 +36,7 @@ public class ActListAddPrescription implements ActionListener {
         //add Prescription with details passed through
        currAppInst.addPrescriptionForApp(JPanelAppAddPrescrip.getInstance().getPresDesc(), JPanelAppAddPrescrip.getInstance().getPresAmount(), 
                JPanelAppAddPrescrip.getInstance().getPatID(), JPanelAppAddPrescrip.getInstance().getDrID(),
-               JPanelAppAddPrescrip.getInstance().getAppID());
+               JPanelAppAmendDocView.getInstance().getAppointmentID());
        
        System.out.println("HELLLLOOOO " + MainAbsPrescriptionComponent.getMainPrescription("Prescription1"));
         

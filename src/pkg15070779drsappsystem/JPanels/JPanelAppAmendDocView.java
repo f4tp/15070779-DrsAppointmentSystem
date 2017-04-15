@@ -218,16 +218,10 @@ public class JPanelAppAmendDocView extends JPanel {
         return formUpdatedNotDateTime;
     }
     
-    public String getAppIDFromForm(){
-        return "changeme";
+    public String getAppointmentID(){
+        return lblAppIDRes.getText();
     }
     
-     public String getDrsDFromForm(){
-        return "changeme";
-    }
-     
-      public String getPatDFromForm(){
-        return "changeme";
-    }
+    
  
 }

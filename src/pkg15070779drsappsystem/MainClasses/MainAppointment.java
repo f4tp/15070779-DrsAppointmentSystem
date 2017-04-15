@@ -171,7 +171,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
          
                 String presToRet = "";
                    for (String temp: this.lstPrescriptionsUniqueID){
-                       presToRet += presToRet + MainAbsPrescriptionComponent.getMainPrescription(temp).toString() + ",";
+                       presToRet +=  "\t" + MainAbsPrescriptionComponent.getMainPrescription(temp).toString();
                    }
 
                    return presToRet;
@@ -183,7 +183,8 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         //object composition - create new prescitpion called from here
         //used rather than interface or implements inheritence as a 
         MainPrescription appPres = new MainPrescription(meddesc, medamount, patientid, drwith, appid );
-        this.lstPrescriptionsUniqueID.add(appPres.getPresUniqueID());
+        MainAppointment currAppInst = MainAbsAppointmentComponent.getAppointment(appid);
+        currAppInst.lstPrescriptionsUniqueID.add(appPres.getPresUniqueID());
     }
     
  //@@@@@@@@@@@ Getters @@@@@@@@@@  
@@ -204,7 +205,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     @Override
     public String toString(){
               return ("\n" + "Appointment ID: " + this.AppUniqueKey + " | Patient with: | " + this.patientUniqueID + "| Date & Time of Appointment:  " + this.appDateAndTime + "| Symptoms Given: "
-               + this.appSymptoms + "Dr with: " + this.drUniqueKeyAppWith + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  " | Appointment Missed: " + this.appMissed);
+               + this.appSymptoms + "Dr with: " + this.drUniqueKeyAppWith + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  " | Appointment Missed: " + this.appMissed + "\n");
     }
     
   
