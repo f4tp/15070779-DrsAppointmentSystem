@@ -61,7 +61,7 @@ public class ActListRunReport implements ActionListener {
                  for(String temp: MainAppointment.getAppKeyList()){
                      currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
                         if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() )
-                         textToDisplay += currentAppInst.toString() + " | ";
+                         textToDisplay += currentAppInst.toString() +currentAppInst.getAllPresDetailsForAppAsString();
                   }
                  
                   // populate the textarea on the Secretary JFrame
@@ -75,7 +75,7 @@ public class ActListRunReport implements ActionListener {
                      currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
                         if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() ){
                             if(currentAppInst.getAttended() == true){
-                                textToDisplay += currentAppInst.toString() + " | ";
+                                textToDisplay += currentAppInst.toString() + currentAppInst.getAllPresDetailsForAppAsString();
                             }
                             
                         }
@@ -93,7 +93,7 @@ public class ActListRunReport implements ActionListener {
                      currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
                         if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() ){
                             if(currentAppInst.getCancelled() == true){
-                                textToDisplay += currentAppInst.toString() + " | ";
+                                textToDisplay += currentAppInst.toString() + currentAppInst.getAllPresDetailsForAppAsString();
                             }
                             
                         }
@@ -112,7 +112,7 @@ public class ActListRunReport implements ActionListener {
                      currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
                         if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() ){
                             if(currentAppInst.getMissed() == true){
-                                textToDisplay += currentAppInst.toString() + " | ";
+                                textToDisplay += currentAppInst.toString() + currentAppInst.getAllPresDetailsForAppAsString();
                             }
                             
                         }
@@ -157,7 +157,7 @@ public class ActListRunReport implements ActionListener {
                 currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
                 
                 if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() )
-                textToDisplay += currentAppInst.toString() + " | ";
+                textToDisplay += currentAppInst.toString() +  currentAppInst.getAllPresDetailsForAppAsString();
                 
             }
             
