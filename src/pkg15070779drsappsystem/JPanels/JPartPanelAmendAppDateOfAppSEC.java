@@ -12,21 +12,21 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 
 
 //plugs into JPanelAppAmendSecView
-//is teh date of appointment panel
-public class JPartPanelAmendAppDateOfApp extends JPanel {
-            public static JPartPanelAmendAppDateOfApp DatePanSingInst;
+//is the date of appointment panel
+public class JPartPanelAmendAppDateOfAppSEC extends JPanel {
+            public static JPartPanelAmendAppDateOfAppSEC DatePanSingInst;
             JLabel lblDateOfApp= new JLabel ("Date of appointment:");
             private  JComboBox cmbDateDay = new JComboBox(MainAbsScheduling.getDaysArr());
             private  JComboBox cmbDateMonth = new JComboBox(MainAbsScheduling.getMonthsArr());
             private  JComboBox cmbDateYear = new JComboBox(MainAbsScheduling.getYearArr());
         
-        public JPartPanelAmendAppDateOfApp() {
+        public JPartPanelAmendAppDateOfAppSEC() {
             
             //item listeners just set the form changed status to true so the amend routine knows to update and not
             //display a message sayign nothing has changed
-            cmbDateDay.addItemListener(new ItemListAmendAppFormChangedDateAffected());
-            cmbDateMonth.addItemListener(new ItemListAmendAppFormChangedDateAffected());
-            cmbDateYear.addItemListener(new ItemListAmendAppFormChangedDateAffected());
+            cmbDateDay.addItemListener(new ItemListAmendAppFormChangedDateAffected("Sec"));
+            cmbDateMonth.addItemListener(new ItemListAmendAppFormChangedDateAffected("Sec"));
+            cmbDateYear.addItemListener(new ItemListAmendAppFormChangedDateAffected("Sec"));
             
             add(lblDateOfApp);
             add(cmbDateDay);
@@ -34,9 +34,9 @@ public class JPartPanelAmendAppDateOfApp extends JPanel {
             add(cmbDateYear);
         }
         
-        public static JPartPanelAmendAppDateOfApp getInstance(){
+        public static JPartPanelAmendAppDateOfAppSEC getInstance(){
             if (DatePanSingInst == null) {
-                DatePanSingInst = new JPartPanelAmendAppDateOfApp();
+                DatePanSingInst = new JPartPanelAmendAppDateOfAppSEC();
             }
             
             return DatePanSingInst;

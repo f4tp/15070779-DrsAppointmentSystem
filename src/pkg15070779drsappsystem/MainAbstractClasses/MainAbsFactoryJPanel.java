@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
-import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatient;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppButPan;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppointment;
 import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
@@ -30,7 +30,7 @@ public abstract class MainAbsFactoryJPanel {
         JPanelPatientAddDoctor JPanelPatAddDoc;
         JPanelNewAppointment JPanNewApp;
         JPanelNewAppButPan JPanNewAppButPanel;
-        JPanelAppsShowAllForPatient JPanViewAllApps;
+        JPanelAppsShowAllForPatientSEC JPanViewAllApps;
         JPanelAppsShowAllForDoctor JpanShowApps;
         JPartPanelTextAreaMonthReports JPanTextFieldForReports;
         JPanelAppAmendSecView JPanAmendApp;

@@ -22,7 +22,7 @@ public class JPanelPatientAddDoctor extends JPanel {
             btnAddDoctor.addActionListener(new ActListAddDoctor(cmbDrs));
             
             JButton btnCancel = new JButton("Cancel");
-            btnCancel.addActionListener(new ActListReturnPatientRec());
+            btnCancel.addActionListener(new ActListReturnPatientRec("Sec"));
             
             setLayout (new BoxLayout(this, BoxLayout.X_AXIS));
             add(lblTitle);

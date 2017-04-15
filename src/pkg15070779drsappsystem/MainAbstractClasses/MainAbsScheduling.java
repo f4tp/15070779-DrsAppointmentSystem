@@ -149,7 +149,7 @@ public abstract class MainAbsScheduling {
       public static String getConvDateTimeToStringHour(LocalDateTime datein) {
          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyyHHmm");
          String dmonthOfDate = datein.format(formatter);
-         String returnMonth = dmonthOfDate.substring(9,10);
+         String returnMonth = dmonthOfDate.substring(9,11);
          System.out.println(returnMonth);
         return returnMonth;
      }

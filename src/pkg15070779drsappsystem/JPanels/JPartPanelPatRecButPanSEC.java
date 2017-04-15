@@ -14,10 +14,10 @@ public class JPartPanelPatRecButPanSEC extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(100,0,0,0));
         //default has flow layout, so just add buttons
         JButton btnAllApps = new JButton("View Patient's Appointments");
-        btnAllApps.addActionListener(new ActListDisplayPatientApps());
+        btnAllApps.addActionListener(new ActListDisplayPatientApps("Sec"));
         
         JButton btnAmendApp= new JButton("Amend an appointment");
-        btnAmendApp.addActionListener(new ActListDisplayPatientApps());
+        btnAmendApp.addActionListener(new ActListDisplayPatientApps("Sec"));
         
         JButton btnNewApp = new JButton("New Appointment");
         btnNewApp.addActionListener(new ActListNewAppointment());

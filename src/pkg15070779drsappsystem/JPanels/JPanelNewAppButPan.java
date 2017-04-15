@@ -18,7 +18,7 @@ public class JPanelNewAppButPan extends JPanel {
         
         JButton btnCheckDate = new JButton("Cancel");
        //action listener
-       btnCheckDate.addActionListener(new ActListReturnPatientRec());
+       btnCheckDate.addActionListener(new ActListReturnPatientRec("Sec"));
        JButton btnaddAppointment = new JButton("Create the appoinment");
        btnaddAppointment.addActionListener(new ActListAddAppointment());
        //JPanelNewAppointment.JTFUserName;

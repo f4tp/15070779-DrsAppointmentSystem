@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.ActionListeners.ActListPerfSearchAllAvailAppointments;
 
+
 public class JPanelAppsShowAllForDoctor extends JPanel {
     public static JPanelAppsShowAllForDoctor JPanShowAvailAppsSingInst;
     

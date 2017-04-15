@@ -18,7 +18,7 @@ import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
-public class ActListAmendAppointment implements ActionListener {
+public class ActListAmendAppointmentSEC implements ActionListener {
     
     //component variables hold components passe din from previous form(s)
     JComboBox cmbDayIn;
@@ -35,7 +35,7 @@ public class ActListAmendAppointment implements ActionListener {
     JCheckBox missedIn;
     
     JTextField symptomsIn;
-    public ActListAmendAppointment(JLabel patusername, JLabel appid, JLabel dridin, JComboBox cmbdayin, JComboBox cmbmonthin, JComboBox cmbyearin, JComboBox cmbtimein, JTextField symptomsin, JCheckBox attendedin, JCheckBox cancelledin, JCheckBox missedin ){
+    public ActListAmendAppointmentSEC(JLabel patusername, JLabel appid, JLabel dridin, JComboBox cmbdayin, JComboBox cmbmonthin, JComboBox cmbyearin, JComboBox cmbtimein, JTextField symptomsin, JCheckBox attendedin, JCheckBox cancelledin, JCheckBox missedin ){
     this.cmbDayIn = cmbdayin;
         
     this.cmbMonthin = cmbmonthin;

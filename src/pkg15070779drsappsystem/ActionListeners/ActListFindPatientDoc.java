@@ -16,6 +16,7 @@ public class ActListFindPatientDoc implements ActionListener {
     private JTextField TfDob;  //holds text field passed in
     private String userIdForMap;  //holds user id to seatch for in the SystemUserComp map
     private static MainAbsSystemUserComponent FoundPatient; //holds the reference to the system user if / when found
+    MainPatient currPatientInst;
     
     public ActListFindPatientDoc(JTextField firstnamepassedin, JTextField surnamepassedin, JTextField dobpassedin){
         this.TfFirstName = firstnamepassedin;
@@ -51,11 +52,12 @@ public class ActListFindPatientDoc implements ActionListener {
         
         else{
             //if they are all full it will generate the username to search for
-            setGenerateUserName();
+            //setGenerateUserName();
         
            //...then searches the map of all users with te hgenerated user id as the key
-            this.setAndCheckPatientFindPatient(this.userIdForMap);
+            //this.setAndCheckPatientFindPatient(this.userIdForMap);
             
+             this.setAndCheckPatientFindPatient(setGenerateUserName(TfFirstName.getText(),TfSurName.getText(),TfDob.getText()));
         
         }
         
@@ -67,9 +69,9 @@ public class ActListFindPatientDoc implements ActionListener {
     
     
     //generates the username to search for
-    private void setGenerateUserName(){
-            this.userIdForMap = this.TfFirstName.getText().toLowerCase()+ "." + this.TfSurName.getText().toLowerCase() + "." + this.TfDob.getText().toLowerCase();
-            
+    private String setGenerateUserName(String firstname, String surname, String dob){
+            //this.userIdForMap = this.TfFirstName.getText().toLowerCase()+ "." + this.TfSurName.getText().toLowerCase() + "." + this.TfDob.getText().toLowerCase();
+              return firstname.toLowerCase()+"."+surname.toLowerCase()+"."+dob;
     }
     
       //this checks the user id, and object type... it will set the MainPatient.currentPatient field 
@@ -91,15 +93,16 @@ public class ActListFindPatientDoc implements ActionListener {
                 //MainPatient.currentPatient = (MainPatient) FoundPatient; //convert to patient object
                 
                 MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
+                currPatientInst =  (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
                 System.out.println("Main patient set when find patient button has been pressed on find patient screen, patient is:  " + MainPatient.currentPatient);
                 
                 
                //the patient details are updated in the Secretary JFrame - when the setSecSouthBorderStrins is set...
-               //it sets the visibility of teh right JPanel so we can see the pateint record, but not before updatign all 
+               //it sets the visibility of the right JPanel so we can see the pateint record, but not before updatign all 
                //of teh details usign the setUpdateTextFields(); method from the JPanelPatRecordSecView class
                 
                 JFrameDoctorMenu DocMenuRef = JFrameDoctorMenu.getInstance();
-                DocMenuRef.setDocSouthBorderString("DisplayPatientDetails");
+                DocMenuRef.setDocSouthBorderString("DisplayPatientDetails", currPatientInst);
                 
                 
             }

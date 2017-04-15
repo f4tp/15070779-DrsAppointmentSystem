@@ -240,6 +240,14 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
         return this.appSymptoms;
     }
     
+    public String getDrsComments(){
+        return this.appDrComments;
+    }
+    
+    public void setDrsComments(String drscommentsin){
+        this.appDrComments = drscommentsin;
+    }
+    
     public Boolean getAttended(){
         return this.appAttended;
     }

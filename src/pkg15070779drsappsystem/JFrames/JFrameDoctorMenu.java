@@ -11,20 +11,23 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import pkg15070779drsappsystem.ActionListeners.ActListDisplayFindPatDocView;
 import pkg15070779drsappsystem.ActionListeners.ActListLogOut;
+import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientDOC;
 import pkg15070779drsappsystem.JPanels.JPanelPatFindDocView;
 import pkg15070779drsappsystem.JPanels.JPanelPatRecordDocView;
+import static pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow.setDrComboBox;
+import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 
 public class JFrameDoctorMenu extends JFrame {
     
      //singleton DP, only one instance is ever needed as only one sec logs in at once
     private static JFrameDoctorMenu DoctMenSingInst;
+    MainPatient currPatientInst;
     
-      
-    //private static JFrameSecretaryMenu SecMenuSingInst;
     
     //holds the string to tell the menu which south border to display
-    private static String currenDocNorthBordPanel; 
+    private static String currentDocNorthBordPanel; 
     
     private JFrameDoctorMenu(){
         super ("Doctor's menu");
@@ -77,11 +80,16 @@ public class JFrameDoctorMenu extends JFrame {
     private void setDocNorthBorderPanel(){
         JPanelPatFindDocView JPanelFindPat = JPanelPatFindDocView.getInstance();
         JPanelPatRecordDocView jpanPatRecDocViewSingInst = JPanelPatRecordDocView.getInstance();
-                
+        //JPanelPatRecordDocView JPanelPatrecNorth = JPanelPatRecordDocView.getInstance();  
+        JPanelAppsShowAllForPatientDOC JPanViewAllApps = JPanelAppsShowAllForPatientDOC.getInstance();
+         JPanelAppAmendDocView JPanAmendApp = JPanelAppAmendDocView.getInstance();
                 
         
-          if (currenDocNorthBordPanel == "FindPatients"){
+          if (currentDocNorthBordPanel == "FindPatients"){
               jpanPatRecDocViewSingInst.setVisible(false);
+             JPanViewAllApps.setVisible(false);
+             JPanAmendApp.setVisible(false);
+
               
               
              JPanelFindPat.setVisible(true); 
@@ -91,15 +99,52 @@ public class JFrameDoctorMenu extends JFrame {
             
           }
           
-           if (currenDocNorthBordPanel == "DisplayPatientDetails"){
+           if (currentDocNorthBordPanel == "DisplayPatientDetails"){
              JPanelFindPat.setVisible(false);
+             JPanViewAllApps.setVisible(false);
+             JPanAmendApp.setVisible(false);
              
              
              jpanPatRecDocViewSingInst.setVisible(true);
-             jpanPatRecDocViewSingInst.setUpdateTextFields();
+             jpanPatRecDocViewSingInst.setUpdateTextFields(currPatientInst.getUserName());
             
             DoctMenSingInst.add(jpanPatRecDocViewSingInst, BorderLayout.NORTH);
           }
+           
+           
+        
+           if(currentDocNorthBordPanel == "DispPatientAppointments"){
+               jpanPatRecDocViewSingInst.setVisible(false); 
+               JPanelFindPat.setVisible(false);
+               JPanAmendApp.setVisible(false);
+               
+            //JPanelPatrecNorth.setVisible(true);
+            //JPanelPatrecNorth.setUpdateTextFields(currPatientInst.getUserName());
+            //JPanelPatrecSouth.setVisible(true);
+            //DoctMenSingInst.add(JPanelPatrecNorth, BorderLayout.NORTH);
+            //SecMenuSingInst.add(JPanelPatrecSouth, BorderLayout.CENTER);
+            
+            JPanViewAllApps.setVisible(true);
+            DoctMenSingInst.add(JPanViewAllApps, BorderLayout.NORTH);
+               
+           }
+           
+            if (currentDocNorthBordPanel == "ShowAmendApps"){
+           JPanelFindPat.setVisible(false); 
+            jpanPatRecDocViewSingInst.setVisible(false);
+            JPanViewAllApps.setVisible(false);
+           
+           
+           
+            
+            JPanAmendApp.setVisible(true);
+            
+            //updates the combobox on this form with Drs registered on the system (when it is called);
+            //this form contains two instances of the same JPanel - dates from and to
+            setDrComboBox();
+            DoctMenSingInst.add(JPanAmendApp, BorderLayout.NORTH);
+      
+        }
           
           
         revalidate();
@@ -122,7 +167,14 @@ public class JFrameDoctorMenu extends JFrame {
     }
     
     public void setDocSouthBorderString(String paneltoset){
-        currenDocNorthBordPanel = paneltoset;
+        currentDocNorthBordPanel = paneltoset;
+        DoctMenSingInst.setDocNorthBorderPanel();
+    }
+    
+    public void setDocSouthBorderString(String paneltoset, MainPatient patientinvolved){
+        
+        currentDocNorthBordPanel = paneltoset;
+        currPatientInst = patientinvolved;
         DoctMenSingInst.setDocNorthBorderPanel();
     }
     

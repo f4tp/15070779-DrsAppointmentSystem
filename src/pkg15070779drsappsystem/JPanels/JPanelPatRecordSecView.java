@@ -83,5 +83,25 @@ public class JPanelPatRecordSecView extends JPanel {
         
        
     }
+    
+    //DisplayPatientDetails on sec jframe updated so it no longer uses the global variable
+     public void setUpdateTextFields(String patientid){
+
+       
+        if (MainAbsSystemUserComponent.currentSystemUser != null){
+            MainPatient currentPatInst = (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(patientid);
+            
+            JTFTitle.setText(currentPatInst.getTitle());
+            JTFFirstName.setText(currentPatInst.getFirstName());
+            JTFSurname.setText(currentPatInst.getSurname());
+            JTFdob.setText(currentPatInst.getDOB());
+            JTFContact.setText(currentPatInst.getContactDetail());
+            //JTADrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsUserNames());
+            JTFDrsRegsWith.setText(currentPatInst.getDrsRegWithAsStringAsDrsnames());
+        }
+        
+        
+       
+    }
 
 }

@@ -2,18 +2,17 @@
 package pkg15070779drsappsystem.JPanels;
 
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import pkg15070779drsappsystem.ActionListeners.ActListReturnPatientRec;
+import static pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC.lblAppFor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
-public class JPanelAppsShowAllForPatient extends JPanel {
-    public static JPanelAppsShowAllForPatient ViewAllAppsSingInst;
+public class JPanelAppsShowAllForPatientDOC extends JPanel {
+    
+  public static JPanelAppsShowAllForPatientDOC ViewAllAppsSingInst;
   public static  JLabel lblAppFor = new JLabel("");
     //JTextArea JTFName = new JTextArea();
    private static JTextArea JTFAllAppointments = new JTextArea();
@@ -23,10 +22,9 @@ public class JPanelAppsShowAllForPatient extends JPanel {
     private static JComboBox cmbAppKeys = new JComboBox();
     //JButton btnReturn = new JButton("Back");
     
-    JPartPanelAppsShowAllPatButPanel ButPanSingInst = JPartPanelAppsShowAllPatButPanel.getInstance();
-
-    private JPanelAppsShowAllForPatient(){
-        
+    JPartPanelAppsShowAllPatButPanelDOC ButPanSingInst = JPartPanelAppsShowAllPatButPanelDOC.getInstance();
+    
+    private JPanelAppsShowAllForPatientDOC(){
         //btnReturn.addActionListener(new ActListReturnPatientRec());
          setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
         //JTFAllAppointments.setSize(400, 400);
@@ -39,17 +37,16 @@ public class JPanelAppsShowAllForPatient extends JPanel {
         add(cmbAppKeys);
         //add(btnReturn);
         add(ButPanSingInst);
-        
     }
     
-    //updates the label with the name of the person
+     //updates the label with the name of the person
     public static void updateLabelTitleForShowPatApps(){
         lblAppFor.setText("Showing appointments for: " + MainPatient.currentPatient.getFirstName() + " " + MainPatient.currentPatient.getSurname() );
         //getInstance().revalidate();
         //getInstance().repaint();
     }
     
-    //clears teh appointment area ready to append with the new appointment details of the next patient
+      //clears teh appointment area ready to append with the new appointment details of the next patient
     public static void clearAppointmentTextArea(){
         JTFAllAppointments.setText("");
        //getInstance().revalidate();
@@ -80,9 +77,9 @@ public class JPanelAppsShowAllForPatient extends JPanel {
     }
     
     
-    public static JPanelAppsShowAllForPatient getInstance(){
+    public static JPanelAppsShowAllForPatientDOC getInstance(){
         if (ViewAllAppsSingInst == null){
-            ViewAllAppsSingInst = new JPanelAppsShowAllForPatient();
+            ViewAllAppsSingInst = new JPanelAppsShowAllForPatientDOC();
         }
         
         return ViewAllAppsSingInst;
@@ -91,4 +88,5 @@ public class JPanelAppsShowAllForPatient extends JPanel {
     public static JComboBox getComboAppkeys(){
         return cmbAppKeys;
     }
+    
 }

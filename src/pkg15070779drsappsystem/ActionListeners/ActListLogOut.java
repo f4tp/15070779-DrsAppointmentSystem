@@ -8,9 +8,11 @@ import pkg15070779drsappsystem.JFrames.JFrameLoginScreen;
 import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
 import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
+import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
-import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatient;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientDOC;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC;
 import pkg15070779drsappsystem.JPanels.JPanelLoginScreen;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppButPan;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppointment;
@@ -23,6 +25,7 @@ import pkg15070779drsappsystem.JPanels.JPanelPatFindSecView;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaPrintPatRec;
 import pkg15070779drsappsystem.JPanels.JPanelPatFindDocView;
+import pkg15070779drsappsystem.JPanels.JPanelPatRecordDocView;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
@@ -37,7 +40,7 @@ public class ActListLogOut implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //set all static global users and people objetcs that were being worked on to null
+ //set all static global users and people objetcs that were being worked on to null
         
         MainAbsSystemUserComponent.currentSystemUser = null;
         MainPatient.currentPatient = null;
@@ -46,7 +49,7 @@ public class ActListLogOut implements ActionListener {
         MainSecretary.currentSecretary = null;
         MainPrescription currentPrescription = null;
         
-      //set all JFrames to invisible
+ //set all JFrames to invisible
         JFrameSecretaryMenu instHolder = JFrameSecretaryMenu.getInstance();
         instHolder.setVisible(false);
         
@@ -55,6 +58,9 @@ public class ActListLogOut implements ActionListener {
         
         JFramePatientMenu instHolderrr = JFramePatientMenu.getInstance();
         instHolderrr.setVisible(false);
+        
+        
+ //all secretary screens to make invisible
         
         JPanelReportsAppAtt JPanelAppsAtt = JPanelReportsAppAtt.getInstance();
         JPanelAppsAtt.setVisible(false);
@@ -73,7 +79,7 @@ public class ActListLogOut implements ActionListener {
         JPanNewApp.setVisible(false);
         JPanelNewAppButPan JPanNewAppButPanel = JPanelNewAppButPan.getInstance();
         JPanNewAppButPanel.setVisible(false);
-        JPanelAppsShowAllForPatient JPanViewAllApps = JPanelAppsShowAllForPatient.getInstance();
+        JPanelAppsShowAllForPatientSEC JPanViewAllApps = JPanelAppsShowAllForPatientSEC.getInstance();
        JPanViewAllApps .setVisible(false);
         JPanelAppsShowAllForDoctor JpanShowApps = JPanelAppsShowAllForDoctor.getInstance();
         JpanShowApps.setVisible(false);
@@ -84,35 +90,40 @@ public class ActListLogOut implements ActionListener {
         JPanelPatFindDocView inst = JPanelPatFindDocView.getInstance();
          JPanTextFieldForReports.setVisible(false);
         
+
         
+ //doctors screens to make invisible
         
+        JPanelPatFindDocView JPanelFindPatDoc = JPanelPatFindDocView.getInstance();
+        JPanelPatRecordDocView jpanPatRecDocViewSingInst = JPanelPatRecordDocView.getInstance();
+        //JPanelPatRecordDocView JPanelPatrecNorth = JPanelPatRecordDocView.getInstance();  
+        JPanelAppsShowAllForPatientDOC JPanViewAllAppsDoc = JPanelAppsShowAllForPatientDOC.getInstance();
+         JPanelAppAmendDocView JPanAmendAppDoc = JPanelAppAmendDocView.getInstance();
+         
+          jpanPatRecDocViewSingInst.setVisible(false);
+         JPanViewAllAppsDoc.setVisible(false);
+          JPanAmendAppDoc.setVisible(false);
+          JPanelFindPatDoc.setVisible(false); 
         
+   
         
-        
-        
-        
-        
-            //clears the Jtextholder that updates with the patient's record details, when they logout
+ //clears the Jtextholder that updates with the patient's record details, when they logout
         JPartPanelTextAreaPrintPatRec refHolder = JPartPanelTextAreaPrintPatRec.getInstance();
         refHolder.setJtextArea("");
         
-         //clears the Jtextholder that updates with the report details, when the sec logs out
+//clears the Jtextholder that updates with the report details, when the sec logs out
         JPartPanelTextAreaMonthReports refHoldersec = JPartPanelTextAreaMonthReports.getInstance();
         refHoldersec.setJtextArea("");
         
         
         
-        
-     //set login screen back to visible
+//set login screen back to visible
         JFrameLoginScreen loginInstance = JFrameLoginScreen.getInstance();
         loginInstance.setVisible(true);
         
         JPanelLoginScreen tempLoginJPan = JPanelLoginScreen.getInstance();
         tempLoginJPan.updateLogintext();
-        
-        
-    
-        
+      
             
     }
     

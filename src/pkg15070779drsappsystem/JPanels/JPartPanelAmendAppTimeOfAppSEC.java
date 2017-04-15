@@ -11,23 +11,23 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 
 //plugs into JPane;AppAmendSecView - the amend an appointment JPanel which the secretary sees
 // is the time panel part of it
-public class JPartPanelAmendAppTimeOfApp extends JPanel {
-    private static JPartPanelAmendAppTimeOfApp jpanTimeOfApp;
+public class JPartPanelAmendAppTimeOfAppSEC extends JPanel {
+    private static JPartPanelAmendAppTimeOfAppSEC jpanTimeOfApp;
       JLabel lblTimeOfApp= new JLabel ("Time of appointment:");
     private JComboBox cmbTime= new JComboBox(MainAbsScheduling.getTimesArr());
     //private static JComboBox cmbTimeMin= new JComboBox();
     
-    public JPartPanelAmendAppTimeOfApp(){
+    public JPartPanelAmendAppTimeOfAppSEC(){
     
-        cmbTime.addItemListener(new ItemListAmendAppFormChangedDateAffected());
-        add(lblTimeOfApp);
+     cmbTime.addItemListener(new ItemListAmendAppFormChangedDateAffected("Sec"));
+    add(lblTimeOfApp);
     add(cmbTime);
     //add(cmbTimeMin);
     }
     
-    public static JPartPanelAmendAppTimeOfApp getInstance(){
+    public static JPartPanelAmendAppTimeOfAppSEC getInstance(){
         if(jpanTimeOfApp == null){
-            jpanTimeOfApp = new JPartPanelAmendAppTimeOfApp();
+            jpanTimeOfApp = new JPartPanelAmendAppTimeOfAppSEC();
         }
         return jpanTimeOfApp;
     }
