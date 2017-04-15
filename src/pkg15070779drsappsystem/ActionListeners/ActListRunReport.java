@@ -11,8 +11,10 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
+import pkg15070779drsappsystem.MainClasses.MainPrescription;
 
 public class ActListRunReport implements ActionListener {
     private String typeOfReport;
@@ -45,6 +47,7 @@ public class ActListRunReport implements ActionListener {
         //will hold an appointment, resolved by the appointment ID, currently worked on appointment
         //object composition
          MainAppointment currentAppInst; 
+         MainPrescription currentPresInst;
          
          //generate a full date, set it to the first of the month at 00:00, use this to see all appointments from the first of the month to the last
          ldtFirstOfMonthToSearch = MainAbsScheduling.getConvStringToDateTime("01"+this.cmbMonth.getSelectedItem().toString()+this.cmbYear.getSelectedItem().toString()+"0000");
@@ -169,6 +172,33 @@ public class ActListRunReport implements ActionListener {
         }
         
         else if (typeOfReport == "Report all prescriptions issued for the month of..."){
+            
+            String textToDisplay ="";
+            
+            //looks at all appointments there has been
+            for(String temp: MainAppointment.getAppKeyList()){
+                //look at the first appointment
+               currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
+               
+               
+                //currentPresInst = (MainPrescription) MainAbsPrescriptionComponent.getMainPrescription(temp);
+                
+                if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() )
+                    
+                    //tests whether the prescription for the appointment returns this particular string, because if it
+                    //does, it means the appointment doesn;t have a prescription yet, therefore it won;t add it to
+                    //the report
+                    if (currentAppInst.getPrescriptionIDsAsString() != "There is no prescription for this appointment yet"){
+                        textToDisplay += currentAppInst.toString() +  currentAppInst.getAllPresDetailsForAppAsString();
+                    }
+                
+                
+            }
+               // populate the textarea on the Secretary JFrame
+          JPartPanelTextAreaMonthReports singInst = JPartPanelTextAreaMonthReports.getInstance();
+            singInst.setJtextArea(textToDisplay);
+            
+            
             
         }
         

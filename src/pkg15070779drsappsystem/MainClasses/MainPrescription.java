@@ -7,8 +7,13 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
 public class MainPrescription extends MainAbsPrescriptionComponent{
     
     //holds the current prescriptions that are being worked on by a doctor, secretary or phramacist
-    //there can be multipel prescriptions for each appointment so this holds all of them
+    
+    //this is teh searched for appointments prescription list
     public static List <MainPrescription> currentPrescription = new ArrayList<>();
+    
+    //holds all prescription keys so they can be searched, never deleted from as all appointments stay on file
+    //for report searching
+    private static List<String> lstStrAllPresKeys = new ArrayList<>();
     private String presUniqueKey;
     private String presMedicineDesc;
     private String presMedAmount;
@@ -24,10 +29,22 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
         this.docUniqueID = doctorid;
         this.appUniqueID = appid;
         
+        //adds the prescription unique key to the static list, so it contains all prescription IDss issued... can be searched later
+        addPresKeyToList(this.presUniqueKey);
+        
         MainAbsPrescriptionComponent.setPutInMap(this.presUniqueKey, this);
         
          
                 //put in map to store it
+    }
+    
+    
+    public static void addPresKeyToList(String appkeyin){
+        lstStrAllPresKeys.add(appkeyin);
+    }
+    
+    public static List <String> getPresKeyList(){
+        return lstStrAllPresKeys;
     }
     
 
