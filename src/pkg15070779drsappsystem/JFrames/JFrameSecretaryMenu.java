@@ -3,7 +3,7 @@ import pkg15070779drsappsystem.ActionListeners.ActListSetSecJFramePARTofFACTORYs
 import pkg15070779drsappsystem.ActionListeners.ActLisExitProg;
 import java.awt.*;
 import javax.swing.*;
-import pkg15070779drsappsystem.ActionListeners.ActListDisplayAllAvailAppsSec;
+import pkg15070779drsappsystem.ActionListeners.ActListDisplayJPanAllAvailAppsSec;
 import pkg15070779drsappsystem.ActionListeners.ActListLogOut;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
 import pkg15070779drsappsystem.JPanels.JPanelPatFindSecView;
@@ -59,7 +59,7 @@ public class JFrameSecretaryMenu extends JFrame {
         appsMenu.add(newApp);
         
         JMenuItem showAvailApps = new JMenuItem ("Show All Available Appointments");
-        showAvailApps.addActionListener(new ActListDisplayAllAvailAppsSec());
+        showAvailApps.addActionListener(new ActListDisplayJPanAllAvailAppsSec());
         appsMenu.add(showAvailApps);
         
         JMenu patientMenu = new JMenu("Patients");

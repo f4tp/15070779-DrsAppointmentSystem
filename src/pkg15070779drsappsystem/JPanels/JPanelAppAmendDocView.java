@@ -8,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import pkg15070779drsappsystem.ActionListeners.ActListDisplayJPanAddPrescription;
 import pkg15070779drsappsystem.ActionListeners.ActListAmendAppointmentSEC;
 import pkg15070779drsappsystem.ActionListeners.ActListAmendAppointmentDOC;
 import pkg15070779drsappsystem.ActionListeners.ActListBackToPatientApps;
@@ -84,11 +85,14 @@ public class JPanelAppAmendDocView extends JPanel {
     
     JButton btnCancel = new JButton("Cancel");
     JButton btnAmend = new JButton("Amend Appointment");
+    JButton btnAddpresc = new JButton("Add prescription");
     
     public JPanelAppAmendDocView(){
         jtfDrsCommentsRes.addFocusListener(new FocusListAmendAppSymptomsJTFDateNotAffected("Doc"));
         //NTD this action listsner needs editing - call with string, and it takes you back to the correct Jpanel
         btnCancel.addActionListener(new ActListBackToPatientApps("Doc"));
+       
+        
         
          btnAmend.addActionListener(new ActListAmendAppointmentDOC(lblUserNameRes, lblAppIDRes, lblDrWithRes,
                 JPartPanelAmendAppDateOfAppDOC.getInstance().getJComboDay(), 
@@ -98,7 +102,7 @@ public class JPanelAppAmendDocView extends JPanel {
          
          
          
-        setLayout(new GridLayout(15,2));
+        setLayout(new GridLayout(16,2));
         add(jlTitle);
         add(jlTitleRes);
         add(lblFirstName);
@@ -146,10 +150,13 @@ public class JPanelAppAmendDocView extends JPanel {
         add(lblPresDetails);
         add(lblPrescDetailRes);
 
+     
+        
         add(btnCancel);
         add(btnAmend);
+        add(btnAddpresc);
         
-         
+          
     }
 
        public static JPanelAppAmendDocView getInstance(){
@@ -190,7 +197,10 @@ public class JPanelAppAmendDocView extends JPanel {
         //formUpdatedDateTime = false;
         System.out.println(formUpdatedNotDateTime);
         //System.out.println(formUpdatedDateTime);
-    }
+        
+        JPanelAppAmendDocView.getInstance().btnAddpresc.addActionListener(new ActListDisplayJPanAddPrescription(lblAppIDRes.getText(), lblUserNameRes.getText(), lblDrWithRes.getText()));
+  
+        }
            
            //if someone changes somethign on this form, this value will be set to true
     //when someone presses the update button, if the value is false it won;t update anything, but if it is true it will run 
@@ -207,4 +217,17 @@ public class JPanelAppAmendDocView extends JPanel {
     public Boolean getFormUpdatedNotDateTime(){
         return formUpdatedNotDateTime;
     }
+    
+    public String getAppIDFromForm(){
+        return "changeme";
+    }
+    
+     public String getDrsDFromForm(){
+        return "changeme";
+    }
+     
+      public String getPatDFromForm(){
+        return "changeme";
+    }
+ 
 }

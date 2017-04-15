@@ -1,9 +1,9 @@
 
 package pkg15070779drsappsystem.JPanels;
 
-import pkg15070779drsappsystem.ActionListeners.ActListDisplayAddDocSec;
+import pkg15070779drsappsystem.ActionListeners.ActListDisplayJPanAddDocSec;
 import javax.swing.*;
-import pkg15070779drsappsystem.ActionListeners.ActListDisplayPatientApps;
+import pkg15070779drsappsystem.ActionListeners.ActListDisplayJPanPatientApps;
 import pkg15070779drsappsystem.ActionListeners.ActListNewAppointment;
 
 public class JPartPanelPatRecButPanSEC extends JPanel {
@@ -14,16 +14,16 @@ public class JPartPanelPatRecButPanSEC extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(100,0,0,0));
         //default has flow layout, so just add buttons
         JButton btnAllApps = new JButton("View Patient's Appointments");
-        btnAllApps.addActionListener(new ActListDisplayPatientApps("Sec"));
+        btnAllApps.addActionListener(new ActListDisplayJPanPatientApps("Sec"));
         
         JButton btnAmendApp= new JButton("Amend an appointment");
-        btnAmendApp.addActionListener(new ActListDisplayPatientApps("Sec"));
+        btnAmendApp.addActionListener(new ActListDisplayJPanPatientApps("Sec"));
         
         JButton btnNewApp = new JButton("New Appointment");
         btnNewApp.addActionListener(new ActListNewAppointment());
         
         JButton btnAddNewDoctor = new JButton("Add New Doctor");
-        btnAddNewDoctor.addActionListener(new ActListDisplayAddDocSec());
+        btnAddNewDoctor.addActionListener(new ActListDisplayJPanAddDocSec());
        
                 
         add(btnAllApps);

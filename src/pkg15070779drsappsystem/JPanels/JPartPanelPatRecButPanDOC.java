@@ -4,8 +4,8 @@ package pkg15070779drsappsystem.JPanels;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.ActionListeners.ActListDisplayAddDocSec;
-import pkg15070779drsappsystem.ActionListeners.ActListDisplayPatientApps;
+import pkg15070779drsappsystem.ActionListeners.ActListDisplayJPanAddDocSec;
+import pkg15070779drsappsystem.ActionListeners.ActListDisplayJPanPatientApps;
 import pkg15070779drsappsystem.ActionListeners.ActListNewAppointment;
 
 public class JPartPanelPatRecButPanDOC extends JPanel {
@@ -15,10 +15,10 @@ public class JPartPanelPatRecButPanDOC extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(100,0,0,0));
         //default has flow layout, so just add buttons
         JButton btnAllApps = new JButton("View Patient's Appointments");
-        btnAllApps.addActionListener(new ActListDisplayPatientApps("Doc"));
+        btnAllApps.addActionListener(new ActListDisplayJPanPatientApps("Doc"));
         
         JButton btnAmendApp= new JButton("Amend an appointment");
-        btnAmendApp.addActionListener(new ActListDisplayPatientApps("Doc"));
+        btnAmendApp.addActionListener(new ActListDisplayJPanPatientApps("Doc"));
      
         add(btnAllApps);
         add(btnAmendApp);

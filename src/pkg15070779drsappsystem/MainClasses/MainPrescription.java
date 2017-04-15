@@ -14,26 +14,33 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
     private String presMedAmount;
     private String patUniqueID;
     private String docUniqueID;
+    private String appUniqueID;
     
-    public MainPrescription(String medicinedesc, String medamount, String patientid, String doctorid){
+    public MainPrescription(String medicinedesc, String medamount, String patientid, String doctorid, String appid){
         this.presUniqueKey = generatePresUniKey();
         this.presMedicineDesc = medicinedesc;
         this.presMedAmount = medamount;
         this.patUniqueID = patientid;
         this.docUniqueID = doctorid;
+        this.appUniqueID = appid;
+        
+        MainAbsPrescriptionComponent.setPutInMap(this.presUniqueKey, this);
         
          
                 //put in map to store it
     }
     
+
     
-    
+ 
     public String getPresUniqueID(){
-         if (this.patUniqueID == null){
-             this.patUniqueID = "there is no prescription for this appointment yet";
+         if (this.presUniqueKey == null){
+             this.presUniqueKey = "there is no prescription for this appointment yet";
          }
+         
+         System.out.println("raaarrr" + this.presUniqueKey);
         
-        return this.patUniqueID;
+        return this.presUniqueKey;
     }
     
     public String getPresDescAsString(){
@@ -86,7 +93,7 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
     
     @Override
     public String toString(){
-        return "Prescription ID: " + this.presUniqueKey + "| Medicine Description: " +  this.presMedicineDesc + "| Medicine Amount: " + this.presMedAmount + "| Patient Prescribed For: " + this.patUniqueID + "| Doctor Prescribed by: " + this.docUniqueID + "\n \n";
+        return "Prescription ID: " + this.presUniqueKey + "| Medicine Description: " +  this.presMedicineDesc + "| Medicine Amount: " + this.presMedAmount + "| Patient Prescribed For: " + this.patUniqueID + "| Doctor Prescribed by: " + this.docUniqueID + " |Appointment ID Connected by: " + this.appUniqueID + "\n \n";
     }
     
 

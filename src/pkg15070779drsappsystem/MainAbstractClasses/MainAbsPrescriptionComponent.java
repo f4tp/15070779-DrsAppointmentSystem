@@ -6,7 +6,7 @@ import pkg15070779drsappsystem.MainClasses.MainPrescription;
 
 
 public abstract class MainAbsPrescriptionComponent {
-    private static Map<String, MainPrescription> mapPrescriptions = new TreeMap<>();
+    private static Map<String, MainAbsPrescriptionComponent> mapPrescriptions = new TreeMap<>();
     
     protected MainAbsPrescriptionComponent(){
         generatePresUniKey();
@@ -15,12 +15,17 @@ public abstract class MainAbsPrescriptionComponent {
     
     public String generatePresUniKey(){
         int noExistApps = mapPrescriptions.size() + 1;
-        return "Medicine" + Integer.toString(noExistApps);
+        return "Prescription" + Integer.toString(noExistApps);
     }
     
- public static MainPrescription getMainPrescription(String keyforscript){
+ public static MainAbsPrescriptionComponent getMainPrescription(String keyforscript){
      return mapPrescriptions.get(keyforscript);
  }
+ 
+  public static void setPutInMap(String key, MainAbsPrescriptionComponent passedIn){
+         mapPrescriptions.put(key, passedIn);
+
+    }
     
     
 }

@@ -10,10 +10,10 @@ import java.awt.event.ActionListener;
 import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
 
 
-public class ActListDisplayFindPatDocView implements ActionListener{
+public class ActListDisplayJPanFindPatDocView implements ActionListener{
     private String typeOfSecJPanToSet;
     
-    public ActListDisplayFindPatDocView(String typeofjpantoset){
+    public ActListDisplayJPanFindPatDocView(String typeofjpantoset){
         
         this.typeOfSecJPanToSet = typeofjpantoset;
     }

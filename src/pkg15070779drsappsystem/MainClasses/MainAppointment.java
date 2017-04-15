@@ -131,7 +131,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     
     //returns false if the appointment doesn't have a prescription yet
     //returns true if it does
-    public String getPrescriptionIDsff(){
+    public String getPrescriptionIDsAsString(){
         if (this.lstPrescriptionsUniqueID.isEmpty()){
             return "There is no prescription for this appointment yet";
         }
@@ -171,7 +171,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
          
                 String presToRet = "";
                    for (String temp: this.lstPrescriptionsUniqueID){
-                       presToRet = presToRet + MainAbsPrescriptionComponent.getMainPrescription(temp).toString();
+                       presToRet += presToRet + MainAbsPrescriptionComponent.getMainPrescription(temp).toString() + ",";
                    }
 
                    return presToRet;
@@ -179,10 +179,10 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     }
     
     
-    public void addPrescriptionForApp(String meddesc, String medamount, String patientid, String drwith){
+    public void addPrescriptionForApp(String meddesc, String medamount, String patientid, String drwith, String appid){
         //object composition - create new prescitpion called from here
         //used rather than interface or implements inheritence as a 
-        MainPrescription appPres = new MainPrescription(meddesc, medamount, patientid, drwith);
+        MainPrescription appPres = new MainPrescription(meddesc, medamount, patientid, drwith, appid );
         this.lstPrescriptionsUniqueID.add(appPres.getPresUniqueID());
     }
     

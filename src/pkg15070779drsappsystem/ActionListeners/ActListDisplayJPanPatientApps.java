@@ -15,10 +15,10 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
-public class ActListDisplayPatientApps implements ActionListener{
+public class ActListDisplayJPanPatientApps implements ActionListener{
     MainPatient currPatInst;
     String calledFrom;
-    public ActListDisplayPatientApps(String calledfrom){
+    public ActListDisplayJPanPatientApps(String calledfrom){
         //currPatInst = (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
         this.calledFrom = calledfrom;
     }

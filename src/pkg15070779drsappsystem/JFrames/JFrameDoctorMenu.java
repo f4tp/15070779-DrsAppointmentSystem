@@ -9,8 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import pkg15070779drsappsystem.ActionListeners.ActListDisplayFindPatDocView;
+import pkg15070779drsappsystem.ActionListeners.ActListDisplayJPanFindPatDocView;
 import pkg15070779drsappsystem.ActionListeners.ActListLogOut;
+import pkg15070779drsappsystem.JPanels.JPanelAppAddPrescrip;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientDOC;
 import pkg15070779drsappsystem.JPanels.JPanelPatFindDocView;
@@ -52,7 +53,7 @@ public class JFrameDoctorMenu extends JFrame {
         docMenBar.add(patientMenu);
         
         JMenuItem findPatient = new JMenuItem ("Find Patient");
-        findPatient.addActionListener(new ActListDisplayFindPatDocView("FindPatients"));
+        findPatient.addActionListener(new ActListDisplayJPanFindPatDocView("FindPatients"));
         patientMenu.add(findPatient);
         
         //lays out the frame using thsi abstract class
@@ -83,13 +84,14 @@ public class JFrameDoctorMenu extends JFrame {
         //JPanelPatRecordDocView JPanelPatrecNorth = JPanelPatRecordDocView.getInstance();  
         JPanelAppsShowAllForPatientDOC JPanViewAllApps = JPanelAppsShowAllForPatientDOC.getInstance();
          JPanelAppAmendDocView JPanAmendApp = JPanelAppAmendDocView.getInstance();
+         JPanelAppAddPrescrip jpanAddPresSingInst = JPanelAppAddPrescrip.getInstance();
                 
         
           if (currentDocNorthBordPanel == "FindPatients"){
               jpanPatRecDocViewSingInst.setVisible(false);
              JPanViewAllApps.setVisible(false);
              JPanAmendApp.setVisible(false);
-
+             jpanAddPresSingInst.setVisible(false);
               
               
              JPanelFindPat.setVisible(true); 
@@ -103,7 +105,7 @@ public class JFrameDoctorMenu extends JFrame {
              JPanelFindPat.setVisible(false);
              JPanViewAllApps.setVisible(false);
              JPanAmendApp.setVisible(false);
-             
+              jpanAddPresSingInst.setVisible(false);
              
              jpanPatRecDocViewSingInst.setVisible(true);
              jpanPatRecDocViewSingInst.setUpdateTextFields(currPatientInst.getUserName());
@@ -117,13 +119,8 @@ public class JFrameDoctorMenu extends JFrame {
                jpanPatRecDocViewSingInst.setVisible(false); 
                JPanelFindPat.setVisible(false);
                JPanAmendApp.setVisible(false);
-               
-            //JPanelPatrecNorth.setVisible(true);
-            //JPanelPatrecNorth.setUpdateTextFields(currPatientInst.getUserName());
-            //JPanelPatrecSouth.setVisible(true);
-            //DoctMenSingInst.add(JPanelPatrecNorth, BorderLayout.NORTH);
-            //SecMenuSingInst.add(JPanelPatrecSouth, BorderLayout.CENTER);
-            
+                jpanAddPresSingInst.setVisible(false);
+         
             JPanViewAllApps.setVisible(true);
             DoctMenSingInst.add(JPanViewAllApps, BorderLayout.NORTH);
                
@@ -133,7 +130,7 @@ public class JFrameDoctorMenu extends JFrame {
            JPanelFindPat.setVisible(false); 
             jpanPatRecDocViewSingInst.setVisible(false);
             JPanViewAllApps.setVisible(false);
-           
+            jpanAddPresSingInst.setVisible(false);
            
            
             
@@ -145,6 +142,19 @@ public class JFrameDoctorMenu extends JFrame {
             DoctMenSingInst.add(JPanAmendApp, BorderLayout.NORTH);
       
         }
+        
+
+        if (currentDocNorthBordPanel == "DisplayAddPresc"){
+           JPanelFindPat.setVisible(false); 
+            jpanPatRecDocViewSingInst.setVisible(false);
+            JPanViewAllApps.setVisible(false);
+            JPanAmendApp.setVisible(false);
+            jpanAddPresSingInst.setVisible(true);
+            
+      DoctMenSingInst.add(jpanAddPresSingInst, BorderLayout.NORTH);
+        }
+            
+            
           
           
         revalidate();

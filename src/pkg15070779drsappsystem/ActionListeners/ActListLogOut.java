@@ -8,6 +8,7 @@ import pkg15070779drsappsystem.JFrames.JFrameLoginScreen;
 import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
 import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
+import pkg15070779drsappsystem.JPanels.JPanelAppAddPrescrip;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
@@ -89,6 +90,7 @@ public class ActListLogOut implements ActionListener {
         
         JPanelPatFindDocView inst = JPanelPatFindDocView.getInstance();
          JPanTextFieldForReports.setVisible(false);
+         JPanelAppAddPrescrip jpanAddpresSingInst = JPanelAppAddPrescrip.getInstance();
         
 
         
@@ -104,7 +106,7 @@ public class ActListLogOut implements ActionListener {
          JPanViewAllAppsDoc.setVisible(false);
           JPanAmendAppDoc.setVisible(false);
           JPanelFindPatDoc.setVisible(false); 
-        
+        jpanAddpresSingInst.setVisible(false);
    
         
  //clears the Jtextholder that updates with the patient's record details, when they logout
