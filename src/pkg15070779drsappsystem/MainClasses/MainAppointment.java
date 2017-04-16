@@ -62,6 +62,10 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     
 //@@@@@@@@@@@ Setters @@@@@@@@@@   
     
+    
+        
+    
+    
     public static void addAppKeyToList(String appkeyin){
         lstStrAllAppKeys.add(appkeyin);
     }

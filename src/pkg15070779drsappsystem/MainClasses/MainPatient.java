@@ -1,9 +1,12 @@
 package pkg15070779drsappsystem.MainClasses;
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.Interfaces.MainIntAbsUserComponent;
 import java.util.*;
 import javax.swing.JOptionPane;
+import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
+import static pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu.getInstance;
 
 public class MainPatient extends MainAbsSystemUserComponent implements MainIntAbsUserComponent   {
 //instance variables that are not essential to initialisation
@@ -107,12 +110,60 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
                 
     }
     
+    public void setAddNewAppToPatient(LocalDateTime appdateandtime, MainDoctor drin, MainPatient patientin, String symptoms){
+        //if the Dr selected (which is held in currentDoctor variable) has the date in their appointment
+        //instance list, it means they have that appointment free... so the patient can have that appointment
+        if (drin.getDocsAvailableAppointments().contains(appdateandtime)){
+
+            //add the appointment via the patient
+            patientin.addNewAppointment(appdateandtime, drin.getUserName(), symptoms);
+  
+            //put the patient back in the right map - updates the existing entry if teh key exists
+             MainAbsSystemUserComponent.setPutInMap(patientin.getUserName(), patientin);
+            
+            //remove the date object from the Doctors instance list
+            drin.getDocsAvailableAppointments().remove(appdateandtime);
+            
+            
+            //put the doctor back in the right map
+            MainAbsSystemUserComponent.setPutInMap(drin.getUserName(), MainDoctor.currentDoctor);
+            
+            
+            JOptionPane.showMessageDialog (null,
+                "The appointment has been added for: " +appdateandtime.toString() ,
+                "No appointment available",
+                JOptionPane.ERROR_MESSAGE);
+            
+            JFrameSecretaryMenu instHolder = getInstance();
+            instHolder.setSecSouthBorderString("DisplayPatientDetails");
+     
+            
+            
+        }
+        else if (appdateandtime.getDayOfWeek() == DayOfWeek.SATURDAY|| appdateandtime.getDayOfWeek() == DayOfWeek.SUNDAY){
+            JOptionPane.showMessageDialog (null,
+                "The selected date is either on a Saturday or Sunday, please select another date",
+                "No appointment available",
+                JOptionPane.ERROR_MESSAGE);
+        }
+        
+        else{
+            
+            JOptionPane.showMessageDialog (null,
+                "This Doctor doesn't have an  appointment available on the selected date / time, please try another date / time",
+                "No appointment available",
+                JOptionPane.ERROR_MESSAGE);
+          
+        }
+    }
+    
+  
      public void addNewAppointment(LocalDateTime appdateandtime,  String drwith, String symptoms){
             
-
-            //object composition to create the relationship over inheritence
+            
             LocalDateTime appDateAndTime = appdateandtime;
             String drWith = drwith;
+            //object composition to create the relationship over inheritence
             this.newAppointmentInst = new MainAppointment (this.getTitle(), this.getFirstName(), this.getSurname(), this.getUserName(), appDateAndTime, drWith, symptoms);
 
 
@@ -120,6 +171,7 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
             this.lstStrPatientApps.add(this.newAppointmentInst.getAppUniqueKey());
         
     }
+    
     
     public void addMedicine(String medtoadd){
         
