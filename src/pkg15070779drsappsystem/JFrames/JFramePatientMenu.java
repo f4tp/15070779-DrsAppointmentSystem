@@ -1,6 +1,6 @@
 
 package pkg15070779drsappsystem.JFrames;
-import pkg15070779drsappsystem.ListenersAction.ActListLogOut;
+import pkg15070779drsappsystem.ListenersAction.ActListLogoutSystem;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -29,7 +29,7 @@ public class JFramePatientMenu extends JFrame {
         
         JMenuItem logOutItem = new JMenuItem ("Logout");
         //logOutItem.addActionListener(new ActLisExitProg ());
-        logOutItem.addActionListener(new ActListLogOut());
+        logOutItem.addActionListener(new ActListLogoutSystem());
         fileMenu.add(logOutItem);
         
         

@@ -1,37 +1,24 @@
-package pkg15070779drsappsystem.ListenersAction;
 
-import java.awt.event.*;
-import javax.swing.*;
+package pkg15070779drsappsystem.MainAbstractClasses;
+
+import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
 import pkg15070779drsappsystem.JFrames.JFrameLoginScreen;
 import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
 import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.JPanels.JPanelPatRecordPatView;
-import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainPharmacist;
 import pkg15070779drsappsystem.MainClasses.MainSecretary;
 
-
-
-public class ActListLogUSerIn implements ActionListener {
-    //takes the username from a textfield, checks to see if the username exists in the
-    //system
-   
-    //textfield passed in so username can be taken from here
-    private JTextField INPUTTEXT;
-  
-    
-    public ActListLogUSerIn(JTextField InpText){
-        this.INPUTTEXT = InpText;
-    }
-    
-    public void actionPerformed(ActionEvent e){
-        //gets username and converts to lower case for validation purposes
-        String lowerCaseUserName = INPUTTEXT.getText().toLowerCase();
+public abstract class MainAbsLogin {
+    MainAbsSystemUserComponent currentSystemUserInst;
+    public static void login(String usernamein){
+        
+        //converts all string to lowercase for validation purposes
+        String lowerCaseUserName = usernamein.toLowerCase();
         
         //if the login is incorrect, a user will not be found... show error prompt
         if (MainAbsSystemUserComponent.getCheckLogin(lowerCaseUserName) == false){
@@ -41,13 +28,13 @@ public class ActListLogUSerIn implements ActionListener {
                 JOptionPane.ERROR_MESSAGE);
         }
         
-        //if a user is found, it will be one of many different subtypes of MainSystemUserComponent
+        //if a user is found / exists, it will be one of many different subtypes of MainSystemUserComponent
         //the next part of the code detects which object type it is and reacts accordingly
         else{
-            //set the current system user to whoever has just logged in
+                //set the current system user to whoever has just logged in - global static variable which keeps
+                //track of who is logged in at all times
                 MainAbsSystemUserComponent.setCurrentSystemUser(lowerCaseUserName); 
-                    
-
+                
                 //polymorphism here, object is initialised with subtype -
                 //this subtype is checked to pull up the correct JFrame adhering to
                 //the user type
@@ -58,7 +45,7 @@ public class ActListLogUSerIn implements ActionListener {
                     //polymorphism in action, the MainAbsSystemUserComponent object is cast to a MainPatient object
                     //make the login screen invisible
                     JFrameLoginScreen.setVisibility(false);
-                    //run teh right login screen
+                    //run the right login screen
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                         public void run() {
                           
@@ -106,11 +93,6 @@ public class ActListLogUSerIn implements ActionListener {
                   });
               }
               
-              
-              
-              
-              
-              
               else if (MainAbsSystemUserComponent.currentSystemUser instanceof MainDoctor){
                     JFrameLoginScreen.setVisibility(false);
 
@@ -137,5 +119,4 @@ public class ActListLogUSerIn implements ActionListener {
         }
     }
     
-  
 }

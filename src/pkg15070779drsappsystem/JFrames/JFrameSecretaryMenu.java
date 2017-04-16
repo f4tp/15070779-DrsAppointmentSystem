@@ -4,7 +4,7 @@ import pkg15070779drsappsystem.ListenersAction.ActLisExitProg;
 import java.awt.*;
 import javax.swing.*;
 import pkg15070779drsappsystem.ListenersAction.ActListDisplayJPanAllAvailAppsSec;
-import pkg15070779drsappsystem.ListenersAction.ActListLogOut;
+import pkg15070779drsappsystem.ListenersAction.ActListLogoutSystem;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
 import pkg15070779drsappsystem.JPanels.JPanelPatFindSecView;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppButPan;
@@ -43,7 +43,7 @@ public class JFrameSecretaryMenu extends JFrame {
         
         JMenuItem logOutItem = new JMenuItem ("Logout");
         //logOutItem.addActionListener(new ActLisExitProg ());
-        logOutItem.addActionListener(new ActListLogOut());
+        logOutItem.addActionListener(new ActListLogoutSystem());
         fileMenu.add(logOutItem);
         
         JMenuItem exitItem = new JMenuItem ("Exit");

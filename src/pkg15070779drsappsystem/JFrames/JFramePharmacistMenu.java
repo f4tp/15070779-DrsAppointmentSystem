@@ -9,7 +9,7 @@ import java.awt.Toolkit;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import pkg15070779drsappsystem.ListenersAction.ActListLogOut;
+import pkg15070779drsappsystem.ListenersAction.ActListLogoutSystem;
 
 public class JFramePharmacistMenu extends JFrame {
     
