@@ -1,9 +1,9 @@
 
 package pkg15070779drsappsystem.JPanels;
 
-import pkg15070779drsappsystem.ActionListeners.ActListPrintCurUserRec;
+import pkg15070779drsappsystem.ListenersAction.ActListPrintCurUserRec;
 import javax.swing.*;
-import pkg15070779drsappsystem.ActionListeners.ActListPatAttendAppoint;
+import pkg15070779drsappsystem.ListenersAction.ActListPatAttendAppoint;
 
 public class JPartPanelPatRecButPanPAT extends JPanel {
     

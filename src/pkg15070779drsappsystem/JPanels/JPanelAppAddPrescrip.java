@@ -7,8 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import pkg15070779drsappsystem.ActionListeners.ActListAddPrescription;
-import pkg15070779drsappsystem.ActionListeners.ActListDisplayJPanePatientRecDocView;
+import pkg15070779drsappsystem.ListenersAction.ActListAddPrescription;
+import pkg15070779drsappsystem.ListenersAction.ActListDisplayJPanePatientRecDocView;
 
 public class JPanelAppAddPrescrip extends JPanel {
     public static JPanelAppAddPrescrip jpanAddPresSingInst;

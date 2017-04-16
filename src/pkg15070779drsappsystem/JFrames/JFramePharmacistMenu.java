@@ -1,7 +1,7 @@
 package pkg15070779drsappsystem.JFrames;
 
-import pkg15070779drsappsystem.ActionListeners.ActListSetSecJFramePARTofFACTORYsec;
-import pkg15070779drsappsystem.ActionListeners.ActLisExitProg;
+import pkg15070779drsappsystem.ListenersAction.ActListSetSecJFramePARTofFACTORYsec;
+import pkg15070779drsappsystem.ListenersAction.ActLisExitProg;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -9,7 +9,7 @@ import java.awt.Toolkit;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import pkg15070779drsappsystem.ActionListeners.ActListLogOut;
+import pkg15070779drsappsystem.ListenersAction.ActListLogOut;
 
 public class JFramePharmacistMenu extends JFrame {
     

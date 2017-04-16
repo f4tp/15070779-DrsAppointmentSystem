@@ -20,6 +20,7 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
     private String patUniqueID;
     private String docUniqueID;
     private String appUniqueID;
+    private Boolean presDispatched;
     
     public MainPrescription(String medicinedesc, String medamount, String patientid, String doctorid, String appid){
         this.presUniqueKey = generatePresUniKey();
@@ -28,6 +29,7 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
         this.patUniqueID = patientid;
         this.docUniqueID = doctorid;
         this.appUniqueID = appid;
+        this.presDispatched = false;
         
         //adds the prescription unique key to the static list, so it contains all prescription IDss issued... can be searched later
         addPresKeyToList(this.presUniqueKey);
@@ -38,6 +40,13 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
                 //put in map to store it
     }
     
+    public void setPresAsDispatched(){
+        this.presDispatched = true;
+    }
+    
+        public void setpresAsNotDispatched(){
+        this.presDispatched = false;
+    }
     
     public static void addPresKeyToList(String appkeyin){
         lstStrAllPresKeys.add(appkeyin);
@@ -110,7 +119,7 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
     
     @Override
     public String toString(){
-        return "Prescription ID: " + this.presUniqueKey + "| Medicine Description: " +  this.presMedicineDesc + "| Medicine Amount: " + this.presMedAmount + "| Patient Prescribed For: " + this.patUniqueID + "| Doctor Prescribed by: " + this.docUniqueID + " |Appointment ID Connected by: " + this.appUniqueID + "\n \n";
+        return "Prescription ID: " + this.presUniqueKey + "| Medicine Description: " +  this.presMedicineDesc + "| Medicine Amount: " + this.presMedAmount + "| Patient Prescribed For: " + this.patUniqueID + "| Doctor Prescribed by: " + this.docUniqueID + " |Appointment ID Connected by: " + this.appUniqueID + "| prescription dispatched to patient: " + this.presDispatched +  "\n \n";
     }
     
 

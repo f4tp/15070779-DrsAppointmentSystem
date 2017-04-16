@@ -1,13 +1,13 @@
 
 package pkg15070779drsappsystem.JPanels;
 
-import pkg15070779drsappsystem.ActionListeners.ActListAddDoctor;
+import pkg15070779drsappsystem.ListenersAction.ActListAddDoctor;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.ActionListeners.ActListReturnPatientRec;
+import pkg15070779drsappsystem.ListenersAction.ActListReturnPatientRec;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 
 

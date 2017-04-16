@@ -4,6 +4,7 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import java.util.*;
 import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 public final class MainAppointment extends MainAbsAppointmentComponent {
 //@@@@@@@@@@@ static variables @@@@@@@@@@@
@@ -263,6 +264,18 @@ public final class MainAppointment extends MainAbsAppointmentComponent {
     
     public void setAppDateTime(LocalDateTime appDateTime){
         this.appDateAndTime = appDateTime;
+    }
+    
+    
+    //routine checks all appointments  that haven't had their attended status (marked / missed / cancelled) updated
+    //that have happened before today's date and time, and will mark them as missed
+    public static void setAllRelAppsAsMissed(){
+        for (String temp: lstStrAllAppKeys){
+            MainAppointment currAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
+            if (currAppInst.getAttended() == false && currAppInst.appCancelled == false && currAppInst.appMissed ==false && currAppInst.getAPPDateAndTime().isBefore(MainAbsScheduling.getDateToday())){
+                currAppInst.setAppMissed(true);
+            }
+        }
     }
     
                 

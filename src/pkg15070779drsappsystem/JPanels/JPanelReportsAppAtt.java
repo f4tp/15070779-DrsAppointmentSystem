@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.ActionListeners.ActListRunReport;
+import pkg15070779drsappsystem.ListenersAction.ActListRunReport;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 
 public class JPanelReportsAppAtt extends JPanel {

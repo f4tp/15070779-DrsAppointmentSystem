@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import pkg15070779drsappsystem.ActionListeners.ActListReturnPatientRec;
+import pkg15070779drsappsystem.ListenersAction.ActListReturnPatientRec;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 public class JPanelAppsShowAllForPatientSEC extends JPanel {

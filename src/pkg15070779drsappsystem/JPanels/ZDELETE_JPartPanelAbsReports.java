@@ -4,8 +4,8 @@ package pkg15070779drsappsystem.JPanels;
 import java.awt.*;
 import javax.swing.*;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.ActionListeners.ActListRunReport;
-import pkg15070779drsappsystem.ActionListeners.ActListSetSecJFramePARTofFACTORYsec;
+import pkg15070779drsappsystem.ListenersAction.ActListRunReport;
+import pkg15070779drsappsystem.ListenersAction.ActListSetSecJFramePARTofFACTORYsec;
 
 
 //this is abstract because it is never instantiated, it is  a component part of other JPanels, other classes

@@ -3,8 +3,8 @@ package pkg15070779drsappsystem.JPanels;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.ActionListeners.ActListAmendSelPatientRecSECnDOC;
-import pkg15070779drsappsystem.ActionListeners.ActListReturnPatientRec;
+import pkg15070779drsappsystem.ListenersAction.ActListAmendSelPatientRecSECnDOC;
+import pkg15070779drsappsystem.ListenersAction.ActListReturnPatientRec;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;

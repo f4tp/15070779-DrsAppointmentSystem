@@ -8,7 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import pkg15070779drsappsystem.ActionListeners.ActListFindPatientDoc;
+import pkg15070779drsappsystem.ListenersAction.ActListFindPatientDoc;
 import pkg15070779drsappsystem.JPanels.JPartPanelPadding;
 import pkg15070779drsappsystem.JPanels.JPartPanelTemplateSixGridView;
 

@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.ActionListeners.ActListPerfSearchAllAvailAppointments;
+import pkg15070779drsappsystem.ListenersAction.ActListPerfSearchAllAvailAppointments;
 
 
 public class JPanelAppsShowAllForDoctor extends JPanel {

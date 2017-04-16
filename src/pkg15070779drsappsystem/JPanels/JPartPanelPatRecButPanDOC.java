@@ -4,9 +4,9 @@ package pkg15070779drsappsystem.JPanels;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.ActionListeners.ActListDisplayJPanAddDocSec;
-import pkg15070779drsappsystem.ActionListeners.ActListDisplayJPanPatientApps;
-import pkg15070779drsappsystem.ActionListeners.ActListNewAppointment;
+import pkg15070779drsappsystem.ListenersAction.ActListDisplayJPanAddDocSec;
+import pkg15070779drsappsystem.ListenersAction.ActListDisplayJPanPatientApps;
+import pkg15070779drsappsystem.ListenersAction.ActListNewAppointment;
 
 public class JPartPanelPatRecButPanDOC extends JPanel {
     public static JPartPanelPatRecButPanDOC JPanButDocInst;

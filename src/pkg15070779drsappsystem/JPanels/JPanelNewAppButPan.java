@@ -4,9 +4,8 @@ package pkg15070779drsappsystem.JPanels;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.ActionListeners.ActListAddAppointment;
-
-import pkg15070779drsappsystem.ActionListeners.ActListReturnPatientRec;
+import pkg15070779drsappsystem.ListenersAction.ActListAddAppointment;
+import pkg15070779drsappsystem.ListenersAction.ActListReturnPatientRec;
 
 public class JPanelNewAppButPan extends JPanel {
     public static JPanelNewAppButPan JPanNewAppButSingInst;
