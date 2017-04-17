@@ -2,16 +2,16 @@ package pkg15070779drsappsystem.MainClasses;
 
 import java.time.LocalDateTime;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.Interfaces.MainIntAbsUserComponent;
 import java.util.*;
 import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
+import pkg15070779drsappsystem.Interfaces.MainInterfaceSystemUsers;
 
 
-public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbsUserComponent  {
+public class MainDoctor extends MainAbsSystemUserComponent implements MainInterfaceSystemUsers  {
    //holds the current dr who is being searched for by any user
     public static MainDoctor currentDoctor;
     
@@ -24,12 +24,15 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
     //holds all available appointment times - used for scheduling
     private List<LocalDateTime> lstDocsAvailAppointments = new ArrayList<>();
     //holds all taken appointment times - used for scheduling
-    private List<LocalDateTime> lstDocsSetAppointments = new ArrayList<>();
+    private List<LocalDateTime> lstDocsTakenAppointments = new ArrayList<>();
     //holds all appointment keys that this doctor has, will be used to generate reports
     //appointment keys are never deleted from here once in, as appointments aren;t deleted
     //they are amended or marked as cancelled or missed for example.
     private List<String> lstAppointmentKeys = new ArrayList<>();
     //private String strUniqueDrName;
+    
+    
+//@@@@@@@@@@ Constructor @@@@@@@@@@     
     public MainDoctor(String fname, String sname, String title, String dob, String newer){
      
         this.STRTITLE = title;
@@ -37,9 +40,6 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         this.STRSURNAME = sname;
         this.STRDOB = dob;
         this.STRKEYUSERNAME = setGenerateUsername(this.STRFIRSTNAME, this.STRSURNAME, this.STRDOB);
-      
-        //this.strUniqueDrName = this.setGenerateUniqueDrName();
-       // System.out.println(strUniqueDrName);
         LSTDOCTORS.add(STRKEYUSERNAME);
         
         //generates a list with all available appointments on
@@ -49,12 +49,64 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         
         //add the user object to the map
          setPutInMap(this.STRKEYUSERNAME, this); 
-        
+      }
+ 
+    
+    
+//@@@@@@@@@@ More Complicated Setters @@@@@@@@@@     
+    
+    public  void addAppointmentToDrsList(LocalDateTime datein, String appkeyin){
+        //sets the static varible to the doctor we are searching for
+        //MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(drkey);
+        //adds the appointment time to the Drs taken appointment lists
+        this.lstDocsTakenAppointments.add(datein);
+        //deletes the time from their available appointments list
+        this.lstDocsAvailAppointments.remove(datein);
+        //adds the key to the doctors appointment list
+        this.setAddAppKeyToList(appkeyin);
+        //put the Dr back in the map after they have been edited
+        MainAbsSystemUserComponent.setPutInMap(this.getUserName(), this);
     }
     
     
     
-    //@@@@@@@@@@ interface getters @@@@@@@@@@
+//@@@@@@@@@@Setters @@@@@@@@@@   
+    
+     //each dr has a list storing all of the keys to their appointments... this adds the keys
+    //is private as called from another public routine
+    private void setAddAppKeyToList(String keyin){
+        this.lstAppointmentKeys.add(keyin);
+    }
+    
+      //removes the given appointment time from the doctors taken appointment times  list
+    public void setRemoveLDTFromAppTimesTakenList(LocalDateTime datetimetoremove){
+        this.lstDocsTakenAppointments.remove(datetimetoremove);
+        //doesn't need sorting as will still be in order
+    }
+    
+      //removes the given appointment time from the doctors available appointment times  list
+    public void setRemoveLDTFromAppTimesAvailableList(LocalDateTime datetimetoremove){
+        this.lstDocsAvailAppointments.remove(datetimetoremove);
+        //doesn't need sorting as will still be in order
+    }
+    
+    //adds and appointment time to the doctors taken appointments list
+     public void setAddLDTToAppTimesTakenList(LocalDateTime datetimetoadd){
+        this.lstDocsTakenAppointments.add(datetimetoadd);
+        //sort to put back in order
+        Collections.sort(this.lstDocsTakenAppointments);
+    }
+
+     //adds an appointment time to the doctors appointments available list
+     public void setAddLDTToAppTimesAvailableList(LocalDateTime datetimetoadd){
+        this.lstDocsAvailAppointments.add(datetimetoadd);
+        //sort to put back in order
+        Collections.sort(this.lstDocsAvailAppointments);
+            
+    }
+    
+    
+//@@@@@@@@@@ interface getters @@@@@@@@@@
     @Override
     public String getUserName(){
         return this.STRKEYUSERNAME;
@@ -78,45 +130,10 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
         return this.STRDOB;
     }
     
-    public List<LocalDateTime> getDocsAvailableAppointments(){
-        return this.lstDocsAvailAppointments;
-    }
     
-    public  void addAppointmentToDrsList(LocalDateTime datein, String appkeyin){
-        
-        //sets the static varible to the doctor we are searching for
-        //MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(drkey);
-        //adds the appointment time to the Drs taken appointment lists
-        this.lstDocsSetAppointments.add(datein);
-        
-        //deletes the time from their available appointments list
-        this.lstDocsAvailAppointments.remove(datein);
-        
-        //adds the key to the doctors appointment list
-        this.setAddAppKeyToList(appkeyin);
-        
-        //put the Dr back in the map after they have been edited
-        MainAbsSystemUserComponent.setPutInMap(this.getUserName(), this);
-    }
+//@@@@@@@@@@ More Complicated Getters @@@@@@@@@@
     
-  
-    //add a key to the doctors map
-    //is public as appointments have to be ammended
-    public void setAddAppKeyToList(String keyin){
-        this.lstAppointmentKeys.add(keyin);
-    }
-    //appointments never removed, even if cancelled or missed, they stay on record - for reports
-    //so no remove app key list
-   // public void setRemoveAppKeyFromList(String keyin){
-    //    this.lstAppointmentKeys.remove(keyin);
-   // }
-    
-    public List<String> getAppKeyList(){
-        return this.lstAppointmentKeys;
-    }
-    
-    
-    //for reports
+        //for reports
     public static List<LocalDateTime> getDocsMonthlySetAppointments(MainDoctor doctorin, LocalDateTime datefrom ){
         
        // gets the username of the dr selected in the combobox and pulls the correct Dr user into searchedForDoc
@@ -127,7 +144,7 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
   
         //loop through the doctors set appointment list, check whether they are in this month, add them to the new list if they are
         
-        for(LocalDateTime temp: doctorin.lstDocsSetAppointments){
+        for(LocalDateTime temp: doctorin.lstDocsTakenAppointments){
             if(temp.getMonth() == datefrom.getMonth() && temp.getYear() == datefrom.getYear()){
                 lstMonthlyApps.add(temp);
             }
@@ -174,52 +191,21 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainIntAbs
          return foundAppointments;
     }
     
-    //public String setGenerateUniqueDrName(){
-        //return this.getTitle() + " " + this.getFirstName()+ " " + this.getSurname(); //creates a unique dr name 
-        
-    //}
+//@@@@@@@@@@ Getters @@@@@@@@@@
     
-    public static String setGenerateUniqueDrNameStatic(String userID){
-        
-        return "Change me";
+    public List<LocalDateTime> getDocsAvailableAppointments(){
+        return this.lstDocsAvailAppointments;
     }
+   
+    
+    public List<String> getAppKeyList(){
+        return this.lstAppointmentKeys;
+    }
+    
     
     public static List<String> getListAllDoctors(){
                        
         return LSTDOCTORS;
     }
     
-      //removes the given appointment time from the doctors taken appointment times  list
-    public void setRemoveLDTFromAppTimesTakenList(LocalDateTime datetimetoremove){
-        this.lstDocsSetAppointments.remove(datetimetoremove);
-    }
-    
-      //removes the given appointment time from the doctors available appointment times  list
-    public void setRemoveLDTFromAppTimesAvailableList(LocalDateTime datetimetoremove){
-        this.lstDocsAvailAppointments.remove(datetimetoremove);
-    }
-    
-    //adds and appointment time to the doctors taken appointments list
-     public void setAddLDTToAppTimesTakenList(LocalDateTime datetimetoadd){
-        this.lstDocsSetAppointments.add(datetimetoadd);
-        
-        //NTD - do I sort the list afterwards? how do I do this when the objects are dates?
-    }
-    
-    
-     //adds an appointment time to the doctors appointments available list
-     public void setAddLDTToAppTimesAvailableList(LocalDateTime datetimetoadd){
-        this.lstDocsAvailAppointments.add(datetimetoadd);
-        
-        //NTD - do I sort the list afterwards? how do I do this when the objects are dates?
-    }
-     
-     
-    
-        
-    
-    //@Override
-   //public String toString () {
-        //return super.getTitle(this) + " " + super.getFirstName(this)+ " "+ super.getSurname(this); 
-    //}
 }

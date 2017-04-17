@@ -76,10 +76,10 @@ public class ActListAmendSelPatientRecSECnDOC implements ActionListener{
                      String curPatUsername = MainPatient.currentPatient.getUserName();
 
                      String curAppId = MainAppointment.currentAppointment.getAppUniqueKey();
-                     String curAppDrWith = MainAppointment.currentAppointment.getDrAppWith();
+                     String curAppDrWith = MainAppointment.currentAppointment.getProfessionalAppWith();
                      LocalDateTime curAppDateTime = MainAppointment.currentAppointment.getAPPDateAndTime();
                      String currAppsymptoms = MainAppointment.currentAppointment.getSymptoms();
-                     String curDrsComments = MainAppointment.currentAppointment.getDrsComments();
+                     String curDrsComments = MainAppointment.currentAppointment.getProfessionalsComments();
                      Boolean curAppAttended = MainAppointment.currentAppointment.getAttended();
                      Boolean curAppCancelled = MainAppointment.currentAppointment.getCancelled();
                      Boolean currAppMissed = MainAppointment.currentAppointment.getMissed();
@@ -159,10 +159,10 @@ public class ActListAmendSelPatientRecSECnDOC implements ActionListener{
                      String curPatUsername = MainPatient.currentPatient.getUserName();
 
                      String curAppId = MainAppointment.currentAppointment.getAppUniqueKey();
-                     String curAppDrWith = MainAppointment.currentAppointment.getDrAppWith();
+                     String curAppDrWith = MainAppointment.currentAppointment.getProfessionalAppWith();
                      LocalDateTime curAppDateTime = MainAppointment.currentAppointment.getAPPDateAndTime();
                      String currAppsymptoms = MainAppointment.currentAppointment.getSymptoms();
-                     String curDrsComments = MainAppointment.currentAppointment.getDrsComments();
+                     String curDrsComments = MainAppointment.currentAppointment.getProfessionalsComments();
                      String curAppAttended = MainAppointment.currentAppointment.getAttended().toString();
                      String curAppCancelled = MainAppointment.currentAppointment.getCancelled().toString();
                      String currAppMissed = MainAppointment.currentAppointment.getMissed().toString();

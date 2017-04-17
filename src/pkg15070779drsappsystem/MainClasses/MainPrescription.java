@@ -9,15 +9,16 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
 
 public class MainPrescription extends MainAbsPrescriptionComponent{
-    
+
+//@@@@@@@@@@ static fields @@@@@@@@@@
     //holds the current prescriptions that are being worked on by a doctor, secretary or phramacist
-    
-    //this is teh searched for appointments prescription list
+    //this is the searched for appointments prescription list
     public static List <MainPrescription> currentPrescription = new ArrayList<>();
-    
+    private static List<String> lstStrAllPresKeys = new ArrayList<>();
+  //@@@@@@@@@@ instance fields @@@@@@@@@@  
     //holds all prescription keys so they can be searched, never deleted from as all appointments stay on file
     //for report searching
-    private static List<String> lstStrAllPresKeys = new ArrayList<>();
+
     private String presUniqueKey;
     private String presMedicineDesc;
     private String presMedAmount;
@@ -25,6 +26,9 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
     private String docUniqueID;
     private String appUniqueID;
     private Boolean presDispatched;
+    
+
+//@@@@@@@@@@ construtor @@@@@@@@@@
     
     public MainPrescription(String medicinedesc, String medamount, String patientid, String doctorid, String appid){
         this.presUniqueKey = generatePresUniKey();
@@ -44,19 +48,10 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
                 //put in map to store it
     }
     
-    public void setPresAsDispatched(){
-        this.presDispatched = true;
-    }
     
-        public void setpresAsNotDispatched(){
-        this.presDispatched = false;
-    }
+//@@@@@@@@@@ more complicated setters @@@@@@@@@@
     
-    public static void addPresKeyToList(String appkeyin){
-        lstStrAllPresKeys.add(appkeyin);
-    }
-    
-    //gievn a date from, date to and a status of prescription, this methofreturns a list of prescription IDs 
+        //given a date from, date to and a status of prescription, this methofreturns a list of prescription IDs 
     //when they are within a certain date range and of a certain status (dispatched / not dispatched).
     public static List<String> getListPresWithDateAndStatus(LocalDateTime datefrom, LocalDateTime dateto, Boolean status){
         List <String> lstFoundPrescriptions = new ArrayList<>();
@@ -67,9 +62,7 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
                      "The date to is before the date FROM. Please check your dates and try again",
                      "Check Dates",
                      JOptionPane.ERROR_MESSAGE);
-
-            }
-         
+            } 
          else{
              
                 for (String tempPresKey : lstStrAllPresKeys){
@@ -88,32 +81,47 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
                }
          }
          
-         //will return a full list or an empty list, either way ti has to return
+         //will return a full list or an empty list, either way it has to return
          return lstFoundPrescriptions;
+    }    
+    
+    public void setPresMedicineDesc(String meddescin){
+        
+        if (this.presMedicineDesc == null){
+             this.presMedicineDesc = "there is no prescription for this appointment yet";
+         }
+        this.presMedicineDesc = meddescin;
+    }
+    
+    public void setPresMedicineAmount(String medamountin){
+        
+         if (this.presMedAmount == null){
+             this.presMedAmount = "there is no prescription for this appointment yet";
+         }
+        this.presMedAmount = medamountin;
+    }
+    
+  
+//@@@@@@@@@@simple setters @@@@@@@@@@
+    
+    public void setPresAsDispatched(){
+        this.presDispatched = true;
+    }
+    
+        public void setpresAsNotDispatched(){
+        this.presDispatched = false;
+    }
+    
+    public static void addPresKeyToList(String appkeyin){
+        lstStrAllPresKeys.add(appkeyin);
     }
     
     
-    public static List <String> getPresKeyList(){
-        return lstStrAllPresKeys;
-    }
-    
-    public String getLinkedAppID(){
-        return this.appUniqueID;
-    }
-    
-    public Boolean getDispatchedStatus(){
-        return this.presDispatched;
-    }
-    
-
-    
- 
-    public String getPresUniqueID(){
+ //@@@@@@@@@@More complex  getters @@@@@@@@@@   
+      public String getPresUniqueID(){
          if (this.presUniqueKey == null){
              this.presUniqueKey = "there is no prescription for this appointment yet";
          }
-         
-         System.out.println("raaarrr" + this.presUniqueKey);
         
         return this.presUniqueKey;
     }
@@ -148,24 +156,32 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
          }
         
         return this.docUniqueID;
+    }  
+    
+
+//@@@@@@@@@@simple getters @@@@@@@@@@
+    
+    public static List <String> getPresKeyList(){
+        return lstStrAllPresKeys;
     }
     
-    public void setPresMedicineDesc(String meddescin){
-        
-        if (this.presMedicineDesc == null){
-             this.presMedicineDesc = "there is no prescription for this appointment yet";
-         }
-        this.presMedicineDesc = meddescin;
+    public String getLinkedAppID(){
+        return this.appUniqueID;
     }
     
-    public void setPresMedicineAmount(String medamountin){
-        
-         if (this.presMedAmount == null){
-             this.presMedAmount = "there is no prescription for this appointment yet";
-         }
-        this.presMedAmount = medamountin;
+    public Boolean getDispatchedStatus(){
+        return this.presDispatched;
     }
     
+
+    
+ 
+
+    
+
+ 
+    
+//@@@@@@@@@@ other methods @@@@@@@@@@    
     @Override
     public String toString(){
         return "Prescription ID: " + this.presUniqueKey + "| Medicine Description: " +  this.presMedicineDesc + "| Medicine Amount: " + this.presMedAmount + "| Patient Prescribed For: " + this.patUniqueID + "| Doctor Prescribed by: " + this.docUniqueID + " |Appointment ID Connected by: " + this.appUniqueID + "| prescription dispatched to patient: " + this.presDispatched +  "\n \n";

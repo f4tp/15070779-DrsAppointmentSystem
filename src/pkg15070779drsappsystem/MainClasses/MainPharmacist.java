@@ -1,11 +1,11 @@
 package pkg15070779drsappsystem.MainClasses;
 
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.Interfaces.MainIntAbsUserComponent;
+import pkg15070779drsappsystem.Interfaces.MainInterfaceSystemUsers;
 
-public class MainPharmacist extends MainAbsSystemUserComponent implements MainIntAbsUserComponent {
+public class MainPharmacist extends MainAbsSystemUserComponent implements MainInterfaceSystemUsers {
     private String apptest;
-    private String strTitle, strFirstName, strSurname, strDOB, strKeyUserNamel;
+    private String strTitle, strFirstName, strSurname, strDOB, strKeyUserName;
     
     
     public MainPharmacist(String fname, String sname, String title, String dob, String newer){
@@ -13,14 +13,14 @@ public class MainPharmacist extends MainAbsSystemUserComponent implements MainIn
         strFirstName = fname;
         strSurname = sname;
         strDOB = dob;
-        strKeyUserNamel = setGenerateUsername(this.strFirstName, this.strSurname, this.strDOB);
-        setPutInMap(this.strKeyUserNamel, this); //add the user object to the map
+        strKeyUserName = setGenerateUsername(this.strFirstName, this.strSurname, this.strDOB);
+        setPutInMap(this.strKeyUserName, this); //add the user object to the map
         
     }
     
-     //@@@@@@@@@@ interface getters @@@@@@@@@@
+//@@@@@@@@@@ interface getters @@@@@@@@@@
     public String getUserName(){
-        return this.strKeyUserNamel;
+        return this.strKeyUserName;
     }
     
     public String getTitle(){

@@ -95,12 +95,12 @@ public abstract class AABLoadData {
         
         //amend some appointments with prescriptions
         MainAppointment app1 = (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment1");
-        app1.setAppAttendSec(true);
+        app1.setAppAttend(true);
         app1.addPrescriptionForApp("Paracetemol", "24 X 500mg", "alan.turing.01011900", "gregory.house.01011910", "Appointment1");
         
         
         MainAppointment app2 = (MainAppointment) MainAbsAppointmentComponent.getAppointment("Appointment2");
-        app1.setAppAttendSec(true);
+        app1.setAppAttend(true);
         app2.addPrescriptionForApp("Ibuprofen", "24 X 250mg", "donald.knuth.01011902", "peter.venkman.01011911", "Appointment2");
         
         

@@ -85,7 +85,7 @@ public class ActListAmendAppointmentDOC implements ActionListener {
         
         else{
          
-                    currentAppointmentInst.setDrsComments(DrsCommentsIn.getText());
+                    currentAppointmentInst.setProfessionalsComments(DrsCommentsIn.getText());
 
                   //put the appointment back in the map
                    // MainAbsAppointmentComponent.setPutInMap(AppKeyIn.getText(), currentAppointmentInst);

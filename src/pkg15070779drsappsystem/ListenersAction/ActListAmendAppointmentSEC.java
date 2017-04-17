@@ -134,7 +134,7 @@ public class ActListAmendAppointmentSEC implements ActionListener {
                 if (amendAppFormInst.getFormUpdatedNotDateTime() == true){
          
                      //set appointment attended status
-                    currentAppointmentInst.setAppAttendSec(attendedIn.isSelected());
+                    currentAppointmentInst.setAppAttend(attendedIn.isSelected());
 
                     //set appointment missed status
                     currentAppointmentInst.setAppMissed(missedIn.isSelected());

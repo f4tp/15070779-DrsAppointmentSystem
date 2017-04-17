@@ -1,9 +1,9 @@
 package pkg15070779drsappsystem.MainClasses;
 
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.Interfaces.MainIntAbsUserComponent;
+import pkg15070779drsappsystem.Interfaces.MainInterfaceSystemUsers;
 
-public class MainSecretary extends MainAbsSystemUserComponent implements MainIntAbsUserComponent  {
+public class MainSecretary extends MainAbsSystemUserComponent implements MainInterfaceSystemUsers  {
    
     public static MainSecretary currentSecretary;
     
