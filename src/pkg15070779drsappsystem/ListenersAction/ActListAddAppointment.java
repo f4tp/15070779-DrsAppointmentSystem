@@ -45,53 +45,7 @@ public class ActListAddAppointment implements ActionListener {
         
         //calls the setAddNewAppToPatient routine
         currentPatientInst.setAddNewAppToPatient(ldtPotAppDateTime, currentDoctorInst, currentPatientInst, strSymptoms);
-        /*
-        //if the Dr selected (which is held in currentDoctor variable) has the date in their appointment
-        //instance list, it means they have that appointment free... so the patient can have that appointment
-        if (currentDoctorInst.getDocsAvailableAppointments().contains(ldtPotAppDateTime)){
-
-            //add the appointment via the patient
-            currentPatientInst.addNewAppointment(ldtPotAppDateTime, strDoctor, strSymptoms);
-  
-            //put the patient back in the right map - updates the existing entry if teh key exists
-             MainAbsSystemUserComponent.setPutInMap(currentPatientInst.getUserName(), currentPatientInst);
-            
-            //remove the date object from the Doctors instance list
-            currentDoctorInst.getDocsAvailableAppointments().remove(ldtPotAppDateTime);
-            
-            
-            //put the doctor back in the right map
-            MainAbsSystemUserComponent.setPutInMap(currentDoctorInst.getUserName(), MainDoctor.currentDoctor);
-            
-            
-            JOptionPane.showMessageDialog (null,
-                "The appointment has been added for: " +ldtPotAppDateTime.toString() ,
-                "No appointment available",
-                JOptionPane.ERROR_MESSAGE);
-            
-            JFrameSecretaryMenu instHolder = getInstance();
-            instHolder.setSecSouthBorderString("DisplayPatientDetails");
      
-            
-            
-        }
-        else if (ldtPotAppDateTime.getDayOfWeek() == DayOfWeek.SATURDAY|| ldtPotAppDateTime.getDayOfWeek() == DayOfWeek.SUNDAY){
-            JOptionPane.showMessageDialog (null,
-                "The selected date is either on a Saturday or Sunday, please select another date",
-                "No appointment available",
-                JOptionPane.ERROR_MESSAGE);
-        }
-        
-        else{
-            
-            JOptionPane.showMessageDialog (null,
-                "This Doctor doesn't have an  appointment available on the selected date / time, please try another date / time",
-                "No appointment available",
-                JOptionPane.ERROR_MESSAGE);
-          
-        }
-            */
-        
     }
     
     

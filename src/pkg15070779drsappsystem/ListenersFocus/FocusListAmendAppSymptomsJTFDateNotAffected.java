@@ -19,7 +19,6 @@ public class FocusListAmendAppSymptomsJTFDateNotAffected implements FocusListene
     public void focusGained(FocusEvent fe) {
         
         if(this.calledFrom == "Sec"){
-         System.out.println("item listener triggered");
         JPanelAppAmendSecView refHolder = JPanelAppAmendSecView.getInstance();
         refHolder.setFormUpdatedNotDateTime(true);
         System.out.println(JPanelAppAmendSecView.getInstance().getFormUpdatedNotDateTime());
@@ -37,16 +36,13 @@ public class FocusListAmendAppSymptomsJTFDateNotAffected implements FocusListene
     @Override
     public void focusLost(FocusEvent fe) {
      if(this.calledFrom == "Sec"){
-         System.out.println("item listener triggered");
         JPanelAppAmendSecView refHolder = JPanelAppAmendSecView.getInstance();
         refHolder.setFormUpdatedNotDateTime(true);
-        System.out.println(JPanelAppAmendSecView.getInstance().getFormUpdatedNotDateTime());
         }
         else if(this.calledFrom == "Doc"){
         JPanelAppAmendDocView refHolder = JPanelAppAmendDocView.getInstance();
         refHolder.setFormUpdatedNotDateTime(true);
-        System.out.println(JPanelAppAmendDocView.getInstance().getFormUpdatedNotDateTime());
-        }
+         }
     }
     
 }

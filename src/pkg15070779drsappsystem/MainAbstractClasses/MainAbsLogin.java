@@ -17,11 +17,13 @@ public abstract class MainAbsLogin {
     MainAbsSystemUserComponent currentSystemUserInst;
     public static void login(String usernamein){
         
+        JFrameLoginScreen jfLoginScrenSingInst = JFrameLoginScreen.getInstance();
+        
         //converts all string to lowercase for validation purposes
         String lowerCaseUserName = usernamein.toLowerCase();
         
         //if the login is incorrect, a user will not be found... show error prompt
-        if (MainAbsSystemUserComponent.getCheckLogin(lowerCaseUserName) == false){
+        if (MainAbsSystemUserComponent.getLoginCheckUserExists(lowerCaseUserName) == false){
             JOptionPane.showMessageDialog (null,
                 "The user has not been found in the system. Please try different details.",
                 "User not found",
@@ -44,72 +46,51 @@ public abstract class MainAbsLogin {
                     //this means there has been a user found and it is  a secretary object
                     //polymorphism in action, the MainAbsSystemUserComponent object is cast to a MainPatient object
                     //make the login screen invisible
-                    JFrameLoginScreen.setVisibility(false);
+                    
+                    jfLoginScrenSingInst.setVisible(false);
                     //run the right login screen
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                         public void run() {
-                          
                          MainSecretary.currentSecretary = (MainSecretary) MainAbsSystemUserComponent.currentSystemUser; 
-                         
                         JFrameSecretaryMenu SecMenuMain = JFrameSecretaryMenu.getInstance();
-                        
-                        //sets the Patient Record JPanel to have the right buttons on as the patient sees the same JPanel
-                        //as the secretary, just with fewer options
-                        //AbsApplyButtonsToPatRecPanel.setButtonsToPatientRecordJPanel();  
-                        
-                        //JPanelPatientRecordSecView tmpInst = JPanelPatRecordSecView.getInstance();
-                        //tmpInst.setUpdateTextFields();
                         SecMenuMain.setVisible(true);
                         } 
                     });
-               
             }
-              
-              
+
               else if (MainAbsSystemUserComponent.currentSystemUser instanceof MainPatient){
-                    JFrameLoginScreen.setVisibility(false);
+                    jfLoginScrenSingInst.setVisible(false);
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                       public void run() {
                         
           
                          MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.currentSystemUser;     
                         JFramePatientMenu PatMenuMain = JFramePatientMenu.getInstance();
-                        
-                        //sets the Patient Record JPanel to have the right buttons on as the patient sees the same JPanel
-                        //as the secretary, just with fewer options
-                        //AbsApplyButtonsToPatRecPanel.setButtonsToPatientRecordJPanel();  
-                        
                         JPanelPatRecordPatView tmpInst = JPanelPatRecordPatView.getInstance();
                         tmpInst.setUpdateTextFields();
-                        
                         PatMenuMain.setVisible(true);
-                        
-                        //JFramePatientMenu PatMenuMain = new JFramePatientMenu();
-                       //SecMenuSingInst
-                       
-                       
-                      //PatMenuMain.setVisibility(true);
+
                       } 
                   });
               }
               
               else if (MainAbsSystemUserComponent.currentSystemUser instanceof MainDoctor){
-                    JFrameLoginScreen.setVisibility(false);
+                    jfLoginScrenSingInst.setVisible(false);
 
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                       public void run() {
                       JFrameDoctorMenu DocMenuMain = JFrameDoctorMenu.getInstance();
-                      DocMenuMain.setVisibility(true);
+                      DocMenuMain.setVisible(true);
                       } 
                   });
               }
               
               else if (MainAbsSystemUserComponent.currentSystemUser instanceof MainPharmacist){
-                    JFrameLoginScreen.setVisibility(false);
+                   jfLoginScrenSingInst.setVisible(false);
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                       public void run() {
                       JFramePharmacistMenu PharmMenuMain = JFramePharmacistMenu.getInstance();
-                      PharmMenuMain.setVisibility(true);
+                      PharmMenuMain.setVisible(true);
                       } 
                   });
               }

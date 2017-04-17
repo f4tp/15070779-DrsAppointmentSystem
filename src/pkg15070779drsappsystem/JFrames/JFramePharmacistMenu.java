@@ -1,11 +1,8 @@
 package pkg15070779drsappsystem.JFrames;
 
-import pkg15070779drsappsystem.ListenersAction.ActListSetSecJFramePARTofFACTORYsec;
 import pkg15070779drsappsystem.ListenersAction.ActLisExitProg;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -32,7 +29,6 @@ public class JFramePharmacistMenu extends JFrame {
         
 
         JMenuItem logOutItem = new JMenuItem ("Logout");
-        //logOutItem.addActionListener(new ActLisExitProg ());
         logOutItem.addActionListener(new ActListLogoutSystem());
         fileMenu.add(logOutItem);
         
@@ -50,25 +46,9 @@ public class JFramePharmacistMenu extends JFrame {
         
         //lays out the frame using thsi abstract class
         JFrameAbsBorLayFillScreen.applyLayout(this);
-        /*
-        setLayout (new BorderLayout ());
-        
-         //code below sets the menu to the screen size
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        pack();
-        setBounds(0,0,screenSize.width, screenSize.height-40); //minus 40 for the task bar (which we want present)
-      
-        setVisible(true);
-        */
         
     }
-    
-    public void setVisibility(boolean vis){
-        
-        this.setVisible(vis);
-        
-    }
-    
+   
     //singleton DP
     public static JFramePharmacistMenu getInstance(){
         if (jfPharmMenSingInst == null){

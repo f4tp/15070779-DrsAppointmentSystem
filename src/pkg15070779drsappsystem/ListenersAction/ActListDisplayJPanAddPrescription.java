@@ -14,18 +14,14 @@ String DrIDIn;
         this.appIDIn = appidin;
         this.patIDIn = patientidin;
         this.DrIDIn = dridin;
-        System.out.println(appIDIn);
-        System.out.println(patIDIn);
-        System.out.println(DrIDIn);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        System.out.println("im here   " + this.appIDIn);
             //transfers tthe appoinment ID across to the jpan where we are adding the prescription
             JPanelAppAddPrescrip instHolderAddPres = JPanelAppAddPrescrip.getInstance();
             JPanelAppAddPrescrip.setIdsInAppPatDr(appIDIn, patIDIn, DrIDIn);
-            
             
            JFrameDoctorMenu instHolder = JFrameDoctorMenu.getInstance();
             instHolder.setDocSouthBorderString("DisplayAddPresc");

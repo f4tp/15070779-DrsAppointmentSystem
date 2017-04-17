@@ -20,28 +20,24 @@ public class JPanelLoginScreen extends JPanel {
       
         JLabel loginLabel = new JLabel("Please enter your username to access the system");
         loginLabel.setToolTipText("Your username is in the format firstname.surname.year born - i.e. john.smith.1994");
-        //add(loginLabel, BorderLayout.NORTH);
+
         
         JPartPanelPadding northDetail = new JPartPanelPadding(loginLabel);
         
         
         inpUserName.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
         JPartPanelPadding centerDetail = new JPartPanelPadding(inpUserName);
-     
-        //JScrollPane scrollControl = new JScrollPane(inpUserName); //if you don't add this, you cannot scroll the text
+
         inpUserName.setToolTipText("Your username is in the format firstname.surname.year born - i.e. john.smith.1994");
-        //add(inpUserName, BorderLayout.CENTER); 
-              
+
         JButton btnLogin = new JButton("login");
         btnLogin.addActionListener(new ActListLoginSystem(inpUserName));
         btnLogin.setToolTipText("Your username is in the format firstname.surname.year born - i.e. john.smith.1994");
         btnLogin.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
-        //add (btnLogin, BorderLayout.SOUTH);
       
         add (northDetail,BorderLayout.NORTH);                           
         add (centerDetail, BorderLayout.CENTER);
         add (btnLogin, BorderLayout.SOUTH);
-        //setSize(400,100);
         
     }
     
@@ -53,7 +49,7 @@ public class JPanelLoginScreen extends JPanel {
         return LoginScreenSingleInst;
     }
     
-    //to set  defautl users to test the system when someone logs out
+    //to set  default users to test the system when someone logs out
     public void updateLogintext(){
         inpUserName.setText("elizabeth.moore.01011915 | alan.turing.01011900 | gregory.house.01011910 | donald.knuth.01011901 | Pharm.Asutical.01011918");
     }

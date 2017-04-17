@@ -15,37 +15,29 @@ public class JPanelPatRecordDocView extends JPanel {
     
       public static JPanelPatRecordDocView JPanPatRecSingInst;
         JLabel lblTitle = new JLabel ("Title:          ");
-        //lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel lblFirstName = new JLabel ("First Name:     ");
-        //lblFirstName.setHorizontalAlignment(SwingConstants.CENTER);
+
         JLabel lblSurname = new JLabel ("Surname:        ");
-        //lblSurname.setHorizontalAlignment(SwingConstants.CENTER);
+
         JLabel lblDob = new JLabel ("DOB:            ");
-        //lblDob.setHorizontalAlignment(SwingConstants.CENTER);
+ 
         JLabel lblContact = new JLabel ("Contact Details:");
-        //lblContact.setHorizontalAlignment(SwingConstants.CENTER);
+
         
         JLabel lblDrsRegsWith= new JLabel ("Drs Regsitered With: ");
-        //lblContact.setHorizontalAlignment(SwingConstants.CENTER);   
+
       
         
         JTextField JTFTitle = new JTextField();
-        //JTFTitle.setBorder(BorderFactory.createEmptyBorder(0, 100, 0, 100));
-        //JTFTitle.setB
+
         JTextField JTFFirstName = new JTextField();
         JTextField JTFSurname = new JTextField();
         JTextField JTFdob = new JTextField();
         JTextField JTFContact = new JTextField();
         JTextField JTFDrsRegsWith = new JTextField();
-        
-       
-        //JButton btnAllApps = new JButton("View All appointments");
-        //JButton btnNewApp = new JButton("New Appointment");
+ 
         JPartPanelTemplateTwelveGridView patientScreen = new JPartPanelTemplateTwelveGridView(lblTitle, JTFTitle, lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob, lblContact, JTFContact, lblDrsRegsWith, JTFDrsRegsWith);
-        //JPanelPatientRecButPanPAT patientButtons = JPanelPatientRecButPanPAT.getInstance();
-        
-        
-        //NTD - add Dr buttons here after creating the panel
+
         JPartPanelPatRecButPanDOC docButtons = JPartPanelPatRecButPanDOC.getInstance();
         
         private JPanelPatRecordDocView(){
@@ -77,7 +69,6 @@ public class JPanelPatRecordDocView extends JPanel {
             JTFSurname.setText(MainPatient.currentPatient.getSurname());
             JTFdob.setText(MainPatient.currentPatient.getDOB());
             JTFContact.setText(MainPatient.currentPatient.getContactDetail());
-            //JTADrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsUserNames());
             JTFDrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsDrsnames());
         }
     
@@ -86,7 +77,6 @@ public class JPanelPatRecordDocView extends JPanel {
    
    public void setUpdateTextFields(String patientid){
 
-       
         if (MainAbsSystemUserComponent.currentSystemUser != null){
            MainPatient currentPatInst = (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(patientid);
             
@@ -95,7 +85,6 @@ public class JPanelPatRecordDocView extends JPanel {
             JTFSurname.setText(currentPatInst.getSurname());
             JTFdob.setText(currentPatInst.getDOB());
             JTFContact.setText(currentPatInst.getContactDetail());
-            //JTADrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsUserNames());
             JTFDrsRegsWith.setText(currentPatInst.getDrsRegWithAsStringAsDrsnames());
         }
     

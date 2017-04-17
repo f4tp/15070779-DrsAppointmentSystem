@@ -2,7 +2,6 @@
 package pkg15070779drsappsystem.JPanels;
 
 import java.awt.GridLayout;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -34,7 +33,6 @@ public class JPanelAppAddPrescrip extends JPanel {
          add(jtfMedicineAmount);
          add(btnCancel);
          add(btnAddPres);
-       // btnAddPres.addActionListener(new ActListAddPrescription(AppIdIn, patIDIn, DrIDIn, jtfMedicineDesc, jtfMedicineAmount));
         btnAddPres.addActionListener(new ActListAddPrescription(jtfMedicineDesc, jtfMedicineAmount));
         btnCancel.addActionListener(new ActListDisplayJPanePatientRecDocView());
     }

@@ -2,19 +2,7 @@ package pkg15070779drsappsystem.ListenersAction;
 
 import java.awt.event.*;
 import javax.swing.*;
-import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
-import pkg15070779drsappsystem.JFrames.JFrameLoginScreen;
-import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
-import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
-import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.JPanels.JPanelPatRecordPatView;
-import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsLogin;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
-import pkg15070779drsappsystem.MainClasses.MainPharmacist;
-import pkg15070779drsappsystem.MainClasses.MainSecretary;
 
 
 

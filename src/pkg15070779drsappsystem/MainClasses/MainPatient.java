@@ -27,7 +27,7 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainInter
 
 //@@@@@@@@@@ constructor method @@@@@@@@@@
     public MainPatient(String title, String fname, String sname,  String dob, String telnum, String dronfile){
-            this.strTitle = title;
+        this.strTitle = title;
         this.strFirstName = fname;
         this.strSurname = sname;
         this.strDOB = dob;

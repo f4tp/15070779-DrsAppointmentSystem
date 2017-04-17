@@ -13,7 +13,6 @@ import pkg15070779drsappsystem.ListenersAction.ActListAmendAppFormChangedDateNot
 import pkg15070779drsappsystem.ListenersAction.ActListAmendAppointmentSEC;
 import pkg15070779drsappsystem.ListenersAction.ActListBackToPatientApps;
 import pkg15070779drsappsystem.ListenersFocus.FocusListAmendAppSymptomsJTFDateNotAffected;
-//import pkg15070779drsappsystem.ItemListeners.ItemListAmendAppFormChanged;
 public class JPanelAppAmendSecView extends JPanel {
     
     private static Boolean formUpdatedNotDateTime;
@@ -179,14 +178,13 @@ public class JPanelAppAmendSecView extends JPanel {
         jcbMissed.setSelected(missed);
         lblPrescDetailRes.setText(presdetails);
         
-        //all widgets have been set up, so the changed status of teh form is set to false using these three 
+        //all widgets have been set up, so the changed status of the form is set to false using these three 
         //variables (the form can be changed in 3 different ways. This will change if there is any movement
         //on any of the items
         formUpdatedNotDateTime = false;
         formUpdatedNotDateTimeBuTAppAndDoc = false;
         formUpdatedDateTime = false;
-        System.out.println(formUpdatedNotDateTime);
-        System.out.println(formUpdatedDateTime);
+   
     }
     
     //if someone changes somethign on this form, this value will be set to true

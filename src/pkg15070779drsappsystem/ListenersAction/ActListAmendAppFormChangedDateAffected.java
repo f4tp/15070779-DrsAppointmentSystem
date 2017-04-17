@@ -10,10 +10,8 @@ public class ActListAmendAppFormChangedDateAffected implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-         System.out.println("item listener triggered");
         JPanelAppAmendSecView refHolder = JPanelAppAmendSecView.getInstance();
         refHolder.setFormUpdatedDateTime(true);
-        System.out.println(JPanelAppAmendSecView.getInstance().getFormUpdatedDateTime());
     }
     
     

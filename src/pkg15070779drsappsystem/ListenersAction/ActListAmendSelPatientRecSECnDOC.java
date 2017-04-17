@@ -11,7 +11,6 @@ import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 import pkg15070779drsappsystem.MainClasses.MainPrescription;
@@ -34,10 +33,9 @@ public class ActListAmendSelPatientRecSECnDOC implements ActionListener{
     //secreatary view
     @Override
     public void actionPerformed(ActionEvent ae) {
-        System.out.println(this.calledFrom);
+
         if (this.calledFrom == "Sec"){
-            System.out.println("I have got inside the sec routine");
-        
+           
                     //get the key from the combobox that has been passed in
                     String keyToSearch = this.cmbAppKeys.getSelectedItem().toString();        
 
@@ -46,10 +44,6 @@ public class ActListAmendSelPatientRecSECnDOC implements ActionListener{
 
                     MainAppointment.currentAppointment = (MainAppointment) MainAbsAppointmentComponent.getAppointment(keyToSearch);
                      //main patient already set when we searched for the patient so doesn't need resetting
-
-
-
-
 
 
                       //if there is a prescription for this appointment, set the current prescription based on the current 

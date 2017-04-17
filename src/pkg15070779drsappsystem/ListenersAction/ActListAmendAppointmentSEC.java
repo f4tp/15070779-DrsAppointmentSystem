@@ -51,7 +51,7 @@ public class ActListAmendAppointmentSEC implements ActionListener {
     this.attendedIn =attendedin;
     this.cancelledIn = cancelledin;
     this.missedIn = missedin;
-        System.out.println("I am here" + cmbdayin.getSelectedItem());
+
     }
 
     @Override
@@ -60,19 +60,12 @@ public class ActListAmendAppointmentSEC implements ActionListener {
         //only the Doctor and appointment will need updating
         MainAppointment currentAppointmentInst = MainAbsAppointmentComponent.getAppointment(AppKeyIn.getText());
         MainDoctor currentDoctorInst = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(drUserNameIn.getText());
-        //MainPatient currentPatientInst;
-        
+            
         //get the date and time of original appointment as a LDT object
        LocalDateTime currentDateTimeOfInst = currentAppointmentInst.getAPPDateAndTime();
        //get the date and time of the proposed appointment as a LDT object - if it needs to change
         LocalDateTime newDateTimeOfApp = MainAbsScheduling.getConvStringToDateTime(cmbDayIn.getSelectedItem().toString() + cmbMonthin.getSelectedItem().toString() +cmbYearIn.getSelectedItem().toString() + cmbTimeIn.getSelectedItem().toString());
-     
-                           
-                           
-                      
-        
-        System.out.println("woo hoo" + cmbDayIn.getSelectedItem());
-        System.out.println("woo hoohhh" + cmbTimeIn.getSelectedItem());
+ 
         JPanelAppAmendSecView amendAppFormInst = JPanelAppAmendSecView.getInstance();
         
         
@@ -85,7 +78,7 @@ public class ActListAmendAppointmentSEC implements ActionListener {
                 JOptionPane.ERROR_MESSAGE);
         }
         //this means at least one change has been made on teh user form but a change to teh appointment might 
-        //not be made - if teh appointment the person wan'ts is not available:
+        //not be made - if the appointment the person wan'ts is not available:
         //the test is if the date and time has changed and teh new time is not available... display error message
         else if (amendAppFormInst.getFormUpdatedDateTime() == true && currentDoctorInst.getDocsAvailableAppointments().contains(newDateTimeOfApp) == false){
             JOptionPane.showMessageDialog (null,

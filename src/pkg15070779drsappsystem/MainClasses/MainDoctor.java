@@ -5,9 +5,6 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import java.util.*;
 import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
-import pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import pkg15070779drsappsystem.Interfaces.MainInterfaceSystemUsers;
 
 
@@ -29,19 +26,17 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainInterf
     //appointment keys are never deleted from here once in, as appointments aren;t deleted
     //they are amended or marked as cancelled or missed for example.
     private List<String> lstAppointmentKeys = new ArrayList<>();
-    //private String strUniqueDrName;
+
     
     
 //@@@@@@@@@@ Constructor @@@@@@@@@@     
     public MainDoctor(String fname, String sname, String title, String dob, String newer){
-     
         this.STRTITLE = title;
         this.STRFIRSTNAME = fname;
         this.STRSURNAME = sname;
         this.STRDOB = dob;
         this.STRKEYUSERNAME = setGenerateUsername(this.STRFIRSTNAME, this.STRSURNAME, this.STRDOB);
         LSTDOCTORS.add(STRKEYUSERNAME);
-        
         //generates a list with all available appointments on
         //when a patient generates an appointment, it will remove this from their list
         //if it can;t be found in the list in other routines, it means someone has already gotten that appointment
@@ -57,7 +52,6 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainInterf
     
     public  void addAppointmentToDrsList(LocalDateTime datein, String appkeyin){
         //sets the static varible to the doctor we are searching for
-        //MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(drkey);
         //adds the appointment time to the Drs taken appointment lists
         this.lstDocsTakenAppointments.add(datein);
         //deletes the time from their available appointments list
@@ -67,9 +61,7 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainInterf
         //put the Dr back in the map after they have been edited
         MainAbsSystemUserComponent.setPutInMap(this.getUserName(), this);
     }
-    
-    
-    
+ 
 //@@@@@@@@@@Setters @@@@@@@@@@   
     
      //each dr has a list storing all of the keys to their appointments... this adds the keys

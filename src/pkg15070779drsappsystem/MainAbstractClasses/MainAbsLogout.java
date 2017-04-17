@@ -36,7 +36,7 @@ import pkg15070779drsappsystem.MainClasses.MainSecretary;
 public abstract class MainAbsLogout {
     
     public static void Logout(){
-        //set all static global users and people objetcs that were being worked on to null
+//set all static global users and people objetcs that were being worked on to null
         
         MainAbsSystemUserComponent.currentSystemUser = null;
         MainPatient.currentPatient = null;
@@ -72,7 +72,6 @@ public abstract class MainAbsLogout {
        JPanelFindPat .setVisible(false);
         JPanelPatRecordSecView JPanelPatrecNorth = JPanelPatRecordSecView.getInstance();
         JPanelPatrecNorth.setVisible(false);
-        //JPanelPatientRecButPanSEC JPanelPatrecSouth = JPartPanelPatRecButPanSEC.getInstance();
         JPanelPatientAddDoctor JPanelPatAddDoc = JPanelPatientAddDoctor.getInstance();
         JPanelPatAddDoc.setVisible(false);
         JPanelNewAppointment JPanNewApp = JPanelNewAppointment.getInstance();
@@ -86,32 +85,24 @@ public abstract class MainAbsLogout {
         JPartPanelTextAreaMonthReports JPanTextFieldForReports = JPartPanelTextAreaMonthReports.getInstance();
         JPanTextFieldForReports.setVisible(false);
         JPanelAppAmendSecView JPanAmendApp = JPanelAppAmendSecView.getInstance();
-        
         JPanelPatFindDocView inst = JPanelPatFindDocView.getInstance();
          JPanTextFieldForReports.setVisible(false);
          JPanelAppAddPrescrip jpanAddpresSingInst = JPanelAppAddPrescrip.getInstance();
-        
-
-        
+     
  //doctors screens to make invisible
-        
         JPanelPatFindDocView JPanelFindPatDoc = JPanelPatFindDocView.getInstance();
         JPanelPatRecordDocView jpanPatRecDocViewSingInst = JPanelPatRecordDocView.getInstance();
-        //JPanelPatRecordDocView JPanelPatrecNorth = JPanelPatRecordDocView.getInstance();  
         JPanelAppsShowAllForPatientDOC JPanViewAllAppsDoc = JPanelAppsShowAllForPatientDOC.getInstance();
          JPanelAppAmendDocView JPanAmendAppDoc = JPanelAppAmendDocView.getInstance();
-         
           jpanPatRecDocViewSingInst.setVisible(false);
          JPanViewAllAppsDoc.setVisible(false);
           JPanAmendAppDoc.setVisible(false);
           JPanelFindPatDoc.setVisible(false); 
         jpanAddpresSingInst.setVisible(false);
         
-        //pharmacist panels make invisible
-        
+//pharmacist panels make invisible
         JPanelPresDisplayFromTo presDis = JPanelPresDisplayFromTo.getInstance();
         presDis.setVisible(false);
-        
         JPartPanelTextAreaPrintPresDetail textarsingins = JPartPanelTextAreaPrintPresDetail.getInstance();
         textarsingins.setVisible(false);
    
@@ -123,13 +114,10 @@ public abstract class MainAbsLogout {
 //clears the Jtextholder that updates with the report details, when the sec logs out
         JPartPanelTextAreaMonthReports refHoldersec = JPartPanelTextAreaMonthReports.getInstance();
         refHoldersec.setJtextArea("");
-        
-        
-        
+    
 //set login screen back to visible
         JFrameLoginScreen loginInstance = JFrameLoginScreen.getInstance();
         loginInstance.setVisible(true);
-        
         JPanelLoginScreen tempLoginJPan = JPanelLoginScreen.getInstance();
         tempLoginJPan.updateLogintext();
     }

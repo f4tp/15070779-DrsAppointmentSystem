@@ -1,16 +1,12 @@
 package pkg15070779drsappsystem.MainAbstractClasses;
 
 import java.util.*;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
-import pkg15070779drsappsystem.MainClasses.MainPrescription;
-
 
 public abstract class MainAbsPrescriptionComponent {
     private static Map<String, MainAbsPrescriptionComponent> mapPrescriptions = new TreeMap<>();
     
     protected MainAbsPrescriptionComponent(){
         generatePresUniKey();
-        
     }
     
     public String generatePresUniKey(){

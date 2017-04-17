@@ -21,8 +21,7 @@ public class JPanelNewAppButPan extends JPanel {
        JButton btnaddAppointment = new JButton("Create the appoinment");
        btnaddAppointment.addActionListener(new ActListAddAppointment());
        //JPanelNewAppointment.JTFUserName;
-       
-       
+
        add(btnCheckDate);
        add(btnaddAppointment);
         

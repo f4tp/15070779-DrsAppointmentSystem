@@ -36,7 +36,7 @@ public class ActListSearchPresPHARM implements ActionListener {
         
         
         LocalDateTime ldtFrom = MainAbsScheduling.getConvStringToDateTime(this.dateFromJPan.getDateDayString() + this.dateFromJPan.geDateMonthString() + this.dateFromJPan.getDateYearString() + "1715");
-        System.out.println(ldtFrom);
+
         //get the to date selected by the user and construct it into a LocalDateTime object - time set at 0000
         LocalDateTime ldtTo = MainAbsScheduling.getConvStringToDateTime(this.dateToJPan.getDateDayString() + this.dateToJPan.geDateMonthString() + this.dateToJPan.getDateYearString() + "0000");
   

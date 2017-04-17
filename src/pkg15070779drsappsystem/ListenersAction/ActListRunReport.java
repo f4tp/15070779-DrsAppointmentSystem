@@ -42,8 +42,7 @@ public class ActListRunReport implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        System.out.println(cmbMonth.getSelectedItem().toString());
-        
+         
         //will hold an appointment, resolved by the appointment ID, currently worked on appointment
         //object composition
          MainAppointment currentAppInst; 
@@ -144,9 +143,7 @@ public class ActListRunReport implements ActionListener {
             
            
            MainDoctor currentDoctorInst = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(JPanelReportsDrsApps.getInstance().getSelectedDr());
-           
-            
-           // System.out.println(MainDoctor.currentDoctor.getUserName());
+   
             //call the correct method in the MainDoctor class, which checks a doctor's taken appointments
             //called by passing a doctor and a localdate time to use to see appointments for
             //held in a list

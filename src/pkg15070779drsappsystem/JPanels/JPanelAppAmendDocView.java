@@ -4,27 +4,18 @@ package pkg15070779drsappsystem.JPanels;
 import java.awt.GridLayout;
 import java.time.LocalDateTime;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import pkg15070779drsappsystem.ListenersAction.ActListDisplayJPanAddPrescription;
-import pkg15070779drsappsystem.ListenersAction.ActListAmendAppointmentSEC;
 import pkg15070779drsappsystem.ListenersAction.ActListAmendAppointmentDOC;
 import pkg15070779drsappsystem.ListenersAction.ActListBackToPatientApps;
 import pkg15070779drsappsystem.ListenersFocus.FocusListAmendAppSymptomsJTFDateNotAffected;
-import pkg15070779drsappsystem.JPanels.JPartPanelAmendAppDateOfAppDOC;
-import pkg15070779drsappsystem.JPanels.JPartPanelAmendAppDateOfAppSEC;
-import pkg15070779drsappsystem.JPanels.JPartPanelAmendAppTimeOfAppDOC;
-import pkg15070779drsappsystem.JPanels.JPartPanelAmendAppTimeOfAppSEC;
-import static pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView.lblAppIDRes;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 
 
 public class JPanelAppAmendDocView extends JPanel {
     private static Boolean formUpdatedNotDateTime;
-    //private static Boolean formUpdatedNotDateTimeBuTAppAndDoc;
-    //private static Boolean formUpdatedDateTime;
     public static JPanelAppAmendDocView jpanAppAmendSingInst;
     
     JLabel jlTitle = new JLabel("Title");
@@ -116,13 +107,10 @@ public class JPanelAppAmendDocView extends JPanel {
         add(lblDrWith);
         add(lblDrWithRes);
         add(lblDate);
-        
-        //add(jpanDate);// item listeners set in the part Jpanel
         add(lblDateRes);
         
         add(lblTime);
-        
-        //add(jpanTime);// item listeners set in the part Jpanel
+
         add(lblTimeRes);
         add(lblSymptoms);
         
@@ -189,14 +177,10 @@ public class JPanelAppAmendDocView extends JPanel {
         lblMissedRes.setText(missed);
         lblPrescDetailRes.setText(presdetails);
         
-        //all widgets have been set up, so the changed status of teh form is set to false using these three 
+        //all widgets have been set up, so the changed status of the form is set to false using these three 
         //variables (the form can be changed in 3 different ways. This will change if there is any movement
         //on any of the items
         formUpdatedNotDateTime = false;
-        //formUpdatedNotDateTimeBuTAppAndDoc = false;
-        //formUpdatedDateTime = false;
-        System.out.println(formUpdatedNotDateTime);
-        //System.out.println(formUpdatedDateTime);
         
         JPanelAppAmendDocView.getInstance().btnAddpresc.addActionListener(new ActListDisplayJPanAddPrescription(lblAppIDRes.getText(), lblUserNameRes.getText(), lblDrWithRes.getText()));
   

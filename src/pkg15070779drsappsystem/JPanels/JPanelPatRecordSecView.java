@@ -11,23 +11,21 @@ import pkg15070779drsappsystem.MainClasses.MainSecretary;
 public class JPanelPatRecordSecView extends JPanel {
     public static JPanelPatRecordSecView JPanPatRecSingInst;
         JLabel lblTitle = new JLabel ("Title:          ");
-        //lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+
         JLabel lblFirstName = new JLabel ("First Name:     ");
-        //lblFirstName.setHorizontalAlignment(SwingConstants.CENTER);
+
         JLabel lblSurname = new JLabel ("Surname:        ");
-        //lblSurname.setHorizontalAlignment(SwingConstants.CENTER);
+
         JLabel lblDob = new JLabel ("DOB:            ");
-        //lblDob.setHorizontalAlignment(SwingConstants.CENTER);
+
         JLabel lblContact = new JLabel ("Contact Details:");
-        //lblContact.setHorizontalAlignment(SwingConstants.CENTER);
+    
         
         JLabel lblDrsRegsWith= new JLabel ("Drs Regsitered With: ");
-        //lblContact.setHorizontalAlignment(SwingConstants.CENTER);   
+ 
       
         
         JTextField JTFTitle = new JTextField();
-        //JTFTitle.setBorder(BorderFactory.createEmptyBorder(0, 100, 0, 100));
-        //JTFTitle.setB
         JTextField JTFFirstName = new JTextField();
         JTextField JTFSurname = new JTextField();
         JTextField JTFdob = new JTextField();
@@ -35,11 +33,9 @@ public class JPanelPatRecordSecView extends JPanel {
         JTextField JTFDrsRegsWith = new JTextField();
         
        
-        //JButton btnAllApps = new JButton("View All appointments");
-        //JButton btnNewApp = new JButton("New Appointment");
+
         JPartPanelTemplateTwelveGridView patientScreen = new JPartPanelTemplateTwelveGridView(lblTitle, JTFTitle, lblFirstName,JTFFirstName,lblSurname,JTFSurname, lblDob,JTFdob, lblContact, JTFContact, lblDrsRegsWith, JTFDrsRegsWith);
-        //JPanelPatientRecButPanPAT patientButtons = JPanelPatientRecButPanPAT.getInstance();
-        
+
         JPartPanelPatRecButPanSEC secretaryButtons = JPartPanelPatRecButPanSEC.getInstance();
     
     private JPanelPatRecordSecView(){
@@ -62,10 +58,7 @@ public class JPanelPatRecordSecView extends JPanel {
         return JPanPatRecSingInst;
     }
     
-    //set all textfields to the correct data;
-    //private static void setPatientJPanel(){
-        //setUpdateTextField();
-    //}
+
     
     public void setUpdateTextFields(){
 
@@ -76,7 +69,6 @@ public class JPanelPatRecordSecView extends JPanel {
             JTFSurname.setText(MainPatient.currentPatient.getSurname());
             JTFdob.setText(MainPatient.currentPatient.getDOB());
             JTFContact.setText(MainPatient.currentPatient.getContactDetail());
-            //JTADrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsUserNames());
             JTFDrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsDrsnames());
         }
         
@@ -96,7 +88,6 @@ public class JPanelPatRecordSecView extends JPanel {
             JTFSurname.setText(currentPatInst.getSurname());
             JTFdob.setText(currentPatInst.getDOB());
             JTFContact.setText(currentPatInst.getContactDetail());
-            //JTADrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsUserNames());
             JTFDrsRegsWith.setText(currentPatInst.getDrsRegWithAsStringAsDrsnames());
         }
         

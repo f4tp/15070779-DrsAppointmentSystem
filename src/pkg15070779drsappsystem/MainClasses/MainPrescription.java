@@ -15,7 +15,7 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
     //this is the searched for appointments prescription list
     public static List <MainPrescription> currentPrescription = new ArrayList<>();
     private static List<String> lstStrAllPresKeys = new ArrayList<>();
-  //@@@@@@@@@@ instance fields @@@@@@@@@@  
+//@@@@@@@@@@ instance fields @@@@@@@@@@  
     //holds all prescription keys so they can be searched, never deleted from as all appointments stay on file
     //for report searching
 
@@ -38,20 +38,16 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
         this.docUniqueID = doctorid;
         this.appUniqueID = appid;
         this.presDispatched = false;
-        
         //adds the prescription unique key to the static list, so it contains all prescription IDss issued... can be searched later
         addPresKeyToList(this.presUniqueKey);
-        
+        //add to the map in the component class
         MainAbsPrescriptionComponent.setPutInMap(this.presUniqueKey, this);
-        
-         
-                //put in map to store it
-    }
+     }
     
     
 //@@@@@@@@@@ more complicated setters @@@@@@@@@@
     
-        //given a date from, date to and a status of prescription, this methofreturns a list of prescription IDs 
+   //given a date from, date to and a status of prescription, this methofreturns a list of prescription IDs 
     //when they are within a certain date range and of a certain status (dispatched / not dispatched).
     public static List<String> getListPresWithDateAndStatus(LocalDateTime datefrom, LocalDateTime dateto, Boolean status){
         List <String> lstFoundPrescriptions = new ArrayList<>();

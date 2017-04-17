@@ -10,9 +10,6 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientDOC;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC;
-import static pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC.getInstance;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 public class ActListDisplayJPanPatientApps implements ActionListener{

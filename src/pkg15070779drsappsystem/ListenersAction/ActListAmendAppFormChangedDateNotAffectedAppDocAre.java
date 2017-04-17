@@ -12,10 +12,10 @@ public class ActListAmendAppFormChangedDateNotAffectedAppDocAre implements Actio
         //sets a variable on the JPanel to say that the form has been changed, the amend button will know to update 
         //all relative objects and data appropriately when this is set to true
         //when amendments have taken place, the variable must be set back to false
-        System.out.println("Action listener triggered");
+
         JPanelAppAmendSecView refHolder = JPanelAppAmendSecView.getInstance();
         refHolder.setFormUpdatedNotDateTimeButAppAndDoc(true);
-        System.out.println(JPanelAppAmendSecView.getInstance().getFormUpdatedNotDateTime());
+
     }
     
 }

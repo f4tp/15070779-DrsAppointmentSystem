@@ -50,7 +50,6 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
         this.appCancelled = false;
         this.appMissed = false;
         this.appDrComments="please enter comments";
-        //his.appMedicine="please update this if medicine is required for this appointment";
         this.appSymptoms = symptoms;
         
         //each appointment has an array list to store IDs of prescriptions for this appointment
@@ -72,15 +71,12 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
     }
      
      
-         //used for the patient's access screen - so they can book themselves in
+    //used for the patient's access screen - so they can book themselves in
     public void setAppAttendPatientResponse(){
 
         
         if (this.appAttended == false){
-            
             this.setAppAttend(true);
-           // this.appAttended = true;
-            
             JOptionPane.showMessageDialog (null,
                 "Thank you. Your appointment has now been marked as ATTENDED",
                 "Appointment Attended",
@@ -94,9 +90,6 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
                 "Appointment attended",
                 JOptionPane.ERROR_MESSAGE);
         }
-        
-        //NTD - put the appointment back in the map
-        //didn't need to put it back in the map - when updating variables it will automatically do this
     }
      
    
@@ -111,7 +104,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
         docToUpdate.setAddLDTToAppTimesAvailableList(ltdfordredit);
     }
     
-        //returns false if the appointment doesn't have a prescription yet
+     //returns false if the appointment doesn't have a prescription yet
     //returns true if it does
     public String getPrescriptionIDsAsString(){
         if (this.lstPrescriptionsUniqueID.isEmpty()){
@@ -147,33 +140,30 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
             }
         }
     }
-    
+    //returns a list of all appointments from a given dr
     public static List <MainAppointment> getAppointmentsOfDoc (MainDoctor doctorin){
         List<MainAppointment> lstFoundAppointments = new ArrayList<>();
-        
-        return lstFoundAppointments;
-        
+          return lstFoundAppointments;
     }
     
   //@@@@@@@@@@@ Interface Setters @@@@@@@@@@ 
     
-      public void setProfessionalsComments(String proessionalscommentsin){
-        this.appDrComments = proessionalscommentsin;
+      public void setProfessionalsComments(String professionalscommentsin){
+        this.appDrComments = professionalscommentsin;
+         JOptionPane.showMessageDialog (null,
+                "The appointment has been successfully updated",
+                "Appointment Amended",
+                JOptionPane.ERROR_MESSAGE);
     }
-    
-    
-    
     
       public void setAppAttend(Boolean attendstatus){
         this.appAttended = attendstatus;
     }
-      
-      
+    
       public void setSymptoms(String symptomstoset){
         this.appSymptoms = symptomstoset;
     }
-    
-
+  
     
     public void setAppMissed(Boolean missedstatus){
        this.appMissed = missedstatus;
@@ -201,7 +191,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
     }
     
     
-      //for every prescription ID in the appointment prescription ID list, it will return the prescription as a String - all
+   //for every prescription ID in the appointment prescription ID list, it will return the prescription as a String - all
     //prescription details for this appointment will be returned
     public String getAllPresDetailsForAppAsString(){
         

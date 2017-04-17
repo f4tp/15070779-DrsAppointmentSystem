@@ -25,51 +25,31 @@ public class JPanelAppsShowAllForPatientDOC extends JPanel {
     JPartPanelAppsShowAllPatButPanelDOC ButPanSingInst = JPartPanelAppsShowAllPatButPanelDOC.getInstance();
     
     private JPanelAppsShowAllForPatientDOC(){
-        //btnReturn.addActionListener(new ActListReturnPatientRec());
          setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
-        //JTFAllAppointments.setSize(400, 400);
         JTFAllAppointments.setLineWrap(true);
         add(lblAppFor);
-        //add(JTFName);
-        
-        //add(JTFAllAppointments);
         add(scrollpane);
         add(cmbAppKeys);
-        //add(btnReturn);
         add(ButPanSingInst);
     }
     
      //updates the label with the name of the person
     public static void updateLabelTitleForShowPatApps(){
         lblAppFor.setText("Showing appointments for: " + MainPatient.currentPatient.getFirstName() + " " + MainPatient.currentPatient.getSurname() );
-        //getInstance().revalidate();
-        //getInstance().repaint();
     }
     
-      //clears teh appointment area ready to append with the new appointment details of the next patient
+      //clears the appointment area ready to append with the new appointment details of the next patient
     public static void clearAppointmentTextArea(){
         JTFAllAppointments.setText("");
-       //getInstance().revalidate();
-       // getInstance().repaint();
-        
     }
     
     //appends the area with the appointment details of the current patient
     public static void updateAppointmentsTextArea(String textToAdd){
         JTFAllAppointments.append(textToAdd);
-        //getInstance().revalidate();
-        //getInstance().repaint();
-        
-    
-    }
+     }
     
     public static void updateComboAppKeys(String textToAdd){
-        
-        cmbAppKeys.addItem(textToAdd);
-
-        //getInstance().lblAppFor.setText("Showing appointments for: " + MainPatient.currentPatient.getFirstName() + " " + MainPatient.currentPatient.getSurname() );
-        //getInstance().revalidate();
-        //getInstance().repaint();
+            cmbAppKeys.addItem(textToAdd);
     }
     
     public static void setClearCombo(){

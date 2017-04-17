@@ -3,8 +3,6 @@ package pkg15070779drsappsystem.ListenersAction;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDateTime;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -12,10 +10,7 @@ import javax.swing.JTextField;
 import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
 
 public class ActListAmendAppointmentDOC implements ActionListener {
  //component variables hold components passe din from previous form(s)
@@ -54,7 +49,7 @@ public class ActListAmendAppointmentDOC implements ActionListener {
     this.attendedIn =attendedin;
     this.cancelledIn = cancelledin;
     this.missedIn = missedin;
-        System.out.println("I am here" + cmbdayin.getSelectedItem());
+
     }
     
     
@@ -64,14 +59,7 @@ public class ActListAmendAppointmentDOC implements ActionListener {
         //these are the objects that are needed to interact with an appointment when changing it
         //only the Doctor and appointment will need updating
         MainAppointment currentAppointmentInst = MainAbsAppointmentComponent.getAppointment(AppKeyIn.getText());
-       // MainDoctor currentDoctorInst = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(drUserNameIn.getText());
-        //MainPatient currentPatientInst;
-        
-           //get the date and time of original appointment as a LDT object
-      // LocalDateTime currentDateTimeOfInst = currentAppointmentInst.getAPPDateAndTime();
-       //get the date and time of the proposed appointment as a LDT object - if it needs to change
-       // LocalDateTime newDateTimeOfApp = MainAbsScheduling.getConvStringToDateTime(cmbDayIn.getSelectedItem().toString() + cmbMonthin.getSelectedItem().toString() +cmbYearIn.getSelectedItem().toString() + cmbTimeIn.getSelectedItem().toString());
-     
+       
         
         JPanelAppAmendDocView amendAppFormInst = JPanelAppAmendDocView.getInstance();
         
@@ -86,29 +74,13 @@ public class ActListAmendAppointmentDOC implements ActionListener {
         else{
          
                     currentAppointmentInst.setProfessionalsComments(DrsCommentsIn.getText());
-
-                  //put the appointment back in the map
-                   // MainAbsAppointmentComponent.setPutInMap(AppKeyIn.getText(), currentAppointmentInst);
-
-                           //output message to tell you that the appointment has been updated
-                callPromptAppupdated();
                  //go back to patient record screen
                 JFrameDoctorMenu DocMenuRef = JFrameDoctorMenu.getInstance();
                 DocMenuRef.setDocSouthBorderString("DisplayPatientDetails");
-                
-                 amendAppFormInst.setFormUpdatedNotDateTime(false);
+                amendAppFormInst.setFormUpdatedNotDateTime(false);
 
                 }
-        
-
 
     }
-    
-    private void callPromptAppupdated(){
-        JOptionPane.showMessageDialog (null,
-                "The appointment has been successfully updated",
-                "Appointment Amended",
-                JOptionPane.ERROR_MESSAGE);
-    }
-    
+
 }

@@ -15,8 +15,7 @@ public class ActListDisplayJPanFindPatDocView implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
-        //JFrameDoctorMenu instHolder = getInstance();
+  
         JFrameDoctorMenu instHolder = JFrameDoctorMenu.getInstance();
          instHolder.setDocSouthBorderString(this.typeOfSecJPanToSet);
     }

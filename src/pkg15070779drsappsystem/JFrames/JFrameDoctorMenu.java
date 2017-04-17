@@ -1,7 +1,6 @@
 
 package pkg15070779drsappsystem.JFrames;
 
-import pkg15070779drsappsystem.ListenersAction.ActListSetSecJFramePARTofFACTORYsec;
 import pkg15070779drsappsystem.ListenersAction.ActLisExitProg;
 import java.awt.BorderLayout;
 
@@ -41,7 +40,6 @@ public class JFrameDoctorMenu extends JFrame {
         docMenBar.add(fileMenu);
         
          JMenuItem logOutItem = new JMenuItem ("Logout");
-        //logOutItem.addActionListener(new ActLisExitProg ());
         logOutItem.addActionListener(new ActListLogoutSystem());
         fileMenu.add(logOutItem);
         
@@ -58,30 +56,13 @@ public class JFrameDoctorMenu extends JFrame {
         
         //lays out the frame using thsi abstract class
         JFrameAbsBorLayFillScreen.applyLayout(this);
-        /*
-        setLayout (new BorderLayout ());
-        
-         //code below sets the menu to the screen size
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        pack();
-        setBounds(0,0,screenSize.width, screenSize.height-40); //minus 40 for the task bar (which we want present)
-      
-        setVisible(true);
-        */
-        
-        
-        
-        
-        
-        
-        
+    
     }
     
     
     private void setDocNorthBorderPanel(){
         JPanelPatFindDocView JPanelFindPat = JPanelPatFindDocView.getInstance();
         JPanelPatRecordDocView jpanPatRecDocViewSingInst = JPanelPatRecordDocView.getInstance();
-        //JPanelPatRecordDocView JPanelPatrecNorth = JPanelPatRecordDocView.getInstance();  
         JPanelAppsShowAllForPatientDOC JPanViewAllApps = JPanelAppsShowAllForPatientDOC.getInstance();
          JPanelAppAmendDocView JPanAmendApp = JPanelAppAmendDocView.getInstance();
          JPanelAppAddPrescrip jpanAddPresSingInst = JPanelAppAddPrescrip.getInstance();
@@ -92,13 +73,10 @@ public class JFrameDoctorMenu extends JFrame {
              JPanViewAllApps.setVisible(false);
              JPanAmendApp.setVisible(false);
              jpanAddPresSingInst.setVisible(false);
-              
-              
+          
              JPanelFindPat.setVisible(true); 
              DoctMenSingInst.add(JPanelFindPat, BorderLayout.NORTH);
-            
-            
-            
+         
           }
           
            if (currentDocNorthBordPanel == "DisplayPatientDetails"){
@@ -109,8 +87,7 @@ public class JFrameDoctorMenu extends JFrame {
              
              jpanPatRecDocViewSingInst.setVisible(true);
              jpanPatRecDocViewSingInst.setUpdateTextFields(currPatientInst.getUserName());
-            
-            DoctMenSingInst.add(jpanPatRecDocViewSingInst, BorderLayout.NORTH);
+             DoctMenSingInst.add(jpanPatRecDocViewSingInst, BorderLayout.NORTH);
           }
            
            
@@ -131,9 +108,7 @@ public class JFrameDoctorMenu extends JFrame {
             jpanPatRecDocViewSingInst.setVisible(false);
             JPanViewAllApps.setVisible(false);
             jpanAddPresSingInst.setVisible(false);
-           
-           
-            
+        
             JPanAmendApp.setVisible(true);
             
             //updates the combobox on this form with Drs registered on the system (when it is called);
@@ -149,14 +124,12 @@ public class JFrameDoctorMenu extends JFrame {
             jpanPatRecDocViewSingInst.setVisible(false);
             JPanViewAllApps.setVisible(false);
             JPanAmendApp.setVisible(false);
-            jpanAddPresSingInst.setVisible(true);
             
-      DoctMenSingInst.add(jpanAddPresSingInst, BorderLayout.NORTH);
+            jpanAddPresSingInst.setVisible(true);
+            DoctMenSingInst.add(jpanAddPresSingInst, BorderLayout.NORTH);
         }
             
-            
-          
-          
+      //refreshes teh Swing GUI to display changes
         revalidate();
         repaint();
     }
@@ -170,11 +143,11 @@ public class JFrameDoctorMenu extends JFrame {
         return DoctMenSingInst;
     }
     
-    public void setVisibility(boolean vis){
+    //public void setVisibility(boolean vis){
         
-        this.setVisible(vis);
+    //    this.setVisible(vis);
         
-    }
+   // }
     
     public void setDocSouthBorderString(String paneltoset){
         currentDocNorthBordPanel = paneltoset;

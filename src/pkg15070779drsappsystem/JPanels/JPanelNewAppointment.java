@@ -12,7 +12,7 @@ import pkg15070779drsappsystem.MainClasses.MainPatient;
 
 public class JPanelNewAppointment extends JPanel{
     
-    //@@@@@@@@@@ iteration could be used here - sort when get time
+    //NTD iteration could be used here - sort when get time
     
         
         JLabel lblTitle = new JLabel ("Patient's Title:");
@@ -57,12 +57,9 @@ public class JPanelNewAppointment extends JPanel{
     private static JPanelNewAppointment jPanNewAppSingInst;
     
     private JPanelNewAppointment(){
-        
-       
-      
+     
   //@@@@@@@@@@layout the screen
       
-       
        setLayout(new GridLayout(11,2));
        addComponents();
      
@@ -101,9 +98,7 @@ public class JPanelNewAppointment extends JPanel{
         
         //this routine updates the combo box with 
         if (MainPatient.currentPatient != null){
-            //JComboBox cmbSelDoctor = new JComboBox(MainPatient.currentPatient.getDrsRegWithAsList().toArray());
-            //cmbSelDoctor.removeAllItems();
-            
+                   
             List<String> lstHolder = MainPatient.currentPatient.getDrsRegWithAsList();
             String[] arrHolder = new String[lstHolder.size()];
             arrHolder = lstHolder.toArray(arrHolder);
@@ -112,9 +107,7 @@ public class JPanelNewAppointment extends JPanel{
             for(String s : arrHolder){
                cmbSelDoctor.addItem(s);
             }
-            //cmbSelDoctor = new JComboBox(MainPatient.currentPatient.getDrsRegWithAsList().toArray());
-            //cmbSelDoctor.addItem(MainPatient.currentPatient.getDrsRegWithAsList().toArray());
-            
+         
         }
         
         JTFTitle.setText(MainPatient.currentPatient.getTitle());
@@ -122,10 +115,7 @@ public class JPanelNewAppointment extends JPanel{
          JTFSurname.setText(MainPatient.currentPatient.getSurname());
         JTFdob.setText(MainPatient.currentPatient.getDOB());
         JTFUserName.setText(MainPatient.currentPatient.getUserName());
-       
-        
-      
-        
+     
     }
     
  

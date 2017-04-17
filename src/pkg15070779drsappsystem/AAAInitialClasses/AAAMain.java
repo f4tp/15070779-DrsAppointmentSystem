@@ -1,16 +1,7 @@
 package pkg15070779drsappsystem.AAAInitialClasses;
 
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.JFrames.JFrameLoginScreen;
 import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
-import pkg15070779drsappsystem.JFrames.JFrameUseToTestPanels;
-import pkg15070779drsappsystem.JPanels.JPartPanelAppsSelDateFlow;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 
 public class AAAMain {
@@ -28,16 +19,10 @@ public class AAAMain {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 JFrameLoginScreen mainLoginScreen = JFrameLoginScreen.getInstance();
-                mainLoginScreen.setVisibility(true);
+                mainLoginScreen.setVisible(true);
             } 
         });
-   
-        
-     //JFrameUseToTestPanels tester = new JFrameUseToTestPanels();
-   //  tester.setVisible(true);
- 
-        
-      
+
  
     }
         

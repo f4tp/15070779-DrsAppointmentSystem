@@ -53,8 +53,7 @@ public class JPartPanelAmendAppDateOfAppDOC extends JPanel {
         //gets the first letter
        // String editedMonthFinal = editedMonthfirst + editedMonth;
         
-        //System.out.println(appdatetime.getMonth());
-       // System.out.println(editedMonthFinal);
+
         //cmbDateMonth.setSelectedItem(editedMonthFinal);
         cmbDateMonth.setSelectedItem(MainAbsScheduling.getConvDateTimeToStringMonth(appdatetime));
         

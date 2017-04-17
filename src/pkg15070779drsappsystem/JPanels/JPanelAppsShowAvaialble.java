@@ -51,8 +51,7 @@ public class JPanelAppsShowAvaialble extends JPanel {
         return JPanShowAvailAppsSingInst;
     }
     
-    
-    //
+ 
     public static void updateFoundAppointments(List<LocalDateTime> foundappsin){
         JPanShowAvailAppsSingInst.cmbFoundAppointments.removeAllItems();
         

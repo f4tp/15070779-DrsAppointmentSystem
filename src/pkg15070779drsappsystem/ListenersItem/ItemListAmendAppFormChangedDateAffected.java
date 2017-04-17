@@ -19,18 +19,14 @@ public class ItemListAmendAppFormChangedDateAffected implements ItemListener {
     public void itemStateChanged(ItemEvent ie) {
         
         if (listenerCalledFrom == "Sec"){
-            System.out.println("item listener triggered");
-        JPanelAppAmendSecView refHolder = JPanelAppAmendSecView.getInstance();
-        refHolder.setFormUpdatedDateTime(true);
-        System.out.println(JPanelAppAmendSecView.getInstance().getFormUpdatedDateTime());
+            JPanelAppAmendSecView refHolder = JPanelAppAmendSecView.getInstance();
+            refHolder.setFormUpdatedDateTime(true);
         }
         
         //NTD
        if (listenerCalledFrom == "Doc"){
-            System.out.println("item listener triggered");
-        JPanelAppAmendSecView refHolder = JPanelAppAmendSecView.getInstance();
-        refHolder.setFormUpdatedDateTime(true);
-        System.out.println(JPanelAppAmendSecView.getInstance().getFormUpdatedDateTime());
+            JPanelAppAmendSecView refHolder = JPanelAppAmendSecView.getInstance();
+            refHolder.setFormUpdatedDateTime(true);
         }
         
         

@@ -94,8 +94,7 @@ public class ActListFindPatientDoc implements ActionListener {
                 
                 MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
                 currPatientInst =  (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
-                System.out.println("Main patient set when find patient button has been pressed on find patient screen, patient is:  " + MainPatient.currentPatient);
-                
+         
                 
                //the patient details are updated in the Secretary JFrame - when the setSecSouthBorderStrins is set...
                //it sets the visibility of the right JPanel so we can see the pateint record, but not before updatign all 
