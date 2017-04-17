@@ -11,7 +11,7 @@ public class ActListNewAppointment implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JFrameSecretaryMenu menRef = JFrameSecretaryMenu.getInstance();
-         menRef.setSecSouthBorderString("AddnewAppointmentPanel");
+         menRef.setSecNorthBorderString("AddnewAppointmentPanel");
     }
     
 }

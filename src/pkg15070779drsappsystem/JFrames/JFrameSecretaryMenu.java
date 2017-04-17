@@ -15,7 +15,7 @@ import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
 import pkg15070779drsappsystem.JPanels.JPanelReportsAppAtt;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPanelReportsPresrcips;
-import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAvaialble;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC;
 import static pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow.setDrComboBox;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
@@ -27,7 +27,7 @@ public class JFrameSecretaryMenu extends JFrame {
     private static JFrameSecretaryMenu SecMenuSingInst;
     MainPatient currPatientInst;
     
-    //holds the string to tell the menu which south border to display
+    //holds the string to tell the menu which north border to display
     private static String currenSecNorthBordPanel; 
     
     
@@ -109,12 +109,12 @@ public class JFrameSecretaryMenu extends JFrame {
     }
     
     
-    public void setSecSouthBorderString(String paneltoset){
+    public void setSecNorthBorderString(String paneltoset){
         currenSecNorthBordPanel = paneltoset;
         SecMenuSingInst.setSecNorthBorderPanel();
     }
     
-    public void setSecSouthBorderString(String paneltoset, MainPatient patientinvolved){
+    public void setSecNorthBorderStringPatient(String paneltoset, MainPatient patientinvolved){
         
         currenSecNorthBordPanel = paneltoset;
         currPatientInst = patientinvolved;
@@ -136,7 +136,7 @@ public class JFrameSecretaryMenu extends JFrame {
         JPanelNewAppointment JPanNewApp = JPanelNewAppointment.getInstance();
         JPanelNewAppButPan JPanNewAppButPanel = JPanelNewAppButPan.getInstance();
         JPanelAppsShowAllForPatientSEC JPanViewAllApps = JPanelAppsShowAllForPatientSEC.getInstance();
-        JPanelAppsShowAllForDoctor JpanShowApps = JPanelAppsShowAllForDoctor.getInstance();
+        JPanelAppsShowAvaialble JpanShowApps = JPanelAppsShowAvaialble.getInstance();
         JPartPanelTextAreaMonthReports JPanTextFieldForReports = JPartPanelTextAreaMonthReports.getInstance();
         JPanelAppAmendSecView JPanAmendApp = JPanelAppAmendSecView.getInstance();
         

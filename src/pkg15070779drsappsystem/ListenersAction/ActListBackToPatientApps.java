@@ -20,7 +20,7 @@ public class ActListBackToPatientApps implements ActionListener{
         
         if (this.calledFrom == "Sec"){
              JFrameSecretaryMenu refHolder = JFrameSecretaryMenu.getInstance();
-        refHolder.setSecSouthBorderString("DispPatientAppointments");
+        refHolder.setSecNorthBorderString("DispPatientAppointments");
         }
         
         else if (this.calledFrom =="Doc"){

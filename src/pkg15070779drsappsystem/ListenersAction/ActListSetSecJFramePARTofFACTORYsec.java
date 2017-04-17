@@ -21,7 +21,7 @@ public class ActListSetSecJFramePARTofFACTORYsec implements ActionListener {
          //get the single instance of the Sec menu and call the method on it 
         //with the right border to set - passed in from the menu option
         JFrameSecretaryMenu holder = JFrameSecretaryMenu.getInstance();
-        holder.setSecSouthBorderString(this.typeOfSecJPanToSet);
+        holder.setSecNorthBorderString(this.typeOfSecJPanToSet);
         
         
         

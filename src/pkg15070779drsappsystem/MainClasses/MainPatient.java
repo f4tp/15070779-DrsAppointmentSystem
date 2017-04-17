@@ -135,7 +135,7 @@ public class MainPatient extends MainAbsSystemUserComponent implements MainIntAb
                 JOptionPane.ERROR_MESSAGE);
             
             JFrameSecretaryMenu instHolder = getInstance();
-            instHolder.setSecSouthBorderString("DisplayPatientDetails");
+            instHolder.setSecNorthBorderString("DisplayPatientDetails");
      
             
             

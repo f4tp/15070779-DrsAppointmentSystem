@@ -23,7 +23,7 @@ public class ActListAddDoctor implements ActionListener {
         //will display, but if true, it will add the Doctor to the patients instance list, then reput them back in the map
        if (MainPatient.currentPatient.addDrRegsWith(docToAdd, MainPatient.currentPatient.getUserName()) == true){
             JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
-        SecMenuRef.setSecSouthBorderString("DisplayPatientDetails");
+        SecMenuRef.setSecNorthBorderString("DisplayPatientDetails");
        }
        
     }

@@ -108,7 +108,7 @@ public abstract class MainAbsLogin {
                     JFrameLoginScreen.setVisibility(false);
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                       public void run() {
-                      JFramePharmacistMenu PharmMenuMain = new JFramePharmacistMenu();
+                      JFramePharmacistMenu PharmMenuMain = JFramePharmacistMenu.getInstance();
                       PharmMenuMain.setVisibility(true);
                       } 
                   });

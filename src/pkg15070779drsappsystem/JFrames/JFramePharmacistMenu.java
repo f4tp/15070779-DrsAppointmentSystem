@@ -9,12 +9,17 @@ import java.awt.Toolkit;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import pkg15070779drsappsystem.JPanels.JPanelPresDisplayFromTo;
 import pkg15070779drsappsystem.ListenersAction.ActListLogoutSystem;
+import pkg15070779drsappsystem.ListenersAction.ActListSetSecJFramePARTofFACTORYpharm;
 
 public class JFramePharmacistMenu extends JFrame {
+    public static JFramePharmacistMenu jfPharmMenSingInst;
     
+        //holds the string to tell the menu which North border to display
+    private static String currentPharmNorthBordPanel; 
     
-    public JFramePharmacistMenu(){
+    private  JFramePharmacistMenu(){
         super ("Pharmacist's menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -25,24 +30,22 @@ public class JFramePharmacistMenu extends JFrame {
         pharmMenBar.add(fileMenu);
         
 
+        JMenuItem logOutItem = new JMenuItem ("Logout");
+        //logOutItem.addActionListener(new ActLisExitProg ());
+        logOutItem.addActionListener(new ActListLogoutSystem());
+        fileMenu.add(logOutItem);
         
         JMenuItem exitItem = new JMenuItem ("Exit");
         exitItem.addActionListener(new ActLisExitProg ());
         fileMenu.add(exitItem);
         
-        JMenu patientMenu = new JMenu("Patients");
-        pharmMenBar.add(patientMenu);
         
-        JMenuItem findPatient = new JMenuItem ("Find Patient");
-        findPatient.addActionListener(new ActListSetSecJFramePARTofFACTORYsec("FindPatients"));
-        patientMenu.add(findPatient);
+        JMenu prescriptionMenu = new JMenu("Prescriptions");
+        pharmMenBar.add(prescriptionMenu);
         
-        JMenu reportMenu = new JMenu("Reports");
-        pharmMenBar.add(reportMenu);
-        
-        JMenuItem runReportPrescs = new JMenuItem ("Monthly Prescriptions Reports");
-        runReportPrescs.addActionListener(new ActListSetSecJFramePARTofFACTORYsec("MonthlyPrescs"));
-        reportMenu.add(runReportPrescs);
+        JMenuItem resolvePrescriptions = new JMenuItem ("Resolve");
+        resolvePrescriptions.addActionListener(new ActListSetSecJFramePARTofFACTORYpharm("ViewPresToResolve"));
+        prescriptionMenu.add(resolvePrescriptions);
         
         //lays out the frame using thsi abstract class
         JFrameAbsBorLayFillScreen.applyLayout(this);
@@ -64,5 +67,41 @@ public class JFramePharmacistMenu extends JFrame {
         this.setVisible(vis);
         
     }
+    
+    //singleton DP
+    public static JFramePharmacistMenu getInstance(){
+        if (jfPharmMenSingInst == null){
+            jfPharmMenSingInst = new JFramePharmacistMenu();
+        }
+        
+        return jfPharmMenSingInst;
+    }
+    
+    //the string that is passed in tells teh menu what to make visible and display in the North border
+     public void setPharmNorthBorderString(String paneltoset){
+        currentPharmNorthBordPanel = paneltoset;
+        jfPharmMenSingInst.setPharmNorthBorderPanel();
+    }
+     
+     private void setPharmNorthBorderPanel(){
+         
+         JPanelPresDisplayFromTo presToResolvSingInst = JPanelPresDisplayFromTo.getInstance();
+         
+         if (currentPharmNorthBordPanel == "ViewPresToResolve"){
+             presToResolvSingInst.setVisible(true);
+             
+              jfPharmMenSingInst.add(presToResolvSingInst, BorderLayout.NORTH);
+             
+         }
+         
+         
+         //repopulates the GUI
+        revalidate();
+        repaint();
+      
+     
+     }
+    
+  
     
 }

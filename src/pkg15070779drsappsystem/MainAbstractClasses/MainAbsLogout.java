@@ -4,11 +4,12 @@ package pkg15070779drsappsystem.MainAbstractClasses;
 import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
 import pkg15070779drsappsystem.JFrames.JFrameLoginScreen;
 import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
+import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppAddPrescrip;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
-import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAvaialble;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientDOC;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC;
 import pkg15070779drsappsystem.JPanels.JPanelLoginScreen;
@@ -40,7 +41,8 @@ public abstract class MainAbsLogout {
         MainAppointment.currentAppointment = null;
         MainDoctor.currentDoctor = null;
         MainSecretary.currentSecretary = null;
-        MainPrescription currentPrescription = null;
+        MainPrescription.currentPrescription = null;
+    
         
  //set all JFrames to invisible
         JFrameSecretaryMenu instHolder = JFrameSecretaryMenu.getInstance();
@@ -51,6 +53,9 @@ public abstract class MainAbsLogout {
         
         JFramePatientMenu instHolderrr = JFramePatientMenu.getInstance();
         instHolderrr.setVisible(false);
+        
+        JFramePharmacistMenu instHolderrrr = JFramePharmacistMenu.getInstance();
+        instHolderrrr.setVisible(false);
         
         
  //all secretary screens to make invisible
@@ -74,7 +79,7 @@ public abstract class MainAbsLogout {
         JPanNewAppButPanel.setVisible(false);
         JPanelAppsShowAllForPatientSEC JPanViewAllApps = JPanelAppsShowAllForPatientSEC.getInstance();
        JPanViewAllApps .setVisible(false);
-        JPanelAppsShowAllForDoctor JpanShowApps = JPanelAppsShowAllForDoctor.getInstance();
+        JPanelAppsShowAvaialble JpanShowApps = JPanelAppsShowAvaialble.getInstance();
         JpanShowApps.setVisible(false);
         JPartPanelTextAreaMonthReports JPanTextFieldForReports = JPartPanelTextAreaMonthReports.getInstance();
         JPanTextFieldForReports.setVisible(false);

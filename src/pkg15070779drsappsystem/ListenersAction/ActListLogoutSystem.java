@@ -11,7 +11,7 @@ import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppAddPrescrip;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
-import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAvaialble;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientDOC;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC;
 import pkg15070779drsappsystem.JPanels.JPanelLoginScreen;

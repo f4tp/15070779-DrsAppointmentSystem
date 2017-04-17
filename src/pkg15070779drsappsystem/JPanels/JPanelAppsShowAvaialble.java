@@ -12,8 +12,8 @@ import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.ListenersAction.ActListPerfSearchAllAvailAppointments;
 
 
-public class JPanelAppsShowAllForDoctor extends JPanel {
-    public static JPanelAppsShowAllForDoctor JPanShowAvailAppsSingInst;
+public class JPanelAppsShowAvaialble extends JPanel {
+    public static JPanelAppsShowAvaialble JPanShowAvailAppsSingInst;
     
     JPartPanelSelDrComboFlow selDrInstHold = JPartPanelSelDrComboFlow.getInstance();
     JPartPanelAppsSelDateFlow setDateFrom = new JPartPanelAppsSelDateFlow("Select the dates FROM     ");
@@ -21,7 +21,7 @@ public class JPanelAppsShowAllForDoctor extends JPanel {
     JButton btnSubmit = new JButton("Find Available Appointments");
     JComboBox cmbFoundAppointments = new JComboBox();
     
-    private JPanelAppsShowAllForDoctor(){
+    private JPanelAppsShowAvaialble(){
        setBorder(BorderFactory.createEmptyBorder(20, 100, 20, 100));
        setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
        
@@ -43,14 +43,16 @@ public class JPanelAppsShowAllForDoctor extends JPanel {
     }
     
     //singleton DP
-    public static JPanelAppsShowAllForDoctor getInstance(){
+    public static JPanelAppsShowAvaialble getInstance(){
         if (JPanShowAvailAppsSingInst == null){
-            JPanShowAvailAppsSingInst = new JPanelAppsShowAllForDoctor();
+            JPanShowAvailAppsSingInst = new JPanelAppsShowAvaialble();
         }
         
         return JPanShowAvailAppsSingInst;
     }
     
+    
+    //
     public static void updateFoundAppointments(List<LocalDateTime> foundappsin){
         JPanShowAvailAppsSingInst.cmbFoundAppointments.removeAllItems();
         

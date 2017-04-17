@@ -4,7 +4,7 @@ package pkg15070779drsappsystem.MainAbstractClasses;
 import java.awt.BorderLayout;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
-import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAvaialble;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppButPan;
 import pkg15070779drsappsystem.JPanels.JPanelNewAppointment;
@@ -31,7 +31,7 @@ public abstract class MainAbsFactoryJPanel {
         JPanelNewAppointment JPanNewApp;
         JPanelNewAppButPan JPanNewAppButPanel;
         JPanelAppsShowAllForPatientSEC JPanViewAllApps;
-        JPanelAppsShowAllForDoctor JpanShowApps;
+        JPanelAppsShowAvaialble JpanShowApps;
         JPartPanelTextAreaMonthReports JPanTextFieldForReports;
         JPanelAppAmendSecView JPanAmendApp;
     
@@ -88,22 +88,22 @@ public abstract class MainAbsFactoryJPanel {
     
     //only called when the JPanel is being updated on the Secretary JFrame Menu
     public void setJFrameSecMenu(String paneltoset){
-         //jfSecmenuRefHolder. setSecSouthBorderString(paneltoset);
+         //jfSecmenuRefHolder. setSecNorthBorderString(paneltoset);
     }
     
     //only called when the JPanel is being updated on the Patient JFrame Menu
      public void setJFramePatient(String paneltoset){
-         //jfSecmenuRefHolder. setSecSouthBorderString(paneltoset);
+         //jfSecmenuRefHolder. setSecNorthBorderString(paneltoset);
     }
      
       //only called when the JPanel is being updated on the Doctor JFrame Menu
      public void setJFrameDoctor(String paneltoset){
-         //jfSecmenuRefHolder. setSecSouthBorderString(paneltoset);
+         //jfSecmenuRefHolder. setSecNorthBorderString(paneltoset);
     }
      
       //only called when the JPanel is being updated on the Doctor JFrame Menu
      public void setJFramePharmacist(String paneltoset){
-         //jfSecmenuRefHolder. setSecSouthBorderString(paneltoset);
+         //jfSecmenuRefHolder. setSecNorthBorderString(paneltoset);
     }
     
 }

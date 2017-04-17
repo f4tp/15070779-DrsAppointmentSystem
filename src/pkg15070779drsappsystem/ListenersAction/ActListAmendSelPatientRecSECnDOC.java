@@ -103,7 +103,7 @@ public class ActListAmendSelPatientRecSECnDOC implements ActionListener{
 
 
                      JFrameSecretaryMenu refHolder = JFrameSecretaryMenu.getInstance();
-                    refHolder.setSecSouthBorderString("ShowAmendApps");
+                    refHolder.setSecNorthBorderString("ShowAmendApps");
 
 
 

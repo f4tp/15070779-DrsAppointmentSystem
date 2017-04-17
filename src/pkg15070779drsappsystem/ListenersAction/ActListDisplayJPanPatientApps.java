@@ -57,7 +57,7 @@ public class ActListDisplayJPanPatientApps implements ActionListener{
 
 
                        JFrameSecretaryMenu secMenPointer = JFrameSecretaryMenu.getInstance();
-                       secMenPointer.setSecSouthBorderString("DispPatientAppointments");
+                       secMenPointer.setSecNorthBorderString("DispPatientAppointments");
                 }
 
         } 

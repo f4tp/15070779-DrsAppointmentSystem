@@ -11,7 +11,7 @@ public class ActListDisplayJPanAllAvailAppsSec implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
        
         JFrameSecretaryMenu refHolder = JFrameSecretaryMenu.getInstance();
-        refHolder.setSecSouthBorderString("ShowAvailApps");
+        refHolder.setSecNorthBorderString("ShowAvailApps");
     }
     
 }

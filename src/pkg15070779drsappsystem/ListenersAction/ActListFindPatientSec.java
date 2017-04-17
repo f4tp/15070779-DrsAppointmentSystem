@@ -95,7 +95,7 @@ public class ActListFindPatientSec implements ActionListener {
                //of teh details usign the setUpdateTextFields(); method from the JPanelPatRecordSecView class
                 
                 JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
-                SecMenuRef.setSecSouthBorderString("DisplayPatientDetails", currentPatientInst);
+                SecMenuRef.setSecNorthBorderStringPatient("DisplayPatientDetails", currentPatientInst);
                 
                 
             }

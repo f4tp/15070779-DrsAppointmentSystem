@@ -8,7 +8,7 @@ import javax.swing.*;
 
 
 public class JPanelLoginScreen extends JPanel {
-    JTextField inpUserName = new JTextField("elizabeth.moore.01011915 | alan.turing.01011900 | gregory.house.01011910 | donald.knuth.01011901");
+    JTextField inpUserName = new JTextField("elizabeth.moore.01011915 | alan.turing.01011900 | gregory.house.01011910 | donald.knuth.01011901 | Pharm.Asutical.01011918");
     
     public static JPanelLoginScreen LoginScreenSingleInst;
     
@@ -53,8 +53,8 @@ public class JPanelLoginScreen extends JPanel {
         return LoginScreenSingleInst;
     }
     
-    //to set  defautl users to test the system
+    //to set  defautl users to test the system when someone logs out
     public void updateLogintext(){
-        inpUserName.setText("elizabeth.moore.01011915 | alan.turing.01011900 | gregory.house.01011910 | donald.knuth.01011901");
+        inpUserName.setText("elizabeth.moore.01011915 | alan.turing.01011900 | gregory.house.01011910 | donald.knuth.01011901 | Pharm.Asutical.01011918");
     }
 }

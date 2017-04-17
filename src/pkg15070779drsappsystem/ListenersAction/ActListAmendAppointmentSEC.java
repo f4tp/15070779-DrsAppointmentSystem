@@ -168,7 +168,7 @@ public class ActListAmendAppointmentSEC implements ActionListener {
                 callPromptAppupdated();
                  //go back to patient record screen
                 JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
-                SecMenuRef.setSecSouthBorderString("DisplayPatientDetails");
+                SecMenuRef.setSecNorthBorderString("DisplayPatientDetails");
                 
             }
         

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForDoctor;
+import pkg15070779drsappsystem.JPanels.JPanelAppsShowAvaialble;
 import pkg15070779drsappsystem.JPanels.JPartPanelAppsSelDateFlow;
 import pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
@@ -35,6 +35,7 @@ public class ActListPerfSearchAllAvailAppointments implements ActionListener{
         //time had to be set at 17:15 as this date is set the day before so this particular date can be included in 
         //the search, but it needs to search from the day before at a time when appointments 
         //are not available otherwise it will include these also
+        System.out.println(this.dateFromJPan.getDateDayString());
         LocalDateTime ldtFrom = MainAbsScheduling.getConvStringToDateTime(this.dateFromJPan.getDateDayString() + this.dateFromJPan.geDateMonthString() + this.dateFromJPan.getDateYearString() + "1715");
         
         //get the to date selected by the user and construct it into a LocalDateTime object - time set at 0000
@@ -59,7 +60,7 @@ public class ActListPerfSearchAllAvailAppointments implements ActionListener{
         lstFoundAvailableApps = MainDoctor.getDocsAvailableAppointments(MainDoctor.currentDoctor, ldtFrom, ldtTo);
         }
         
-        JPanelAppsShowAllForDoctor.updateFoundAppointments(lstFoundAvailableApps);
+        JPanelAppsShowAvaialble.updateFoundAppointments(lstFoundAvailableApps);
   
     }
     

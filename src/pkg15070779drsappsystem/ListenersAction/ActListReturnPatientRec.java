@@ -19,7 +19,7 @@ public class ActListReturnPatientRec implements ActionListener {
         
         if (this.calledFrom == "Sec"){
             JFrameSecretaryMenu SecMenuRef = JFrameSecretaryMenu.getInstance();
-        SecMenuRef.setSecSouthBorderString("DisplayPatientDetails");
+        SecMenuRef.setSecNorthBorderString("DisplayPatientDetails");
         }
         else if (this.calledFrom =="Doc"){
         JFrameDoctorMenu DocMenuRef = JFrameDoctorMenu.getInstance();
