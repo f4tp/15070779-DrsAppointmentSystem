@@ -20,11 +20,13 @@ import pkg15070779drsappsystem.JPanels.JPanelPatFindSecView;
 import pkg15070779drsappsystem.JPanels.JPanelPatRecordDocView;
 import pkg15070779drsappsystem.JPanels.JPanelPatRecordSecView;
 import pkg15070779drsappsystem.JPanels.JPanelPatientAddDoctor;
+import pkg15070779drsappsystem.JPanels.JPanelPresDisplayFromTo;
 import pkg15070779drsappsystem.JPanels.JPanelReportsAppAtt;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPanelReportsPresrcips;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaPrintPatRec;
+import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaPrintPresDetail;
 import pkg15070779drsappsystem.MainClasses.MainAppointment;
 import pkg15070779drsappsystem.MainClasses.MainDoctor;
 import pkg15070779drsappsystem.MainClasses.MainPatient;
@@ -104,6 +106,14 @@ public abstract class MainAbsLogout {
           JPanAmendAppDoc.setVisible(false);
           JPanelFindPatDoc.setVisible(false); 
         jpanAddpresSingInst.setVisible(false);
+        
+        //pharmacist panels make invisible
+        
+        JPanelPresDisplayFromTo presDis = JPanelPresDisplayFromTo.getInstance();
+        presDis.setVisible(false);
+        
+        JPartPanelTextAreaPrintPresDetail textarsingins = JPartPanelTextAreaPrintPresDetail.getInstance();
+        textarsingins.setVisible(false);
    
         
  //clears the Jtextholder that updates with the patient's record details, when they logout
