@@ -9,8 +9,10 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import static pkg15070779drsappsystem.JPanels.JPanelAppsShowAvaialble.JPanShowAvailAppsSingInst;
+import pkg15070779drsappsystem.ListenersAction.ActListMarkAsDispatched;
 import pkg15070779drsappsystem.ListenersAction.ActListPerfSearchAllAvailAppointments;
 import pkg15070779drsappsystem.ListenersAction.ActListSearchPresPHARM;
+import pkg15070779drsappsystem.ListenersItem.ItemListenerPresSelectedChanged;
 import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
 
 public class JPanelPresDisplayFromTo extends JPanel {
@@ -38,7 +40,9 @@ public class JPanelPresDisplayFromTo extends JPanel {
        
        //called with the JPanel instances - 2 of them (1 for from, 1 for to dates), and teh combobox from here to check the status
         btnSubmit.addActionListener(new ActListSearchPresPHARM(setDateFrom, setDateTo, selPresStatus ));
-      
+      cmbFoundPrescriptions.addItemListener(new ItemListenerPresSelectedChanged(cmbFoundPrescriptions));
+        btnMarkAsDisp.addActionListener(new ActListMarkAsDispatched(cmbFoundPrescriptions, btnSubmit));
+        
        //adds the components
       add(selPresStatus);
        add(setDateFrom);
@@ -47,6 +51,7 @@ public class JPanelPresDisplayFromTo extends JPanel {
    
       add(btnSubmit);
          add(cmbFoundPrescriptions);
+         add(btnMarkAsDisp);
        
     }
  //singleton DP

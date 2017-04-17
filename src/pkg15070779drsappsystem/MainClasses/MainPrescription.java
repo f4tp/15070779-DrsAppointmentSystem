@@ -76,7 +76,7 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
                     MainPrescription tempPres = (MainPrescription) MainAbsPrescriptionComponent.getMainPrescription(tempPresKey);
                     MainAppointment tempApp = (MainAppointment) MainAbsAppointmentComponent.getAppointment(tempPres.getLinkedAppID());
 
-                    //sort teh days from and to out so that they can be included in the search themselves, otherwise they
+                    //sort the days from and to out so that they can be included in the search themselves, otherwise they
                     //would be left out
                     datefrom = datefrom.minusDays(1L);
                     dateto = dateto.plusDays(1L);

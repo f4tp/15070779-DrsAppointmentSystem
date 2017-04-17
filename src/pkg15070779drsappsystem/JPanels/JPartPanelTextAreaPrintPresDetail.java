@@ -2,19 +2,17 @@
 package pkg15070779drsappsystem.JPanels;
 
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-//import pkg15070779drsappsystem.ActionListeners.ActListRunReport;
+import static pkg15070779drsappsystem.JPanels.JPartPanelTextAreaPrintPatRec.BtutextAreaSingInst;
 
-public class JPartPanelTextAreaMonthReports  extends JPanel{
+public class JPartPanelTextAreaPrintPresDetail extends JPanel {
     
-    public static JPartPanelTextAreaMonthReports BtutextAreaSingInst;
+    public static JPartPanelTextAreaPrintPresDetail BtutextAreaSingInst;
     //JButton btnRunReport = new JButton ("Run report");
     JTextArea jtaReportResults = new JTextArea();
     
-    
-    private JPartPanelTextAreaMonthReports (){
+        private JPartPanelTextAreaPrintPresDetail (){
         setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
        // add(btnRunReport);
        jtaReportResults.setLineWrap(true);
@@ -22,12 +20,12 @@ public class JPartPanelTextAreaMonthReports  extends JPanel{
         
        //btnRunReport.addActionListener (new ActListRunReport(paneltitle));
     }
-    
-    
-    //singleton DP
-    public static JPartPanelTextAreaMonthReports getInstance(){
+        
+        
+          //singleton DP
+    public static JPartPanelTextAreaPrintPresDetail getInstance(){
         if(BtutextAreaSingInst == null){
-            BtutextAreaSingInst = new JPartPanelTextAreaMonthReports();
+            BtutextAreaSingInst = new JPartPanelTextAreaPrintPresDetail();
             
         }
         

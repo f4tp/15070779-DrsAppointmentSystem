@@ -10,6 +10,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import pkg15070779drsappsystem.JPanels.JPanelPresDisplayFromTo;
+import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaPrintPresDetail;
 import pkg15070779drsappsystem.ListenersAction.ActListLogoutSystem;
 import pkg15070779drsappsystem.ListenersAction.ActListSetSecJFramePARTofFACTORYpharm;
 
@@ -86,12 +87,13 @@ public class JFramePharmacistMenu extends JFrame {
      private void setPharmNorthBorderPanel(){
          
          JPanelPresDisplayFromTo presToResolvSingInst = JPanelPresDisplayFromTo.getInstance();
+         JPartPanelTextAreaPrintPresDetail singinst = JPartPanelTextAreaPrintPresDetail.getInstance();
          
          if (currentPharmNorthBordPanel == "ViewPresToResolve"){
              presToResolvSingInst.setVisible(true);
-             
+             singinst.setVisible(true);
               jfPharmMenSingInst.add(presToResolvSingInst, BorderLayout.NORTH);
-             
+             jfPharmMenSingInst.add(singinst, BorderLayout.CENTER);
          }
          
          

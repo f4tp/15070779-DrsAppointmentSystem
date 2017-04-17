@@ -15,6 +15,7 @@ public class JPartPanelTextAreaPrintPatRec extends JPanel{
     private JPartPanelTextAreaPrintPatRec (){
         setLayout (new BoxLayout(this, BoxLayout.Y_AXIS));
        // add(btnRunReport);
+       jtaReportResults.setLineWrap(true);
         add(jtaReportResults);
         
        //btnRunReport.addActionListener (new ActListRunReport(paneltitle));
