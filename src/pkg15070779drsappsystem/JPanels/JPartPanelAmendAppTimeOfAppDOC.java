@@ -6,13 +6,13 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import pkg15070779drsappsystem.ListenersItem.ItemListAmendAppFormChangedDateAffected;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
 
 public class JPartPanelAmendAppTimeOfAppDOC extends JPanel {
     
       private static JPartPanelAmendAppTimeOfAppDOC jpanTimeOfApp;
       JLabel lblTimeOfApp= new JLabel ("Time of appointment:");
-    private JComboBox cmbTime= new JComboBox(MainAbsScheduling.getTimesArr());
+    private JComboBox cmbTime= new JComboBox(SchedulingAbstract.getTimesArr());
     //private static JComboBox cmbTimeMin= new JComboBox();
     
     public JPartPanelAmendAppTimeOfAppDOC(){
@@ -32,7 +32,7 @@ public class JPartPanelAmendAppTimeOfAppDOC extends JPanel {
       //sets the hour and minute to the string version of the appointment's time
     public void updateFormWidgets(LocalDateTime appdatetime){
   
-            cmbTime.setSelectedItem(MainAbsScheduling.getConvDateTimeToStringHourAndMin(appdatetime));
+            cmbTime.setSelectedItem(SchedulingAbstract.getConvDateTimeToStringHourAndMin(appdatetime));
 
         }
     

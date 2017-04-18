@@ -5,16 +5,16 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.AppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.PrescriptionComponent;
 
-public class MainPrescription extends MainAbsPrescriptionComponent{
+public class Prescription extends PrescriptionComponent{
 
 //@@@@@@@@@@ static fields @@@@@@@@@@
     //holds the current prescriptions that are being worked on by a doctor, secretary or phramacist
     //this is the searched for appointments prescription list
-    public static List <MainPrescription> currentPrescription = new ArrayList<>();
-    private static List<String> lstStrAllPresKeys = new ArrayList<>();
+    public static List <Prescription> currentPrescriptionList = new ArrayList<>();
+    private static List<String> strAllPresKeysList = new ArrayList<>();
 //@@@@@@@@@@ instance fields @@@@@@@@@@  
     //holds all prescription keys so they can be searched, never deleted from as all appointments stay on file
     //for report searching
@@ -30,7 +30,7 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
 
 //@@@@@@@@@@ construtor @@@@@@@@@@
     
-    public MainPrescription(String medicinedesc, String medamount, String patientid, String doctorid, String appid){
+    public Prescription(String medicinedesc, String medamount, String patientid, String doctorid, String appid){
         this.presUniqueKey = generatePresUniKey();
         this.presMedicineDesc = medicinedesc;
         this.presMedAmount = medamount;
@@ -41,14 +41,14 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
         //adds the prescription unique key to the static list, so it contains all prescription IDss issued... can be searched later
         addPresKeyToList(this.presUniqueKey);
         //add to the map in the component class
-        MainAbsPrescriptionComponent.setPutInMap(this.presUniqueKey, this);
+        PrescriptionComponent.setPutInMap(this.presUniqueKey, this);
      }
     
     
-//@@@@@@@@@@ more complicated setters @@@@@@@@@@
-    
+
+//@@@@@@@@@@ more complicated setters and getters together @@@@@@@@@@        
    //given a date from, date to and a status of prescription, this methofreturns a list of prescription IDs 
-    //when they are within a certain date range and of a certain status (dispatched / not dispatched).
+    //when they are within a certain date range and of a certain status (dispatched / not dispatched).//this is a setter then a gette
     public static List<String> getListPresWithDateAndStatus(LocalDateTime datefrom, LocalDateTime dateto, Boolean status){
         List <String> lstFoundPrescriptions = new ArrayList<>();
         
@@ -61,9 +61,9 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
             } 
          else{
              
-                for (String tempPresKey : lstStrAllPresKeys){
-                    MainPrescription tempPres = (MainPrescription) MainAbsPrescriptionComponent.getMainPrescription(tempPresKey);
-                    MainAppointment tempApp = (MainAppointment) MainAbsAppointmentComponent.getAppointment(tempPres.getLinkedAppID());
+                for (String tempPresKey : strAllPresKeysList){
+                    Prescription tempPres = (Prescription) PrescriptionComponent.getMainPrescription(tempPresKey);
+                    Appointment tempApp = (Appointment) AppointmentComponent.getAppointment(tempPres.getLinkedAppID());
 
                     //sort the days from and to out so that they can be included in the search themselves, otherwise they
                     //would be left out
@@ -81,6 +81,8 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
          return lstFoundPrescriptions;
     }    
     
+    
+//@@@@@@@@@@ more complicated setters @@@@@@@@@@    
     public void setPresMedicineDesc(String meddescin){
         
         if (this.presMedicineDesc == null){
@@ -109,7 +111,7 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
     }
     
     public static void addPresKeyToList(String appkeyin){
-        lstStrAllPresKeys.add(appkeyin);
+        strAllPresKeysList.add(appkeyin);
     }
     
     
@@ -158,7 +160,7 @@ public class MainPrescription extends MainAbsPrescriptionComponent{
 //@@@@@@@@@@simple getters @@@@@@@@@@
     
     public static List <String> getPresKeyList(){
-        return lstStrAllPresKeys;
+        return strAllPresKeysList;
     }
     
     public String getLinkedAppID(){

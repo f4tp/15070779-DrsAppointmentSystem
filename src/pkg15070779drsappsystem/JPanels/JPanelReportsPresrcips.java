@@ -6,17 +6,17 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import pkg15070779drsappsystem.ListenersAction.ActListRunReport;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
 public class JPanelReportsPresrcips extends JPanel {
     //only one menu will ever need be generated so singleton DP has been setup
     //the single instance should be accessed using the getInstance() method
     private static JPanelReportsPresrcips panelRepPresSingInst;
                 //gets months from the abstract scheduling class to keep consistency, some routines rely on the date 
         //given as Jan Feb Mar etc
-      JComboBox cmbMonth = new JComboBox(MainAbsScheduling.getMonthsArr());
+      JComboBox cmbMonth = new JComboBox(SchedulingAbstract.getMonthsArr());
 
         //gets years from the abstract scheduling class to keep consistency
-       JComboBox cmbYear = new JComboBox(MainAbsScheduling.getYearArr());
+       JComboBox cmbYear = new JComboBox(SchedulingAbstract.getYearArr());
        
     private JPanelReportsPresrcips(){
         

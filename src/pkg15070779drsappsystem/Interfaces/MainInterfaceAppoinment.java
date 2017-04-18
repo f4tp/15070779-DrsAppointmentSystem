@@ -23,6 +23,7 @@ public abstract interface MainInterfaceAppoinment {
     void setAppAttend(Boolean attendstatus);
     void setSymptoms(String symptomstoset);
     void setAppMissed(Boolean missedstatus);
+    void setAppCancelled(Boolean cancelledstatus);
     void setAppDateTime(LocalDateTime appDateTime);
 
 

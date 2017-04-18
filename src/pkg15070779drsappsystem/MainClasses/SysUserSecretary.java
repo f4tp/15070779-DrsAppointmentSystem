@@ -1,21 +1,19 @@
 package pkg15070779drsappsystem.MainClasses;
 
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.SystemUserComponent;
 import pkg15070779drsappsystem.Interfaces.MainInterfaceSystemUsers;
 
-public class MainSecretary extends MainAbsSystemUserComponent implements MainInterfaceSystemUsers  {
+public class SysUserSecretary extends SystemUserComponent implements MainInterfaceSystemUsers  {
    
-    public static MainSecretary currentSecretary;
-    
-    private String apptest;
+    public static SysUserSecretary currentSecretary;
+
     private String strTitle, strFirstName, strSurname, strDOB, strKeyUserNamel;
-    public MainSecretary(String fname, String sname, String title, String dob, String newer){
+    public SysUserSecretary(String fname, String sname, String title, String dob){
         strTitle = title;
         strFirstName = fname;
         strSurname = sname;
         strDOB = dob;
-        this.apptest = newer;
-        strKeyUserNamel = setGenerateUsername(this.strFirstName, this.strSurname, this.strDOB);
+        strKeyUserNamel = getGenerateUsername(this.strFirstName, this.strSurname, this.strDOB);
         setPutInMap(this.strKeyUserNamel, this);
     }
 

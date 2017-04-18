@@ -8,8 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import pkg15070779drsappsystem.JPanels.JPartPanelPatRecButPanDOC;
 import pkg15070779drsappsystem.JPanels.JPartPanelTemplateTwelveGridView;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainAbstractClasses.SystemUserComponent;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
 
 public class JPanelPatRecordDocView extends JPanel {
     
@@ -63,13 +63,13 @@ public class JPanelPatRecordDocView extends JPanel {
    public void setUpdateTextFields(){
 
        
-        if (MainAbsSystemUserComponent.currentSystemUser != null){
-            JTFTitle.setText(MainPatient.currentPatient.getTitle());
-            JTFFirstName.setText(MainPatient.currentPatient.getFirstName());
-            JTFSurname.setText(MainPatient.currentPatient.getSurname());
-            JTFdob.setText(MainPatient.currentPatient.getDOB());
-            JTFContact.setText(MainPatient.currentPatient.getContactDetail());
-            JTFDrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsDrsnames());
+        if (SystemUserComponent.currentSystemUser != null){
+            JTFTitle.setText(SysUserPatient.currentPatient.getTitle());
+            JTFFirstName.setText(SysUserPatient.currentPatient.getFirstName());
+            JTFSurname.setText(SysUserPatient.currentPatient.getSurname());
+            JTFdob.setText(SysUserPatient.currentPatient.getDOB());
+            JTFContact.setText(SysUserPatient.currentPatient.getContactDetail());
+            JTFDrsRegsWith.setText(SysUserPatient.currentPatient.getDrsRegWithAsStringAsDrsnames());
         }
     
 }
@@ -77,8 +77,8 @@ public class JPanelPatRecordDocView extends JPanel {
    
    public void setUpdateTextFields(String patientid){
 
-        if (MainAbsSystemUserComponent.currentSystemUser != null){
-           MainPatient currentPatInst = (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(patientid);
+        if (SystemUserComponent.currentSystemUser != null){
+           SysUserPatient currentPatInst = (SysUserPatient) SystemUserComponent.getSystemUserComponent(patientid);
             
             JTFTitle.setText(currentPatInst.getTitle());
             JTFFirstName.setText(currentPatInst.getFirstName());

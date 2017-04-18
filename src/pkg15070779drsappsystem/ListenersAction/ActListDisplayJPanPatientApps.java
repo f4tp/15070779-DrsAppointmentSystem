@@ -6,17 +6,17 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.AppointmentComponent;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientDOC;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
 
 public class ActListDisplayJPanPatientApps implements ActionListener{
-    MainPatient currPatInst;
+    SysUserPatient currPatInst;
     String calledFrom;
     public ActListDisplayJPanPatientApps(String calledfrom){
-        //currPatInst = (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
+        //currPatInst = (SysUserPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
         this.calledFrom = calledfrom;
     }
 
@@ -25,7 +25,7 @@ public class ActListDisplayJPanPatientApps implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (this.calledFrom =="Sec"){
-                 if (MainPatient.currentPatient.getAppointmentExist() == true){
+                 if (SysUserPatient.currentPatient.getCheckPatHasApp() == true){
                        JOptionPane.showMessageDialog (null,
                        "The patient has no appointments yet.",
                        "No appointment on file",
@@ -39,13 +39,13 @@ public class ActListDisplayJPanPatientApps implements ActionListener{
                        JPanelAppsShowAllForPatientSEC.updateLabelTitleForShowPatApps();
 
                        //loop through the appointment list, retrieve the appointment, set to text then add to JTextArea on panel
-                       List <String> tempAppKeys= MainPatient.currentPatient.getPatientAppointmentKeys();
+                       List <String> tempAppKeys= SysUserPatient.currentPatient.getPatientAppKeysAsList();
                        JPanelAppsShowAllForPatientSEC.setClearCombo();
                        for (String temp : tempAppKeys){
-                           JPanelAppsShowAllForPatientSEC.updateAppointmentsTextArea(MainAbsAppointmentComponent.getAppointment(temp).toString());
+                           JPanelAppsShowAllForPatientSEC.updateAppointmentsTextArea(AppointmentComponent.getAppointment(temp).toString());
 
                            //if the appointment also has a prescription issued, print this to screen also, or pritn no prescription for this app
-                           JPanelAppsShowAllForPatientSEC.updateAppointmentsTextArea(MainAbsAppointmentComponent.getAppointment(temp).getAllPresDetailsForAppAsString());
+                           JPanelAppsShowAllForPatientSEC.updateAppointmentsTextArea(AppointmentComponent.getAppointment(temp).getAllPresDetailsForAppAsString());
 
 
 
@@ -61,7 +61,7 @@ public class ActListDisplayJPanPatientApps implements ActionListener{
         
         else if (this.calledFrom == "Doc"){
             
-                if (MainPatient.currentPatient.getAppointmentExist() == true){
+                if (SysUserPatient.currentPatient.getCheckPatHasApp() == true){
                        JOptionPane.showMessageDialog (null,
                        "The patient has no appointments yet.",
                        "No appointment on file",
@@ -75,13 +75,13 @@ public class ActListDisplayJPanPatientApps implements ActionListener{
                        JPanelAppsShowAllForPatientDOC.updateLabelTitleForShowPatApps();
 
                        //loop through the appointment list, retrieve the appointment, set to text then add to JTextArea on panel
-                       List <String> tempAppKeys= MainPatient.currentPatient.getPatientAppointmentKeys();
+                       List <String> tempAppKeys= SysUserPatient.currentPatient.getPatientAppKeysAsList();
                        JPanelAppsShowAllForPatientDOC.setClearCombo();
                        for (String temp : tempAppKeys){
-                           JPanelAppsShowAllForPatientDOC.updateAppointmentsTextArea(MainAbsAppointmentComponent.getAppointment(temp).toString());
+                           JPanelAppsShowAllForPatientDOC.updateAppointmentsTextArea(AppointmentComponent.getAppointment(temp).toString());
 
                            //if the appointment also has a prescription issued, print this to screen also, or pritn no prescription for this app
-                           JPanelAppsShowAllForPatientDOC.updateAppointmentsTextArea(MainAbsAppointmentComponent.getAppointment(temp).getAllPresDetailsForAppAsString());
+                           JPanelAppsShowAllForPatientDOC.updateAppointmentsTextArea(AppointmentComponent.getAppointment(temp).getAllPresDetailsForAppAsString());
 
 
 
@@ -90,7 +90,7 @@ public class ActListDisplayJPanPatientApps implements ActionListener{
 
 
                        JFrameDoctorMenu docMenPointer = JFrameDoctorMenu.getInstance();
-                       docMenPointer.setDocSouthBorderString("DispPatientAppointments", MainPatient.currentPatient);
+                       docMenPointer.setDocSouthBorderString("DispPatientAppointments", SysUserPatient.currentPatient);
                 }
 
             

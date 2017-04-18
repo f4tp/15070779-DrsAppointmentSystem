@@ -2,7 +2,7 @@ package pkg15070779drsappsystem.ListenersAction;
 
 import java.awt.event.*;
 import javax.swing.*;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsLogin;
+import pkg15070779drsappsystem.MainAbstractClasses.LoginAbstract;
 
 
 
@@ -21,7 +21,7 @@ public class ActListLoginSystem implements ActionListener {
   
     public void actionPerformed(ActionEvent e){
         //gtries to login with the given username
-        MainAbsLogin.login(INPUTTEXT.getText());
+        LoginAbstract.login(INPUTTEXT.getText());
       
         
     }

@@ -1,7 +1,7 @@
 
 package pkg15070779drsappsystem;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
+import pkg15070779drsappsystem.MainAbstractClasses.SystemUserComponent;
 import pkg15070779drsappsystem.ListenersAction.ActListFindPatientSec;
 import javax.swing.*;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class ActListFindPatientTest {
     //check that a patient object  assert not null
                
                
-        MainAbsSystemUserComponent testPatient = new MainPatient("alan", "turing", "Mr", "01011900", "01234 567 890", "More data");
+        SystemUserComponent testPatient = new SysUserPatient("alan", "turing", "Mr", "01011900", "01234 567 890", "More data");
         
         JTextField fname = new JTextField("alan");
         JTextField sname = new JTextField("turing");

@@ -8,7 +8,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
 import pkg15070779drsappsystem.ListenersAction.ActListPerfSearchAllAvailAppointments;
 
 
@@ -37,8 +37,8 @@ public class JPanelAppsShowAvaialble extends JPanel {
         
        //@@@@' NTD not working, need to solve getting the instance of this Jcombo
          //sets the selected item in the FROM combo box at today's date
-       setDateFrom.cmbSelDateFromToDay.setSelectedItem(MainAbsScheduling.getDateToday().getDayOfMonth());
-       setDateFrom.cmbSelDateFromToMonth.setSelectedItem(MainAbsScheduling.getDateToday().getMonth());
+       setDateFrom.cmbSelDateFromToDay.setSelectedItem(SchedulingAbstract.getDateToday().getDayOfMonth());
+       setDateFrom.cmbSelDateFromToMonth.setSelectedItem(SchedulingAbstract.getDateToday().getMonth());
         
     }
     

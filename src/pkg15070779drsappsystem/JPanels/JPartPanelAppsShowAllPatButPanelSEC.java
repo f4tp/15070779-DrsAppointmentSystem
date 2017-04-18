@@ -5,10 +5,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import pkg15070779drsappsystem.ListenersAction.ActListAmendSelPatientRecSECnDOC;
 import pkg15070779drsappsystem.ListenersAction.ActListReturnPatientRec;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainAbstractClasses.AppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.SystemUserComponent;
+import pkg15070779drsappsystem.MainClasses.Appointment;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
 
 public class JPartPanelAppsShowAllPatButPanelSEC extends JPanel {
     

@@ -8,7 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import pkg15070779drsappsystem.ListenersAction.ActListReturnPatientRec;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
+import pkg15070779drsappsystem.MainClasses.SysUserDoctor;
 
 
 public class JPanelPatientAddDoctor extends JPanel {
@@ -17,7 +17,7 @@ public class JPanelPatientAddDoctor extends JPanel {
         
         private JPanelPatientAddDoctor(){
             JLabel lblTitle = new JLabel ("Select a doctor to add");
-            JComboBox cmbDrs = new JComboBox(MainDoctor.getListAllDoctors().toArray());
+            JComboBox cmbDrs = new JComboBox(SysUserDoctor.getListAllDoctors().toArray());
             JButton btnAddDoctor = new JButton("Register Patient With Doctor");
             btnAddDoctor.addActionListener(new ActListAddDoctor(cmbDrs));
             

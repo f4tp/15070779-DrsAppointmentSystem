@@ -8,13 +8,13 @@ import pkg15070779drsappsystem.JFrames.JFramePatientMenu;
 import pkg15070779drsappsystem.JFrames.JFramePharmacistMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.JPanels.JPanelPatRecordPatView;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
-import pkg15070779drsappsystem.MainClasses.MainPharmacist;
-import pkg15070779drsappsystem.MainClasses.MainSecretary;
+import pkg15070779drsappsystem.MainClasses.SysUserDoctor;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
+import pkg15070779drsappsystem.MainClasses.SysUserPharmacist;
+import pkg15070779drsappsystem.MainClasses.SysUserSecretary;
 
-public abstract class MainAbsLogin {
-    MainAbsSystemUserComponent currentSystemUserInst;
+public abstract class LoginAbstract {
+    SystemUserComponent currentSystemUserInst;
     public static void login(String usernamein){
         
         JFrameLoginScreen jfLoginScrenSingInst = JFrameLoginScreen.getInstance();
@@ -23,7 +23,7 @@ public abstract class MainAbsLogin {
         String lowerCaseUserName = usernamein.toLowerCase();
         
         //if the login is incorrect, a user will not be found... show error prompt
-        if (MainAbsSystemUserComponent.getLoginCheckUserExists(lowerCaseUserName) == false){
+        if (SystemUserComponent.getLoginCheckUserExists(lowerCaseUserName) == false){
             JOptionPane.showMessageDialog (null,
                 "The user has not been found in the system. Please try different details.",
                 "User not found",
@@ -35,36 +35,36 @@ public abstract class MainAbsLogin {
         else{
                 //set the current system user to whoever has just logged in - global static variable which keeps
                 //track of who is logged in at all times
-                MainAbsSystemUserComponent.setCurrentSystemUser(lowerCaseUserName); 
+                SystemUserComponent.setCurrentSystemUser(lowerCaseUserName); 
                 
                 //polymorphism here, object is initialised with subtype -
                 //this subtype is checked to pull up the correct JFrame adhering to
                 //the user type
             
               //opens the correct menu when the type of object is discovered
-              if (MainAbsSystemUserComponent.currentSystemUser instanceof MainSecretary){
+              if (SystemUserComponent.currentSystemUser instanceof SysUserSecretary){
                     //this means there has been a user found and it is  a secretary object
-                    //polymorphism in action, the MainAbsSystemUserComponent object is cast to a MainPatient object
+                    //polymorphism in action, the SystemUserComponent object is cast to a SysUserPatient object
                     //make the login screen invisible
                     
                     jfLoginScrenSingInst.setVisible(false);
                     //run the right login screen
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                         public void run() {
-                         MainSecretary.currentSecretary = (MainSecretary) MainAbsSystemUserComponent.currentSystemUser; 
+                         SysUserSecretary.currentSecretary = (SysUserSecretary) SystemUserComponent.currentSystemUser; 
                         JFrameSecretaryMenu SecMenuMain = JFrameSecretaryMenu.getInstance();
                         SecMenuMain.setVisible(true);
                         } 
                     });
             }
 
-              else if (MainAbsSystemUserComponent.currentSystemUser instanceof MainPatient){
+              else if (SystemUserComponent.currentSystemUser instanceof SysUserPatient){
                     jfLoginScrenSingInst.setVisible(false);
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                       public void run() {
                         
           
-                         MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.currentSystemUser;     
+                         SysUserPatient.currentPatient = (SysUserPatient) SystemUserComponent.currentSystemUser;     
                         JFramePatientMenu PatMenuMain = JFramePatientMenu.getInstance();
                         JPanelPatRecordPatView tmpInst = JPanelPatRecordPatView.getInstance();
                         tmpInst.setUpdateTextFields();
@@ -74,7 +74,7 @@ public abstract class MainAbsLogin {
                   });
               }
               
-              else if (MainAbsSystemUserComponent.currentSystemUser instanceof MainDoctor){
+              else if (SystemUserComponent.currentSystemUser instanceof SysUserDoctor){
                     jfLoginScrenSingInst.setVisible(false);
 
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -85,7 +85,7 @@ public abstract class MainAbsLogin {
                   });
               }
               
-              else if (MainAbsSystemUserComponent.currentSystemUser instanceof MainPharmacist){
+              else if (SystemUserComponent.currentSystemUser instanceof SysUserPharmacist){
                    jfLoginScrenSingInst.setVisible(false);
                     javax.swing.SwingUtilities.invokeLater(new Runnable() {
                       public void run() {

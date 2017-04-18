@@ -9,15 +9,15 @@ import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
-import pkg15070779drsappsystem.MainClasses.MainPrescription;
+import pkg15070779drsappsystem.MainAbstractClasses.AppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.PrescriptionComponent;
+import pkg15070779drsappsystem.MainClasses.Appointment;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
+import pkg15070779drsappsystem.MainClasses.Prescription;
 
 public class ActListAmendSelPatientRecSECnDOC implements ActionListener{
     
-    MainAppointment currentAppInst;
+    Appointment currentAppInst;
     String calledFrom;
 
     
@@ -40,21 +40,21 @@ public class ActListAmendSelPatientRecSECnDOC implements ActionListener{
                     String keyToSearch = this.cmbAppKeys.getSelectedItem().toString();        
 
                     //set the currently selected appointment to the one you want to work on
-                    currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(keyToSearch);
+                    currentAppInst = (Appointment) AppointmentComponent.getAppointment(keyToSearch);
 
-                    MainAppointment.currentAppointment = (MainAppointment) MainAbsAppointmentComponent.getAppointment(keyToSearch);
+                    Appointment.currentAppointment = (Appointment) AppointmentComponent.getAppointment(keyToSearch);
                      //main patient already set when we searched for the patient so doesn't need resetting
 
 
                       //if there is a prescription for this appointment, set the current prescription based on the current 
                       //appointment  to the one you want to work on
                       if (currentAppInst.getHasPrescBeenGenerated() == true){
-                          MainPrescription.currentPrescription.clear(); //clear the list so it doesn't have old prescriptions in it
+                          Prescription.currentPrescriptionList.clear(); //clear the list so it doesn't have old prescriptions in it
 
                           //for all prescriptions IDs in this appointment precription list...
                           for(String temp: currentAppInst.getListOfPrescriptionIDs())
                               //resolve the prescription and store in the Main appointment list
-                              MainPrescription.currentPrescription.add((MainPrescription) MainAbsPrescriptionComponent.getMainPrescription(temp));
+                              Prescription.currentPrescriptionList.add((Prescription) PrescriptionComponent.getMainPrescription(temp));
                            }
 
 
@@ -64,27 +64,27 @@ public class ActListAmendSelPatientRecSECnDOC implements ActionListener{
                      //will the right prescription if it exists, we can then use
                      //these details to populate the amend form by callign the method which does this in this JPanel
 
-                     String curPatTitle = MainPatient.currentPatient.getTitle();
-                     String curPatFirstname = MainPatient.currentPatient.getFirstName();
-                     String curPatSurname = MainPatient.currentPatient.getSurname();
-                     String curPatUsername = MainPatient.currentPatient.getUserName();
+                     String curPatTitle = SysUserPatient.currentPatient.getTitle();
+                     String curPatFirstname = SysUserPatient.currentPatient.getFirstName();
+                     String curPatSurname = SysUserPatient.currentPatient.getSurname();
+                     String curPatUsername = SysUserPatient.currentPatient.getUserName();
 
-                     String curAppId = MainAppointment.currentAppointment.getAppUniqueKey();
-                     String curAppDrWith = MainAppointment.currentAppointment.getProfessionalAppWith();
-                     LocalDateTime curAppDateTime = MainAppointment.currentAppointment.getAPPDateAndTime();
-                     String currAppsymptoms = MainAppointment.currentAppointment.getSymptoms();
-                     String curDrsComments = MainAppointment.currentAppointment.getProfessionalsComments();
-                     Boolean curAppAttended = MainAppointment.currentAppointment.getAttended();
-                     Boolean curAppCancelled = MainAppointment.currentAppointment.getCancelled();
-                     Boolean currAppMissed = MainAppointment.currentAppointment.getMissed();
+                     String curAppId = Appointment.currentAppointment.getAppUniqueKey();
+                     String curAppDrWith = Appointment.currentAppointment.getProfessionalAppWith();
+                     LocalDateTime curAppDateTime = Appointment.currentAppointment.getAPPDateAndTime();
+                     String currAppsymptoms = Appointment.currentAppointment.getSymptoms();
+                     String curDrsComments = Appointment.currentAppointment.getProfessionalsComments();
+                     Boolean curAppAttended = Appointment.currentAppointment.getAttended();
+                     Boolean curAppCancelled = Appointment.currentAppointment.getCancelled();
+                     Boolean currAppMissed = Appointment.currentAppointment.getMissed();
 
                      String currPresDetails;
 
-                     if (MainAppointment.currentAppointment.getAllPresDetailsForAppAsString()== "There is no prescription for this appointment yet"){
+                     if (Appointment.currentAppointment.getAllPresDetailsForAppAsString()== "There is no prescription for this appointment yet"){
                         currPresDetails = "";
                      }
                      else {
-                         currPresDetails = MainAppointment.currentAppointment.getAllPresDetailsForAppAsString();
+                         currPresDetails = Appointment.currentAppointment.getAllPresDetailsForAppAsString();
                      }
 
 
@@ -119,9 +119,9 @@ public class ActListAmendSelPatientRecSECnDOC implements ActionListener{
                     String keyToSearch = this.cmbAppKeys.getSelectedItem().toString();        
                 
                     //set the currently selected appointment to the one you want to work on
-                    currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(keyToSearch);
+                    currentAppInst = (Appointment) AppointmentComponent.getAppointment(keyToSearch);
 
-                    MainAppointment.currentAppointment = (MainAppointment) MainAbsAppointmentComponent.getAppointment(keyToSearch);
+                    Appointment.currentAppointment = (Appointment) AppointmentComponent.getAppointment(keyToSearch);
                      //main patient already set when we searched for the patient so doesn't need resetting
 
 
@@ -132,12 +132,12 @@ public class ActListAmendSelPatientRecSECnDOC implements ActionListener{
                       //if there is a prescription for this appointment, set the current prescription based on the current 
                       //appointment  to the one you want to work on
                       if (currentAppInst.getHasPrescBeenGenerated() == true){
-                          MainPrescription.currentPrescription.clear(); //clear the list so it doesn't have old prescriptions in it
+                          Prescription.currentPrescriptionList.clear(); //clear the list so it doesn't have old prescriptions in it
 
                           //for all prescriptions IDs in this appointment precription list...
                           for(String temp: currentAppInst.getListOfPrescriptionIDs())
                               //resolve the prescription and store in the Main appointment list
-                              MainPrescription.currentPrescription.add((MainPrescription) MainAbsPrescriptionComponent.getMainPrescription(temp));
+                              Prescription.currentPrescriptionList.add((Prescription) PrescriptionComponent.getMainPrescription(temp));
                            }
 
 
@@ -147,27 +147,27 @@ public class ActListAmendSelPatientRecSECnDOC implements ActionListener{
                      //will the right prescription if it exists, we can then use
                      //these details to populate the amend form by callign the method which does this in this JPanel
 
-                     String curPatTitle = MainPatient.currentPatient.getTitle();
-                     String curPatFirstname = MainPatient.currentPatient.getFirstName();
-                     String curPatSurname = MainPatient.currentPatient.getSurname();
-                     String curPatUsername = MainPatient.currentPatient.getUserName();
+                     String curPatTitle = SysUserPatient.currentPatient.getTitle();
+                     String curPatFirstname = SysUserPatient.currentPatient.getFirstName();
+                     String curPatSurname = SysUserPatient.currentPatient.getSurname();
+                     String curPatUsername = SysUserPatient.currentPatient.getUserName();
 
-                     String curAppId = MainAppointment.currentAppointment.getAppUniqueKey();
-                     String curAppDrWith = MainAppointment.currentAppointment.getProfessionalAppWith();
-                     LocalDateTime curAppDateTime = MainAppointment.currentAppointment.getAPPDateAndTime();
-                     String currAppsymptoms = MainAppointment.currentAppointment.getSymptoms();
-                     String curDrsComments = MainAppointment.currentAppointment.getProfessionalsComments();
-                     String curAppAttended = MainAppointment.currentAppointment.getAttended().toString();
-                     String curAppCancelled = MainAppointment.currentAppointment.getCancelled().toString();
-                     String currAppMissed = MainAppointment.currentAppointment.getMissed().toString();
+                     String curAppId = Appointment.currentAppointment.getAppUniqueKey();
+                     String curAppDrWith = Appointment.currentAppointment.getProfessionalAppWith();
+                     LocalDateTime curAppDateTime = Appointment.currentAppointment.getAPPDateAndTime();
+                     String currAppsymptoms = Appointment.currentAppointment.getSymptoms();
+                     String curDrsComments = Appointment.currentAppointment.getProfessionalsComments();
+                     String curAppAttended = Appointment.currentAppointment.getAttended().toString();
+                     String curAppCancelled = Appointment.currentAppointment.getCancelled().toString();
+                     String currAppMissed = Appointment.currentAppointment.getMissed().toString();
 
                      String currPresDetails;
 
-                     if (MainAppointment.currentAppointment.getAllPresDetailsForAppAsString()== "There is no prescription for this appointment yet"){
+                     if (Appointment.currentAppointment.getAllPresDetailsForAppAsString()== "There is no prescription for this appointment yet"){
                         currPresDetails = "";
                      }
                      else {
-                         currPresDetails = MainAppointment.currentAppointment.getAllPresDetailsForAppAsString();
+                         currPresDetails = Appointment.currentAppointment.getAllPresDetailsForAppAsString();
                      }
 
 

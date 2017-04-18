@@ -1,22 +1,22 @@
 package pkg15070779drsappsystem.MainClasses;
 import java.time.LocalDateTime;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.AppointmentComponent;
 import java.util.*;
 import javax.swing.JOptionPane;
 import pkg15070779drsappsystem.Interfaces.MainInterfaceAppoinment;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-public final class MainAppointment extends MainAbsAppointmentComponent implements MainInterfaceAppoinment {
+import pkg15070779drsappsystem.MainAbstractClasses.PrescriptionComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
+import pkg15070779drsappsystem.MainAbstractClasses.SystemUserComponent;
+public final class Appointment extends AppointmentComponent implements MainInterfaceAppoinment {
 //@@@@@@@@@@@ static variables @@@@@@@@@@@
     //will hold the appointment that the user of the system is working with
-    public static MainAppointment currentAppointment;
+    public static Appointment currentAppointment;
 
     //holds all appointments so they can be searched, never deleted from as all appointments stay on file
     private static List<String> lstStrAllAppKeys = new ArrayList<>();
 
 //@@@@@@@@@@@ Instance Variables @@@@@@@@@@    
-    private String AppUniqueKey, patientUniqueID, strTitle, patientFirstname,patientSurname, appDrComments, appSymptoms;
+    private String AppUniqueKey, patientUniqueID, appDrComments, appSymptoms;
     private List <String> lstPrescriptionsUniqueID;
     
     private String drUniqueKeyAppWith;
@@ -25,7 +25,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
 
 //@@@@@@@@@@@ Constructors @@@@@@@@@@    
          
-    public MainAppointment(String title, String patientfirstname, String patientsurname, String uniqueID, LocalDateTime appDateAndTime, String drwith, String symptoms){
+    public Appointment(String title, String patientfirstname, String patientsurname, String uniqueID, LocalDateTime appDateAndTime, String drwith, String symptoms){
         //@@@@@@@@@@ check the Dr is not busy on the appointment set, if they are - display an error message - Dr, dateTime object
     
         setCreateAppointment(title, patientfirstname, patientsurname, uniqueID, appDateAndTime, drwith, symptoms);
@@ -37,9 +37,6 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
     
     private void setCreateAppointment(String title, String firstname, String surname, String uniqueid, LocalDateTime appdateandtime, String drwith, String symptoms){
         this.AppUniqueKey = generateAppUniqueKey(); //creates a key for the map
-        this.strTitle = title;
-        this.patientFirstname = firstname;
-        this.patientSurname = surname;
         this.patientUniqueID = uniqueid;
         
         this.drUniqueKeyAppWith = drwith; //patient needs regsitering with a Dr before this can be set
@@ -57,7 +54,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
         
         //adds the key to a list of all appointment keys, so it ca nbe searched forhe reports later
         addAppKeyToAllAppsList(this.AppUniqueKey);
-        MainAbsAppointmentComponent.setPutInMap(this.AppUniqueKey, this);
+        AppointmentComponent.setPutInMap(this.AppUniqueKey, this);
     }
     
 //@@@@@@@@@@@ More Complicated Setters @@@@@@@@@@   
@@ -65,7 +62,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
     
      public void addAppointmentToDrsList(String drin, LocalDateTime apptimein, String appkeyin){
         //object composition to create relationship
-        MainDoctor tempDoc = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(drin);
+        SysUserDoctor tempDoc = (SysUserDoctor) SystemUserComponent.getSystemUserComponent(drin);
         tempDoc.addAppointmentToDrsList(apptimein, appkeyin);
    
     }
@@ -94,9 +91,9 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
      
    
     
-    public void setAppCancelled(Boolean cancelledstatus, MainDoctor drin, LocalDateTime ltdfordredit){
-        this.appCancelled = cancelledstatus;
-        MainDoctor docToUpdate = drin;
+    public void setAppCancelled(Boolean cancelledstatus, SysUserDoctor drin, LocalDateTime ltdfordredit){
+        this.setAppCancelled(cancelledstatus);
+        SysUserDoctor docToUpdate = drin;
         LocalDateTime ldtToupdateDoctorWith;
         //remove the appointment time from the doctors appointment times taken list
         docToUpdate.setRemoveLDTFromAppTimesTakenList(ltdfordredit);
@@ -124,8 +121,8 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
      public void addPrescriptionForApp(String meddesc, String medamount, String patientid, String drwith, String appid){
         //object composition - create new prescitpion called from here
         //used rather than interface or implements inheritence as a 
-        MainPrescription appPres = new MainPrescription(meddesc, medamount, patientid, drwith, appid );
-        MainAppointment currAppInst = MainAbsAppointmentComponent.getAppointment(appid);
+        Prescription appPres = new Prescription(meddesc, medamount, patientid, drwith, appid );
+        Appointment currAppInst = AppointmentComponent.getAppointment(appid);
         currAppInst.lstPrescriptionsUniqueID.add(appPres.getPresUniqueID());
     }
     
@@ -134,17 +131,13 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
     //that have happened before today's date and time, and will mark them as missed
     public static void setAllRelAppsAsMissed(){
         for (String temp: lstStrAllAppKeys){
-            MainAppointment currAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
-            if (currAppInst.getAttended() == false && currAppInst.appCancelled == false && currAppInst.appMissed ==false && currAppInst.getAPPDateAndTime().isBefore(MainAbsScheduling.getDateToday())){
+            Appointment currAppInst = (Appointment) AppointmentComponent.getAppointment(temp);
+            if (currAppInst.getAttended() == false && currAppInst.appCancelled == false && currAppInst.appMissed ==false && currAppInst.getAPPDateAndTime().isBefore(SchedulingAbstract.getDateToday())){
                 currAppInst.setAppMissed(true);
             }
         }
     }
-    //returns a list of all appointments from a given dr
-    public static List <MainAppointment> getAppointmentsOfDoc (MainDoctor doctorin){
-        List<MainAppointment> lstFoundAppointments = new ArrayList<>();
-          return lstFoundAppointments;
-    }
+    
     
   //@@@@@@@@@@@ Interface Setters @@@@@@@@@@ 
     
@@ -172,6 +165,10 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
    public void setAppDateTime(LocalDateTime appDateTime){
         this.appDateAndTime = appDateTime;
     }
+   
+   public void setAppCancelled(Boolean cancelledstatus){
+       this.appCancelled = cancelledstatus;
+   }
   
     
 //@@@@@@@@@@@  Setters @@@@@@@@@@ 
@@ -204,7 +201,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
          
                 String presToRet = "";
                    for (String temp: this.lstPrescriptionsUniqueID){
-                       presToRet +=  "\t" + MainAbsPrescriptionComponent.getMainPrescription(temp).toString();
+                       presToRet +=  "\t" + PrescriptionComponent.getMainPrescription(temp).toString();
                    }
 
                    return presToRet;
@@ -229,10 +226,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
          return this.appDateAndTime;
          
     }
-    @Override
-   public String getSymptoms(){
-   return this.appSymptoms;
-    }
+
         
         
     @Override
@@ -248,6 +242,10 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
         return this.appCancelled;
     }
     
+        @Override
+   public String getSymptoms(){
+   return this.appSymptoms;
+    }
     
     @Override
     public String getProfessionalAppWith(){
@@ -279,6 +277,7 @@ public final class MainAppointment extends MainAbsAppointmentComponent implement
               return ("\n" + "Appointment ID: " + this.AppUniqueKey + " | Patient with: | " + this.patientUniqueID + "| Date & Time of Appointment:  " + this.appDateAndTime + "| Symptoms Given: "
                + this.appSymptoms + "Dr with: " + this.drUniqueKeyAppWith + "| Comments from Dr: " + this.appDrComments + "| Appointment attended? " + this.appAttended +"| Appointment cancelled? " + this.appCancelled +  " | Appointment Missed: " + this.appMissed + "\n");
     }
+
     
     
         

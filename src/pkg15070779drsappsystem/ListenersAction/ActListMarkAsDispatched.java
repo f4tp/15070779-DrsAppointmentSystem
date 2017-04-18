@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
-import pkg15070779drsappsystem.MainClasses.MainPrescription;
+import pkg15070779drsappsystem.MainAbstractClasses.PrescriptionComponent;
+import pkg15070779drsappsystem.MainClasses.Prescription;
 
 public class ActListMarkAsDispatched implements ActionListener {
 
@@ -31,7 +31,7 @@ public class ActListMarkAsDispatched implements ActionListener {
      }
         //if the combobox isn;t empty, update the given prescription as dispatched
         else if (this.cmbPresIDPassedIn.getSelectedItem() != null){
-            MainPrescription currPresInst = (MainPrescription) MainAbsPrescriptionComponent.getMainPrescription(this.cmbPresIDPassedIn.getSelectedItem().toString());
+            Prescription currPresInst = (Prescription) PrescriptionComponent.getMainPrescription(this.cmbPresIDPassedIn.getSelectedItem().toString());
             currPresInst.setPresAsDispatched();
             
             //messagebox to confirm

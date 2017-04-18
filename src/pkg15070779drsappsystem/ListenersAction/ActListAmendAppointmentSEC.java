@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendSecView;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainAbstractClasses.AppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
+import pkg15070779drsappsystem.MainAbstractClasses.SystemUserComponent;
+import pkg15070779drsappsystem.MainClasses.Appointment;
+import pkg15070779drsappsystem.MainClasses.SysUserDoctor;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
 
 public class ActListAmendAppointmentSEC implements ActionListener {
     
@@ -57,14 +57,14 @@ public class ActListAmendAppointmentSEC implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         //these are the objects that are needed to interact with an appointment when changing it
-        //only the Doctor and appointment will need updating
-        MainAppointment currentAppointmentInst = MainAbsAppointmentComponent.getAppointment(AppKeyIn.getText());
-        MainDoctor currentDoctorInst = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(drUserNameIn.getText());
+        //only the SysUserDoctor and appointment will need updating
+        Appointment currentAppointmentInst = AppointmentComponent.getAppointment(AppKeyIn.getText());
+        SysUserDoctor currentDoctorInst = (SysUserDoctor) SystemUserComponent.getSystemUserComponent(drUserNameIn.getText());
             
         //get the date and time of original appointment as a LDT object
        LocalDateTime currentDateTimeOfInst = currentAppointmentInst.getAPPDateAndTime();
        //get the date and time of the proposed appointment as a LDT object - if it needs to change
-        LocalDateTime newDateTimeOfApp = MainAbsScheduling.getConvStringToDateTime(cmbDayIn.getSelectedItem().toString() + cmbMonthin.getSelectedItem().toString() +cmbYearIn.getSelectedItem().toString() + cmbTimeIn.getSelectedItem().toString());
+        LocalDateTime newDateTimeOfApp = SchedulingAbstract.getConvStringToDateTime(cmbDayIn.getSelectedItem().toString() + cmbMonthin.getSelectedItem().toString() +cmbYearIn.getSelectedItem().toString() + cmbTimeIn.getSelectedItem().toString());
  
         JPanelAppAmendSecView amendAppFormInst = JPanelAppAmendSecView.getInstance();
         
@@ -92,7 +92,7 @@ public class ActListAmendAppointmentSEC implements ActionListener {
                         //this means that the date and time has changed, it is amore complicated routine involving more objects
                         if (amendAppFormInst.getFormUpdatedDateTime() == true){
               
-                           //this means that the Doctor has this appointment available, so the change can go ahead
+                           //this means that the SysUserDoctor has this appointment available, so the change can go ahead
                            if (currentDoctorInst.getDocsAvailableAppointments().contains(newDateTimeOfApp)){
                                        //remove the appointment time from the doctors appointment times taken list
                                   currentDoctorInst.setRemoveLDTFromAppTimesTakenList(currentDateTimeOfInst);
@@ -135,7 +135,7 @@ public class ActListAmendAppointmentSEC implements ActionListener {
                     currentAppointmentInst.setSymptoms(symptomsIn.getText());
 
                   //put the appointment back in the map
-                   // MainAbsAppointmentComponent.setPutInMap(AppKeyIn.getText(), currentAppointmentInst);
+                   // AppointmentComponent.setPutInMap(AppKeyIn.getText(), currentAppointmentInst);
 
 
                 }

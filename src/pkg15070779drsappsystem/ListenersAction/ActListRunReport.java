@@ -6,15 +6,15 @@ import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.swing.JComboBox;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
+import pkg15070779drsappsystem.MainAbstractClasses.SystemUserComponent;
 import pkg15070779drsappsystem.JPanels.JPanelReportsDrsApps;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
-import pkg15070779drsappsystem.MainClasses.MainPrescription;
+import pkg15070779drsappsystem.MainAbstractClasses.AppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.PrescriptionComponent;
+import pkg15070779drsappsystem.MainClasses.Appointment;
+import pkg15070779drsappsystem.MainClasses.SysUserDoctor;
+import pkg15070779drsappsystem.MainClasses.Prescription;
 
 public class ActListRunReport implements ActionListener {
     private String typeOfReport;
@@ -45,11 +45,11 @@ public class ActListRunReport implements ActionListener {
          
         //will hold an appointment, resolved by the appointment ID, currently worked on appointment
         //object composition
-         MainAppointment currentAppInst; 
-         MainPrescription currentPresInst;
+         Appointment currentAppInst; 
+         Prescription currentPresInst;
          
          //generate a full date, set it to the first of the month at 00:00, use this to see all appointments from the first of the month to the last
-         ldtFirstOfMonthToSearch = MainAbsScheduling.getConvStringToDateTime("01"+this.cmbMonth.getSelectedItem().toString()+this.cmbYear.getSelectedItem().toString()+"0000");
+         ldtFirstOfMonthToSearch = SchedulingAbstract.getConvStringToDateTime("01"+this.cmbMonth.getSelectedItem().toString()+this.cmbYear.getSelectedItem().toString()+"0000");
      
         //the type of report to run is based on the text in the label of the JPanel, this determines which data is to
         //be used... the same place will be populated with the details (the abstract jpanel)
@@ -60,8 +60,8 @@ public class ActListRunReport implements ActionListener {
               
               if (cmbReportType.getSelectedItem().toString() == "All Appointments"){
                    String textToDisplay ="";
-                 for(String temp: MainAppointment.getAppKeyList()){
-                     currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
+                 for(String temp: Appointment.getAppKeyList()){
+                     currentAppInst = (Appointment) AppointmentComponent.getAppointment(temp);
                         if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() )
                          textToDisplay += currentAppInst.toString() +currentAppInst.getAllPresDetailsForAppAsString();
                   }
@@ -73,8 +73,8 @@ public class ActListRunReport implements ActionListener {
               
                if (cmbReportType.getSelectedItem().toString() == "Attended"){
                    String textToDisplay ="";
-                 for(String temp: MainAppointment.getAppKeyList()){
-                     currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
+                 for(String temp: Appointment.getAppKeyList()){
+                     currentAppInst = (Appointment) AppointmentComponent.getAppointment(temp);
                         if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() ){
                             if(currentAppInst.getAttended() == true){
                                 textToDisplay += currentAppInst.toString() + currentAppInst.getAllPresDetailsForAppAsString();
@@ -91,8 +91,8 @@ public class ActListRunReport implements ActionListener {
                
                 if (cmbReportType.getSelectedItem().toString() == "Cancelled"){
                     String textToDisplay ="";
-                 for(String temp: MainAppointment.getAppKeyList()){
-                     currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
+                 for(String temp: Appointment.getAppKeyList()){
+                     currentAppInst = (Appointment) AppointmentComponent.getAppointment(temp);
                         if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() ){
                             if(currentAppInst.getCancelled() == true){
                                 textToDisplay += currentAppInst.toString() + currentAppInst.getAllPresDetailsForAppAsString();
@@ -110,8 +110,8 @@ public class ActListRunReport implements ActionListener {
                  if (cmbReportType.getSelectedItem().toString() == "Missed"){
                      
                        String textToDisplay ="";
-                 for(String temp: MainAppointment.getAppKeyList()){
-                     currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
+                 for(String temp: Appointment.getAppKeyList()){
+                     currentAppInst = (Appointment) AppointmentComponent.getAppointment(temp);
                         if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() ){
                             if(currentAppInst.getMissed() == true){
                                 textToDisplay += currentAppInst.toString() + currentAppInst.getAllPresDetailsForAppAsString();
@@ -131,7 +131,7 @@ public class ActListRunReport implements ActionListener {
         }
         
         
-        //report for Doctor's monthly appointments
+        //report for SysUserDoctor's monthly appointments
         else if (typeOfReport == "Report Doctor's appointments for the month of..."){
             
  
@@ -139,22 +139,22 @@ public class ActListRunReport implements ActionListener {
              // set the currentdoctor as this doctor - keeping wit the whole platform - will be used to call the method next
              
              //NOT NEEDED IN THIS CLASS NOW - OBJECT COMP DONE INSTEAD
-           MainDoctor.currentDoctor = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(JPanelReportsDrsApps.getInstance().getSelectedDr());
+           SysUserDoctor.currentDoctor = (SysUserDoctor) SystemUserComponent.getSystemUserComponent(JPanelReportsDrsApps.getInstance().getSelectedDr());
             
            
-           MainDoctor currentDoctorInst = (MainDoctor) MainAbsSystemUserComponent.getSystemUserComponent(JPanelReportsDrsApps.getInstance().getSelectedDr());
+           SysUserDoctor currentDoctorInst = (SysUserDoctor) SystemUserComponent.getSystemUserComponent(JPanelReportsDrsApps.getInstance().getSelectedDr());
    
-            //call the correct method in the MainDoctor class, which checks a doctor's taken appointments
+            //call the correct method in the SysUserDoctor class, which checks a doctor's taken appointments
             //called by passing a doctor and a localdate time to use to see appointments for
             //held in a list
-           // List<LocalDateTime> tempHolder = MainDoctor.getDocsMonthlySetAppointments(MainDoctor.currentDoctor, ldtFirstOfMonthToSearch);
+           // List<LocalDateTime> tempHolder = SysUserDoctor.getDocsMonthlySetAppointments(SysUserDoctor.currentDoctor, ldtFirstOfMonthToSearch);
             //String textToDisplay ="";
            // for(LocalDateTime temp : tempHolder){
                // textToDisplay += temp.toString();
            // }
             String textToDisplay ="";
             for(String temp: currentDoctorInst.getAppKeyList()){
-                currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
+                currentAppInst = (Appointment) AppointmentComponent.getAppointment(temp);
                 
                 if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() )
                 textToDisplay += currentAppInst.toString() +  currentAppInst.getAllPresDetailsForAppAsString();
@@ -173,12 +173,12 @@ public class ActListRunReport implements ActionListener {
             String textToDisplay ="";
             
             //looks at all appointments there has been
-            for(String temp: MainAppointment.getAppKeyList()){
+            for(String temp: Appointment.getAppKeyList()){
                 //look at the first appointment
-               currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(temp);
+               currentAppInst = (Appointment) AppointmentComponent.getAppointment(temp);
                
                
-                //currentPresInst = (MainPrescription) MainAbsPrescriptionComponent.getMainPrescription(temp);
+                //currentPresInst = (Prescription) PrescriptionComponent.getMainPrescription(temp);
                 
                 if(currentAppInst.getAPPDateAndTime().getMonth() == ldtFirstOfMonthToSearch.getMonth() )
                     

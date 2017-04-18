@@ -5,8 +5,8 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 import java.util.*;
 import pkg15070779drsappsystem.ListenersAction.ActListRunReport;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
+import pkg15070779drsappsystem.MainClasses.SysUserDoctor;
 //different report border layout, specialised version as we have to have Drs as well
 public class JPanelReportsDrsApps extends JPanel {
      //only one menu will ever need be generated so singleton DP has been setup
@@ -14,14 +14,14 @@ public class JPanelReportsDrsApps extends JPanel {
     private static JPanelReportsDrsApps panelRepDrsAppsSingInst;
     
     //updates the combobox with all Drs that are registered
-    public JComboBox cmbDrs = new JComboBox(MainDoctor.getListAllDoctors().toArray());
+    public JComboBox cmbDrs = new JComboBox(SysUserDoctor.getListAllDoctors().toArray());
     
     //gets months from the abstract scheduling class to keep consistency, some routines rely on the date 
     //given as Jan Feb Mar etc
-    JComboBox cmbMonth = new JComboBox(MainAbsScheduling.getMonthsArr());
+    JComboBox cmbMonth = new JComboBox(SchedulingAbstract.getMonthsArr());
 
     //gets years from the abstract scheduling class to keep consistency
-    JComboBox cmbYear = new JComboBox(MainAbsScheduling.getYearArr());
+    JComboBox cmbYear = new JComboBox(SchedulingAbstract.getYearArr());
     
     
     private JPanelReportsDrsApps(){

@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import javax.swing.JPanel;
 import pkg15070779drsappsystem.JFrames.JFrameSecretaryMenu;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
+import pkg15070779drsappsystem.MainClasses.SysUserDoctor;
 
 public class ActListSetSecJFramePARTofFACTORYsec implements ActionListener {
     private String typeOfSecJPanToSet;

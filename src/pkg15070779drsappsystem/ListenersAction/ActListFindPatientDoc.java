@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainAbstractClasses.SystemUserComponent;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
 
 public class ActListFindPatientDoc implements ActionListener {
     
@@ -15,8 +15,8 @@ public class ActListFindPatientDoc implements ActionListener {
     private JTextField TfSurName;  //holds text field passed in
     private JTextField TfDob;  //holds text field passed in
     private String userIdForMap;  //holds user id to seatch for in the SystemUserComp map
-    private static MainAbsSystemUserComponent FoundPatient; //holds the reference to the system user if / when found
-    MainPatient currPatientInst;
+    private static SystemUserComponent FoundPatient; //holds the reference to the system user if / when found
+    SysUserPatient currPatientInst;
     
     public ActListFindPatientDoc(JTextField firstnamepassedin, JTextField surnamepassedin, JTextField dobpassedin){
         this.TfFirstName = firstnamepassedin;
@@ -74,26 +74,26 @@ public class ActListFindPatientDoc implements ActionListener {
               return firstname.toLowerCase()+"."+surname.toLowerCase()+"."+dob;
     }
     
-      //this checks the user id, and object type... it will set the MainPatient.currentPatient field 
-    //as the current patient to work on if the user exists and it is of type MainPatient
+      //this checks the user id, and object type... it will set the SysUserPatient.currentPatient field 
+    //as the current patient to work on if the user exists and it is of type SysUserPatient
     private void setAndCheckPatientFindPatient(String userid){
         
         //MainAbsSystemUserComponent.setFoundSystemUser(userid);
         
-        FoundPatient = MainAbsSystemUserComponent.getSystemUserComponent(userid);
+        FoundPatient = SystemUserComponent.getSystemUserComponent(userid);
                 //MainAbsSystemUserComponent.getSystemUserComponent(userid);
       
         //if a user has been found...
         if (FoundPatient != null) {
             
-            //only if it is an instance of the MainPatient class will it set the currentPatient field
-            if (FoundPatient instanceof MainPatient){
+            //only if it is an instance of the SysUserPatient class will it set the currentPatient field
+            if (FoundPatient instanceof SysUserPatient){
                 //this means there has been a user found and it is  a patient object
-                //polymorphism in action, the MainAbsSystemUserComponent object is cast to a MainPatient object
-                //MainPatient.currentPatient = (MainPatient) FoundPatient; //convert to patient object
+                //polymorphism in action, the SystemUserComponent object is cast to a SysUserPatient object
+                //MainPatient.currentPatient = (SysUserPatient) FoundPatient; //convert to patient object
                 
-                MainPatient.currentPatient = (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
-                currPatientInst =  (MainPatient) MainAbsSystemUserComponent.getSystemUserComponent(userid);
+                SysUserPatient.currentPatient = (SysUserPatient) SystemUserComponent.getSystemUserComponent(userid);
+                currPatientInst =  (SysUserPatient) SystemUserComponent.getSystemUserComponent(userid);
          
                 
                //the patient details are updated in the Secretary JFrame - when the setSecSouthBorderStrins is set...
@@ -119,7 +119,7 @@ public class ActListFindPatientDoc implements ActionListener {
     
     
     //generic error message when user is not found for what ever reason (may not 
-    //exist or user found may not be MainPatient object
+    //exist or user found may not be SysUserPatient object
     private static void runGenericErrorMessage(){
         JOptionPane.showMessageDialog (null,
                 "The patient has not been found in the system. Please try different details.",

@@ -16,14 +16,14 @@ import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientDOC;
 import pkg15070779drsappsystem.JPanels.JPanelPatFindDocView;
 import pkg15070779drsappsystem.JPanels.JPanelPatRecordDocView;
 import static pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow.setDrComboBox;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
 
 
 public class JFrameDoctorMenu extends JFrame {
     
      //singleton DP, only one instance is ever needed as only one sec logs in at once
     private static JFrameDoctorMenu DoctMenSingInst;
-    MainPatient currPatientInst;
+    SysUserPatient currPatientInst;
     
     
     //holds the string to tell the menu which south border to display
@@ -154,7 +154,7 @@ public class JFrameDoctorMenu extends JFrame {
         DoctMenSingInst.setDocNorthBorderPanel();
     }
     
-    public void setDocSouthBorderString(String paneltoset, MainPatient patientinvolved){
+    public void setDocSouthBorderString(String paneltoset, SysUserPatient patientinvolved){
         
         currentDocNorthBordPanel = paneltoset;
         currPatientInst = patientinvolved;

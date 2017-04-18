@@ -1,19 +1,18 @@
 package pkg15070779drsappsystem.MainClasses;
 
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.SystemUserComponent;
 import pkg15070779drsappsystem.Interfaces.MainInterfaceSystemUsers;
 
-public class MainPharmacist extends MainAbsSystemUserComponent implements MainInterfaceSystemUsers {
-    private String apptest;
+public class SysUserPharmacist extends SystemUserComponent implements MainInterfaceSystemUsers {
     private String strTitle, strFirstName, strSurname, strDOB, strKeyUserName;
     
     
-    public MainPharmacist(String fname, String sname, String title, String dob, String newer){
+    public SysUserPharmacist(String fname, String sname, String title, String dob){
         strTitle = title;
         strFirstName = fname;
         strSurname = sname;
         strDOB = dob;
-        strKeyUserName = setGenerateUsername(this.strFirstName, this.strSurname, this.strDOB);
+        strKeyUserName = getGenerateUsername(this.strFirstName, this.strSurname, this.strDOB);
         setPutInMap(this.strKeyUserName, this); //add the user object to the map
         
     }

@@ -7,10 +7,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainAbstractClasses.AppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
+import pkg15070779drsappsystem.MainClasses.Appointment;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
 
 public class ActListPatAttendAppoint implements ActionListener {
 
@@ -18,20 +18,20 @@ public class ActListPatAttendAppoint implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         
         
-        //holds current date to check if the current system user / current Patient has an appointment today
-        LocalDateTime currentDate = MainAbsScheduling.getDateToday();
+        //holds current date to check if the current system user / current SysUserPatient has an appointment today
+        LocalDateTime currentDate = SchedulingAbstract.getDateToday();
         
         //holds the keys of all of the current system users appointments
-        List <String> tempAppKeys= MainPatient.currentPatient.getPatientAppointmentKeys();
+        List <String> tempAppKeys= SysUserPatient.currentPatient.getPatientAppKeysAsList();
         
         
         //holds the appointments that have have been resolved using the keys
-        List <MainAppointment> allAppoints = new ArrayList<>();
+        List <Appointment> allAppoints = new ArrayList<>();
 
         //loop through the current patient's appointment list and for each string in their resolve the appointment into a temporary list
         
         for (String temp : tempAppKeys ){
-                   allAppoints.add(MainAbsAppointmentComponent.getAppointment(temp));
+                   allAppoints.add(AppointmentComponent.getAppointment(temp));
         }
         
         
@@ -40,7 +40,7 @@ public class ActListPatAttendAppoint implements ActionListener {
         //if it doesn't, display a message sayign they don;t have an appointment today, and detail all appointments marked as not attended
         
         Boolean appFound = false;
-        for (MainAppointment temp : allAppoints ){
+        for (Appointment temp : allAppoints ){
            //if they have an appointment on the same day they have arrived in the Doctors and logged into the system        
             if (temp.getAPPDateAndTime().getDayOfMonth() == currentDate.getDayOfMonth() && 
                 temp.getAPPDateAndTime().getMonth()== currentDate.getMonth() &&
@@ -48,13 +48,13 @@ public class ActListPatAttendAppoint implements ActionListener {
 
                 //get the key of the appointment that is on the day
                 //get the appointment out of the map using the key
-                MainAppointment.currentAppointment = temp;
+                Appointment.currentAppointment = temp;
                 
                 //setthe appointment to attended
                 
-                MainAppointment.currentAppointment.setAppAttendPatientResponse();
-                 //put the MainAppointment objetc back in the map
-                MainAbsAppointmentComponent.setPutInMap(MainAppointment.currentAppointment.getAppUniqueKey(), MainAppointment.currentAppointment);
+                Appointment.currentAppointment.setAppAttendPatientResponse();
+                 //put the Appointment objetc back in the map
+                AppointmentComponent.setPutInMap(Appointment.currentAppointment.getAppUniqueKey(), Appointment.currentAppointment);
                 
                 appFound = true;
             }

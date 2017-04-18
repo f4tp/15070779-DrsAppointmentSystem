@@ -6,9 +6,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
 
-import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
 
 public class JPanelNewAppointment extends JPanel{
     
@@ -42,15 +42,15 @@ public class JPanelNewAppointment extends JPanel{
 
        
        JLabel lblSelDay = new JLabel("Please select a date for the appointment");
-       JComboBox cmbSelDay = new JComboBox(MainAbsScheduling.getDaysArr());
+       JComboBox cmbSelDay = new JComboBox(SchedulingAbstract.getDaysArr());
        
        JLabel lblSelMon = new JLabel("Please select a month for the appointment");
-       JComboBox cmbSelMonth = new JComboBox(MainAbsScheduling.getMonthsArr());
+       JComboBox cmbSelMonth = new JComboBox(SchedulingAbstract.getMonthsArr());
        
        JLabel lblSelYear = new JLabel("Please select a year for the appointment");
-       JComboBox cmbSelYear = new JComboBox(MainAbsScheduling.getYearArr());
+       JComboBox cmbSelYear = new JComboBox(SchedulingAbstract.getYearArr());
        JLabel lblSelTime= new JLabel("Please select a time for the appointment");
-       JComboBox cmbSelTime = new JComboBox(MainAbsScheduling.getTimesArr());
+       JComboBox cmbSelTime = new JComboBox(SchedulingAbstract.getTimesArr());
        
        
     
@@ -97,9 +97,9 @@ public class JPanelNewAppointment extends JPanel{
     public void updateForm(){
         
         //this routine updates the combo box with 
-        if (MainPatient.currentPatient != null){
+        if (SysUserPatient.currentPatient != null){
                    
-            List<String> lstHolder = MainPatient.currentPatient.getDrsRegWithAsList();
+            List<String> lstHolder = SysUserPatient.currentPatient.getDrsRegWithKeysAsList();
             String[] arrHolder = new String[lstHolder.size()];
             arrHolder = lstHolder.toArray(arrHolder);
             
@@ -110,11 +110,11 @@ public class JPanelNewAppointment extends JPanel{
          
         }
         
-        JTFTitle.setText(MainPatient.currentPatient.getTitle());
-         JTFFirstName.setText(MainPatient.currentPatient.getFirstName());
-         JTFSurname.setText(MainPatient.currentPatient.getSurname());
-        JTFdob.setText(MainPatient.currentPatient.getDOB());
-        JTFUserName.setText(MainPatient.currentPatient.getUserName());
+        JTFTitle.setText(SysUserPatient.currentPatient.getTitle());
+         JTFFirstName.setText(SysUserPatient.currentPatient.getFirstName());
+         JTFSurname.setText(SysUserPatient.currentPatient.getSurname());
+        JTFdob.setText(SysUserPatient.currentPatient.getDOB());
+        JTFUserName.setText(SysUserPatient.currentPatient.getUserName());
      
     }
     

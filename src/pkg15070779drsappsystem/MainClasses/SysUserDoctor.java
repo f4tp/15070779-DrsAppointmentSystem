@@ -1,49 +1,47 @@
 package pkg15070779drsappsystem.MainClasses;
 
 import java.time.LocalDateTime;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.SystemUserComponent;
 import java.util.*;
 import javax.swing.JOptionPane;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
 import pkg15070779drsappsystem.Interfaces.MainInterfaceSystemUsers;
 
 
-public class MainDoctor extends MainAbsSystemUserComponent implements MainInterfaceSystemUsers  {
+public class SysUserDoctor extends SystemUserComponent implements MainInterfaceSystemUsers  {
    //holds the current dr who is being searched for by any user
-    public static MainDoctor currentDoctor;
-    
-    
-    private String apptest;
-    //private static Map<String, MainAbsSystemUserComponent> mapDoctors = new HashMap<>(); //holds all doctor system users
-    private final String STRTITLE, STRFIRSTNAME, STRSURNAME, STRDOB, STRKEYUSERNAME;
-    private static final List<String> LSTDOCTORS = new ArrayList <>();
+    public static SysUserDoctor currentDoctor;
+   
+    //private static Map<String, SystemUserComponent> mapDoctors = new HashMap<>(); //holds all doctor system users
+    private String strTitle, strFirstName, strSurname, strDOB, strKeyUserName;
+    private static final List<String> strAllDoctorsList = new ArrayList <>();
     
     //holds all available appointment times - used for scheduling
-    private List<LocalDateTime> lstDocsAvailAppointments = new ArrayList<>();
+    private List<LocalDateTime> ldtDocsAvailAppointmentsList = new ArrayList<>();
     //holds all taken appointment times - used for scheduling
-    private List<LocalDateTime> lstDocsTakenAppointments = new ArrayList<>();
+    private List<LocalDateTime> ldtDocsTakenAppointmentsList = new ArrayList<>();
     //holds all appointment keys that this doctor has, will be used to generate reports
     //appointment keys are never deleted from here once in, as appointments aren;t deleted
     //they are amended or marked as cancelled or missed for example.
-    private List<String> lstAppointmentKeys = new ArrayList<>();
+    private List<String> strAppointmentKeysList = new ArrayList<>();
 
     
     
 //@@@@@@@@@@ Constructor @@@@@@@@@@     
-    public MainDoctor(String fname, String sname, String title, String dob, String newer){
-        this.STRTITLE = title;
-        this.STRFIRSTNAME = fname;
-        this.STRSURNAME = sname;
-        this.STRDOB = dob;
-        this.STRKEYUSERNAME = setGenerateUsername(this.STRFIRSTNAME, this.STRSURNAME, this.STRDOB);
-        LSTDOCTORS.add(STRKEYUSERNAME);
+    public SysUserDoctor(String fname, String sname, String title, String dob){
+        this.strTitle = title;
+        this.strFirstName = fname;
+        this.strSurname = sname;
+        this.strDOB = dob;
+        this.strKeyUserName = getGenerateUsername(this.strFirstName, this.strSurname, this.strDOB);
+        strAllDoctorsList.add(strKeyUserName);
         //generates a list with all available appointments on
         //when a patient generates an appointment, it will remove this from their list
         //if it can;t be found in the list in other routines, it means someone has already gotten that appointment
-        this.lstDocsAvailAppointments = MainAbsScheduling.generateAvailableAppointments();
+        this.ldtDocsAvailAppointmentsList = SchedulingAbstract.generateAvailableAppointments();
         
         //add the user object to the map
-         setPutInMap(this.STRKEYUSERNAME, this); 
+         setPutInMap(this.strKeyUserName, this); 
       }
  
     
@@ -53,13 +51,14 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainInterf
     public  void addAppointmentToDrsList(LocalDateTime datein, String appkeyin){
         //sets the static varible to the doctor we are searching for
         //adds the appointment time to the Drs taken appointment lists
-        this.lstDocsTakenAppointments.add(datein);
+        this.ldtDocsTakenAppointmentsList.add(datein);
         //deletes the time from their available appointments list
-        this.lstDocsAvailAppointments.remove(datein);
+        Collections.sort(this.ldtDocsTakenAppointmentsList);
+        this.ldtDocsAvailAppointmentsList.remove(datein);
         //adds the key to the doctors appointment list
         this.setAddAppKeyToList(appkeyin);
         //put the Dr back in the map after they have been edited
-        MainAbsSystemUserComponent.setPutInMap(this.getUserName(), this);
+        SystemUserComponent.setPutInMap(this.getUserName(), this);
     }
  
 //@@@@@@@@@@Setters @@@@@@@@@@   
@@ -67,33 +66,34 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainInterf
      //each dr has a list storing all of the keys to their appointments... this adds the keys
     //is private as called from another public routine
     private void setAddAppKeyToList(String keyin){
-        this.lstAppointmentKeys.add(keyin);
+        this.strAppointmentKeysList.add(keyin);
+        Collections.sort(this.strAppointmentKeysList);
     }
     
       //removes the given appointment time from the doctors taken appointment times  list
     public void setRemoveLDTFromAppTimesTakenList(LocalDateTime datetimetoremove){
-        this.lstDocsTakenAppointments.remove(datetimetoremove);
+        this.ldtDocsTakenAppointmentsList.remove(datetimetoremove);
         //doesn't need sorting as will still be in order
     }
     
       //removes the given appointment time from the doctors available appointment times  list
     public void setRemoveLDTFromAppTimesAvailableList(LocalDateTime datetimetoremove){
-        this.lstDocsAvailAppointments.remove(datetimetoremove);
+        this.ldtDocsAvailAppointmentsList.remove(datetimetoremove);
         //doesn't need sorting as will still be in order
     }
     
     //adds and appointment time to the doctors taken appointments list
      public void setAddLDTToAppTimesTakenList(LocalDateTime datetimetoadd){
-        this.lstDocsTakenAppointments.add(datetimetoadd);
+        this.ldtDocsTakenAppointmentsList.add(datetimetoadd);
         //sort to put back in order
-        Collections.sort(this.lstDocsTakenAppointments);
+        Collections.sort(this.ldtDocsTakenAppointmentsList);
     }
 
      //adds an appointment time to the doctors appointments available list
      public void setAddLDTToAppTimesAvailableList(LocalDateTime datetimetoadd){
-        this.lstDocsAvailAppointments.add(datetimetoadd);
+        this.ldtDocsAvailAppointmentsList.add(datetimetoadd);
         //sort to put back in order
-        Collections.sort(this.lstDocsAvailAppointments);
+        Collections.sort(this.ldtDocsAvailAppointmentsList);
             
     }
     
@@ -101,53 +101,53 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainInterf
 //@@@@@@@@@@ interface getters @@@@@@@@@@
     @Override
     public String getUserName(){
-        return this.STRKEYUSERNAME;
+        return this.strKeyUserName;
     }
     
     @Override
     public String getTitle(){
-        return this.STRTITLE;
+        return this.strTitle;
     }
     @Override
     public String getFirstName(){
-        return this.STRFIRSTNAME;
+        return this.strFirstName;
     }
     @Override
     public String getSurname(){
-        return this.STRSURNAME;
+        return this.strSurname;
     }
 
     @Override
     public String getDOB(){
-        return this.STRDOB;
+        return this.strDOB;
     }
     
     
 //@@@@@@@@@@ More Complicated Getters @@@@@@@@@@
     
         //for reports
-    public static List<LocalDateTime> getDocsMonthlySetAppointments(MainDoctor doctorin, LocalDateTime datefrom ){
+    public static List<LocalDateTime> getDocsMonthlySetAppointments(SysUserDoctor doctorin, LocalDateTime datefrom ){
         
        // gets the username of the dr selected in the combobox and pulls the correct Dr user into searchedForDoc
-       //using this (it will be the key for it). converts it to a MainDoctor object
+       //using this (it will be the key for it). converts it to a SysUserDoctor object
 
         List<LocalDateTime> lstMonthlyApps = new ArrayList<>();
         //adds one month onto the date set so 1 months' worht of appointments are generated
   
         //loop through the doctors set appointment list, check whether they are in this month, add them to the new list if they are
         
-        for(LocalDateTime temp: doctorin.lstDocsTakenAppointments){
+        for(LocalDateTime temp: doctorin.ldtDocsTakenAppointmentsList){
             if(temp.getMonth() == datefrom.getMonth() && temp.getYear() == datefrom.getYear()){
                 lstMonthlyApps.add(temp);
             }
         }
         
         //return the appointments found list
-        
+        Collections.sort(lstMonthlyApps);
         return lstMonthlyApps;
     }
     
-    public static List<LocalDateTime> getDocsAvailableAppointments (MainDoctor doctorin, LocalDateTime datefrom, LocalDateTime dateto){
+    public static List<LocalDateTime> getDocsAvailableAppointments (SysUserDoctor doctorin, LocalDateTime datefrom, LocalDateTime dateto){
             List <LocalDateTime> foundAppointments = new ArrayList<>();
 
            //temporarily stores the list of all the doctor's available appointments
@@ -171,33 +171,33 @@ public class MainDoctor extends MainAbsSystemUserComponent implements MainInterf
                   dateto = dateto.plusDays(1L);
                  //need display only appointments in the given from and to dates, 
 
-                 for (LocalDateTime temp : MainDoctor.currentDoctor.getDocsAvailableAppointments()){
+                 for (LocalDateTime temp : SysUserDoctor.currentDoctor.getDocsAvailableAppointments()){
                         if((temp.isAfter(datefrom)) && (temp.isBefore(dateto))){
                             foundAppointments.add(temp);
-                            System.out.println(temp);
                         }
 
                 }
 
            }
+            Collections.sort(foundAppointments);
          return foundAppointments;
     }
     
 //@@@@@@@@@@ Getters @@@@@@@@@@
     
     public List<LocalDateTime> getDocsAvailableAppointments(){
-        return this.lstDocsAvailAppointments;
+        return this.ldtDocsAvailAppointmentsList;
     }
    
     
     public List<String> getAppKeyList(){
-        return this.lstAppointmentKeys;
+        return this.strAppointmentKeysList;
     }
     
     
     public static List<String> getListAllDoctors(){
                        
-        return LSTDOCTORS;
+        return strAllDoctorsList;
     }
     
 }

@@ -7,9 +7,9 @@ import javax.swing.JTextField;
 import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppAddPrescrip;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
+import pkg15070779drsappsystem.MainAbstractClasses.AppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.PrescriptionComponent;
+import pkg15070779drsappsystem.MainClasses.Appointment;
 
 public class ActListAddPrescription implements ActionListener {
     JTextField jtfMedicineDesc;
@@ -27,7 +27,7 @@ public class ActListAddPrescription implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-      MainAppointment currAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(JPanelAppAddPrescrip.getInstance().getAppID());
+      Appointment currAppInst = (Appointment) AppointmentComponent.getAppointment(JPanelAppAddPrescrip.getInstance().getAppID());
         
         //add Prescription with details passed through
        currAppInst.addPrescriptionForApp(JPanelAppAddPrescrip.getInstance().getPresDesc(), JPanelAppAddPrescrip.getInstance().getPresAmount(), 

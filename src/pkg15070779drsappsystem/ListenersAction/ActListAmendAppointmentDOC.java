@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import pkg15070779drsappsystem.JFrames.JFrameDoctorMenu;
 import pkg15070779drsappsystem.JPanels.JPanelAppAmendDocView;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
+import pkg15070779drsappsystem.MainAbstractClasses.AppointmentComponent;
+import pkg15070779drsappsystem.MainClasses.Appointment;
 
 public class ActListAmendAppointmentDOC implements ActionListener {
  //component variables hold components passe din from previous form(s)
@@ -58,7 +58,7 @@ public class ActListAmendAppointmentDOC implements ActionListener {
         
         //these are the objects that are needed to interact with an appointment when changing it
         //only the Doctor and appointment will need updating
-        MainAppointment currentAppointmentInst = MainAbsAppointmentComponent.getAppointment(AppKeyIn.getText());
+        Appointment currentAppointmentInst = AppointmentComponent.getAppointment(AppKeyIn.getText());
        
         
         JPanelAppAmendDocView amendAppFormInst = JPanelAppAmendDocView.getInstance();

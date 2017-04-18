@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class MainAbsScheduling {
+public abstract class SchedulingAbstract {
     
     //used to pupulate combo boxes for user forms, for appointment dates and times etc
    private static String arrDays [] = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
@@ -27,8 +27,8 @@ public abstract class MainAbsScheduling {
     //NTD -  but Christmans day / boxing day etc are still in  - take these out
     public static List<LocalDateTime> generateAvailableAppointments(){
         
-        LocalDateTime startDateIn = MainAbsScheduling.getConvStringToDateTime("01Jan20170900");
-        LocalDateTime endDate = MainAbsScheduling.getConvStringToDateTime("31Dec20181700");
+        LocalDateTime startDateIn = SchedulingAbstract.getConvStringToDateTime("01Jan20170900");
+        LocalDateTime endDate = SchedulingAbstract.getConvStringToDateTime("31Dec20181700");
         List<LocalDateTime> lstAllAppointmentDates = new ArrayList<>(); 
                 for (LocalDateTime startDateTime = startDateIn; startDateTime.isBefore(endDate); startDateTime = startDateTime.plusMinutes(15L)){
                 startDateTime.plusMinutes(15);

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
+import pkg15070779drsappsystem.MainClasses.SysUserDoctor;
 
 public class JPartPanelSelDrComboFlow extends JPanel {
     public static JPartPanelSelDrComboFlow SelDrSingInst;
@@ -23,7 +23,7 @@ public class JPartPanelSelDrComboFlow extends JPanel {
     //gets the most recent list of Doctors when called, and adds them to the combo box to display all Drs
     public static void setDrComboBox(){
         getInstance().cmbSelDoc.removeAllItems();
-        List <String> tempAppKeys= MainDoctor.getListAllDoctors();
+        List <String> tempAppKeys= SysUserDoctor.getListAllDoctors();
         
         tempAppKeys.stream().forEach((temp) -> {
             getInstance().cmbSelDoc.addItem(temp);

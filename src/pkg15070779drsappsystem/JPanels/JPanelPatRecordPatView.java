@@ -6,8 +6,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsSystemUserComponent;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainAbstractClasses.SystemUserComponent;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
 
 public class JPanelPatRecordPatView extends JPanel {
     
@@ -66,13 +66,13 @@ public class JPanelPatRecordPatView extends JPanel {
     public void setUpdateTextFields(){
 
        
-        if (MainAbsSystemUserComponent.currentSystemUser != null){
-            JTFTitle.setText(MainPatient.currentPatient.getTitle());
-            JTFFirstName.setText(MainPatient.currentPatient.getFirstName());
-            JTFSurname.setText(MainPatient.currentPatient.getSurname());
-            JTFdob.setText(MainPatient.currentPatient.getDOB());
-            JTFContact.setText(MainPatient.currentPatient.getContactDetail());
-            JTFDrsRegsWith.setText(MainPatient.currentPatient.getDrsRegWithAsStringAsDrsnames());
+        if (SystemUserComponent.currentSystemUser != null){
+            JTFTitle.setText(SysUserPatient.currentPatient.getTitle());
+            JTFFirstName.setText(SysUserPatient.currentPatient.getFirstName());
+            JTFSurname.setText(SysUserPatient.currentPatient.getSurname());
+            JTFdob.setText(SysUserPatient.currentPatient.getDOB());
+            JTFContact.setText(SysUserPatient.currentPatient.getContactDetail());
+            JTFDrsRegsWith.setText(SysUserPatient.currentPatient.getDrsRegWithAsStringAsDrsnames());
         }
         
         

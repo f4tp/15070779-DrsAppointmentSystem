@@ -16,7 +16,7 @@ import pkg15070779drsappsystem.JPanels.JPanelReportsPresrcips;
 import pkg15070779drsappsystem.JPanels.JPanelPatFindSecView;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
 
-public abstract class MainAbsFactoryJPanel {
+public abstract class GUIFactory {
     
        // JFrameSecretaryMenu jfSecmenuRefHolder;
     
@@ -41,7 +41,7 @@ public abstract class MainAbsFactoryJPanel {
         //when ordered - instatiate the variable so it now exists - lazy instantiation
         //after creating set the visibility of all of the panels, but only if they exists (are not null)
         //then update the correct JFrame
-    public void getOrderCurrentPanel(String setuppanal){
+    public void getOrderPanel(String setuppanal){
          if (setuppanal == "MonthAppPerDr"){
             
             //JPanelAppsAtt.setVisible(false);
@@ -62,7 +62,7 @@ public abstract class MainAbsFactoryJPanel {
             //JPanelDrsApps.setVisible(true);
             //JPanTextFieldForReports.setVisible(true);
             
-            setPanelVisibleStatus(true, true);
+            setVisiblePanelState(true, true);
            
             JFrameSecretaryMenu.getInstance().add(JPanelDrsApps, BorderLayout.NORTH);
             JFrameSecretaryMenu.getInstance().add(JPanTextFieldForReports, BorderLayout.CENTER);
@@ -74,7 +74,7 @@ public abstract class MainAbsFactoryJPanel {
     //pass this routine all of the panel visibility status'
     //if the instance variable is not null (exists) it will set the visibility status of it correctly, if no tit will leave it alone so 
     //no runtime errors
-    public void setPanelVisibleStatus(Boolean JPanelDrsAppsVis, Boolean JPanTextFieldForReportsVis){
+    public void setVisiblePanelState(Boolean JPanelDrsAppsVis, Boolean JPanTextFieldForReportsVis){
         
         if (JPanelDrsApps != null){
             JPanelDrsApps.setVisible(JPanelDrsAppsVis);
@@ -84,6 +84,10 @@ public abstract class MainAbsFactoryJPanel {
             JPanTextFieldForReports.setVisible(JPanTextFieldForReportsVis);
         }
     
+    }
+    
+    public void setAllPanelsInvisible(){
+        
     }
     
     //only called when the JPanel is being updated on the Secretary JFrame Menu

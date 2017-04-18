@@ -1,7 +1,7 @@
 package pkg15070779drsappsystem;
 
-import pkg15070779drsappsystem.MainClasses.MainPatient;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
+import pkg15070779drsappsystem.MainClasses.SysUserDoctor;
 import java.util.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -17,17 +17,17 @@ public class MainAbsAppointmentComponentTest {
     
     @Test
     public void testGetAppointment(){
-        MainPatient pat1 = new MainPatient("Alan", "Turing","Mr", "01011900", "01234 567 890","gregory.house.01011911");
-        MainPatient pat2 = new MainPatient("Donald", "Knuth","Mr", "01011901", "01234 567 890","peter.venkman.0101");
-        MainPatient pat3 = new MainPatient("Grace", "Hopper","Mrs", "01011902", "01234 567 890","egon.spengler.0101");
-        MainPatient pat4 = new MainPatient("Ada", "Lovelace","Miss", "01011903", "01234 567 890","ray.stance.0101");
-        MainPatient pat5 = new MainPatient("Tim", "Berners-Lee","Mr", "01011904", "01234 567 890","winstone.zeddermore.1915");
+        SysUserPatient pat1 = new SysUserPatient("Alan", "Turing","Mr", "01011900", "01234 567 890","gregory.house.01011911");
+        SysUserPatient pat2 = new SysUserPatient("Donald", "Knuth","Mr", "01011901", "01234 567 890","peter.venkman.0101");
+        SysUserPatient pat3 = new SysUserPatient("Grace", "Hopper","Mrs", "01011902", "01234 567 890","egon.spengler.0101");
+        SysUserPatient pat4 = new SysUserPatient("Ada", "Lovelace","Miss", "01011903", "01234 567 890","ray.stance.0101");
+        SysUserPatient pat5 = new SysUserPatient("Tim", "Berners-Lee","Mr", "01011904", "01234 567 890","winstone.zeddermore.1915");
         
-        MainDoctor dr1 = new MainDoctor("Gregory", "House","Dr", "01011910", "Test");
-        MainDoctor dr2 = new MainDoctor("Peter", "Venkman","Dr", "01011911", "Test");
-        MainDoctor dr3 = new MainDoctor("Egon", "Spengler","Dr", "01011912", "Test");
-        MainDoctor dr4 = new MainDoctor("Ray", "Stance","Dr", "01011913", "Test");
-        MainDoctor dr5 = new MainDoctor("Winstone", "Zeddermore","Dr", "01011914", "Test");
+        SysUserDoctor dr1 = new SysUserDoctor("Gregory", "House","Dr", "01011910");
+        SysUserDoctor dr2 = new SysUserDoctor("Peter", "Venkman","Dr", "01011911");
+        SysUserDoctor dr3 = new SysUserDoctor("Egon", "Spengler","Dr", "01011912");
+        SysUserDoctor dr4 = new SysUserDoctor("Ray", "Stance","Dr", "01011913");
+        SysUserDoctor dr5 = new SysUserDoctor("Winstone", "Zeddermore","Dr", "01011914");
         
        // pat1.addNewAppointment(pat1.getFullName(), new Date(1001001), 99200029, "gregory.house.01011910");
        // pat2.addNewAppointment(pat2.getFullName(), new Date(1991001), 99449595, "peter.venkman.01011911");

@@ -8,20 +8,20 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
 
 
 public class JPartPanelAppsSelDateFlow extends JPanel {
     JLabel lblSeDateFromTo= new JLabel("");
-    JComboBox cmbSelDateFromToDay= new JComboBox((MainAbsScheduling.getDaysArr()));
+    JComboBox cmbSelDateFromToDay= new JComboBox((SchedulingAbstract.getDaysArr()));
    
-    JComboBox cmbSelDateFromToMonth= new JComboBox(MainAbsScheduling.getMonthsArr());
-    JComboBox cmbSelDateFromToYear= new JComboBox(MainAbsScheduling.getYearArr());
+    JComboBox cmbSelDateFromToMonth= new JComboBox(SchedulingAbstract.getMonthsArr());
+    JComboBox cmbSelDateFromToYear= new JComboBox(SchedulingAbstract.getYearArr());
     
    //JLabel lblSeDateToDay= new JLabel("Select date TO:     ");
-  // JComboBox cmbSelDateToDay= new JComboBox(MainAbsScheduling.getDaysArr());
-  // JComboBox cmbSelDateToMonth= new JComboBox(MainAbsScheduling.getMonthsArr());
-   // JComboBox cmbSelDateToYear= new JComboBox(MainAbsScheduling.getYearArr());
+  // JComboBox cmbSelDateToDay= new JComboBox(SchedulingAbstract.getDaysArr());
+  // JComboBox cmbSelDateToMonth= new JComboBox(SchedulingAbstract.getMonthsArr());
+   // JComboBox cmbSelDateToYear= new JComboBox(SchedulingAbstract.getYearArr());
     
     public JPartPanelAppsSelDateFlow(String titleForPanel){
         this.lblSeDateFromTo.setText(titleForPanel);
@@ -67,9 +67,9 @@ public class JPartPanelAppsSelDateFlow extends JPanel {
    
    //old routine calculates all dates for 1 year without saturdays & sundays
     public void setInitialiseWidgetsOld(){
-        LocalDateTime currentDate = MainAbsScheduling.getDateToday();
-        LocalDateTime PlusOneWeekDate = MainAbsScheduling.getDateToday().plusDays(7);
-        List<LocalDateTime> listToPopComboAll = MainAbsScheduling.generateSelectDates();
+        LocalDateTime currentDate = SchedulingAbstract.getDateToday();
+        LocalDateTime PlusOneWeekDate = SchedulingAbstract.getDateToday().plusDays(7);
+        List<LocalDateTime> listToPopComboAll = SchedulingAbstract.generateSelectDates();
         List<String> tempList = new ArrayList<>();
         
         for (LocalDateTime temp : listToPopComboAll){

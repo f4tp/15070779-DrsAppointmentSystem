@@ -1,10 +1,10 @@
 
 package pkg15070779drsappsystem.MainAbstractClasses;
 import java.util.*;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
-public abstract class MainAbsAppointmentComponent {
-    private static Map<String, MainAppointment> mapAppointments = new TreeMap<>(); 
-
+import pkg15070779drsappsystem.MainClasses.Appointment;
+public abstract class AppointmentComponent {
+    private static Map<String, Appointment> mapAppointments = new HashMap<>(); 
+//was tree
   
     //no constructor as it is an abstract class
     
@@ -30,13 +30,13 @@ public abstract class MainAbsAppointmentComponent {
    /**
    * /instance method; puts the appointment object  in the map.
    */
-    public static void setPutInMap(String uKey, MainAppointment passedIn){
+    public static void setPutInMap(String uKey, Appointment passedIn){
          mapAppointments.put(uKey, passedIn);
     }
      /**
    * /instance method; pass this routine the unique appointment number and it will return the appointment object.
    */
-    public  static MainAppointment getAppointment(String uniqueKey){
+    public  static Appointment getAppointment(String uniqueKey){
         return mapAppointments.get(uniqueKey);
     }
     

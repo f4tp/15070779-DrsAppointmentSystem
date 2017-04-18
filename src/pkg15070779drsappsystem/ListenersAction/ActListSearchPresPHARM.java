@@ -9,15 +9,15 @@ import java.util.List;
 import javax.swing.JComboBox;
 import pkg15070779drsappsystem.JPanels.JPanelPresDisplayFromTo;
 import pkg15070779drsappsystem.JPanels.JPartPanelAppsSelDateFlow;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
-import pkg15070779drsappsystem.MainClasses.MainPrescription;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
+import pkg15070779drsappsystem.MainClasses.Prescription;
 
 
 public class ActListSearchPresPHARM implements ActionListener {
     private JPartPanelAppsSelDateFlow dateFromJPan;
     private JPartPanelAppsSelDateFlow dateToJPan;
     JComboBox cmbPresStatus;
-    public static List <MainPrescription> lstFoundPrescriptions = new ArrayList<>();
+    public static List <Prescription> lstFoundPrescriptions = new ArrayList<>();
      
     public ActListSearchPresPHARM(JPartPanelAppsSelDateFlow jpanfrom, JPartPanelAppsSelDateFlow jpanto, JComboBox cmbpresstatus){
 
@@ -35,10 +35,10 @@ public class ActListSearchPresPHARM implements ActionListener {
         //are not available otherwise it will include these also
         
         
-        LocalDateTime ldtFrom = MainAbsScheduling.getConvStringToDateTime(this.dateFromJPan.getDateDayString() + this.dateFromJPan.geDateMonthString() + this.dateFromJPan.getDateYearString() + "1715");
+        LocalDateTime ldtFrom = SchedulingAbstract.getConvStringToDateTime(this.dateFromJPan.getDateDayString() + this.dateFromJPan.geDateMonthString() + this.dateFromJPan.getDateYearString() + "1715");
 
         //get the to date selected by the user and construct it into a LocalDateTime object - time set at 0000
-        LocalDateTime ldtTo = MainAbsScheduling.getConvStringToDateTime(this.dateToJPan.getDateDayString() + this.dateToJPan.geDateMonthString() + this.dateToJPan.getDateYearString() + "0000");
+        LocalDateTime ldtTo = SchedulingAbstract.getConvStringToDateTime(this.dateToJPan.getDateDayString() + this.dateToJPan.geDateMonthString() + this.dateToJPan.getDateYearString() + "0000");
   
     
         Boolean statusAsBoo = false;
@@ -48,7 +48,7 @@ public class ActListSearchPresPHARM implements ActionListener {
         }
  
         
-       List <String> lstMainPresToUpdateCombo = MainPrescription.getListPresWithDateAndStatus(ldtFrom, ldtTo, statusAsBoo);
+       List <String> lstMainPresToUpdateCombo = Prescription.getListPresWithDateAndStatus(ldtFrom, ldtTo, statusAsBoo);
        JPanelPresDisplayFromTo.updateFoundPrescriptions(lstMainPresToUpdateCombo);
        
        

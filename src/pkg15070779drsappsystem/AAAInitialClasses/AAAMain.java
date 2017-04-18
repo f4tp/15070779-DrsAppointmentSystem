@@ -2,7 +2,7 @@ package pkg15070779drsappsystem.AAAInitialClasses;
 
 import pkg15070779drsappsystem.JFrames.JFrameLoginScreen;
 import java.text.ParseException;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
+import pkg15070779drsappsystem.MainClasses.Appointment;
 
 public class AAAMain {
     
@@ -13,7 +13,7 @@ public class AAAMain {
         
         //routine checks all appointments  that haven't had their attended status (marked / missed / cancelled) updated
     //that have happened before today's date and time, and will mark them as missed
-        MainAppointment.setAllRelAppsAsMissed();       
+        Appointment.setAllRelAppsAsMissed();       
  
  //Login screen - should be first thing to see
         javax.swing.SwingUtilities.invokeLater(new Runnable() {

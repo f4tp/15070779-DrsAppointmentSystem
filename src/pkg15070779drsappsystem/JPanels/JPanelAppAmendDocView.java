@@ -11,7 +11,7 @@ import pkg15070779drsappsystem.ListenersAction.ActListDisplayJPanAddPrescription
 import pkg15070779drsappsystem.ListenersAction.ActListAmendAppointmentDOC;
 import pkg15070779drsappsystem.ListenersAction.ActListBackToPatientApps;
 import pkg15070779drsappsystem.ListenersFocus.FocusListAmendAppSymptomsJTFDateNotAffected;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
 
 
 public class JPanelAppAmendDocView extends JPanel {
@@ -165,11 +165,11 @@ public class JPanelAppAmendDocView extends JPanel {
         lblAppIDRes.setText(appointmentid);
        lblDrWithRes.setText(drwith);
        //update the form with the date combos - pass it the datetime object and in there it will split strings of day, month and year
-       lblDateRes.setText(MainAbsScheduling.getConvDateTimeToStringDay(datetimein) + "-" + MainAbsScheduling.getConvDateTimeToStringMonth(datetimein)+ "-" + MainAbsScheduling.getConvDateTimeToStringYear(datetimein));
+       lblDateRes.setText(SchedulingAbstract.getConvDateTimeToStringDay(datetimein) + "-" + SchedulingAbstract.getConvDateTimeToStringMonth(datetimein)+ "-" + SchedulingAbstract.getConvDateTimeToStringYear(datetimein));
         JPartPanelAmendAppDateOfAppSEC.getInstance().updateFormWidgets(datetimein);
         //update the form with the time combos - pass it the datetime object and in there it will split strings of hour and minute
         JPartPanelAmendAppTimeOfAppSEC.getInstance().updateFormWidgets(datetimein);
-        lblTimeRes.setText(MainAbsScheduling.getConvDateTimeToStringHour(datetimein) + ":" + MainAbsScheduling.getConvDateTimeToStringMinute(datetimein));
+        lblTimeRes.setText(SchedulingAbstract.getConvDateTimeToStringHour(datetimein) + ":" + SchedulingAbstract.getConvDateTimeToStringMinute(datetimein));
         lblSymptomsRes.setText(symptoms);
         jtfDrsCommentsRes.setText(drscomment);
         lblAttendedRes.setText(attended);

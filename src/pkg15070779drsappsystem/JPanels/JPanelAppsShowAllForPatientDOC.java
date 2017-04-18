@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import static pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC.lblAppFor;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
 
 public class JPanelAppsShowAllForPatientDOC extends JPanel {
     
@@ -35,7 +35,7 @@ public class JPanelAppsShowAllForPatientDOC extends JPanel {
     
      //updates the label with the name of the person
     public static void updateLabelTitleForShowPatApps(){
-        lblAppFor.setText("Showing appointments for: " + MainPatient.currentPatient.getFirstName() + " " + MainPatient.currentPatient.getSurname() );
+        lblAppFor.setText("Showing appointments for: " + SysUserPatient.currentPatient.getFirstName() + " " + SysUserPatient.currentPatient.getSurname() );
     }
     
       //clears the appointment area ready to append with the new appointment details of the next patient

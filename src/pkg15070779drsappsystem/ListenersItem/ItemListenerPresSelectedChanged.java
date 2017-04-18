@@ -5,10 +5,10 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.JComboBox;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaPrintPresDetail;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsAppointmentComponent;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsPrescriptionComponent;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
-import pkg15070779drsappsystem.MainClasses.MainPrescription;
+import pkg15070779drsappsystem.MainAbstractClasses.AppointmentComponent;
+import pkg15070779drsappsystem.MainAbstractClasses.PrescriptionComponent;
+import pkg15070779drsappsystem.MainClasses.Appointment;
+import pkg15070779drsappsystem.MainClasses.Prescription;
 
 public class ItemListenerPresSelectedChanged implements ItemListener {
     
@@ -35,10 +35,10 @@ public class ItemListenerPresSelectedChanged implements ItemListener {
       
                     JPartPanelTextAreaPrintPresDetail singinst = JPartPanelTextAreaPrintPresDetail.getInstance();
                     //get the prescription details
-                    MainPrescription currentpresInst = (MainPrescription) MainAbsPrescriptionComponent.getMainPrescription(this.cmbPresId.getSelectedItem().toString());
+                    Prescription currentpresInst = (Prescription) PrescriptionComponent.getMainPrescription(this.cmbPresId.getSelectedItem().toString());
 
                     //get the appointment thsi prescription is attached to
-                    MainAppointment currentAppInst = (MainAppointment) MainAbsAppointmentComponent.getAppointment(currentpresInst.getLinkedAppID());
+                    Appointment currentAppInst = (Appointment) AppointmentComponent.getAppointment(currentpresInst.getLinkedAppID());
 
                     //the actual output is the appointment and teh prescription details
                     singinst.setJtextArea(currentAppInst.toString() + currentpresInst.toString());

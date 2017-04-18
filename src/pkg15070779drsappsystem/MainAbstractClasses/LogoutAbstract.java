@@ -27,23 +27,23 @@ import pkg15070779drsappsystem.JPanels.JPanelReportsPresrcips;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaPrintPatRec;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaPrintPresDetail;
-import pkg15070779drsappsystem.MainClasses.MainAppointment;
-import pkg15070779drsappsystem.MainClasses.MainDoctor;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
-import pkg15070779drsappsystem.MainClasses.MainPrescription;
-import pkg15070779drsappsystem.MainClasses.MainSecretary;
+import pkg15070779drsappsystem.MainClasses.Appointment;
+import pkg15070779drsappsystem.MainClasses.SysUserDoctor;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
+import pkg15070779drsappsystem.MainClasses.Prescription;
+import pkg15070779drsappsystem.MainClasses.SysUserSecretary;
 
-public abstract class MainAbsLogout {
+public abstract class LogoutAbstract {
     
     public static void Logout(){
 //set all static global users and people objetcs that were being worked on to null
         
-        MainAbsSystemUserComponent.currentSystemUser = null;
-        MainPatient.currentPatient = null;
-        MainAppointment.currentAppointment = null;
-        MainDoctor.currentDoctor = null;
-        MainSecretary.currentSecretary = null;
-        MainPrescription.currentPrescription = null;
+        SystemUserComponent.currentSystemUser = null;
+        SysUserPatient.currentPatient = null;
+        Appointment.currentAppointment = null;
+        SysUserDoctor.currentDoctor = null;
+        SysUserSecretary.currentSecretary = null;
+        Prescription.currentPrescriptionList = null;
     
         
  //set all JFrames to invisible

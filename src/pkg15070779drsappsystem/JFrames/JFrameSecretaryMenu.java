@@ -18,12 +18,12 @@ import pkg15070779drsappsystem.JPanels.JPanelAppsShowAvaialble;
 import pkg15070779drsappsystem.JPanels.JPanelAppsShowAllForPatientSEC;
 import static pkg15070779drsappsystem.JPanels.JPartPanelSelDrComboFlow.setDrComboBox;
 import pkg15070779drsappsystem.JPanels.JPartPanelTextAreaMonthReports;
-import pkg15070779drsappsystem.MainClasses.MainPatient;
+import pkg15070779drsappsystem.MainClasses.SysUserPatient;
 //
 public class JFrameSecretaryMenu extends JFrame {
     //singleton DP, only one instance is ever needed as only one sec logs in at once
     private static JFrameSecretaryMenu SecMenuSingInst;
-    MainPatient currPatientInst;
+    SysUserPatient currPatientInst;
     
     //holds the string to tell the menu which north border to display
     private static String currenSecNorthBordPanel; 
@@ -107,7 +107,7 @@ public class JFrameSecretaryMenu extends JFrame {
         SecMenuSingInst.setSecNorthBorderPanel();
     }
     
-    public void setSecNorthBorderStringPatient(String paneltoset, MainPatient patientinvolved){
+    public void setSecNorthBorderStringPatient(String paneltoset, SysUserPatient patientinvolved){
         
         currenSecNorthBordPanel = paneltoset;
         currPatientInst = patientinvolved;

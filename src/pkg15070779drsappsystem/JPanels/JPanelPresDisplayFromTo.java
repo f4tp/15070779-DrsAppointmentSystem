@@ -13,7 +13,7 @@ import pkg15070779drsappsystem.ListenersAction.ActListMarkAsDispatched;
 import pkg15070779drsappsystem.ListenersAction.ActListPerfSearchAllAvailAppointments;
 import pkg15070779drsappsystem.ListenersAction.ActListSearchPresPHARM;
 import pkg15070779drsappsystem.ListenersItem.ItemListenerPresSelectedChanged;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
 
 public class JPanelPresDisplayFromTo extends JPanel {
     public static JPanelPresDisplayFromTo JPanShowPresSingInst;

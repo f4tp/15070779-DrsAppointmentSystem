@@ -6,14 +6,14 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import pkg15070779drsappsystem.ListenersItem.ItemListAmendAppFormChangedDateAffected;
-import pkg15070779drsappsystem.MainAbstractClasses.MainAbsScheduling;
+import pkg15070779drsappsystem.MainAbstractClasses.SchedulingAbstract;
 
 public class JPartPanelAmendAppDateOfAppDOC extends JPanel {
       public static JPartPanelAmendAppDateOfAppDOC DatePanSingInst;
             JLabel lblDateOfApp= new JLabel ("Date of appointment:");
-            private  JComboBox cmbDateDay = new JComboBox(MainAbsScheduling.getDaysArr());
-            private  JComboBox cmbDateMonth = new JComboBox(MainAbsScheduling.getMonthsArr());
-            private  JComboBox cmbDateYear = new JComboBox(MainAbsScheduling.getYearArr());
+            private  JComboBox cmbDateDay = new JComboBox(SchedulingAbstract.getDaysArr());
+            private  JComboBox cmbDateMonth = new JComboBox(SchedulingAbstract.getMonthsArr());
+            private  JComboBox cmbDateYear = new JComboBox(SchedulingAbstract.getYearArr());
             
             public JPartPanelAmendAppDateOfAppDOC(){
                   //item listeners just set the form changed status to true so the amend routine knows to update and not
@@ -41,7 +41,7 @@ public class JPartPanelAmendAppDateOfAppDOC extends JPanel {
   
         
         //cmbDateDay.setSelectedItem(Integer.toString(appdatetime.getDayOfMonth()));
-        cmbDateDay.setSelectedItem(MainAbsScheduling.getConvDateTimeToStringDay(appdatetime));
+        cmbDateDay.setSelectedItem(SchedulingAbstract.getConvDateTimeToStringDay(appdatetime));
         //editing the month as it comes back for example JANUARY and needs to be Jan
         
         //gets teh first letter
@@ -55,11 +55,11 @@ public class JPartPanelAmendAppDateOfAppDOC extends JPanel {
         
 
         //cmbDateMonth.setSelectedItem(editedMonthFinal);
-        cmbDateMonth.setSelectedItem(MainAbsScheduling.getConvDateTimeToStringMonth(appdatetime));
+        cmbDateMonth.setSelectedItem(SchedulingAbstract.getConvDateTimeToStringMonth(appdatetime));
         
         
         //cmbDateYear.setSelectedItem(Integer.toString(appdatetime.getYear()));
-        cmbDateYear.setSelectedItem(MainAbsScheduling.getConvDateTimeToStringYear(appdatetime));
+        cmbDateYear.setSelectedItem(SchedulingAbstract.getConvDateTimeToStringYear(appdatetime));
         }
         
         public JComboBox getJComboDay(){
